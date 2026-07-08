@@ -67,6 +67,9 @@
         Vergleichsmodus (zwei Jahre gegenüberstellen)
       </label>
     </div>
+    <div class="control-row">
+      <button type="button" id="copy-link" class="full-width-btn">🔗 Link zu dieser Ansicht kopieren</button>
+    </div>
   </div>
 
   <div id="legend" class="panel-box">
@@ -163,7 +166,53 @@
 <footer class="app-footer">
   <span>⚠️ Hinweis: Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht ändern.</span>
   <span>Datenbasis: Meteostat / DWD — <a href="https://meteostat.net/" target="_blank" rel="noopener">meteostat.net</a></span>
+  <button type="button" id="about-link" class="footer-link-btn">ℹ️ Über dieses Projekt / Methodik</button>
 </footer>
+
+<div id="about-overlay" class="overlay hidden">
+  <div class="overlay-box">
+    <button type="button" id="about-close" aria-label="Schließen">&times;</button>
+    <h2>Über dieses Projekt</h2>
+    <p>
+      Hitze-Check Deutschland ist ein einfaches, offenes Werkzeug, mit dem normale Menschen
+      Wetter- und Klima-Behauptungen selbst überprüfen können. Jede angezeigte Zahl ist
+      nachprüfbar und mit Quelle belegt — die Rohdaten lassen sich pro Station als CSV
+      herunterladen.
+    </p>
+
+    <h3>Datenquelle & Lizenz</h3>
+    <p>
+      Datenbasis: <a href="https://meteostat.net/" target="_blank" rel="noopener">Meteostat</a>
+      (CC BY 4.0), bündelt u. a. Daten des Deutschen Wetterdienstes (DWD).
+      Der Deutschland-Umriss für den Bereiche-Modus stammt von
+      <a href="https://github.com/isellsoap/deutschlandGeoJSON" target="_blank" rel="noopener">isellsoap/deutschlandGeoJSON</a>
+      (gemeinfrei).
+    </p>
+
+    <h3>Begriffe</h3>
+    <ul>
+      <li><strong>Heißer Tag:</strong> Tagesmaximum ≥ 30 °C.</li>
+      <li><strong>Meteorologischer Sommer:</strong> Juni, Juli, August.</li>
+      <li><strong>Rekordtag:</strong> höchster je an dieser Station gemessener Tageshöchstwert.</li>
+      <li><strong>Bereiche-Modus / "nächste Station":</strong> jede Fläche zeigt exakt den Wert
+        ihrer nächstgelegenen Messstation (Voronoi-Diagramm) — es wird nicht interpoliert oder
+        weichgezeichnet.</li>
+    </ul>
+
+    <h3>Grenzen & Transparenz</h3>
+    <ul>
+      <li>Eine einzelne Wetterstation steht stellvertretend für eine ganze Region — das lokale
+        Wetter vor Ort kann abweichen, besonders in großen, dünn besetzten Flächen im
+        Bereiche-Modus.</li>
+      <li>Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht
+        ändern.</li>
+      <li>Messstationen wurden über die Jahrzehnte teils verlegt oder technisch verändert; das
+        kann einzelne Sprünge in der langen Zeitreihe erklären.</li>
+      <li>Genutzt wird jeweils die nächstgelegene Station mit möglichst langer Tages-Historie —
+        nicht zwingend die Station direkt im Stadtzentrum.</li>
+    </ul>
+  </div>
+</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>

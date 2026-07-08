@@ -30,6 +30,23 @@ function formatSignedNumber(value, decimals = 0) {
   return (value > 0 ? "+" : "") + rounded;
 }
 
+// Haelt den aktuellen Zustand in der URL fest, damit sich eine konkrete Ansicht
+// (Jahr/Zeitraum/Modus/Station) per Link teilen und beim Laden wiederherstellen laesst.
+function syncUrl() {
+  const params = new URLSearchParams();
+  params.set("y", state.year);
+  params.set("p", state.period);
+  params.set("m", state.mode);
+  if (state.compareMode) {
+    params.set("cmp", "1");
+    params.set("a", state.compareYearA);
+    params.set("b", state.compareYearB);
+  }
+  if (state.selectedStation) params.set("station", state.selectedStation);
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState(null, "", newUrl);
+}
+
 const map = L.map("map").setView([51.16, 10.45], 6); // Zentrum Deutschland
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -177,6 +194,7 @@ function createAreaLayers() {
       },
     }).addTo(areasLayerGroup);
 
+    layer.bindTooltip(station.name);
     layer.on("click", (e) => {
       const distanceKm = haversineKm([e.latlng.lng, e.latlng.lat], [station.lon, station.lat]);
       selectStation(station.id, { distanceKm });
@@ -198,12 +216,31 @@ function colorForComparison(stationId) {
   return colorForDiff(statsB.hot_days - statsA.hot_days);
 }
 
+// Zeigt den Zahlenwert immer im Tooltip an (nicht nur ueber die Farbe erkennbar) -
+// wichtig u. a. bei Farbsehschwaeche.
+function tooltipTextFor(stationId) {
+  const station = stations.find((s) => s.id === stationId);
+  if (state.compareMode) {
+    const statsA = statsFor(stationId, state.compareYearA, state.period);
+    const statsB = statsFor(stationId, state.compareYearB, state.period);
+    if (!statsA || !statsB) return `${station.name}: keine Daten für mind. eines der Jahre`;
+    const diff = statsB.hot_days - statsA.hot_days;
+    return `${station.name}: ${formatSignedNumber(diff)} heiße Tage (${state.compareYearB} ggü. ${state.compareYearA})`;
+  }
+  const stats = statsFor(stationId, state.year, state.period);
+  if (!stats) return `${station.name}: keine Daten für ${state.year}`;
+  return `${station.name}: ${formatTemp(stats.max_temp)}`;
+}
+
 function updateMarkers() {
   stations.forEach((station) => {
     const color = state.compareMode ? colorForComparison(station.id) : colorForStationNow(station.id);
+    const tooltipText = tooltipTextFor(station.id);
     markersByStation[station.id].setStyle({ fillColor: color });
+    markersByStation[station.id].setTooltipContent(tooltipText);
     if (areaLayersByStation[station.id]) {
       areaLayersByStation[station.id].setStyle({ fillColor: color });
+      areaLayersByStation[station.id].setTooltipContent(tooltipText);
     }
   });
   if (state.selectedStation) {
@@ -216,11 +253,13 @@ function selectStation(stationId, clickInfo = null) {
   state.clickInfo = clickInfo;
   document.getElementById("detail-panel").classList.remove("hidden");
   renderDetailPanel(stationId);
+  syncUrl();
 }
 
 function closeDetailPanel() {
   state.selectedStation = null;
   document.getElementById("detail-panel").classList.add("hidden");
+  syncUrl();
 }
 
 function renderDetailPanel(stationId) {
@@ -359,6 +398,10 @@ function renderChart(series) {
 }
 
 function setupControls() {
+  // Ganz am Anfang lesen: setYear()/setMode() etc. rufen syncUrl() auf und wuerden
+  // die urspruenglichen URL-Parameter sonst schon mit den Defaults ueberschreiben.
+  const urlParams = new URLSearchParams(window.location.search);
+
   const years = allAvailableYears();
   const minYear = years[0];
   const maxYear = years[years.length - 1];
@@ -381,6 +424,7 @@ function setupControls() {
     yearInput.value = clamped;
     document.getElementById("year-value").textContent = clamped;
     updateMarkers();
+    syncUrl();
   }
 
   setYear(maxYear); // beim Laden: aktuellstes verfuegbares Jahr
@@ -408,6 +452,7 @@ function setupControls() {
     btnAnnual.classList.toggle("active", period === "annual");
     btnSummer.classList.toggle("active", period === "summer");
     updateMarkers();
+    syncUrl();
   }
 
   btnAnnual.addEventListener("click", () => setPeriod("annual"));
@@ -430,6 +475,7 @@ function setupControls() {
       map.removeLayer(areasLayerGroup);
       map.addLayer(stationsLayerGroup);
     }
+    syncUrl();
   }
 
   btnModeStations.addEventListener("click", () => setMode("stations"));
@@ -465,6 +511,7 @@ function setupControls() {
       yearB.value = clamped;
     }
     updateMarkers();
+    syncUrl();
   }
 
   function handleCompareYearInput(input, which) {
@@ -488,6 +535,42 @@ function setupControls() {
     legendAbsolute.classList.toggle("hidden", state.compareMode);
     legendCompare.classList.toggle("hidden", !state.compareMode);
     updateMarkers();
+    syncUrl();
+  });
+
+  // --- Zustand aus der URL wiederherstellen (fuer geteilte Links) ---
+  if (urlParams.has("y")) setYear(Number(urlParams.get("y")));
+  if (urlParams.has("p")) setPeriod(urlParams.get("p") === "summer" ? "summer" : "annual");
+  if (urlParams.has("m")) setMode(urlParams.get("m") === "areas" ? "areas" : "stations");
+  if (urlParams.get("cmp") === "1") {
+    compareToggle.checked = true;
+    state.compareMode = true;
+    singleYearControls.classList.add("hidden");
+    singleYearStepper.classList.add("hidden");
+    compareYearControls.classList.remove("hidden");
+    legendAbsolute.classList.add("hidden");
+    legendCompare.classList.remove("hidden");
+    if (urlParams.has("a")) setCompareYear("a", Number(urlParams.get("a")));
+    if (urlParams.has("b")) setCompareYear("b", Number(urlParams.get("b")));
+  }
+  if (urlParams.has("station") && stations.some((s) => s.id === urlParams.get("station"))) {
+    selectStation(urlParams.get("station"));
+  }
+}
+
+function setupShareLink() {
+  const button = document.getElementById("copy-link");
+  const originalText = button.textContent;
+
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      button.textContent = "✅ Link kopiert!";
+    } catch (e) {
+      // Fallback, falls die Zwischenablage nicht verfuegbar ist (z. B. kein HTTPS-Kontext).
+      window.prompt("Link zum Kopieren (Strg+C):", window.location.href);
+    }
+    setTimeout(() => (button.textContent = originalText), 1800);
   });
 }
 
@@ -505,12 +588,34 @@ function setupThemeToggle() {
   applyTheme();
 }
 
+function setupAboutOverlay() {
+  const overlay = document.getElementById("about-overlay");
+  const openBtn = document.getElementById("about-link");
+  const closeBtn = document.getElementById("about-close");
+
+  function open() {
+    overlay.classList.remove("hidden");
+  }
+  function close() {
+    overlay.classList.add("hidden");
+  }
+
+  openBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  // Klick auf den dunklen Hintergrund (nicht auf die Box selbst) schliesst das Overlay.
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+}
+
 async function init() {
   await loadData();
   createMarkers();
   createAreaLayers();
   setupControls();
   setupThemeToggle();
+  setupShareLink();
+  setupAboutOverlay();
   updateMarkers();
   document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }
