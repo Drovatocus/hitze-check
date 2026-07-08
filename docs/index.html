@@ -15,6 +15,28 @@
 
 <main class="app-main">
   <div id="map"></div>
+
+  <div id="controls" class="panel-box">
+    <div class="control-row">
+      <label for="year-slider" id="year-label">Jahr: <strong><span id="year-value"></span></strong></label>
+      <input type="range" id="year-slider" min="1900" max="2026" value="2026" step="1">
+    </div>
+    <div class="control-row">
+      <div class="toggle-group" role="group" aria-label="Zeitraum">
+        <button type="button" id="btn-annual" class="toggle-btn active" data-period="annual">Ganzes Jahr</button>
+        <button type="button" id="btn-summer" class="toggle-btn" data-period="summer">Sommer (Jun–Aug)</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="legend" class="panel-box">
+    <div class="legend-title">Höchsttemperatur</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#4A90D9"></span> &lt; 20 °C</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#E53935"></span> ≥ 30 °C (heißer Tag)</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
+  </div>
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

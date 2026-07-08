@@ -30,6 +30,7 @@ body {
 }
 
 .app-main {
+  position: relative;
   display: flex;
   height: calc(100vh - 56px);
 }
@@ -43,4 +44,87 @@ body {
   border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.panel-box {
+  position: absolute;
+  z-index: 500;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+#controls {
+  top: 1rem;
+  left: 1rem;
+  width: 300px;
+}
+
+#controls .control-row {
+  margin-bottom: 0.6rem;
+}
+
+#controls .control-row:last-child {
+  margin-bottom: 0;
+}
+
+#year-slider {
+  width: 100%;
+}
+
+#year-label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.toggle-group {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.toggle-btn + .toggle-btn {
+  border-left: 1px solid #ccc;
+}
+
+.toggle-btn.active {
+  background: #4A90D9;
+  color: #fff;
+}
+
+#legend {
+  bottom: 1.5rem;
+  left: 1rem;
+}
+
+.legend-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
