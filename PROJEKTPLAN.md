@@ -21,13 +21,13 @@ Legende: ⬜ offen · 🔄 in Arbeit · ✅ erledigt
 | Phase | Inhalt | Status |
 |-------|--------|--------|
 | Planung | Alle großen Entscheidungen | ✅ |
-| 0 | Setup & Werkzeuge | 🔄 |
-| 1 | Datenpipeline (Python → JSON) | ⬜ |
-| 2 | Grundkarte | ⬜ |
-| 3 | Zeitregler + Farblogik | ⬜ |
-| 4 | Detail-Panel (Klick) | ⬜ |
-| 5 | Feinschliff & Transparenz | ⬜ |
-| 6 | Online stellen → **Alpha live** | ⬜ |
+| 0 | Setup & Werkzeuge | ✅ |
+| 1 | Datenpipeline (Python → JSON) | ✅ |
+| 2 | Grundkarte | ✅ |
+| 3 | Zeitregler + Farblogik | ✅ |
+| 4 | Detail-Panel (Klick) | ✅ |
+| 5 | Feinschliff & Transparenz | ✅ |
+| 6 | Online stellen → **Alpha live** | 🔄 (Code fertig, Push/GitHub Pages noch offen — deine Aufgabe) |
 | 7 | Auto-Update (monatlich) | ⬜ |
 
 ---
@@ -56,77 +56,78 @@ Legende: ⬜ offen · 🔄 in Arbeit · ✅ erledigt
 > Tipp: Alle Befehle kommen ins **Terminal**. Bei Windows nimm „PowerShell", bei Mac „Terminal".
 > Wenn etwas hakt, kannst du Claude Code direkt fragen — er kann diese Schritte auch für dich erledigen.
 
-- [ ] **Claude Code läuft** — prüfen mit:
+- [x] **Claude Code läuft** — prüfen mit:
   ```
   claude --version
   ```
-- [ ] **Python vorhanden** — prüfen mit (eins von beiden gibt eine Versionsnummer):
+- [x] **Python vorhanden** — prüfen mit (eins von beiden gibt eine Versionsnummer):
   ```
   python3 --version
   python --version
   ```
   Falls nicht da: LTS-Version von https://www.python.org/ installieren.
-- [ ] **Die zwei Pakete installieren:**
+- [x] **Die zwei Pakete installieren:**
   ```
   pip install meteostat pandas
   ```
 - [ ] **GitHub-Konto** vorhanden (kostenlos, für Code + Hosting): https://github.com/signup
-- [ ] **Projektordner anlegen** (Name z. B. `hitze-check`) und darin ein Git-Repo starten:
+- [x] **Projektordner anlegen** (Name z. B. `hitze-check`) und darin ein Git-Repo starten:
   ```
   mkdir hitze-check
   cd hitze-check
   git init
   ```
-- [ ] **Diese Datei** (`PROJEKTPLAN.md`) in den Projektordner legen.
+- [x] **Diese Datei** (`PROJEKTPLAN.md`) in den Projektordner legen.
 
-Geplante Ordnerstruktur (richtet Claude Code in Phase 1 ein):
+Tatsächliche Ordnerstruktur (Start-Anleitung nutzt `docs/` statt `site/`,
+damit GitHub Pages den Ordner direkt veröffentlichen kann):
 ```
 hitze-check/
 ├─ scripts/      → build_data.py (Python-Pipeline)
-├─ data/         → die fertigen JSON-Dateien
-├─ site/         → index.html, app.js, style.css (die Webseite)
+├─ docs/         → index.html, app.js, style.css (die Webseite)
+│  └─ data/      → die fertigen JSON/CSV-Dateien
 ├─ README.md
 └─ PROJEKTPLAN.md
 ```
 
 ---
 
-## 🐍 PHASE 1 — Datenpipeline  *(Code: ich / Claude Code · Ausführen: du)*
+## 🐍 PHASE 1 — Datenpipeline  *(Code: ich / Claude Code · Ausführen: du)* ✅
 
-- [ ] **JSON-Schema festlegen** (die „Schnittstelle" zwischen Pipeline und Karte) — *machen wir als Erstes*
-- [ ] `build_data.py`: lädt die 10 Stationen über Meteostat
-- [ ] Kennzahlen je Jahr **und** je Sommer berechnen: heiße Tage, Durchschnitt, Höchstwert + Datum
-- [ ] Metadaten je Station: Name, ID, Koordinaten, „Daten verfügbar ab", Stand, Quelle
-- [ ] Ausgabe als JSON in `data/`
-- [ ] Skript lokal ausführen und Ergebnis prüfen
+- [x] **JSON-Schema festlegen** (die „Schnittstelle" zwischen Pipeline und Karte) — *machen wir als Erstes*
+- [x] `build_data.py`: lädt die 10 Stationen über Meteostat
+- [x] Kennzahlen je Jahr **und** je Sommer berechnen: heiße Tage, Durchschnitt, Höchstwert + Datum
+- [x] Metadaten je Station: Name, ID, Koordinaten, „Daten verfügbar ab", Stand, Quelle
+- [x] Ausgabe als JSON in `docs/data/`
+- [x] Skript lokal ausführen und Ergebnis prüfen
 
-## 🗺️ PHASE 2 — Grundkarte  *(Code: ich / Claude Code)*
+## 🗺️ PHASE 2 — Grundkarte  *(Code: ich / Claude Code)* ✅
 
-- [ ] Leaflet-Karte mit Deutschland-Hintergrund
-- [ ] Die 10 Stationspunkte aus dem JSON anzeigen
-- [ ] Farbskala (≥ 30 °C rot) für ein festes Jahr
+- [x] Leaflet-Karte mit Deutschland-Hintergrund
+- [x] Die 10 Stationspunkte aus dem JSON anzeigen
+- [x] Farbskala (≥ 30 °C rot) für ein festes Jahr
 
-## 🎚️ PHASE 3 — Zeitregler + Farblogik
+## 🎚️ PHASE 3 — Zeitregler + Farblogik ✅
 
-- [ ] Regler für das Jahr + Umschalter Sommer/Ganzjahr
-- [ ] Punktfarben ändern sich live mit der Auswahl
-- [ ] Beim Laden: letzte bekannte Daten
-- [ ] Legende zur Farbskala
+- [x] Regler für das Jahr + Umschalter Sommer/Ganzjahr
+- [x] Punktfarben ändern sich live mit der Auswahl
+- [x] Beim Laden: letzte bekannte Daten
+- [x] Legende zur Farbskala
 
-## 🔍 PHASE 4 — Detail-Panel (Klick auf eine Station)
+## 🔍 PHASE 4 — Detail-Panel (Klick auf eine Station) ✅
 
-- [ ] Klick öffnet Panel mit den 3 Kennzahlen
-- [ ] Höchsttemperatur **mit Datum**
-- [ ] Verlaufsdiagramm über alle Jahre + Rekord markiert
-- [ ] Stationsinfos + Quelle/Lizenz
-- [ ] **CSV-Rohdaten-Export-Button**
+- [x] Klick öffnet Panel mit den 3 Kennzahlen
+- [x] Höchsttemperatur **mit Datum**
+- [x] Verlaufsdiagramm über alle Jahre + Rekord markiert
+- [x] Stationsinfos + Quelle/Lizenz
+- [x] **CSV-Rohdaten-Export-Button**
 
-## ✨ PHASE 5 — Feinschliff & Transparenz
+## ✨ PHASE 5 — Feinschliff & Transparenz ✅
 
-- [ ] Erklärtexte/Tooltips für jeden Begriff
-- [ ] Disclaimer zu vorläufigen Daten
-- [ ] Quellenangabe „Datenbasis: Meteostat / DWD" im Footer
-- [ ] Kurzer „Was ist das hier?"-Text auf der Startseite
+- [x] Erklärtexte/Tooltips für jeden Begriff
+- [x] Disclaimer zu vorläufigen Daten
+- [x] Quellenangabe „Datenbasis: Meteostat / DWD" im Footer
+- [x] Kurzer „Was ist das hier?"-Text auf der Startseite
 
 ## 🌍 PHASE 6 — Online stellen  *(du, mit meiner Anleitung)*
 
