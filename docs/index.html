@@ -33,36 +33,66 @@
       Farbe = nächstgelegene Messstation. Es wird nicht interpoliert — große Flächen
       stammen von einer einzelnen Station.
     </p>
-    <div class="control-row">
+
+    <div class="control-row" id="single-year-controls">
       <label for="year-slider" id="year-label">Jahr: <strong><span id="year-value"></span></strong></label>
       <input type="range" id="year-slider" min="1900" max="2026" value="2026" step="1">
     </div>
-    <div class="control-row year-stepper-row">
+    <div class="control-row year-stepper-row" id="single-year-stepper">
       <button type="button" id="year-minus" class="stepper-btn" aria-label="Ein Jahr zurück">−</button>
       <input type="number" id="year-input" class="year-input" aria-label="Jahr direkt eingeben">
       <button type="button" id="year-plus" class="stepper-btn" aria-label="Ein Jahr vor">+</button>
     </div>
+
+    <div class="control-row hidden" id="compare-year-controls">
+      <div class="compare-year-row">
+        <label for="compare-year-a">Jahr A</label>
+        <input type="number" id="compare-year-a" class="year-input">
+      </div>
+      <div class="compare-year-row">
+        <label for="compare-year-b">Jahr B</label>
+        <input type="number" id="compare-year-b" class="year-input">
+      </div>
+    </div>
+
     <div class="control-row">
       <div class="toggle-group" role="group" aria-label="Zeitraum">
         <button type="button" id="btn-annual" class="toggle-btn active" data-period="annual">Ganzes Jahr</button>
         <button type="button" id="btn-summer" class="toggle-btn" data-period="summer" title="Meteorologischer Sommer = Juni, Juli, August">Sommer (Jun–Aug)</button>
       </div>
     </div>
+    <div class="control-row">
+      <label class="checkbox-row">
+        <input type="checkbox" id="compare-toggle">
+        Vergleichsmodus (zwei Jahre gegenüberstellen)
+      </label>
+    </div>
   </div>
 
   <div id="legend" class="panel-box">
-    <div class="legend-title">Höchsttemperatur</div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#4A90D9"></span> &lt; 20 °C</div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
-    <div class="legend-item">
-      <span class="legend-swatch" style="background:#E53935"></span> 30–39,9 °C (heißer Tag)
-      <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span>
+    <div id="legend-absolute">
+      <div class="legend-title">Höchsttemperatur</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#4A90D9"></span> &lt; 20 °C</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
+      <div class="legend-item">
+        <span class="legend-swatch" style="background:#E53935"></span> 30–39,9 °C (heißer Tag)
+        <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-swatch" style="background:#8E24AA"></span> ≥ 40 °C (Extremwert)
+      </div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
     </div>
-    <div class="legend-item">
-      <span class="legend-swatch" style="background:#8E24AA"></span> ≥ 40 °C (Extremwert)
+    <div id="legend-compare" class="hidden">
+      <div class="legend-title">Differenz heiße Tage (B − A)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#1565C0"></span> deutlich weniger (≤ −10)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#90CAF9"></span> weniger (−1 bis −9)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#eeeeee"></span> 0 = kein Unterschied</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#FFAB91"></span> mehr (1 bis 9)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#C62828"></span> deutlich mehr (≥ 10)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten (mind. ein Jahr)</div>
     </div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
   </div>
 
   <aside id="detail-panel" class="hidden">
@@ -70,7 +100,7 @@
     <h2 id="detail-title">Station</h2>
     <p id="detail-click-distance" class="muted hidden"></p>
 
-    <div class="detail-metrics">
+    <div class="detail-metrics" id="single-metrics">
       <div class="metric-card">
         <div class="metric-value" id="metric-hotdays">–</div>
         <div class="metric-label">heiße Tage (≥ 30 °C) <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span></div>
@@ -84,6 +114,38 @@
         <div class="metric-label">Höchsttemperatur</div>
       </div>
     </div>
+
+    <table class="compare-table hidden" id="compare-metrics">
+      <thead>
+        <tr>
+          <th></th>
+          <th id="compare-th-a">Jahr A</th>
+          <th id="compare-th-b">Jahr B</th>
+          <th>Differenz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Heiße Tage</td>
+          <td id="cmp-hotdays-a">–</td>
+          <td id="cmp-hotdays-b">–</td>
+          <td id="cmp-hotdays-diff">–</td>
+        </tr>
+        <tr>
+          <td>Ø-Temp.</td>
+          <td id="cmp-mean-a">–</td>
+          <td id="cmp-mean-b">–</td>
+          <td id="cmp-mean-diff">–</td>
+        </tr>
+        <tr>
+          <td>Höchstwert</td>
+          <td id="cmp-max-a">–</td>
+          <td id="cmp-max-b">–</td>
+          <td id="cmp-max-diff">–</td>
+        </tr>
+      </tbody>
+    </table>
+
     <p id="detail-period-note" class="muted"></p>
 
     <h3>Verlauf über alle Jahre</h3>

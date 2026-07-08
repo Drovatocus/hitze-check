@@ -200,6 +200,31 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.compare-year-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.compare-year-row:last-child {
+  margin-bottom: 0;
+}
+
+.compare-year-row label {
+  flex: none;
+  width: 3.5rem;
+  font-size: 0.85rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
 .toggle-group {
   display: flex;
   border: 1px solid var(--color-border-strong);
@@ -319,6 +344,31 @@ body {
 .muted {
   color: var(--color-text-muted);
   font-size: 0.8rem;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: center;
+  padding: 0.4rem 0.3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.compare-table th:first-child,
+.compare-table td:first-child {
+  text-align: left;
+  color: var(--color-text-muted);
+}
+
+.compare-table th {
+  font-weight: 600;
+  color: var(--color-text-muted);
 }
 
 .info-list {

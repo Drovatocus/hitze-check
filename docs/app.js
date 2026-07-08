@@ -15,6 +15,21 @@ function colorForTemp(temp) {
   return step.color;
 }
 
+// Divergierende Skala fuer den Vergleichsmodus (Differenz heisse Tage, Jahr B minus Jahr A)
+function colorForDiff(diff) {
+  if (diff === null || diff === undefined || Number.isNaN(diff)) return NO_DATA_COLOR;
+  if (diff <= -10) return "#1565C0";
+  if (diff < 0) return "#90CAF9";
+  if (diff === 0) return "#eeeeee";
+  if (diff < 10) return "#FFAB91";
+  return "#C62828";
+}
+
+function formatSignedNumber(value, decimals = 0) {
+  const rounded = decimals > 0 ? value.toFixed(decimals).replace(".", ",") : String(Math.round(value));
+  return (value > 0 ? "+" : "") + rounded;
+}
+
 const map = L.map("map").setView([51.16, 10.45], 6); // Zentrum Deutschland
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -30,6 +45,9 @@ const state = {
   clickInfo: null, // { distanceKm } wenn die Station per Klick im Bereiche-Modus gewaehlt wurde
   theme: "light",
   mode: "stations", // "stations" | "areas"
+  compareMode: false,
+  compareYearA: null,
+  compareYearB: null,
 };
 
 let stations = [];
@@ -168,10 +186,21 @@ function createAreaLayers() {
   });
 }
 
+function colorForStationNow(stationId) {
+  const stats = statsFor(stationId, state.year, state.period);
+  return colorForTemp(stats ? stats.max_temp : null);
+}
+
+function colorForComparison(stationId) {
+  const statsA = statsFor(stationId, state.compareYearA, state.period);
+  const statsB = statsFor(stationId, state.compareYearB, state.period);
+  if (!statsA || !statsB) return NO_DATA_COLOR;
+  return colorForDiff(statsB.hot_days - statsA.hot_days);
+}
+
 function updateMarkers() {
   stations.forEach((station) => {
-    const stats = statsFor(station.id, state.year, state.period);
-    const color = colorForTemp(stats ? stats.max_temp : null);
+    const color = state.compareMode ? colorForComparison(station.id) : colorForStationNow(station.id);
     markersByStation[station.id].setStyle({ fillColor: color });
     if (areaLayersByStation[station.id]) {
       areaLayersByStation[station.id].setStyle({ fillColor: color });
@@ -209,16 +238,56 @@ function renderDetailPanel(stationId) {
     clickNote.classList.add("hidden");
   }
 
-  document.getElementById("metric-hotdays").textContent = stats ? stats.hot_days : "–";
-  document.getElementById("metric-mean").textContent = stats ? formatTemp(stats.mean_temp) : "–";
-  document.getElementById("metric-max").textContent = stats
-    ? `${formatTemp(stats.max_temp)} am ${formatDateGerman(stats.max_temp_date)}`
-    : "–";
-
   const periodLabel = state.period === "summer" ? "Sommer" : "ganzes Jahr";
-  document.getElementById("detail-period-note").textContent = stats
-    ? `Zeitraum: ${state.year}, ${periodLabel}`
-    : `Für ${state.year} (${periodLabel}) liegen keine Daten vor.`;
+  const singleMetrics = document.getElementById("single-metrics");
+  const compareMetrics = document.getElementById("compare-metrics");
+  const periodNote = document.getElementById("detail-period-note");
+
+  if (state.compareMode) {
+    singleMetrics.classList.add("hidden");
+    compareMetrics.classList.remove("hidden");
+
+    const statsA = statsFor(stationId, state.compareYearA, state.period);
+    const statsB = statsFor(stationId, state.compareYearB, state.period);
+
+    document.getElementById("compare-th-a").textContent = state.compareYearA;
+    document.getElementById("compare-th-b").textContent = state.compareYearB;
+
+    document.getElementById("cmp-hotdays-a").textContent = statsA ? statsA.hot_days : "–";
+    document.getElementById("cmp-hotdays-b").textContent = statsB ? statsB.hot_days : "–";
+    document.getElementById("cmp-mean-a").textContent = statsA ? formatTemp(statsA.mean_temp) : "–";
+    document.getElementById("cmp-mean-b").textContent = statsB ? formatTemp(statsB.mean_temp) : "–";
+    document.getElementById("cmp-max-a").textContent = statsA ? formatTemp(statsA.max_temp) : "–";
+    document.getElementById("cmp-max-b").textContent = statsB ? formatTemp(statsB.max_temp) : "–";
+
+    if (statsA && statsB) {
+      document.getElementById("cmp-hotdays-diff").textContent = formatSignedNumber(statsB.hot_days - statsA.hot_days);
+      document.getElementById("cmp-mean-diff").textContent =
+        statsA.mean_temp !== null && statsB.mean_temp !== null
+          ? formatSignedNumber(statsB.mean_temp - statsA.mean_temp, 1) + " °C"
+          : "–";
+      document.getElementById("cmp-max-diff").textContent =
+        formatSignedNumber(statsB.max_temp - statsA.max_temp, 1) + " °C";
+      periodNote.textContent = `Vergleich (${periodLabel}): ${state.compareYearB} gegenüber ${state.compareYearA}. `
+        + `${formatSignedNumber(statsB.hot_days - statsA.hot_days)} heiße Tage.`;
+    } else {
+      ["cmp-hotdays-diff", "cmp-mean-diff", "cmp-max-diff"].forEach((id) => (document.getElementById(id).textContent = "–"));
+      periodNote.textContent = "Für mindestens eines der beiden Jahre liegen keine Daten vor.";
+    }
+  } else {
+    singleMetrics.classList.remove("hidden");
+    compareMetrics.classList.add("hidden");
+
+    document.getElementById("metric-hotdays").textContent = stats ? stats.hot_days : "–";
+    document.getElementById("metric-mean").textContent = stats ? formatTemp(stats.mean_temp) : "–";
+    document.getElementById("metric-max").textContent = stats
+      ? `${formatTemp(stats.max_temp)} am ${formatDateGerman(stats.max_temp_date)}`
+      : "–";
+
+    periodNote.textContent = stats
+      ? `Zeitraum: ${state.year}, ${periodLabel}`
+      : `Für ${state.year} (${periodLabel}) liegen keine Daten vor.`;
+  }
 
   const infoList = document.getElementById("detail-info");
   infoList.innerHTML = "";
@@ -365,6 +434,61 @@ function setupControls() {
 
   btnModeStations.addEventListener("click", () => setMode("stations"));
   btnModeAreas.addEventListener("click", () => setMode("areas"));
+
+  // --- Vergleichsmodus (zwei Jahre gegenueberstellen) ---
+  const compareToggle = document.getElementById("compare-toggle");
+  const singleYearControls = document.getElementById("single-year-controls");
+  const singleYearStepper = document.getElementById("single-year-stepper");
+  const compareYearControls = document.getElementById("compare-year-controls");
+  const legendAbsolute = document.getElementById("legend-absolute");
+  const legendCompare = document.getElementById("legend-compare");
+  const yearA = document.getElementById("compare-year-a");
+  const yearB = document.getElementById("compare-year-b");
+
+  yearA.min = minYear;
+  yearA.max = maxYear;
+  yearB.min = minYear;
+  yearB.max = maxYear;
+  // Sinnvoller Default: ein frueheres Jahrzehnt gegen das aktuellste verfuegbare Jahr.
+  state.compareYearA = Math.max(minYear, maxYear - 10);
+  state.compareYearB = maxYear;
+  yearA.value = state.compareYearA;
+  yearB.value = state.compareYearB;
+
+  function setCompareYear(which, value) {
+    const clamped = Math.min(maxYear, Math.max(minYear, value));
+    if (which === "a") {
+      state.compareYearA = clamped;
+      yearA.value = clamped;
+    } else {
+      state.compareYearB = clamped;
+      yearB.value = clamped;
+    }
+    updateMarkers();
+  }
+
+  function handleCompareYearInput(input, which) {
+    input.addEventListener("change", () => {
+      const parsed = Number(input.value);
+      if (!Number.isFinite(parsed) || input.value.trim() === "") {
+        input.value = which === "a" ? state.compareYearA : state.compareYearB;
+        return;
+      }
+      setCompareYear(which, Math.round(parsed));
+    });
+  }
+  handleCompareYearInput(yearA, "a");
+  handleCompareYearInput(yearB, "b");
+
+  compareToggle.addEventListener("change", () => {
+    state.compareMode = compareToggle.checked;
+    singleYearControls.classList.toggle("hidden", state.compareMode);
+    singleYearStepper.classList.toggle("hidden", state.compareMode);
+    compareYearControls.classList.toggle("hidden", !state.compareMode);
+    legendAbsolute.classList.toggle("hidden", state.compareMode);
+    legendCompare.classList.toggle("hidden", !state.compareMode);
+    updateMarkers();
+  });
 }
 
 function setupThemeToggle() {
