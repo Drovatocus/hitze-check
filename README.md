@@ -34,3 +34,6 @@ Erzeugt bzw. aktualisiert die Dateien in `docs/data/`.
 
 Datenbasis: [Meteostat](https://meteostat.net/) (CC BY 4.0), bündelt u. a. Daten des
 Deutschen Wetterdienstes (DWD).
+
+Deutschland-Umriss (`docs/data/germany.geo.json`, für den Bereiche-Modus) von
+[isellsoap/deutschlandGeoJSON](https://github.com/isellsoap/deutschlandGeoJSON) (Unlicense/Public Domain).

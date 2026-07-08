@@ -27,13 +27,31 @@ const state = {
   year: null,
   period: "annual",
   selectedStation: null,
+  clickInfo: null, // { distanceKm } wenn die Station per Klick im Bereiche-Modus gewaehlt wurde
   theme: "light",
+  mode: "stations", // "stations" | "areas"
 };
 
 let stations = [];
 let seriesByStation = {}; // station_id -> geladenes series/<id>.json
 let markersByStation = {}; // station_id -> Leaflet-Marker
+let areaLayersByStation = {}; // station_id -> Leaflet-GeoJSON-Layer (Voronoi-Zelle)
+let germanyGeoJson = null;
 let detailChart = null; // Chart.js-Instanz des Verlaufsdiagramms
+
+const stationsLayerGroup = L.layerGroup().addTo(map);
+const areasLayerGroup = L.layerGroup();
+
+function haversineKm(a, b) {
+  // a, b jeweils [lon, lat]
+  const R = 6371;
+  const dLat = ((b[1] - a[1]) * Math.PI) / 180;
+  const dLon = ((b[0] - a[0]) * Math.PI) / 180;
+  const lat1 = (a[1] * Math.PI) / 180;
+  const lat2 = (b[1] * Math.PI) / 180;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
 
 function formatDateGerman(isoDate) {
   const [y, m, d] = isoDate.split("-");
@@ -55,6 +73,10 @@ async function loadData() {
       seriesByStation[station.id] = await res.json();
     })
   );
+
+  const germanyRes = await fetch("data/germany.geo.json");
+  const germanyCollection = await germanyRes.json();
+  germanyGeoJson = germanyCollection.features[0];
 }
 
 function allAvailableYears() {
@@ -81,26 +103,88 @@ function createMarkers() {
       weight: 2,
       fillOpacity: 0.9,
       className: "station-marker",
-    }).addTo(map);
+    }).addTo(stationsLayerGroup);
     marker.bindTooltip(station.name);
     marker.on("click", () => selectStation(station.id));
     markersByStation[station.id] = marker;
   });
 }
 
+// Voronoi-Diagramm (naechste-Station-Flaechen), an der Landesgrenze zugeschnitten.
+// Wird einmalig beim Laden berechnet, da sich die Stationskoordinaten nicht aendern.
+function createAreaLayers() {
+  // Einfache Plattkarten-Naeherung (Laengengrad mit cos(Breitengrad) gestaucht),
+  // damit die Zellen bei Deutschlands Breite nicht in Ost-West-Richtung verzerrt wirken.
+  const meanLat = stations.reduce((sum, s) => sum + s.lat, 0) / stations.length;
+  const cosLat = Math.cos((meanLat * Math.PI) / 180);
+  const project = (lon, lat) => [lon * cosLat, lat];
+  const unproject = ([x, y]) => [x / cosLat, y];
+
+  const points = stations.map((s) => project(s.lon, s.lat));
+  const delaunay = d3.Delaunay.from(points);
+
+  const bbox = turf.bbox(germanyGeoJson);
+  const pad = 2; // Grad Puffer rundherum, damit Randstationen vollstaendige Zellen bekommen
+  const bounds = [
+    ...project(bbox[0] - pad, bbox[1] - pad),
+    ...project(bbox[2] + pad, bbox[3] + pad),
+  ];
+  const voronoi = delaunay.voronoi(bounds);
+
+  stations.forEach((station, i) => {
+    const cell = voronoi.cellPolygon(i);
+    if (!cell) return;
+
+    const ring = cell.map(unproject);
+    const first = ring[0];
+    const last = ring[ring.length - 1];
+    if (first[0] !== last[0] || first[1] !== last[1]) ring.push(first);
+
+    const cellFeature = turf.polygon([ring]);
+    let clipped;
+    try {
+      clipped = turf.intersect(turf.featureCollection([cellFeature, germanyGeoJson]));
+    } catch (e) {
+      console.warn(`Voronoi-Zuschnitt fuer ${station.id} fehlgeschlagen:`, e);
+      return;
+    }
+    if (!clipped) return;
+
+    const layer = L.geoJSON(clipped, {
+      style: {
+        fillColor: NO_DATA_COLOR,
+        fillOpacity: 0.75,
+        color: "#fff",
+        weight: 1,
+      },
+    }).addTo(areasLayerGroup);
+
+    layer.on("click", (e) => {
+      const distanceKm = haversineKm([e.latlng.lng, e.latlng.lat], [station.lon, station.lat]);
+      selectStation(station.id, { distanceKm });
+    });
+
+    areaLayersByStation[station.id] = layer;
+  });
+}
+
 function updateMarkers() {
   stations.forEach((station) => {
-    const marker = markersByStation[station.id];
     const stats = statsFor(station.id, state.year, state.period);
-    marker.setStyle({ fillColor: colorForTemp(stats ? stats.max_temp : null) });
+    const color = colorForTemp(stats ? stats.max_temp : null);
+    markersByStation[station.id].setStyle({ fillColor: color });
+    if (areaLayersByStation[station.id]) {
+      areaLayersByStation[station.id].setStyle({ fillColor: color });
+    }
   });
   if (state.selectedStation) {
     renderDetailPanel(state.selectedStation);
   }
 }
 
-function selectStation(stationId) {
+function selectStation(stationId, clickInfo = null) {
   state.selectedStation = stationId;
+  state.clickInfo = clickInfo;
   document.getElementById("detail-panel").classList.remove("hidden");
   renderDetailPanel(stationId);
 }
@@ -116,6 +200,14 @@ function renderDetailPanel(stationId) {
   const stats = statsFor(stationId, state.year, state.period);
 
   document.getElementById("detail-title").textContent = station.name;
+
+  const clickNote = document.getElementById("detail-click-distance");
+  if (state.clickInfo) {
+    clickNote.textContent = `Angeklickter Punkt: ${state.clickInfo.distanceKm.toFixed(1)} km von dieser Station entfernt.`;
+    clickNote.classList.remove("hidden");
+  } else {
+    clickNote.classList.add("hidden");
+  }
 
   document.getElementById("metric-hotdays").textContent = stats ? stats.hot_days : "–";
   document.getElementById("metric-mean").textContent = stats ? formatTemp(stats.mean_temp) : "–";
@@ -251,6 +343,28 @@ function setupControls() {
 
   btnAnnual.addEventListener("click", () => setPeriod("annual"));
   btnSummer.addEventListener("click", () => setPeriod("summer"));
+
+  const btnModeStations = document.getElementById("btn-mode-stations");
+  const btnModeAreas = document.getElementById("btn-mode-areas");
+  const areasNote = document.getElementById("areas-note");
+
+  function setMode(mode) {
+    state.mode = mode;
+    btnModeStations.classList.toggle("active", mode === "stations");
+    btnModeAreas.classList.toggle("active", mode === "areas");
+    areasNote.classList.toggle("hidden", mode !== "areas");
+
+    if (mode === "areas") {
+      map.removeLayer(stationsLayerGroup);
+      map.addLayer(areasLayerGroup);
+    } else {
+      map.removeLayer(areasLayerGroup);
+      map.addLayer(stationsLayerGroup);
+    }
+  }
+
+  btnModeStations.addEventListener("click", () => setMode("stations"));
+  btnModeAreas.addEventListener("click", () => setMode("areas"));
 }
 
 function setupThemeToggle() {
@@ -270,6 +384,7 @@ function setupThemeToggle() {
 async function init() {
   await loadData();
   createMarkers();
+  createAreaLayers();
   setupControls();
   setupThemeToggle();
   updateMarkers();

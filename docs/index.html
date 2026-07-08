@@ -24,6 +24,16 @@
 
   <div id="controls" class="panel-box">
     <div class="control-row">
+      <div class="toggle-group" role="group" aria-label="Anzeigemodus">
+        <button type="button" id="btn-mode-stations" class="toggle-btn active" data-mode="stations">Stationen</button>
+        <button type="button" id="btn-mode-areas" class="toggle-btn" data-mode="areas">Bereiche</button>
+      </div>
+    </div>
+    <p id="areas-note" class="muted hidden">
+      Farbe = nächstgelegene Messstation. Es wird nicht interpoliert — große Flächen
+      stammen von einer einzelnen Station.
+    </p>
+    <div class="control-row">
       <label for="year-slider" id="year-label">Jahr: <strong><span id="year-value"></span></strong></label>
       <input type="range" id="year-slider" min="1900" max="2026" value="2026" step="1">
     </div>
@@ -58,6 +68,7 @@
   <aside id="detail-panel" class="hidden">
     <button type="button" id="detail-close" aria-label="Schließen">&times;</button>
     <h2 id="detail-title">Station</h2>
+    <p id="detail-click-distance" class="muted hidden"></p>
 
     <div class="detail-metrics">
       <div class="metric-card">
@@ -94,6 +105,8 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="https://unpkg.com/d3-delaunay@6/dist/d3-delaunay.min.js"></script>
+<script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
