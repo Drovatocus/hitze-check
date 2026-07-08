@@ -39,6 +39,7 @@ function formatDateGerman(isoDate) {
 }
 
 function formatTemp(value) {
+  if (value === null || value === undefined) return "keine Daten";
   return `${value.toFixed(1).replace(".", ",")} °C`;
 }
 

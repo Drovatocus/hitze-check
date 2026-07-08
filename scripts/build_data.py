@@ -73,12 +73,11 @@ def compute_period_stats(df: pd.DataFrame) -> dict | None:
     max_temp = df["tmax"].max()
     max_temp_date = df["tmax"].idxmax()
 
-    if pd.isna(mean_temp) or pd.isna(max_temp):
-        return None
-
     return {
         "hot_days": hot_days,
-        "mean_temp": round(float(mean_temp), 1),
+        # tavg fehlt bei manchen (oft aelteren) Messungen, auch wenn tmax vorhanden ist.
+        # Dann bleibt mean_temp None, statt das ganze Jahr zu verwerfen.
+        "mean_temp": None if pd.isna(mean_temp) else round(float(mean_temp), 1),
         "max_temp": round(float(max_temp), 1),
         "max_temp_date": max_temp_date.strftime("%Y-%m-%d"),
     }

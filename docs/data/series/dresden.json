@@ -173,6 +173,12 @@
         "mean_temp": 6.3,
         "max_temp": 32.6,
         "max_temp_date": "1960-08-27"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 32.6,
+        "max_temp_date": "1960-08-27"
       }
     },
     "1961": {

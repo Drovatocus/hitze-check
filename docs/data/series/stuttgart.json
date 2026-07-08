@@ -5,6 +5,580 @@
     "date": "2026-06-27"
   },
   "years": {
+    "1900": {
+      "annual": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 32.1,
+        "max_temp_date": "1900-07-20"
+      },
+      "summer": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 32.1,
+        "max_temp_date": "1900-07-20"
+      }
+    },
+    "1901": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.1,
+        "max_temp_date": "1901-06-01"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.1,
+        "max_temp_date": "1901-06-01"
+      }
+    },
+    "1902": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.8,
+        "max_temp_date": "1902-07-15"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.8,
+        "max_temp_date": "1902-07-15"
+      }
+    },
+    "1903": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.0,
+        "max_temp_date": "1903-06-29"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.0,
+        "max_temp_date": "1903-06-29"
+      }
+    },
+    "1904": {
+      "annual": {
+        "hot_days": 10,
+        "mean_temp": null,
+        "max_temp": 34.0,
+        "max_temp_date": "1904-07-17"
+      },
+      "summer": {
+        "hot_days": 10,
+        "mean_temp": null,
+        "max_temp": 34.0,
+        "max_temp_date": "1904-07-17"
+      }
+    },
+    "1905": {
+      "annual": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 34.8,
+        "max_temp_date": "1905-07-04"
+      },
+      "summer": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 34.8,
+        "max_temp_date": "1905-07-04"
+      }
+    },
+    "1906": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.7,
+        "max_temp_date": "1906-06-27"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.7,
+        "max_temp_date": "1906-06-27"
+      }
+    },
+    "1907": {
+      "annual": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.2,
+        "max_temp_date": "1907-08-05"
+      },
+      "summer": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.2,
+        "max_temp_date": "1907-08-05"
+      }
+    },
+    "1908": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 33.0,
+        "max_temp_date": "1908-07-12"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 33.0,
+        "max_temp_date": "1908-07-12"
+      }
+    },
+    "1909": {
+      "annual": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 29.9,
+        "max_temp_date": "1909-06-02"
+      },
+      "summer": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 29.9,
+        "max_temp_date": "1909-06-02"
+      }
+    },
+    "1910": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.2,
+        "max_temp_date": "1910-07-22"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.2,
+        "max_temp_date": "1910-07-22"
+      }
+    },
+    "1911": {
+      "annual": {
+        "hot_days": 20,
+        "mean_temp": null,
+        "max_temp": 35.5,
+        "max_temp_date": "1911-07-23"
+      },
+      "summer": {
+        "hot_days": 17,
+        "mean_temp": null,
+        "max_temp": 35.5,
+        "max_temp_date": "1911-07-23"
+      }
+    },
+    "1912": {
+      "annual": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 30.7,
+        "max_temp_date": "1912-05-12"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.0,
+        "max_temp_date": "1912-06-23"
+      }
+    },
+    "1913": {
+      "annual": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.1,
+        "max_temp_date": "1913-07-14"
+      },
+      "summer": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.1,
+        "max_temp_date": "1913-07-14"
+      }
+    },
+    "1914": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.0,
+        "max_temp_date": "1914-08-12"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.0,
+        "max_temp_date": "1914-08-12"
+      }
+    },
+    "1915": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.8,
+        "max_temp_date": "1915-06-08"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 30.8,
+        "max_temp_date": "1915-06-08"
+      }
+    },
+    "1916": {
+      "annual": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.8,
+        "max_temp_date": "1916-08-02"
+      },
+      "summer": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.8,
+        "max_temp_date": "1916-08-02"
+      }
+    },
+    "1917": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 32.2,
+        "max_temp_date": "1917-07-29"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 32.2,
+        "max_temp_date": "1917-07-29"
+      }
+    },
+    "1918": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 34.2,
+        "max_temp_date": "1918-07-17"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 34.2,
+        "max_temp_date": "1918-07-17"
+      }
+    },
+    "1919": {
+      "annual": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 31.3,
+        "max_temp_date": "1919-08-20"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 31.3,
+        "max_temp_date": "1919-08-20"
+      }
+    },
+    "1920": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.4,
+        "max_temp_date": "1920-07-17"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.4,
+        "max_temp_date": "1920-07-17"
+      }
+    },
+    "1921": {
+      "annual": {
+        "hot_days": 16,
+        "mean_temp": null,
+        "max_temp": 36.3,
+        "max_temp_date": "1921-07-28"
+      },
+      "summer": {
+        "hot_days": 16,
+        "mean_temp": null,
+        "max_temp": 36.3,
+        "max_temp_date": "1921-07-28"
+      }
+    },
+    "1922": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 33.5,
+        "max_temp_date": "1922-07-06"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 33.5,
+        "max_temp_date": "1922-07-06"
+      }
+    },
+    "1923": {
+      "annual": {
+        "hot_days": 10,
+        "mean_temp": null,
+        "max_temp": 35.0,
+        "max_temp_date": "1923-08-10"
+      },
+      "summer": {
+        "hot_days": 9,
+        "mean_temp": null,
+        "max_temp": 35.0,
+        "max_temp_date": "1923-08-10"
+      }
+    },
+    "1924": {
+      "annual": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 32.6,
+        "max_temp_date": "1924-07-13"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 32.6,
+        "max_temp_date": "1924-07-13"
+      }
+    },
+    "1925": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1925-08-10"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1925-08-10"
+      }
+    },
+    "1926": {
+      "annual": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.6,
+        "max_temp_date": "1926-07-19"
+      },
+      "summer": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.6,
+        "max_temp_date": "1926-07-19"
+      }
+    },
+    "1927": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.0,
+        "max_temp_date": "1927-06-17"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 31.0,
+        "max_temp_date": "1927-06-17"
+      }
+    },
+    "1928": {
+      "annual": {
+        "hot_days": 11,
+        "mean_temp": null,
+        "max_temp": 35.9,
+        "max_temp_date": "1928-07-15"
+      },
+      "summer": {
+        "hot_days": 11,
+        "mean_temp": null,
+        "max_temp": 35.9,
+        "max_temp_date": "1928-07-15"
+      }
+    },
+    "1929": {
+      "annual": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 33.4,
+        "max_temp_date": "1929-07-23"
+      },
+      "summer": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 33.4,
+        "max_temp_date": "1929-07-23"
+      }
+    },
+    "1930": {
+      "annual": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.2,
+        "max_temp_date": "1930-07-05"
+      },
+      "summer": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 31.2,
+        "max_temp_date": "1930-07-05"
+      }
+    },
+    "1931": {
+      "annual": {
+        "hot_days": 5,
+        "mean_temp": null,
+        "max_temp": 31.0,
+        "max_temp_date": "1931-06-17"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 31.0,
+        "max_temp_date": "1931-06-17"
+      }
+    },
+    "1932": {
+      "annual": {
+        "hot_days": 10,
+        "mean_temp": null,
+        "max_temp": 33.0,
+        "max_temp_date": "1932-08-20"
+      },
+      "summer": {
+        "hot_days": 10,
+        "mean_temp": null,
+        "max_temp": 33.0,
+        "max_temp_date": "1932-08-20"
+      }
+    },
+    "1933": {
+      "annual": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.7,
+        "max_temp_date": "1933-07-28"
+      },
+      "summer": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.7,
+        "max_temp_date": "1933-07-28"
+      }
+    },
+    "1934": {
+      "annual": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 31.5,
+        "max_temp_date": "1934-07-31"
+      },
+      "summer": {
+        "hot_days": 3,
+        "mean_temp": null,
+        "max_temp": 31.5,
+        "max_temp_date": "1934-07-31"
+      }
+    },
+    "1935": {
+      "annual": {
+        "hot_days": 11,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1935-06-27"
+      },
+      "summer": {
+        "hot_days": 11,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1935-06-27"
+      }
+    },
+    "1936": {
+      "annual": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1936-07-18"
+      },
+      "summer": {
+        "hot_days": 2,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1936-07-18"
+      }
+    },
+    "1937": {
+      "annual": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1937-08-08"
+      },
+      "summer": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.4,
+        "max_temp_date": "1937-08-08"
+      }
+    },
+    "1938": {
+      "annual": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.3,
+        "max_temp_date": "1938-08-06"
+      },
+      "summer": {
+        "hot_days": 6,
+        "mean_temp": null,
+        "max_temp": 32.3,
+        "max_temp_date": "1938-08-06"
+      }
+    },
+    "1939": {
+      "annual": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.1,
+        "max_temp_date": "1939-07-30"
+      },
+      "summer": {
+        "hot_days": 1,
+        "mean_temp": null,
+        "max_temp": 31.1,
+        "max_temp_date": "1939-07-30"
+      }
+    },
+    "1940": {
+      "annual": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.5,
+        "max_temp_date": "1940-05-26"
+      },
+      "summer": {
+        "hot_days": 0,
+        "mean_temp": null,
+        "max_temp": 28.5,
+        "max_temp_date": "1940-06-11"
+      }
+    },
     "1941": {
       "annual": {
         "hot_days": 3,
@@ -47,10 +621,44 @@
         "max_temp_date": "1943-08-19"
       }
     },
+    "1944": {
+      "annual": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 32.2,
+        "max_temp_date": "1944-08-23"
+      },
+      "summer": {
+        "hot_days": 4,
+        "mean_temp": null,
+        "max_temp": 32.2,
+        "max_temp_date": "1944-08-23"
+      }
+    },
+    "1945": {
+      "annual": {
+        "hot_days": 9,
+        "mean_temp": null,
+        "max_temp": 32.1,
+        "max_temp_date": "1945-08-29"
+      },
+      "summer": {
+        "hot_days": 8,
+        "mean_temp": null,
+        "max_temp": 32.1,
+        "max_temp_date": "1945-08-29"
+      }
+    },
     "1946": {
       "annual": {
         "hot_days": 6,
         "mean_temp": 1.0,
+        "max_temp": 33.6,
+        "max_temp_date": "1946-08-05"
+      },
+      "summer": {
+        "hot_days": 6,
+        "mean_temp": null,
         "max_temp": 33.6,
         "max_temp_date": "1946-08-05"
       }
