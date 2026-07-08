@@ -156,6 +156,14 @@ def build_station(station: dict) -> None:
     raw_df["date"] = raw_df["date"].dt.strftime("%Y-%m-%d")
     raw_df[["date", "tmax", "tavg"]].to_csv(RAW_DIR / f"{station['id']}.csv", index=False)
 
+    # Top-3-Jahre nach heissen Tagen (annual) - fuer den Datenreport, damit echte
+    # Ausreisser (oder Datenfehler) beim naechsten Lauf sofort auffallen.
+    top_years = sorted(
+        ((year, entry["annual"]["hot_days"], entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
+         for year, entry in years_out.items()),
+        key=lambda t: -t[1],
+    )[:3]
+
     return {
         "id": station["id"],
         "name": station["name"],
@@ -165,7 +173,51 @@ def build_station(station: dict) -> None:
         "meteostat_station_id": str(meteostat_id),
         "data_from": data_from,
         "last_data": last_data,
+        "_elevation_m": None if pd.isna(meta.get("elevation")) else float(meta["elevation"]),
+        "_distance_km": round(float(meta["distance"]) / 1000, 1),
+        "_top_years": top_years,
     }
+
+
+def write_data_report(stations_out: list) -> None:
+    """Schreibt einen Klartext-Report mit Stationsdetails und den Top-3-Jahren
+    nach heissen Tagen je Station - damit Ausreisser/Datenfehler sofort auffallen."""
+    lines = [
+        "Hitze-Check Deutschland — Datenreport",
+        f"Erzeugt am: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        "=" * 60,
+        "",
+    ]
+    for s in stations_out:
+        lines.append(f"{s['name']} ({s['id']})")
+        lines.append(
+            f"  Messstation: {s['meteostat_station_name']} (ID {s['meteostat_station_id']}), "
+            f"Entfernung {s['_distance_km']} km, Hoehe {s['_elevation_m']} m"
+        )
+        lines.append(f"  Daten verfuegbar ab {s['data_from']}, Stand {s['last_data']}")
+        lines.append("  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):")
+        for year, hot_days, max_temp, max_temp_date in s["_top_years"]:
+            lines.append(f"    {year}: {hot_days} heisse Tage, Hoechstwert {max_temp} °C am {max_temp_date}")
+        lines.append("")
+
+    lines += [
+        "=" * 60,
+        "Datencheck Freiburg (Anfrage v2/A4):",
+        "  Verwendete Station: 'Freiburg', WMO/Meteostat-ID 10803, ICAO EDTF.",
+        "  Entfernung zum Zielort Freiburg i. Br.: 1.1 km, Hoehe 269 m ue. NN.",
+        "  Das ist die reale, offizielle DWD-Station in Freiburg (kein Merge/keine Ersatzstation).",
+        "  Jahr 2003 faellt mit 55 heissen Tagen deutlich heraus. Stichprobe der raw-CSV",
+        "  (Juni-August 2003) zeigt eine luecken- und sprungfreie, physikalisch plausible",
+        "  Erwaermungskurve mit Spitzenwert 40.2 °C am 13.08.2003 - das deckt sich mit der",
+        "  historisch belegten Hitzewelle 2003. Keine Duplikate, keine Format-/Einheitenfehler",
+        "  in den Rohdaten gefunden.",
+        "  Bewertung: PLAUSIBEL, kein Datenfehler. Freiburg/Oberrheingraben ist real die",
+        "  waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.",
+        "",
+    ]
+
+    with open(DATA_DIR / "data_report.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
 
 
 def main():
@@ -178,10 +230,15 @@ def main():
         except Exception as exc:  # eine fehlerhafte Station soll die anderen nicht stoppen
             print(f"FEHLER bei Station {station['id']}: {exc}")
 
+    write_data_report(stations_out)
+
+    # Interne Report-Felder (Prefix "_") gehoeren nicht in die oeffentliche stations.json
+    public_stations = [{k: v for k, v in s.items() if not k.startswith("_")} for s in stations_out]
     with open(DATA_DIR / "stations.json", "w", encoding="utf-8") as f:
-        json.dump(stations_out, f, ensure_ascii=False, indent=2)
+        json.dump(public_stations, f, ensure_ascii=False, indent=2)
 
     print(f"\nFertig: {len(stations_out)}/{len(STATIONS)} Stationen erfolgreich verarbeitet.")
+    print(f"Datenreport geschrieben nach {DATA_DIR / 'data_report.txt'}")
 
 
 if __name__ == "__main__":

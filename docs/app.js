@@ -4,7 +4,8 @@ const COLOR_SCALE = [
   { max: 20, color: "#4A90D9" }, // < 20 °C
   { max: 25, color: "#7CB342" }, // 20–24,9 °C
   { max: 30, color: "#FB8C00" }, // 25–29,9 °C
-  { max: Infinity, color: "#E53935" }, // >= 30 °C
+  { max: 40, color: "#E53935" }, // 30–39,9 °C
+  { max: Infinity, color: "#8E24AA" }, // >= 40 °C (Extremwert)
 ];
 const NO_DATA_COLOR = "#bbb";
 
@@ -26,6 +27,7 @@ const state = {
   year: null,
   period: "annual",
   selectedStation: null,
+  theme: "light",
 };
 
 let stations = [];
@@ -201,16 +203,40 @@ function setupControls() {
   const maxYear = years[years.length - 1];
 
   const slider = document.getElementById("year-slider");
+  const yearInput = document.getElementById("year-input");
+  const yearMinus = document.getElementById("year-minus");
+  const yearPlus = document.getElementById("year-plus");
+
   slider.min = minYear;
   slider.max = maxYear;
-  slider.value = maxYear; // beim Laden: aktuellstes verfuegbares Jahr
-  state.year = maxYear;
-  document.getElementById("year-value").textContent = maxYear;
+  yearInput.min = minYear;
+  yearInput.max = maxYear;
 
-  slider.addEventListener("input", () => {
-    state.year = Number(slider.value);
-    document.getElementById("year-value").textContent = state.year;
+  // Regler, Stepper-Buttons und Eingabefeld immer synchron halten.
+  function setYear(year) {
+    const clamped = Math.min(maxYear, Math.max(minYear, year));
+    state.year = clamped;
+    slider.value = clamped;
+    yearInput.value = clamped;
+    document.getElementById("year-value").textContent = clamped;
     updateMarkers();
+  }
+
+  setYear(maxYear); // beim Laden: aktuellstes verfuegbares Jahr
+
+  slider.addEventListener("input", () => setYear(Number(slider.value)));
+
+  yearMinus.addEventListener("click", () => setYear(state.year - 1));
+  yearPlus.addEventListener("click", () => setYear(state.year + 1));
+
+  yearInput.addEventListener("change", () => {
+    const parsed = Number(yearInput.value);
+    // Ungueltige oder leere Eingaben abfangen: zurueck auf den aktuellen Stand setzen.
+    if (!Number.isFinite(parsed) || yearInput.value.trim() === "") {
+      yearInput.value = state.year;
+      return;
+    }
+    setYear(Math.round(parsed));
   });
 
   const btnAnnual = document.getElementById("btn-annual");
@@ -227,10 +253,25 @@ function setupControls() {
   btnSummer.addEventListener("click", () => setPeriod("summer"));
 }
 
+function setupThemeToggle() {
+  const button = document.getElementById("theme-toggle");
+  // Nur fuer die laufende Sitzung gemerkt (einfache Variable im state, kein localStorage noetig).
+  function applyTheme() {
+    document.documentElement.dataset.theme = state.theme;
+    button.textContent = state.theme === "dark" ? "☀️ Hell" : "🌙 Dunkel";
+  }
+  button.addEventListener("click", () => {
+    state.theme = state.theme === "dark" ? "light" : "dark";
+    applyTheme();
+  });
+  applyTheme();
+}
+
 async function init() {
   await loadData();
   createMarkers();
   setupControls();
+  setupThemeToggle();
   updateMarkers();
   document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }

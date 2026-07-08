@@ -10,10 +10,13 @@
 <body>
 
 <header class="app-header">
-  <h1>🌡️ Hitze-Check Deutschland</h1>
-  <p class="intro-text">
-    Was ist das? Ein Werkzeug, um Wetter-Behauptungen selbst zu überprüfen. Alle Daten mit Quelle.
-  </p>
+  <div>
+    <h1>🌡️ Hitze-Check Deutschland</h1>
+    <p class="intro-text">
+      Was ist das? Ein Werkzeug, um Wetter-Behauptungen selbst zu überprüfen. Alle Daten mit Quelle.
+    </p>
+  </div>
+  <button type="button" id="theme-toggle" aria-label="Hell-/Dunkelmodus umschalten">🌙 Dunkel</button>
 </header>
 
 <main class="app-main">
@@ -23,6 +26,11 @@
     <div class="control-row">
       <label for="year-slider" id="year-label">Jahr: <strong><span id="year-value"></span></strong></label>
       <input type="range" id="year-slider" min="1900" max="2026" value="2026" step="1">
+    </div>
+    <div class="control-row year-stepper-row">
+      <button type="button" id="year-minus" class="stepper-btn" aria-label="Ein Jahr zurück">−</button>
+      <input type="number" id="year-input" class="year-input" aria-label="Jahr direkt eingeben">
+      <button type="button" id="year-plus" class="stepper-btn" aria-label="Ein Jahr vor">+</button>
     </div>
     <div class="control-row">
       <div class="toggle-group" role="group" aria-label="Zeitraum">
@@ -38,8 +46,11 @@
     <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
     <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
     <div class="legend-item">
-      <span class="legend-swatch" style="background:#E53935"></span> ≥ 30 °C (heißer Tag)
+      <span class="legend-swatch" style="background:#E53935"></span> 30–39,9 °C (heißer Tag)
       <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:#8E24AA"></span> ≥ 40 °C (Extremwert)
     </div>
     <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
   </div>

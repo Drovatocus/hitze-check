@@ -1,10 +1,33 @@
 :root {
+  /* Hitze-Farbskala: bleibt in Hell- und Dunkelmodus identisch (Vergleichbarkeit) */
   --color-blau: #4A90D9;
   --color-gruen: #7CB342;
   --color-orange: #FB8C00;
   --color-rot: #E53935;
-  --color-text: #222;
+  --color-lila: #8E24AA;
+
+  /* Oberflaechen-Farben: Hellmodus (Default) */
   --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-panel-bg: rgba(255, 255, 255, 0.95);
+  --color-text: #222;
+  --color-text-muted: #666;
+  --color-border: #ddd;
+  --color-border-strong: #ccc;
+  --color-metric-bg: #f5f6f8;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #16181c;
+  --color-surface: #21242a;
+  --color-panel-bg: rgba(33, 36, 42, 0.95);
+  --color-text: #eaeaea;
+  --color-text-muted: #a8adb5;
+  --color-border: #3a3d44;
+  --color-border-strong: #4a4e56;
+  --color-metric-bg: #2a2d34;
+  --color-shadow: rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -19,13 +42,18 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .app-header {
   padding: 0.75rem 1.5rem;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .app-header h1 {
@@ -36,7 +64,22 @@ body {
 .intro-text {
   margin: 0.35rem 0 0;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--color-text-muted);
+}
+
+#theme-toggle {
+  flex: none;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+#theme-toggle:hover {
+  background: var(--color-metric-bg);
 }
 
 .app-main {
@@ -53,20 +96,20 @@ body {
   gap: 1rem;
   flex-wrap: wrap;
   padding: 0.5rem 1.5rem;
-  background: #fff;
-  border-top: 1px solid #ddd;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
   font-size: 0.75rem;
-  color: #777;
+  color: var(--color-text-muted);
 }
 
 .app-footer a {
-  color: #555;
+  color: var(--color-text-muted);
 }
 
 .info-icon {
   display: inline-block;
   cursor: help;
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.85em;
   border-radius: 50%;
 }
@@ -85,9 +128,10 @@ body {
 .panel-box {
   position: absolute;
   z-index: 500;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-panel-bg);
+  color: var(--color-text);
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 6px var(--color-shadow);
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
 }
@@ -110,6 +154,42 @@ body {
   width: 100%;
 }
 
+.year-stepper-row {
+  margin-top: 0.9rem !important; /* klarer Abstand zum Regler, damit man nicht versehentlich daneben trifft */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepper-btn {
+  flex: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stepper-btn:hover {
+  background: var(--color-metric-bg);
+}
+
+.year-input {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  padding: 0.4rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
 #year-label {
   display: block;
   margin-bottom: 0.25rem;
@@ -117,7 +197,7 @@ body {
 
 .toggle-group {
   display: flex;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-strong);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -126,17 +206,18 @@ body {
   flex: 1;
   padding: 0.4rem 0.5rem;
   border: none;
-  background: #fff;
+  background: var(--color-surface);
+  color: var(--color-text);
   cursor: pointer;
   font-size: 0.85rem;
 }
 
 .toggle-btn + .toggle-btn {
-  border-left: 1px solid #ccc;
+  border-left: 1px solid var(--color-border-strong);
 }
 
 .toggle-btn.active {
-  background: #4A90D9;
+  background: var(--color-blau);
   color: #fff;
 }
 
@@ -174,8 +255,9 @@ body {
   max-width: 90vw;
   height: 100%;
   overflow-y: auto;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.25);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: -2px 0 10px var(--color-shadow);
   padding: 1.25rem;
 }
 
@@ -192,7 +274,7 @@ body {
   font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 #detail-panel h2 {
@@ -212,7 +294,7 @@ body {
 
 .metric-card {
   flex: 1;
-  background: var(--color-bg);
+  background: var(--color-metric-bg);
   border-radius: 6px;
   padding: 0.6rem 0.4rem;
   text-align: center;
@@ -225,12 +307,12 @@ body {
 
 .metric-label {
   font-size: 0.7rem;
-  color: #555;
+  color: var(--color-text-muted);
   margin-top: 0.2rem;
 }
 
 .muted {
-  color: #777;
+  color: var(--color-text-muted);
   font-size: 0.8rem;
 }
 
@@ -243,7 +325,7 @@ body {
 
 .info-list li {
   padding: 0.25rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
@@ -253,19 +335,20 @@ body {
   width: 100%;
   margin-top: 1rem;
   padding: 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-strong);
   border-radius: 6px;
-  background: #fff;
+  background: var(--color-surface);
+  color: var(--color-text);
   cursor: pointer;
   font-size: 0.9rem;
 }
 
 #detail-csv:hover {
-  background: var(--color-bg);
+  background: var(--color-metric-bg);
 }
 
 .source-line {
   margin-top: 1rem;
   font-size: 0.75rem;
-  color: #888;
+  color: var(--color-text-muted);
 }
