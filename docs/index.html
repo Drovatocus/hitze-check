@@ -11,6 +11,9 @@
 
 <header class="app-header">
   <h1>🌡️ Hitze-Check Deutschland</h1>
+  <p class="intro-text">
+    Was ist das? Ein Werkzeug, um Wetter-Behauptungen selbst zu überprüfen. Alle Daten mit Quelle.
+  </p>
 </header>
 
 <main class="app-main">
@@ -24,7 +27,7 @@
     <div class="control-row">
       <div class="toggle-group" role="group" aria-label="Zeitraum">
         <button type="button" id="btn-annual" class="toggle-btn active" data-period="annual">Ganzes Jahr</button>
-        <button type="button" id="btn-summer" class="toggle-btn" data-period="summer">Sommer (Jun–Aug)</button>
+        <button type="button" id="btn-summer" class="toggle-btn" data-period="summer" title="Meteorologischer Sommer = Juni, Juli, August">Sommer (Jun–Aug)</button>
       </div>
     </div>
   </div>
@@ -34,7 +37,10 @@
     <div class="legend-item"><span class="legend-swatch" style="background:#4A90D9"></span> &lt; 20 °C</div>
     <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
     <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
-    <div class="legend-item"><span class="legend-swatch" style="background:#E53935"></span> ≥ 30 °C (heißer Tag)</div>
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:#E53935"></span> ≥ 30 °C (heißer Tag)
+      <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span>
+    </div>
     <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
   </div>
 
@@ -45,7 +51,7 @@
     <div class="detail-metrics">
       <div class="metric-card">
         <div class="metric-value" id="metric-hotdays">–</div>
-        <div class="metric-label">heiße Tage (≥ 30 °C)</div>
+        <div class="metric-label">heiße Tage (≥ 30 °C) <span class="info-icon" title="Heißer Tag = Tagesmaximum ≥ 30 °C">ⓘ</span></div>
       </div>
       <div class="metric-card">
         <div class="metric-value" id="metric-mean">–</div>
@@ -69,6 +75,11 @@
     <p class="source-line">Datenbasis: Meteostat / DWD</p>
   </aside>
 </main>
+
+<footer class="app-footer">
+  <span>⚠️ Hinweis: Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht ändern.</span>
+  <span>Datenbasis: Meteostat / DWD — <a href="https://meteostat.net/" target="_blank" rel="noopener">meteostat.net</a></span>
+</footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>

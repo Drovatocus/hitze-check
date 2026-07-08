@@ -132,7 +132,10 @@ function renderDetailPanel(stationId) {
     ["Messstation", `${station.meteostat_station_name} (${station.meteostat_station_id})`],
     ["Daten verfügbar ab", station.data_from],
     ["Stand", formatDateGerman(station.last_data)],
-    ["Rekord", `${formatTemp(series.record.temp)} am ${formatDateGerman(series.record.date)}`],
+    [
+      'Rekord <span class="info-icon" title="Rekordtag: höchster je an dieser Station gemessener Tageshöchstwert">ⓘ</span>',
+      `${formatTemp(series.record.temp)} am ${formatDateGerman(series.record.date)}`,
+    ],
   ];
   infoItems.forEach(([label, value]) => {
     const li = document.createElement("li");
