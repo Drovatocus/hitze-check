@@ -37,9 +37,41 @@
     <div class="legend-item"><span class="legend-swatch" style="background:#E53935"></span> ≥ 30 °C (heißer Tag)</div>
     <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
   </div>
+
+  <aside id="detail-panel" class="hidden">
+    <button type="button" id="detail-close" aria-label="Schließen">&times;</button>
+    <h2 id="detail-title">Station</h2>
+
+    <div class="detail-metrics">
+      <div class="metric-card">
+        <div class="metric-value" id="metric-hotdays">–</div>
+        <div class="metric-label">heiße Tage (≥ 30 °C)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="metric-mean">–</div>
+        <div class="metric-label">Durchschnittstemperatur</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="metric-max">–</div>
+        <div class="metric-label">Höchsttemperatur</div>
+      </div>
+    </div>
+    <p id="detail-period-note" class="muted"></p>
+
+    <h3>Verlauf über alle Jahre</h3>
+    <canvas id="detail-chart" height="180"></canvas>
+
+    <h3>Stationsinfos</h3>
+    <ul id="detail-info" class="info-list"></ul>
+
+    <button type="button" id="detail-csv">📄 Rohdaten als CSV herunterladen</button>
+
+    <p class="source-line">Datenbasis: Meteostat / DWD</p>
+  </aside>
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -21,15 +21,26 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
 }).addTo(map);
 
-// Zustand: aktuell gewaehltes Jahr + Zeitraum (annual/summer)
+// Zustand: aktuell gewaehltes Jahr + Zeitraum (annual/summer) + angeklickte Station
 const state = {
   year: null,
   period: "annual",
+  selectedStation: null,
 };
 
 let stations = [];
 let seriesByStation = {}; // station_id -> geladenes series/<id>.json
 let markersByStation = {}; // station_id -> Leaflet-Marker
+let detailChart = null; // Chart.js-Instanz des Verlaufsdiagramms
+
+function formatDateGerman(isoDate) {
+  const [y, m, d] = isoDate.split("-");
+  return `${d}.${m}.${y}`;
+}
+
+function formatTemp(value) {
+  return `${value.toFixed(1).replace(".", ",")} °C`;
+}
 
 async function loadData() {
   const stationsRes = await fetch("data/stations.json");
@@ -69,6 +80,7 @@ function createMarkers() {
       className: "station-marker",
     }).addTo(map);
     marker.bindTooltip(station.name);
+    marker.on("click", () => selectStation(station.id));
     markersByStation[station.id] = marker;
   });
 }
@@ -78,6 +90,104 @@ function updateMarkers() {
     const marker = markersByStation[station.id];
     const stats = statsFor(station.id, state.year, state.period);
     marker.setStyle({ fillColor: colorForTemp(stats ? stats.max_temp : null) });
+  });
+  if (state.selectedStation) {
+    renderDetailPanel(state.selectedStation);
+  }
+}
+
+function selectStation(stationId) {
+  state.selectedStation = stationId;
+  document.getElementById("detail-panel").classList.remove("hidden");
+  renderDetailPanel(stationId);
+}
+
+function closeDetailPanel() {
+  state.selectedStation = null;
+  document.getElementById("detail-panel").classList.add("hidden");
+}
+
+function renderDetailPanel(stationId) {
+  const station = stations.find((s) => s.id === stationId);
+  const series = seriesByStation[stationId];
+  const stats = statsFor(stationId, state.year, state.period);
+
+  document.getElementById("detail-title").textContent = station.name;
+
+  document.getElementById("metric-hotdays").textContent = stats ? stats.hot_days : "–";
+  document.getElementById("metric-mean").textContent = stats ? formatTemp(stats.mean_temp) : "–";
+  document.getElementById("metric-max").textContent = stats
+    ? `${formatTemp(stats.max_temp)} am ${formatDateGerman(stats.max_temp_date)}`
+    : "–";
+
+  const periodLabel = state.period === "summer" ? "Sommer" : "ganzes Jahr";
+  document.getElementById("detail-period-note").textContent = stats
+    ? `Zeitraum: ${state.year}, ${periodLabel}`
+    : `Für ${state.year} (${periodLabel}) liegen keine Daten vor.`;
+
+  const infoList = document.getElementById("detail-info");
+  infoList.innerHTML = "";
+  const infoItems = [
+    ["Angezeigter Ort", station.name],
+    ["Messstation", `${station.meteostat_station_name} (${station.meteostat_station_id})`],
+    ["Daten verfügbar ab", station.data_from],
+    ["Stand", formatDateGerman(station.last_data)],
+    ["Rekord", `${formatTemp(series.record.temp)} am ${formatDateGerman(series.record.date)}`],
+  ];
+  infoItems.forEach(([label, value]) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span>${label}</span><span>${value}</span>`;
+    infoList.appendChild(li);
+  });
+
+  renderChart(series);
+
+  document.getElementById("detail-csv").onclick = () => {
+    const link = document.createElement("a");
+    link.href = `data/raw/${stationId}.csv`;
+    link.download = `${stationId}.csv`;
+    link.click();
+  };
+}
+
+function renderChart(series) {
+  const years = Object.keys(series.years).sort();
+  const hotDays = years.map((y) => series.years[y][state.period]?.hot_days ?? 0);
+  const recordYear = series.record.date.slice(0, 4);
+
+  const barColors = years.map((y) => (y === recordYear ? "#E53935" : "#4A90D9"));
+
+  if (detailChart) {
+    detailChart.destroy();
+  }
+  const ctx = document.getElementById("detail-chart").getContext("2d");
+  detailChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: "Heiße Tage (≥ 30 °C)",
+          data: hotDays,
+          backgroundColor: barColors,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            afterLabel: (item) => (item.label === recordYear ? "Rekordjahr (Höchsttemperatur)" : ""),
+          },
+        },
+      },
+      scales: {
+        x: { ticks: { maxTicksLimit: 12 } },
+        y: { beginAtZero: true, title: { display: true, text: "Anzahl heißer Tage" } },
+      },
+    },
   });
 }
 
@@ -118,6 +228,7 @@ async function init() {
   createMarkers();
   setupControls();
   updateMarkers();
+  document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }
 
 init();
