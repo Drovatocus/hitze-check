@@ -13,6 +13,7 @@ Ausfuehren mit:
 from datetime import datetime
 from pathlib import Path
 import json
+import time
 
 import pandas as pd
 from meteostat import Stations, Daily
@@ -39,6 +40,8 @@ HOT_DAY_THRESHOLD = 30.0  # °C, Definition "heisser Tag"
 SUMMER_MONTHS = (6, 7, 8)  # meteorologischer Sommer
 NEARBY_CANDIDATES = 10  # so viele Kandidaten-Stationen pro Stadt pruefen
 NEARBY_RADIUS_M = 50_000  # bevorzugter Umkreis (Meter) fuer die Stationswahl
+FETCH_RETRIES = 3  # Meteostat-Downloads brechen gelegentlich mit einem Netzwerkfehler ab
+FETCH_RETRY_DELAY_S = 5
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "docs" / "data"
@@ -61,6 +64,21 @@ def find_best_station(lat: float, lon: float) -> pd.Series:
 
     best_id = pool["span_days"].idxmax()
     return candidates.loc[best_id]
+
+
+def fetch_daily_with_retry(meteostat_id: str, start: datetime, end: datetime) -> pd.DataFrame:
+    """Laedt Tagesdaten; Meteostat bricht bei einzelnen Jahresdateien gelegentlich mit
+    einem transienten Netzwerkfehler ab, daher hier ein paar Versuche mit Pause."""
+    last_error = None
+    for attempt in range(1, FETCH_RETRIES + 1):
+        try:
+            return Daily(meteostat_id, start, end).fetch()
+        except Exception as exc:  # z. B. urlopen error, abgebrochene Verbindung
+            last_error = exc
+            if attempt < FETCH_RETRIES:
+                print(f"  Netzwerkfehler ({exc}), Versuch {attempt}/{FETCH_RETRIES} - warte {FETCH_RETRY_DELAY_S}s ...")
+                time.sleep(FETCH_RETRY_DELAY_S)
+    raise last_error
 
 
 def compute_period_stats(df: pd.DataFrame) -> dict | None:
@@ -94,7 +112,7 @@ def build_station(station: dict) -> None:
     print(f"Station {station['name']}: naechste Messstation '{meteostat_name}' ({meteostat_id}), "
           f"Abstand {meta['distance'] / 1000:.1f} km, lade Tagesdaten ab {daily_start.date()} ...")
 
-    df = Daily(meteostat_id, daily_start, end).fetch()
+    df = fetch_daily_with_retry(meteostat_id, daily_start, end)
     df = df[["tavg", "tmax"]].dropna(how="all")
 
     if df.empty:
