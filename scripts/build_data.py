@@ -146,6 +146,39 @@ def fetch_daily_with_retry(meteostat_id: str) -> pd.DataFrame:
     raise last_error
 
 
+SANITY_MAX_SPREAD_C = 20.0  # tmax darf an einem Tag nicht mehr als so viel ueber tavg liegen
+_sanity_lock = threading.Lock()
+_sanity_log: list = []  # (station_id, Datum, tmax, tavg, tmin) - fuer den Report
+
+
+def apply_sanity_filter(df: pd.DataFrame, station_id: str) -> pd.DataFrame:
+    """Verwirft physikalisch unplausible Tageswerte, BEVOR sie in irgendeine
+    Berechnung einfliessen - z. B. tmax=50,0 °C bei tavg=10,6 °C (Hohn, 25.04.1980,
+    ein echter, bei einer manuellen 40+-Kontrolle entdeckter Digitalisierungsfehler
+    in Meteostats Quelldaten - kein Fehler in dieser Pipeline, siehe data_report.txt).
+    Ein Tag gilt als unplausibel, wenn tmax weit ueber tavg liegt oder tavg
+    ausserhalb von [tmin, tmax] faellt - das kommt bei echten Messungen praktisch
+    nie vor (selbst am deutschen Rekordtag betrug der Abstand tmax-tavg nur ca.
+    10 °C), aber die gefundenen Fehler zeigen 20-48 °C Abstand. Betroffene Tage
+    werden komplett verworfen (alle drei Werte auf NaN), nicht nur der auffaellige
+    Wert - wenn ein Feld offensichtlich falsch ist, ist der ganze Tag nicht
+    vertrauenswuerdig."""
+    suspect = (
+        ((df["tmax"] - df["tavg"]) > SANITY_MAX_SPREAD_C)
+        | (df["tavg"] < df["tmin"] - 2)
+        | (df["tavg"] > df["tmax"] + 2)
+    )
+    if not suspect.any():
+        return df
+
+    df = df.copy()
+    with _sanity_lock:
+        for idx, row in df[suspect].iterrows():
+            _sanity_log.append((station_id, idx.strftime("%Y-%m-%d"), row["tmax"], row["tavg"], row["tmin"]))
+    df.loc[suspect, ["tavg", "tmin", "tmax"]] = float("nan")
+    return df
+
+
 def compute_period_stats(df: pd.DataFrame, period_end: datetime) -> dict | None:
     """Berechnet hot_days / mean_temp / max_temp(+Datum) fuer einen Zeitausschnitt.
     period_end ist das natuerliche Ende des Zeitraums (31.12. bzw. 31.08. des Jahres);
@@ -373,6 +406,8 @@ def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> 
         log(f"  FEHLER bei {name} ({meteostat_id}): keine Tagesdaten erhalten.")
         return None
 
+    df = apply_sanity_filter(df, station_id)
+
     valid = df.dropna(subset=["tmax"])
     if valid.empty:
         log(f"  FEHLER bei {name} ({meteostat_id}): keine gueltigen Tmax-Werte.")
@@ -513,6 +548,25 @@ def write_data_report(stations_out: list, total_suitable: int, failed: list) -> 
             lines.append(f"  {s['name']} ({s['id']}), {year}: {max_temp} °C am {max_temp_date}")
     if not any_extreme:
         lines.append("  Keine Jahreswerte >= 40,0 °C in den aktuellen Daten.")
+    lines.append("")
+
+    # Bugfix nach der ersten bundesweiten Kontrolle: die 40+-Liste hatte mehrere
+    # physikalisch unmoegliche Werte offengelegt (z. B. 50 °C im April), die sich
+    # als echte Fehler in Meteostats Quelldaten herausstellten (direkt gegen die
+    # Rohdaten geprueft, keine Fehler in dieser Pipeline). apply_sanity_filter()
+    # verwirft solche Tage jetzt automatisch - hier zur Transparenz aufgelistet.
+    lines += [
+        "=" * 60,
+        "Automatisch verworfene, physikalisch unplausible Tageswerte:",
+        f"(tmax > tavg + {SANITY_MAX_SPREAD_C:g} °C oder tavg ausserhalb [tmin, tmax] - "
+        "das kommt bei echten Messungen praktisch nie vor)",
+        "",
+    ]
+    if _sanity_log:
+        for station_id, date, tmax, tavg, tmin in sorted(_sanity_log):
+            lines.append(f"  {station_id}, {date}: tmax={tmax} tavg={tavg} tmin={tmin} -> verworfen")
+    else:
+        lines.append("  Keine.")
     lines.append("")
 
     with open(DATA_DIR / "data_report.txt", "w", encoding="utf-8") as f:
