@@ -1,88 +1,148 @@
 #!/usr/bin/env python3
 """
-Hitze-Check Deutschland — Datenpipeline
+Hitze-Check Deutschland — Datenpipeline (bundesweit, fortsetzbar)
 
-Laedt fuer jede Stadt aus STATIONS die Tages-Wetterhistorie ueber Meteostat,
-berechnet Jahres- und Sommer-Kennzahlen (heisse Tage, Durchschnitt, Rekord)
-und schreibt die Ergebnisse als JSON/CSV nach docs/data/.
+Findet automatisch alle geeigneten Wetterstationen in Deutschland (Inventar-
+Vorfilter: mindestens 30 Jahre Tagesreihe UND Daten aus den letzten 2 Jahren),
+laedt ihre komplette Tages-Historie in EINER Datei pro Station (Meteostats
+bulk-Endpunkt, siehe fetch_daily_bulk), berechnet Jahres- und Sommer-Kennzahlen
+sowie die erweiterten "Mehr Details"-Auswertungen und schreibt alles als
+JSON/CSV nach docs/data/.
 
-Ausfuehren mit:
+Fortsetzbar: Stationen, die schon eine series/<id>.json haben, werden beim
+naechsten Lauf uebersprungen (kein erneuter Download). Der Lauf kann also
+jederzeit unterbrochen (auch hart, z. B. Stromausfall/Fenster zu) und mit
+demselben Befehl wieder aufgenommen werden:
+
     python3 scripts/build_data.py
+
+Das ist zugleich Start- UND Fortsetzen-Befehl - es gibt keinen Unterschied.
 """
 
+import gzip
+import io
+import random
+import re
+import socket
+import threading
+import time
+import unicodedata
+import urllib.request
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 import json
-import time
+
+# Ohne globalen Timeout kann ein Netzwerk-Hiccup eine TCP-Verbindung "stumm"
+# haengen lassen (Socket bleibt ESTABLISHED, es kommen aber nie Daten/ein Fehler) -
+# bei einem mehrstuendigen Lauf darf das nicht den ganzen Prozess lahmlegen.
+socket.setdefaulttimeout(30)
 
 import numpy as np
 import pandas as pd
-from meteostat import Stations, Daily
+from meteostat import Stations
 
 # ---------------------------------------------------------------------------
 # Konfiguration
 # ---------------------------------------------------------------------------
 
-# Neue Staedte koennen hier einfach ergaenzt werden (id, Anzeigename, lat, lon).
-STATIONS = [
-    {"id": "wuppertal", "name": "Wuppertal", "lat": 51.26, "lon": 7.18},
-    {"id": "hamburg", "name": "Hamburg", "lat": 53.55, "lon": 9.99},
-    {"id": "rostock-warnemuende", "name": "Rostock-Warnemünde", "lat": 54.18, "lon": 12.08},
-    {"id": "hannover", "name": "Hannover", "lat": 52.37, "lon": 9.74},
-    {"id": "berlin", "name": "Berlin", "lat": 52.52, "lon": 13.40},
-    {"id": "dresden", "name": "Dresden", "lat": 51.05, "lon": 13.74},
-    {"id": "frankfurt-am-main", "name": "Frankfurt am Main", "lat": 50.11, "lon": 8.68},
-    {"id": "stuttgart", "name": "Stuttgart", "lat": 48.78, "lon": 9.18},
-    {"id": "freiburg", "name": "Freiburg", "lat": 47.99, "lon": 7.85},
-    {"id": "muenchen", "name": "München", "lat": 48.14, "lon": 11.58},
-]
-
 HOT_DAY_THRESHOLD = 30.0  # °C, Definition "heisser Tag"
 SUMMER_DAY_THRESHOLD = 25.0  # °C, Definition "Sommertag"
 TROPICAL_NIGHT_THRESHOLD = 20.0  # °C, Definition "Tropennacht" (Tiefstwert)
 SUMMER_MONTHS = (6, 7, 8)  # meteorologischer Sommer
-NEARBY_CANDIDATES = 10  # so viele Kandidaten-Stationen pro Stadt pruefen
-NEARBY_RADIUS_M = 50_000  # bevorzugter Umkreis (Meter) fuer die Stationswahl
-FETCH_RETRIES = 3  # Meteostat-Downloads brechen gelegentlich mit einem Netzwerkfehler ab
-FETCH_RETRY_DELAY_S = 5
 TREND_MIN_YEARS = 10  # so viele Jahre braucht es mindestens fuer einen Trendwert
 GAP_MIN_DAYS = 30  # Datenluecken ab dieser Laenge werden im Report gemeldet
+
+MIN_SERIES_YEARS = 30  # Eignungsfilter: mindestens so viele Jahre Tagesreihe
+MAX_RECENT_GAP_DAYS = 730  # ... und Daten aus den letzten 2 Jahren
+
+# Sanftes Laden: wenige parallele Downloads, kurze Pause vor jeder Anfrage,
+# bei Fehlern exponentiell laenger warten. Grund: ein frueherer Lauf mit 6
+# parallelen Downloads UND vielen Anfragen pro Station (eine je Jahr) hat den
+# Server ab ca. Station 9 spuerbar gedrosselt (viele Timeouts). Der Umstieg auf
+# den bulk-Endpunkt (eine Datei pro Station, siehe fetch_daily_bulk) reduziert
+# die Anfragenzahl ohnehin von zehntausenden auf ~380 - trotzdem lieber vorsichtig.
+MAX_WORKERS = 3
+REQUEST_MIN_DELAY_S = 0.5  # kurze Pause vor jeder Anfrage (+ etwas Zufall)
+REQUEST_MAX_DELAY_S = 1.5
+FETCH_RETRIES = 5
+FETCH_RETRY_BASE_DELAY_S = 5  # verdoppelt sich je Fehlversuch (Backoff)
+
+CHECKPOINT_EVERY = 10  # alle N erfolgreich verarbeiteten Stationen zwischenspeichern
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "docs" / "data"
 SERIES_DIR = DATA_DIR / "series"
 RAW_DIR = DATA_DIR / "raw"
 
-
-def find_best_station(lat: float, lon: float) -> pd.Series:
-    """Waehlt unter den naechstgelegenen Meteostat-Stationen die mit der
-    laengsten verfuegbaren Tages-Historie (bevorzugt innerhalb NEARBY_RADIUS_M)."""
-    candidates = Stations().nearby(lat, lon).fetch(NEARBY_CANDIDATES)
-    candidates = candidates[candidates["daily_start"].notna()].copy()
-    if candidates.empty:
-        raise RuntimeError(f"Keine Station mit Tagesdaten in der Naehe von ({lat}, {lon}) gefunden.")
-
-    candidates["span_days"] = (candidates["daily_end"] - candidates["daily_start"]).dt.days
-
-    nearby = candidates[candidates["distance"] <= NEARBY_RADIUS_M]
-    pool = nearby if not nearby.empty else candidates
-
-    best_id = pool["span_days"].idxmax()
-    return candidates.loc[best_id]
+_print_lock = threading.Lock()
 
 
-def fetch_daily_with_retry(meteostat_id: str, start: datetime, end: datetime) -> pd.DataFrame:
-    """Laedt Tagesdaten; Meteostat bricht bei einzelnen Jahresdateien gelegentlich mit
-    einem transienten Netzwerkfehler ab, daher hier ein paar Versuche mit Pause."""
+def log(msg: str) -> None:
+    with _print_lock:
+        print(msg, flush=True)
+
+
+def slugify(name: str) -> str:
+    """Einfache, robuste Slug-Erzeugung ohne Zusatzpaket (Umlaute etc. transliterieren)."""
+    normalized = unicodedata.normalize("NFKD", name)
+    ascii_name = normalized.encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^a-zA-Z0-9]+", "-", ascii_name).strip("-").lower()
+    return slug or "station"
+
+
+def find_suitable_stations() -> pd.DataFrame:
+    """Holt alle deutschen Wetterstationen und filtert VOR dem Laden der vollen
+    Daten anhand des Stations-Inventars (daily_start/daily_end): mindestens
+    MIN_SERIES_YEARS Jahre Tagesreihe UND Daten aus den letzten 2 Jahren.
+    Das spart massiv Zeit, weil nur geeignete Stationen die vollen Tagesdaten
+    herunterladen muessen."""
+    all_stations = Stations().region("DE").fetch(100_000)
+    with_daily = all_stations[all_stations["daily_start"].notna() & all_stations["daily_end"].notna()].copy()
+
+    span_years = (with_daily["daily_end"] - with_daily["daily_start"]).dt.days / 365.25
+    recent_cutoff = pd.Timestamp(datetime.now() - pd.Timedelta(days=MAX_RECENT_GAP_DAYS))
+    suitable = with_daily[(span_years >= MIN_SERIES_YEARS) & (with_daily["daily_end"] >= recent_cutoff)]
+
+    return suitable.sort_values("name")
+
+
+BULK_DAILY_URL = "https://bulk.meteostat.net/v2/daily/{id}.csv.gz"
+# Reihenfolge/Namen entsprechen exakt dem Format der bulk-CSV (siehe Meteostat-Doku).
+_BULK_COLUMNS = ["date", "tavg", "tmin", "tmax", "prcp", "snow", "wdir", "wspd", "wpgt", "pres", "tsun"]
+
+
+def fetch_daily_bulk(meteostat_id: str) -> pd.DataFrame:
+    """Laedt die KOMPLETTE Tageshistorie einer Station in EINER Anfrage ueber
+    Meteostats bulk-Endpunkt - statt wie die Standardbibliothek (meteostat.Daily)
+    pro Jahr eine eigene Datei zu holen (bei einer 90-Jahre-Reihe also 90 Anfragen
+    statt einer). Das war der Hauptgrund fuer die Serverdrosselung bei einem
+    frueheren Lauf."""
+    url = BULK_DAILY_URL.format(id=meteostat_id)
+    req = urllib.request.Request(url, headers={"User-Agent": "hitze-check-deutschland/1.0"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        raw = resp.read()
+    with gzip.GzipFile(fileobj=io.BytesIO(raw)) as gz:
+        df = pd.read_csv(gz, names=_BULK_COLUMNS, parse_dates=["date"], index_col="date")
+    return df
+
+
+def fetch_daily_with_retry(meteostat_id: str) -> pd.DataFrame:
+    """Laedt mit kurzer Pause vor jeder Anfrage und exponentiell laengerem
+    Backoff bei Fehlern - schont den Server, damit es nicht wieder zu einer
+    Drosselung wie beim vorigen Lauf kommt."""
+    time.sleep(random.uniform(REQUEST_MIN_DELAY_S, REQUEST_MAX_DELAY_S))
     last_error = None
+    delay = FETCH_RETRY_BASE_DELAY_S
     for attempt in range(1, FETCH_RETRIES + 1):
         try:
-            return Daily(meteostat_id, start, end).fetch()
-        except Exception as exc:  # z. B. urlopen error, abgebrochene Verbindung
+            return fetch_daily_bulk(meteostat_id)
+        except Exception as exc:  # z. B. urlopen error, Timeout, HTTP-Fehler
             last_error = exc
             if attempt < FETCH_RETRIES:
-                print(f"  Netzwerkfehler ({exc}), Versuch {attempt}/{FETCH_RETRIES} - warte {FETCH_RETRY_DELAY_S}s ...")
-                time.sleep(FETCH_RETRY_DELAY_S)
+                time.sleep(delay)
+                delay *= 2  # exponentielles Backoff
     raise last_error
 
 
@@ -209,29 +269,118 @@ def compute_completeness(valid: pd.DataFrame) -> tuple[float, list]:
     return completeness_pct, gaps
 
 
-def build_station(station: dict) -> None:
-    meta = find_best_station(station["lat"], station["lon"])
-    meteostat_id = meta.name  # Index der Stations-Tabelle ist die Meteostat-ID
-    meteostat_name = meta["name"]
+def compute_station_id(name: str, meteostat_id: str) -> str:
+    """Stabile, eindeutige id: geslugter Stationsname + Meteostat-ID (die ist
+    global eindeutig, damit ist auch bei Namensgleichheit keine Kollision moeglich).
+    Haengt nur von Inventar-Metadaten ab, nicht von den Tagesdaten - kann also
+    VOR dem Download berechnet werden (fuer den Fortsetzbarkeits-Check)."""
+    return f"{slugify(name)}-{str(meteostat_id).lower()}"
 
-    daily_start = meta["daily_start"].to_pydatetime()
-    end = datetime.now()
 
-    print(f"Station {station['name']}: naechste Messstation '{meteostat_name}' ({meteostat_id}), "
-          f"Abstand {meta['distance'] / 1000:.1f} km, lade Tagesdaten ab {daily_start.date()} ...")
+def summarize_years(years_out: dict) -> tuple[list, list, dict]:
+    """Leitet aus den Jahresdaten ab: Top-3-Jahre nach heissen Tagen (fuer den
+    Report), 40+-Jahre (fuer die manuelle Kontrollliste, siehe v3 D1) und den
+    schlanken Jahres-Index fuer map_index.json. Wird sowohl fuer frisch
+    heruntergeladene als auch fuer aus dem Cache wiederhergestellte Stationen
+    genutzt, damit beide Pfade exakt dieselben Ergebnisse liefern."""
+    top_years = sorted(
+        ((year, entry["annual"]["hot_days"], entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
+         for year, entry in years_out.items()),
+        key=lambda t: -t[1],
+    )[:3]
 
-    df = fetch_daily_with_retry(meteostat_id, daily_start, end)
+    extreme_years = [
+        (year, entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
+        for year, entry in years_out.items()
+        if entry["annual"]["max_temp"] >= 40.0
+    ]
+
+    map_years = {
+        year: {
+            "annual": {"max_temp": e["annual"]["max_temp"], "hot_days": e["annual"]["hot_days"]},
+            **({"summer": {"max_temp": e["summer"]["max_temp"], "hot_days": e["summer"]["hot_days"]}}
+               if "summer" in e else {}),
+        }
+        for year, e in years_out.items()
+    }
+
+    return top_years, extreme_years, map_years
+
+
+def public_record(station_id: str, name: str, meta: pd.Series, meteostat_id: str,
+                   data_from: int, last_data: str, elevation_m: float | None, years_out: dict) -> dict:
+    """Baut den oeffentlichen Stationseintrag (fuer stations.json/map_index.json/
+    Report) - identisch verwendet fuer frisch geladene UND aus dem Cache
+    wiederhergestellte Stationen."""
+    top_years, extreme_years, map_years = summarize_years(years_out)
+    return {
+        "id": station_id,
+        "name": name,
+        "lat": round(float(meta["latitude"]), 4),
+        "lon": round(float(meta["longitude"]), 4),
+        "meteostat_station_name": name,
+        "meteostat_station_id": str(meteostat_id),
+        "region": None if pd.isna(meta.get("region")) else meta.get("region"),
+        "data_from": data_from,
+        "last_data": last_data,
+        "elevation_m": elevation_m,
+        "_top_years": top_years,
+        "_extreme_years": extreme_years,
+        "_map_years": map_years,
+    }
+
+
+def try_load_cached_station(station_id: str, meta: pd.Series, meteostat_id: str) -> dict | None:
+    """Fortsetzbarkeit: Wenn fuer diese Station schon eine series/<id>.json auf
+    der Platte liegt (aus einem frueheren, ggf. abgebrochenen Lauf), wird daraus
+    der oeffentliche Eintrag rekonstruiert - OHNE erneuten Download. Liefert
+    None, wenn nichts gecacht ist oder die Datei nicht lesbar/unvollstaendig ist
+    (dann wird ganz normal neu heruntergeladen)."""
+    path = SERIES_DIR / f"{station_id}.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            series = json.load(f)
+        years_out = series["years"]
+        if not years_out:
+            return None
+        sorted_years = sorted(years_out.keys(), key=int)
+        data_from = int(sorted_years[0])
+        last_data = years_out[sorted_years[-1]]["annual"]["last_date"]
+        elevation_m = series.get("elevation_m")
+    except (json.JSONDecodeError, KeyError, ValueError, OSError):
+        return None  # kaputte/unvollstaendige Cache-Datei -> lieber neu laden
+
+    return public_record(station_id, meta["name"], meta, meteostat_id, data_from, last_data, elevation_m, years_out)
+
+
+def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> dict | None:
+    """Laedt und verarbeitet eine einzelne Station frisch von Meteostat. Gibt
+    None zurueck (statt abzubrechen), wenn die Station aus irgendeinem Grund
+    nicht nutzbar ist - damit ein Fehler bei einer Station die anderen nicht
+    aufhaelt."""
+    name = meta["name"]
+
+    try:
+        df = fetch_daily_with_retry(meteostat_id)
+    except Exception as exc:
+        log(f"  FEHLER bei {name} ({meteostat_id}): {exc}")
+        return None
+
     df = df[["tavg", "tmax", "tmin"]].dropna(how="all")
-
     if df.empty:
-        raise RuntimeError(f"Keine Tagesdaten fuer Station {station['id']} erhalten.")
+        log(f"  FEHLER bei {name} ({meteostat_id}): keine Tagesdaten erhalten.")
+        return None
 
     valid = df.dropna(subset=["tmax"])
+    if valid.empty:
+        log(f"  FEHLER bei {name} ({meteostat_id}): keine gueltigen Tmax-Werte.")
+        return None
+
     data_from = int(valid.index.min().year)
     last_data = valid.index.max().strftime("%Y-%m-%d")
-    print(f"  -> Jahre {data_from}-{valid.index.max().year} geladen, letzter Datenpunkt {last_data}.")
 
-    # Absoluter Rekord ueber die gesamte Historie
     record_temp = valid["tmax"].max()
     record_date = valid["tmax"].idxmax().strftime("%Y-%m-%d")
 
@@ -249,14 +398,17 @@ def build_station(station: dict) -> None:
             entry["summer"] = summer_stats
         years_out[str(int(year))] = entry
 
-    elevation_m = None if pd.isna(meta.get("elevation")) else round(float(meta["elevation"]), 1)
+    if not years_out:
+        log(f"  FEHLER bei {name} ({meteostat_id}): keine brauchbaren Jahre nach Aufbereitung.")
+        return None
 
+    elevation_m = None if pd.isna(meta.get("elevation")) else round(float(meta["elevation"]), 1)
     hottest_year, mildest_year = compute_hottest_mildest_year(years_out)
     completeness_pct, data_gaps = compute_completeness(valid)
     trend_line, trend_summary = compute_trend_line_and_summary(years_out)
 
     series = {
-        "station_id": station["id"],
+        "station_id": station_id,
         "record": {"temp": round(float(record_temp), 1), "date": record_date},
         "years": years_out,
         "elevation_m": elevation_m,
@@ -273,60 +425,56 @@ def build_station(station: dict) -> None:
     }
 
     SERIES_DIR.mkdir(parents=True, exist_ok=True)
-    with open(SERIES_DIR / f"{station['id']}.json", "w", encoding="utf-8") as f:
+    with open(SERIES_DIR / f"{station_id}.json", "w", encoding="utf-8") as f:
         json.dump(series, f, ensure_ascii=False, indent=2)
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_df = valid.reset_index().rename(columns={"time": "date"})
     raw_df["date"] = raw_df["date"].dt.strftime("%Y-%m-%d")
-    raw_df[["date", "tmax", "tavg", "tmin"]].to_csv(RAW_DIR / f"{station['id']}.csv", index=False)
+    raw_df[["date", "tmax", "tavg", "tmin"]].to_csv(RAW_DIR / f"{station_id}.csv", index=False)
 
-    # Top-3-Jahre nach heissen Tagen (annual) - fuer den Datenreport, damit echte
-    # Ausreisser (oder Datenfehler) beim naechsten Lauf sofort auffallen.
-    top_years = sorted(
-        ((year, entry["annual"]["hot_days"], entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
-         for year, entry in years_out.items()),
-        key=lambda t: -t[1],
-    )[:3]
-
-    # 40+-Werte separat sammeln: in Deutschland selten, daher vor Veroeffentlichung
-    # manuell gegen offizielle DWD-Daten gegenpruefen (siehe AENDERUNGEN-v3 D1).
-    extreme_years = [
-        (year, entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
-        for year, entry in years_out.items()
-        if entry["annual"]["max_temp"] >= 40.0
-    ]
-
-    return {
-        "id": station["id"],
-        "name": station["name"],
-        "lat": station["lat"],
-        "lon": station["lon"],
-        "meteostat_station_name": meteostat_name,
-        "meteostat_station_id": str(meteostat_id),
-        "data_from": data_from,
-        "last_data": last_data,
-        "elevation_m": elevation_m,
-        "_distance_km": round(float(meta["distance"]) / 1000, 1),
-        "_top_years": top_years,
-        "_extreme_years": extreme_years,
-    }
+    return public_record(station_id, name, meta, meteostat_id, data_from, last_data, elevation_m, years_out)
 
 
-def write_data_report(stations_out: list) -> None:
-    """Schreibt einen Klartext-Report mit Stationsdetails und den Top-3-Jahren
-    nach heissen Tagen je Station - damit Ausreisser/Datenfehler sofort auffallen."""
+def write_data_report(stations_out: list, total_suitable: int, failed: list) -> None:
+    """Schreibt einen Klartext-Report: Stationsuebersicht, grobe Regionsverteilung,
+    Top-3-Jahre je Station, Freiburg-Datencheck (v2), die 40+-Kontrollliste (v3 D1)
+    und - falls der Lauf noch unterwegs/unterbrochen ist - wie viele Stationen noch
+    fehlen bzw. dauerhaft fehlgeschlagen sind."""
+    region_counts = Counter(s.get("region") or "unbekannt" for s in stations_out)
+    remaining = total_suitable - len(stations_out) - len(failed)
+
     lines = [
-        "Hitze-Check Deutschland — Datenreport",
+        "Hitze-Check Deutschland — Datenreport (bundesweit)",
         f"Erzeugt am: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
         "=" * 60,
         "",
+        f"Geeignete Stationen gefunden (Inventar-Vorfilter): {total_suitable}",
+        f"Davon erfolgreich verarbeitet: {len(stations_out)}",
+        f"Dauerhaft fehlgeschlagen (nach mehreren Versuchen): {len(failed)}",
     ]
+    if remaining > 0:
+        lines.append(f"Noch nicht bearbeitet (Lauf unterbrochen/laeuft noch): {remaining}")
+        lines.append('-> Einfach "python3 scripts/build_data.py" erneut ausfuehren, macht dort weiter.')
+    lines.append("")
+
+    if failed:
+        lines += ["Dauerhaft fehlgeschlagene Stationen (Netzwerkfehler o. ae. nach allen Versuchen):"]
+        for name, meteostat_id, reason in failed:
+            lines.append(f"  {name} ({meteostat_id}): {reason}")
+        lines.append("")
+
+    lines.append("Regionsverteilung (Anzahl Stationen je Bundesland-Kuerzel):")
+    for region, count in sorted(region_counts.items(), key=lambda kv: -kv[1]):
+        lines.append(f"  {region}: {count}")
+    lines.append("")
+
+    lines += ["=" * 60, "Stationsuebersicht mit Top-3-Jahren nach heissen Tagen:", ""]
     for s in stations_out:
         lines.append(f"{s['name']} ({s['id']})")
         lines.append(
-            f"  Messstation: {s['meteostat_station_name']} (ID {s['meteostat_station_id']}), "
-            f"Entfernung {s['_distance_km']} km, Hoehe {s['elevation_m']} m"
+            f"  Meteostat-ID {s['meteostat_station_id']}, Region {s.get('region') or 'unbekannt'}, "
+            f"Hoehe {s['elevation_m']} m"
         )
         lines.append(f"  Daten verfuegbar ab {s['data_from']}, Stand {s['last_data']}")
         lines.append("  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):")
@@ -336,9 +484,9 @@ def write_data_report(stations_out: list) -> None:
 
     lines += [
         "=" * 60,
-        "Datencheck Freiburg (Anfrage v2/A4):",
-        "  Verwendete Station: 'Freiburg', WMO/Meteostat-ID 10803, ICAO EDTF.",
-        "  Entfernung zum Zielort Freiburg i. Br.: 1.1 km, Hoehe 269 m ue. NN.",
+        "Datencheck Freiburg (Anfrage v2/A4, weiterhin gueltig):",
+        "  Betroffene Station in diesem Datensatz: Name 'Freiburg', Meteostat-ID 10803, ICAO EDTF,",
+        "  Region BW, Hoehe 269 m ue. NN.",
         "  Das ist die reale, offizielle DWD-Station in Freiburg (kein Merge/keine Ersatzstation).",
         "  Jahr 2003 faellt mit 55 heissen Tagen deutlich heraus. Stichprobe der raw-CSV",
         "  (Juni-August 2003) zeigt eine luecken- und sprungfreie, physikalisch plausible",
@@ -371,25 +519,96 @@ def write_data_report(stations_out: list) -> None:
         f.write("\n".join(lines))
 
 
-def main():
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    stations_out = []
+def write_outputs(stations_out: list, total_suitable: int, failed: list) -> None:
+    """Schreibt stations.json, map_index.json und den Datenreport aus dem
+    aktuellen (ggf. noch unvollstaendigen) Zwischenstand - wird sowohl als
+    Zwischenspeicherung (Checkpoint) als auch am Ende aufgerufen."""
+    stations_sorted = sorted(stations_out, key=lambda s: s["name"])
 
-    for station in STATIONS:
-        try:
-            stations_out.append(build_station(station))
-        except Exception as exc:  # eine fehlerhafte Station soll die anderen nicht stoppen
-            print(f"FEHLER bei Station {station['id']}: {exc}")
-
-    write_data_report(stations_out)
+    write_data_report(stations_sorted, total_suitable=total_suitable, failed=failed)
 
     # Interne Report-Felder (Prefix "_") gehoeren nicht in die oeffentliche stations.json
-    public_stations = [{k: v for k, v in s.items() if not k.startswith("_")} for s in stations_out]
+    public_stations = [{k: v for k, v in s.items() if not k.startswith("_")} for s in stations_sorted]
     with open(DATA_DIR / "stations.json", "w", encoding="utf-8") as f:
         json.dump(public_stations, f, ensure_ascii=False, indent=2)
 
-    print(f"\nFertig: {len(stations_out)}/{len(STATIONS)} Stationen erfolgreich verarbeitet.")
-    print(f"Datenreport geschrieben nach {DATA_DIR / 'data_report.txt'}")
+    # Schlanker Karten-Index (id, name, lat, lon, max_temp/hot_days je Jahr/Saison)
+    map_index = [
+        {"id": s["id"], "name": s["name"], "lat": s["lat"], "lon": s["lon"], "years": s["_map_years"]}
+        for s in stations_sorted
+    ]
+    with open(DATA_DIR / "map_index.json", "w", encoding="utf-8") as f:
+        json.dump(map_index, f, ensure_ascii=False, indent=2)
+
+
+def main():
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    log("Suche geeignete Stationen (Inventar-Vorfilter: "
+        f">= {MIN_SERIES_YEARS} Jahre Tagesreihe, Daten aus den letzten 2 Jahren) ...")
+    suitable = find_suitable_stations()
+    total = len(suitable)
+
+    # Fortsetzbarkeit: station_id kann rein aus den (bereits vorliegenden)
+    # Inventar-Metadaten berechnet werden, also VOR jedem Download - so laesst
+    # sich sofort pruefen, ob schon eine series/<id>.json existiert.
+    jobs = [(meteostat_id, meta, compute_station_id(meta["name"], meteostat_id))
+            for meteostat_id, meta in suitable.iterrows()]
+    already_cached = sum(1 for _, _, sid in jobs if (SERIES_DIR / f"{sid}.json").exists())
+    log(f"{total} geeignete Stationen gefunden ({already_cached} davon schon aus einem frueheren "
+        f"Lauf vorhanden - werden uebersprungen). Starte (bis zu {MAX_WORKERS} parallel, sanft) ...")
+
+    stations_out = []
+    failed = []  # (name, meteostat_id, grund) - fuer den Abschlussbericht
+    done_count = 0
+    count_lock = threading.Lock()
+
+    def process(meteostat_id, meta, station_id):
+        nonlocal done_count
+        cached = try_load_cached_station(station_id, meta, meteostat_id)
+        if cached is not None:
+            status = "gecacht (frueherer Lauf)"
+            result = cached
+        else:
+            result = build_station_fresh(meteostat_id, meta, station_id)
+            status = "ok" if result is not None else "uebersprungen (Fehler, siehe oben)"
+            if result is None:
+                failed.append((meta["name"], meteostat_id, "Download/Verarbeitung fehlgeschlagen"))
+        with count_lock:
+            done_count += 1
+            log(f"[{done_count}/{total}] {meta['name']} ({meteostat_id}): {status}")
+        return result
+
+    try:
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            futures = [executor.submit(process, meteostat_id, meta, sid) for meteostat_id, meta, sid in jobs]
+            for future in as_completed(futures):
+                result = future.result()
+                if result is not None:
+                    stations_out.append(result)
+                # Checkpoint: alle CHECKPOINT_EVERY erfolgreiche Stationen zwischenspeichern,
+                # damit bei einem harten Abbruch (Stromausfall, Fenster zu, Absturz) moeglichst
+                # wenig verloren geht und stations.json/map_index.json nie hoffnungslos veraltet sind.
+                if len(stations_out) % CHECKPOINT_EVERY == 0 and stations_out:
+                    write_outputs(stations_out, total_suitable=total, failed=failed)
+    except KeyboardInterrupt:
+        log("\nAbgebrochen (Strg+C) - speichere den bisherigen Stand ...")
+        write_outputs(stations_out, total_suitable=total, failed=failed)
+        log(f"Zwischenstand gesichert: {len(stations_out)}/{total} Stationen. "
+            'Einfach "python3 scripts/build_data.py" erneut ausfuehren, um fortzufahren.')
+        raise
+
+    write_outputs(stations_out, total_suitable=total, failed=failed)
+
+    log(f"\nFertig: {len(stations_out)}/{total} Stationen erfolgreich verarbeitet, "
+        f"{len(failed)} dauerhaft fehlgeschlagen.")
+    if failed:
+        log("Dauerhaft fehlgeschlagene Stationen:")
+        for name, meteostat_id, reason in failed:
+            log(f"  {name} ({meteostat_id}): {reason}")
+        log('Erneuter Aufruf von "python3 scripts/build_data.py" versucht auch diese wieder '
+            "(nur erfolgreiche Stationen werden uebersprungen).")
+    log(f"Datenreport geschrieben nach {DATA_DIR / 'data_report.txt'}")
 
 
 if __name__ == "__main__":

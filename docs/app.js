@@ -79,13 +79,17 @@ const state = {
 };
 
 let stations = [];
-let seriesByStation = {}; // station_id -> geladenes series/<id>.json
+let mapIndexByStation = {}; // station_id -> schlanker Jahres-Index (max_temp/hot_days) aus map_index.json
+let seriesByStation = {}; // station_id -> volle series/<id>.json, WIRD ERST BEIM KLICK NACHGELADEN
 let markersByStation = {}; // station_id -> Leaflet-Marker
 let areaLayersByStation = {}; // station_id -> Leaflet-GeoJSON-Layer (Voronoi-Zelle)
 let germanyGeoJson = null;
 let detailChart = null; // Chart.js-Instanz des Verlaufsdiagramms
+let areasCreated = false; // Voronoi-Flaechen werden erst beim ersten Wechsel in den Bereiche-Modus berechnet
 
-const stationsLayerGroup = L.layerGroup().addTo(map);
+// Marker-Clustering (viele Stationen bundesweit): rausgezoomt Cluster mit Anzahl,
+// reingezoomt einzelne, weiterhin individuell eingefaerbte Stationen.
+const stationsLayerGroup = L.markerClusterGroup({ maxClusterRadius: 50 }).addTo(map);
 const areasLayerGroup = L.layerGroup();
 
 function haversineKm(a, b) {
@@ -173,16 +177,19 @@ function formatTemp(value) {
   return `${value.toFixed(1).replace(".", ",")} °C`;
 }
 
+// Beim Start werden nur die schlanken Listen geladen (stations.json, map_index.json),
+// nicht alle vollen series/<id>.json - das waere bei bundesweit ~380 Stationen zu
+// viel. Die vollen Detaildaten einer Station werden erst beim Anklicken nachgeladen
+// (siehe selectStation).
 async function loadData() {
   const stationsRes = await fetch("data/stations.json");
   stations = await stationsRes.json();
 
-  await Promise.all(
-    stations.map(async (station) => {
-      const res = await fetch(`data/series/${station.id}.json`);
-      seriesByStation[station.id] = await res.json();
-    })
-  );
+  const mapIndexRes = await fetch("data/map_index.json");
+  const mapIndex = await mapIndexRes.json();
+  mapIndex.forEach((entry) => {
+    mapIndexByStation[entry.id] = entry.years;
+  });
 
   const germanyRes = await fetch("data/germany.geo.json");
   const germanyCollection = await germanyRes.json();
@@ -191,14 +198,27 @@ async function loadData() {
 
 function allAvailableYears() {
   const years = new Set();
-  Object.values(seriesByStation).forEach((series) => {
-    Object.keys(series.years).forEach((y) => years.add(Number(y)));
+  Object.values(mapIndexByStation).forEach((stationYears) => {
+    Object.keys(stationYears).forEach((y) => years.add(Number(y)));
   });
   return Array.from(years).sort((a, b) => a - b);
 }
 
+// Schlanke Kennzahlen (nur max_temp/hot_days) aus dem Karten-Index - reicht fuer
+// Einfaerbung, Tooltip und Jahresbereich, ohne die volle Station laden zu muessen.
+function lightStatsFor(stationId, year, period) {
+  const stationYears = mapIndexByStation[stationId];
+  if (!stationYears) return null;
+  const yearData = stationYears[String(year)];
+  if (!yearData) return null;
+  return yearData[period] || null;
+}
+
+// Volle Kennzahlen aus der (lazy nachgeladenen) series/<id>.json - nur verfuegbar,
+// nachdem die Station einmal angeklickt/geladen wurde.
 function statsFor(stationId, year, period) {
   const series = seriesByStation[stationId];
+  if (!series) return null;
   const yearData = series.years[String(year)];
   if (!yearData) return null;
   return yearData[period] || null;
@@ -280,29 +300,30 @@ function createAreaLayers() {
 }
 
 function colorForStationNow(stationId) {
-  const stats = statsFor(stationId, state.year, state.period);
+  const stats = lightStatsFor(stationId, state.year, state.period);
   return colorForTemp(stats ? stats.max_temp : null);
 }
 
 function colorForComparison(stationId) {
-  const statsA = statsFor(stationId, state.compareYearA, state.period);
-  const statsB = statsFor(stationId, state.compareYearB, state.period);
+  const statsA = lightStatsFor(stationId, state.compareYearA, state.period);
+  const statsB = lightStatsFor(stationId, state.compareYearB, state.period);
   if (!statsA || !statsB) return NO_DATA_COLOR;
   return colorForDiff(statsB.hot_days - statsA.hot_days);
 }
 
 // Zeigt den Zahlenwert immer im Tooltip an (nicht nur ueber die Farbe erkennbar) -
-// wichtig u. a. bei Farbsehschwaeche.
+// wichtig u. a. bei Farbsehschwaeche. Nutzt den schlanken Karten-Index, damit
+// das Hovern ueber eine Station keine eigene Netzwerkanfrage ausloest.
 function tooltipTextFor(stationId) {
   const station = stations.find((s) => s.id === stationId);
   if (state.compareMode) {
-    const statsA = statsFor(stationId, state.compareYearA, state.period);
-    const statsB = statsFor(stationId, state.compareYearB, state.period);
+    const statsA = lightStatsFor(stationId, state.compareYearA, state.period);
+    const statsB = lightStatsFor(stationId, state.compareYearB, state.period);
     if (!statsA || !statsB) return `${station.name}: keine Daten für mind. eines der Jahre`;
     const diff = statsB.hot_days - statsA.hot_days;
     return `${station.name}: ${formatSignedNumber(diff)} heiße Tage (${state.compareYearB} ggü. ${state.compareYearA})`;
   }
-  const stats = statsFor(stationId, state.year, state.period);
+  const stats = lightStatsFor(stationId, state.year, state.period);
   if (!stats) return `${station.name}: keine Daten für ${state.year}`;
   return `${station.name}: ${formatTemp(stats.max_temp)}`;
 }
@@ -323,15 +344,37 @@ function updateMarkers() {
   }
 }
 
-function selectStation(stationId, clickInfo = null) {
+// Die volle Station (series/<id>.json) wird erst beim Anklicken nachgeladen und
+// dann fuer die Sitzung zwischengespeichert (seriesByStation). Bis die Antwort da
+// ist, zeigt renderDetailPanel einen Ladezustand.
+async function selectStation(stationId, clickInfo = null) {
   if (state.selectedStation !== stationId) {
     state.moreDetailsOpen = false; // beim Stationswechsel wieder einklappen
   }
   state.selectedStation = stationId;
   state.clickInfo = clickInfo;
   document.getElementById("detail-panel").classList.remove("hidden");
-  renderDetailPanel(stationId);
   syncUrl();
+
+  if (!seriesByStation[stationId]) {
+    renderDetailPanel(stationId); // Ladezustand anzeigen
+    try {
+      const res = await fetch(`data/series/${stationId}.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      seriesByStation[stationId] = await res.json();
+    } catch (e) {
+      console.warn(`Konnte Stationsdaten fuer ${stationId} nicht laden:`, e);
+      if (state.selectedStation === stationId) {
+        document.getElementById("detail-title").textContent = "Fehler beim Laden der Stationsdaten";
+      }
+      return;
+    }
+  }
+
+  // Falls der Nutzer zwischenzeitlich eine andere Station gewaehlt hat: nicht mehr
+  // die (jetzt veraltete) Antwort dieser Anfrage anzeigen.
+  if (state.selectedStation !== stationId) return;
+  renderDetailPanel(stationId);
 }
 
 function closeDetailPanel() {
@@ -343,6 +386,20 @@ function closeDetailPanel() {
 function renderDetailPanel(stationId) {
   const station = stations.find((s) => s.id === stationId);
   const series = seriesByStation[stationId];
+
+  if (!series) {
+    // Volle Daten noch nicht geladen: nur Ladezustand zeigen, Rest ausblenden.
+    document.getElementById("detail-title").textContent = `${station.name} – lädt …`;
+    document.getElementById("detail-click-distance").classList.add("hidden");
+    document.getElementById("single-metrics").classList.remove("hidden");
+    document.getElementById("compare-metrics").classList.add("hidden");
+    ["metric-hotdays", "metric-mean", "metric-max"].forEach((id) => (document.getElementById(id).textContent = "…"));
+    document.getElementById("detail-period-note").textContent = "";
+    document.getElementById("detail-info").innerHTML = "";
+    document.getElementById("more-details").classList.add("hidden");
+    return;
+  }
+
   const stats = statsFor(stationId, state.year, state.period);
 
   document.getElementById("detail-title").textContent = station.name;
@@ -672,6 +729,14 @@ function setupControls() {
     areasNote.classList.toggle("hidden", mode !== "areas");
 
     if (mode === "areas") {
+      // Die Voronoi-Flaechen sind bei vielen Stationen (bundesweit) nicht ganz
+      // billig zu berechnen - daher erst beim ersten Wechsel in den Modus, nicht
+      // schon beim Laden der Seite.
+      if (!areasCreated) {
+        createAreaLayers();
+        areasCreated = true;
+        updateMarkers(); // faerbt die gerade erst erzeugten Flaechen ein
+      }
       map.removeLayer(stationsLayerGroup);
       map.addLayer(areasLayerGroup);
     } else {
@@ -843,7 +908,6 @@ function setupMoreDetailsToggle() {
 async function init() {
   await loadData();
   createMarkers();
-  createAreaLayers();
   setupControls();
   setupThemeToggle();
   setupShareLink();
