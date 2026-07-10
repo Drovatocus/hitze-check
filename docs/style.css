@@ -160,7 +160,8 @@ body {
   margin-bottom: 0.4rem;
 }
 
-#about-close {
+#about-close,
+#factcheck-close {
   position: absolute;
   top: 0.75rem;
   right: 0.9rem;
@@ -170,6 +171,29 @@ body {
   line-height: 1;
   cursor: pointer;
   color: var(--color-text-muted);
+}
+
+.factcheck-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.factcheck-item:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+.factcheck-claim {
+  font-weight: 600;
+  font-style: italic;
+  margin: 0 0 0.4rem;
+}
+
+.factcheck-answer {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .info-icon {

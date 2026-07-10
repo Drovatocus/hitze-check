@@ -811,6 +811,25 @@ function setupAboutOverlay() {
   });
 }
 
+function setupFactcheckOverlay() {
+  const overlay = document.getElementById("factcheck-overlay");
+  const closeBtn = document.getElementById("factcheck-close");
+
+  function open() {
+    overlay.classList.remove("hidden");
+  }
+  function close() {
+    overlay.classList.add("hidden");
+  }
+
+  // Mehrere Einstiege: Footer und der Link im "Ueber dieses Projekt"-Overlay.
+  document.querySelectorAll(".open-factcheck").forEach((btn) => btn.addEventListener("click", open));
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+}
+
 function setupMoreDetailsToggle() {
   const button = document.getElementById("more-details-toggle");
   const panel = document.getElementById("more-details");
@@ -829,6 +848,7 @@ async function init() {
   setupThemeToggle();
   setupShareLink();
   setupAboutOverlay();
+  setupFactcheckOverlay();
   setupMoreDetailsToggle();
   setupPlaceSearch();
   updateMarkers();

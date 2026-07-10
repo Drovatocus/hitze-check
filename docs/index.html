@@ -194,7 +194,10 @@
 <footer class="app-footer">
   <span>⚠️ Hinweis: Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht ändern.</span>
   <span>Datenbasis: Meteostat / DWD — <a href="https://meteostat.net/" target="_blank" rel="noopener">meteostat.net</a></span>
-  <button type="button" id="about-link" class="footer-link-btn">ℹ️ Über dieses Projekt / Methodik</button>
+  <span>
+    <button type="button" id="about-link" class="footer-link-btn">ℹ️ Über dieses Projekt / Methodik</button>
+    · <button type="button" class="footer-link-btn open-factcheck">🔍 Häufige Behauptungen im Faktencheck</button>
+  </span>
 </footer>
 
 <div id="about-overlay" class="overlay hidden">
@@ -241,6 +244,63 @@
       <li>Genutzt wird jeweils die nächstgelegene Station mit möglichst langer Tages-Historie —
         nicht zwingend die Station direkt im Stadtzentrum.</li>
     </ul>
+
+    <p>
+      Siehe auch: <button type="button" class="footer-link-btn open-factcheck">Häufige Behauptungen im Faktencheck</button>
+    </p>
+  </div>
+</div>
+
+<div id="factcheck-overlay" class="overlay hidden">
+  <div class="overlay-box">
+    <button type="button" id="factcheck-close" aria-label="Schließen">&times;</button>
+    <h2>Häufige Behauptungen im Faktencheck</h2>
+    <p>
+      Im Zusammenhang mit Hitze und Klima kursieren immer wieder ähnliche Aussagen. Hier ordnen
+      wir ein paar davon mit den Daten aus diesem Werkzeug ein, damit du sie selbst nachvollziehen
+      kannst.
+    </p>
+
+    <div class="factcheck-item">
+      <p class="factcheck-claim">„In Deutschland wurden schon 56 °C gemessen.“</p>
+      <p class="factcheck-answer">
+        Nein. Der von DWD offiziell anerkannte Rekord liegt bei 41,2 °C, gemessen am 25.07.2019
+        in Lingen (Emsland). Höhere Zahlen, die gelegentlich kursieren, stammen nicht aus
+        geprüften amtlichen Messreihen.
+      </p>
+    </div>
+
+    <div class="factcheck-item">
+      <p class="factcheck-claim">„Früher war es genauso heiß wie heute.“</p>
+      <p class="factcheck-answer">
+        Das lässt sich mit diesem Werkzeug selbst nachprüfen: Station öffnen, auf
+        „Mehr Details“ klicken und den Dekaden-Vergleich ansehen — er zeigt die durchschnittliche
+        Anzahl heißer Tage je Jahrzehnt. Einzelne frühere Jahre (z. B. 1947 oder 1994) hatten
+        durchaus viele heiße Tage; im mehrjährigen Durchschnitt liegen die jüngeren Jahrzehnte an
+        den meisten Stationen aber höher.
+      </p>
+    </div>
+
+    <div class="factcheck-item">
+      <p class="factcheck-claim">„Ein einzelner heißer Sommer sagt nichts.“</p>
+      <p class="factcheck-answer">
+        Ein einzelnes Jahr kann vom langjährigen Muster abweichen — das ist normal. Ob sich etwas
+        grundlegend verändert, zeigt sich erst im Verlauf über viele Jahre. Im
+        Verlaufsdiagramm jeder Station markiert die Trendlinie genau diesen langfristigen Verlauf,
+        getrennt von den einzelnen Jahresbalken.
+      </p>
+    </div>
+
+    <div class="factcheck-item">
+      <p class="factcheck-claim">„Ein Hitzerekord in einer Stadt zeigt, dass es überall in Deutschland genauso heiß ist.“</p>
+      <p class="factcheck-answer">
+        Jede Station steht für ihre Region, nicht für ganz Deutschland. Im Bereiche-Modus wird
+        sichtbar, wie groß diese Flächen teils sind — eine einzelne Messstation kann für ein
+        großes Gebiet stehen, in dem das tatsächliche Wetter etwas abweichen kann.
+      </p>
+    </div>
+
+    <p class="source-line">Datenbasis: Meteostat / DWD.</p>
   </div>
 </div>
 
