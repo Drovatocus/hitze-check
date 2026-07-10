@@ -30,6 +30,13 @@ function formatSignedNumber(value, decimals = 0) {
   return (value > 0 ? "+" : "") + rounded;
 }
 
+// Kennzeichnet unvollstaendige Jahre (v. a. das laufende Jahr), damit ein
+// "bisher"-Wert nicht mit einem vollen Jahr verwechselt wird.
+function incompleteNote(year, stats) {
+  if (!stats || stats.complete) return "";
+  return ` Jahr ${year} bisher, Stand ${formatDateGerman(stats.last_date)}.`;
+}
+
 // Haelt den aktuellen Zustand in der URL fest, damit sich eine konkrete Ansicht
 // (Jahr/Zeitraum/Modus/Station) per Link teilen und beim Laden wiederherstellen laesst.
 function syncUrl() {
@@ -312,7 +319,8 @@ function renderDetailPanel(stationId) {
       document.getElementById("cmp-max-diff").textContent =
         formatSignedNumber(statsB.max_temp - statsA.max_temp, 1) + " °C";
       periodNote.textContent = `Vergleich (${periodLabel}): ${state.compareYearB} gegenüber ${state.compareYearA}. `
-        + `${formatSignedNumber(statsB.hot_days - statsA.hot_days)} heiße Tage.`;
+        + `${formatSignedNumber(statsB.hot_days - statsA.hot_days)} heiße Tage.`
+        + incompleteNote(state.compareYearA, statsA) + incompleteNote(state.compareYearB, statsB);
     } else {
       ["cmp-hotdays-diff", "cmp-mean-diff", "cmp-max-diff"].forEach((id) => (document.getElementById(id).textContent = "–"));
       periodNote.textContent = "Für mindestens eines der beiden Jahre liegen keine Daten vor.";
@@ -327,9 +335,14 @@ function renderDetailPanel(stationId) {
       ? `${formatTemp(stats.max_temp)} am ${formatDateGerman(stats.max_temp_date)}`
       : "–";
 
-    periodNote.textContent = stats
-      ? `Zeitraum: ${state.year}, ${periodLabel}`
-      : `Für ${state.year} (${periodLabel}) liegen keine Daten vor.`;
+    if (!stats) {
+      periodNote.textContent = `Für ${state.year} (${periodLabel}) liegen keine Daten vor.`;
+    } else if (!stats.complete) {
+      periodNote.textContent =
+        `Zeitraum: ${state.year} (bisher, Stand ${formatDateGerman(stats.last_date)}), ${periodLabel} — die Zahl kann noch steigen.`;
+    } else {
+      periodNote.textContent = `Zeitraum: ${state.year}, ${periodLabel}`;
+    }
   }
 
   const infoList = document.getElementById("detail-info");

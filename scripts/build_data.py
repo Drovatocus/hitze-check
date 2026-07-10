@@ -86,8 +86,11 @@ def fetch_daily_with_retry(meteostat_id: str, start: datetime, end: datetime) ->
     raise last_error
 
 
-def compute_period_stats(df: pd.DataFrame) -> dict | None:
-    """Berechnet hot_days / mean_temp / max_temp(+Datum) fuer einen Zeitausschnitt."""
+def compute_period_stats(df: pd.DataFrame, period_end: datetime) -> dict | None:
+    """Berechnet hot_days / mean_temp / max_temp(+Datum) fuer einen Zeitausschnitt.
+    period_end ist das natuerliche Ende des Zeitraums (31.12. bzw. 31.08. des Jahres);
+    reicht die Datenreihe nicht bis dahin, gilt der Zeitraum als unvollstaendig
+    (u. a. das laufende Jahr)."""
     if df.empty or df["tmax"].isna().all():
         return None
 
@@ -96,6 +99,7 @@ def compute_period_stats(df: pd.DataFrame) -> dict | None:
     mean_temp = df["tavg"].mean()
     max_temp = df["tmax"].max()
     max_temp_date = df["tmax"].idxmax()
+    last_date = df["tmax"].dropna().index.max()
 
     # tmin ist bei vielen (v. a. aelteren) Messungen gar nicht erfasst -> dann
     # bleibt tropical_nights None ("nicht verfuegbar"), nicht 0.
@@ -111,6 +115,8 @@ def compute_period_stats(df: pd.DataFrame) -> dict | None:
         # Dann bleibt mean_temp None, statt das ganze Jahr zu verwerfen.
         "mean_temp": None if pd.isna(mean_temp) else round(float(mean_temp), 1),
         "max_temp": round(float(max_temp), 1),
+        "complete": bool(last_date >= pd.Timestamp(period_end)),
+        "last_date": last_date.strftime("%Y-%m-%d"),
         "max_temp_date": max_temp_date.strftime("%Y-%m-%d"),
     }
 
@@ -199,12 +205,12 @@ def build_station(station: dict) -> None:
 
     years_out = {}
     for year, year_df in df.groupby(df.index.year):
-        annual_stats = compute_period_stats(year_df)
+        annual_stats = compute_period_stats(year_df, datetime(int(year), 12, 31))
         if annual_stats is None:
             continue  # Jahr ohne brauchbare Daten ueberspringen
 
         summer_df = year_df[year_df.index.month.isin(SUMMER_MONTHS)]
-        summer_stats = compute_period_stats(summer_df)
+        summer_stats = compute_period_stats(summer_df, datetime(int(year), 8, 31))
 
         entry = {"annual": annual_stats}
         if summer_stats is not None:
