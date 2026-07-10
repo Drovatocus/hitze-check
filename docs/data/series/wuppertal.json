@@ -8,12 +8,16 @@
     "1931": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 22,
+        "tropical_nights": 0,
         "mean_temp": 14.1,
         "max_temp": 30.0,
         "max_temp_date": "1931-05-26"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 17,
+        "tropical_nights": 0,
         "mean_temp": 17.6,
         "max_temp": 30.0,
         "max_temp_date": "1931-07-24"
@@ -22,12 +26,16 @@
     "1932": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 40,
+        "tropical_nights": 2,
         "mean_temp": 11.1,
         "max_temp": 33.9,
         "max_temp_date": "1932-08-19"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 32,
+        "tropical_nights": 2,
         "mean_temp": 18.8,
         "max_temp": 33.9,
         "max_temp_date": "1932-08-19"
@@ -36,12 +44,16 @@
     "1933": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 38,
+        "tropical_nights": 1,
         "mean_temp": 9.8,
         "max_temp": 33.9,
         "max_temp_date": "1933-07-27"
       },
       "summer": {
         "hot_days": 6,
+        "summer_days": 34,
+        "tropical_nights": 1,
         "mean_temp": 18.2,
         "max_temp": 33.9,
         "max_temp_date": "1933-07-27"
@@ -50,12 +62,16 @@
     "1934": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 43,
+        "tropical_nights": 0,
         "mean_temp": 10.8,
         "max_temp": 30.0,
         "max_temp_date": "1934-06-17"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 28,
+        "tropical_nights": 0,
         "mean_temp": 17.2,
         "max_temp": 30.0,
         "max_temp_date": "1934-06-17"
@@ -64,12 +80,16 @@
     "1935": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 28,
+        "tropical_nights": 0,
         "mean_temp": 9.7,
         "max_temp": 29.7,
         "max_temp_date": "1935-06-25"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 27,
+        "tropical_nights": 0,
         "mean_temp": 17.6,
         "max_temp": 29.7,
         "max_temp_date": "1935-06-25"
@@ -78,12 +98,16 @@
     "1936": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 14,
+        "tropical_nights": 0,
         "mean_temp": 9.5,
         "max_temp": 30.4,
         "max_temp_date": "1936-06-21"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 16.8,
         "max_temp": 30.4,
         "max_temp_date": "1936-06-21"
@@ -92,12 +116,16 @@
     "1937": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 32,
+        "tropical_nights": 0,
         "mean_temp": 10.3,
         "max_temp": 33.9,
         "max_temp_date": "1937-08-08"
       },
       "summer": {
         "hot_days": 6,
+        "summer_days": 21,
+        "tropical_nights": 0,
         "mean_temp": 17.2,
         "max_temp": 33.9,
         "max_temp_date": "1937-08-08"
@@ -106,12 +134,16 @@
     "1938": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 22,
+        "tropical_nights": 0,
         "mean_temp": 9.9,
         "max_temp": 32.5,
         "max_temp_date": "1938-08-04"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 19,
+        "tropical_nights": 0,
         "mean_temp": 17.0,
         "max_temp": 32.5,
         "max_temp_date": "1938-08-04"
@@ -120,12 +152,16 @@
     "1939": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 28,
+        "tropical_nights": 0,
         "mean_temp": 9.8,
         "max_temp": 31.2,
         "max_temp_date": "1939-06-07"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 24,
+        "tropical_nights": 0,
         "mean_temp": 17.5,
         "max_temp": 31.2,
         "max_temp_date": "1939-06-07"
@@ -134,12 +170,16 @@
     "1940": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 14,
+        "tropical_nights": 0,
         "mean_temp": 8.3,
         "max_temp": 27.9,
         "max_temp_date": "1940-08-05"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 16.3,
         "max_temp": 27.9,
         "max_temp_date": "1940-08-05"
@@ -148,12 +188,16 @@
     "1941": {
       "annual": {
         "hot_days": 11,
+        "summer_days": 27,
+        "tropical_nights": 3,
         "mean_temp": 8.8,
         "max_temp": 33.0,
         "max_temp_date": "1941-07-08"
       },
       "summer": {
         "hot_days": 11,
+        "summer_days": 23,
+        "tropical_nights": 3,
         "mean_temp": 17.3,
         "max_temp": 33.0,
         "max_temp_date": "1941-07-08"
@@ -162,12 +206,16 @@
     "1942": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 24,
+        "tropical_nights": 3,
         "mean_temp": 8.7,
         "max_temp": 31.7,
         "max_temp_date": "1942-08-29"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 21,
+        "tropical_nights": 3,
         "mean_temp": 16.7,
         "max_temp": 31.7,
         "max_temp_date": "1942-08-29"
@@ -176,12 +224,16 @@
     "1943": {
       "annual": {
         "hot_days": 7,
+        "summer_days": 23,
+        "tropical_nights": 2,
         "mean_temp": 10.1,
         "max_temp": 33.4,
         "max_temp_date": "1943-08-21"
       },
       "summer": {
         "hot_days": 7,
+        "summer_days": 19,
+        "tropical_nights": 2,
         "mean_temp": 16.8,
         "max_temp": 33.4,
         "max_temp_date": "1943-08-21"
@@ -190,12 +242,16 @@
     "1944": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 25,
+        "tropical_nights": 2,
         "mean_temp": 9.4,
         "max_temp": 35.0,
         "max_temp_date": "1944-08-23"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 21,
+        "tropical_nights": 2,
         "mean_temp": 17.2,
         "max_temp": 35.0,
         "max_temp_date": "1944-08-23"
@@ -204,12 +260,16 @@
     "1948": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 24,
+        "tropical_nights": 0,
         "mean_temp": 10.5,
         "max_temp": 32.2,
         "max_temp_date": "1948-07-30"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 19,
+        "tropical_nights": 0,
         "mean_temp": 16.7,
         "max_temp": 32.2,
         "max_temp_date": "1948-07-30"
@@ -218,12 +278,16 @@
     "1949": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 33,
+        "tropical_nights": 1,
         "mean_temp": 10.5,
         "max_temp": 31.4,
         "max_temp_date": "1949-07-13"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 21,
+        "tropical_nights": 0,
         "mean_temp": 16.8,
         "max_temp": 31.4,
         "max_temp_date": "1949-07-13"
@@ -232,12 +296,16 @@
     "1950": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 23,
+        "tropical_nights": 0,
         "mean_temp": 9.8,
         "max_temp": 30.7,
         "max_temp_date": "1950-06-07"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 22,
+        "tropical_nights": 0,
         "mean_temp": 18.3,
         "max_temp": 30.7,
         "max_temp_date": "1950-06-07"
@@ -246,12 +314,16 @@
     "1951": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 21,
+        "tropical_nights": 0,
         "mean_temp": 10.0,
         "max_temp": 29.8,
         "max_temp_date": "1951-07-31"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 14,
+        "tropical_nights": 0,
         "mean_temp": 16.7,
         "max_temp": 29.8,
         "max_temp_date": "1951-07-31"
@@ -260,12 +332,16 @@
     "1952": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 19,
+        "tropical_nights": 1,
         "mean_temp": 9.1,
         "max_temp": 32.9,
         "max_temp_date": "1952-07-02"
       },
       "summer": {
         "hot_days": 6,
+        "summer_days": 18,
+        "tropical_nights": 1,
         "mean_temp": 17.2,
         "max_temp": 32.9,
         "max_temp_date": "1952-07-02"
@@ -274,12 +350,16 @@
     "1953": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 23,
+        "tropical_nights": 0,
         "mean_temp": 10.2,
         "max_temp": 30.9,
         "max_temp_date": "1953-08-13"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 14,
+        "tropical_nights": 0,
         "mean_temp": 16.6,
         "max_temp": 30.9,
         "max_temp_date": "1953-08-13"
@@ -288,12 +368,16 @@
     "1954": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 15,
+        "tropical_nights": 0,
         "mean_temp": 9.2,
         "max_temp": 29.5,
         "max_temp_date": "1954-08-03"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 7,
+        "tropical_nights": 0,
         "mean_temp": 15.4,
         "max_temp": 29.5,
         "max_temp_date": "1954-08-03"
@@ -302,12 +386,16 @@
     "1955": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 19,
+        "tropical_nights": 0,
         "mean_temp": 9.0,
         "max_temp": 30.6,
         "max_temp_date": "1955-07-17"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 18,
+        "tropical_nights": 0,
         "mean_temp": 17.2,
         "max_temp": 30.6,
         "max_temp_date": "1955-07-17"
@@ -316,12 +404,16 @@
     "1956": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 5,
+        "tropical_nights": 0,
         "mean_temp": 8.2,
         "max_temp": 28.5,
         "max_temp_date": "1956-07-09"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 2,
+        "tropical_nights": 0,
         "mean_temp": 14.6,
         "max_temp": 28.5,
         "max_temp_date": "1956-07-09"
@@ -330,12 +422,16 @@
     "1957": {
       "annual": {
         "hot_days": 7,
+        "summer_days": 21,
+        "tropical_nights": 4,
         "mean_temp": 10.0,
         "max_temp": 33.9,
         "max_temp_date": "1957-07-06"
       },
       "summer": {
         "hot_days": 7,
+        "summer_days": 20,
+        "tropical_nights": 4,
         "mean_temp": 17.1,
         "max_temp": 33.9,
         "max_temp_date": "1957-07-06"
@@ -344,12 +440,16 @@
     "1958": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 24,
+        "tropical_nights": 0,
         "mean_temp": 9.5,
         "max_temp": 28.7,
         "max_temp_date": "1958-09-06"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 18,
+        "tropical_nights": 0,
         "mean_temp": 16.6,
         "max_temp": 28.0,
         "max_temp_date": "1958-08-29"
@@ -358,12 +458,16 @@
     "1959": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 47,
+        "tropical_nights": 3,
         "mean_temp": 10.8,
         "max_temp": 34.5,
         "max_temp_date": "1959-07-09"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 39,
+        "tropical_nights": 3,
         "mean_temp": 18.4,
         "max_temp": 34.5,
         "max_temp_date": "1959-07-09"
@@ -372,12 +476,16 @@
     "1960": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 11,
+        "tropical_nights": 0,
         "mean_temp": 9.8,
         "max_temp": 29.2,
         "max_temp_date": "1960-06-23"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 9,
+        "tropical_nights": 0,
         "mean_temp": 15.9,
         "max_temp": 29.2,
         "max_temp_date": "1960-06-23"
@@ -386,12 +494,16 @@
     "1961": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 22,
+        "tropical_nights": 0,
         "mean_temp": 10.2,
         "max_temp": 31.5,
         "max_temp_date": "1961-07-02"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 12,
+        "tropical_nights": 0,
         "mean_temp": 15.9,
         "max_temp": 31.5,
         "max_temp_date": "1961-07-02"
@@ -400,12 +512,16 @@
     "1962": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 5,
+        "tropical_nights": 0,
         "mean_temp": 8.2,
         "max_temp": 28.6,
         "max_temp_date": "1962-09-03"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 4,
+        "tropical_nights": 0,
         "mean_temp": 15.1,
         "max_temp": 28.0,
         "max_temp_date": "1962-06-14"
@@ -414,12 +530,16 @@
     "1963": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 8.3,
         "max_temp": 31.1,
         "max_temp_date": "1963-08-03"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 11,
+        "tropical_nights": 0,
         "mean_temp": 16.4,
         "max_temp": 31.1,
         "max_temp_date": "1963-08-03"
@@ -428,12 +548,16 @@
     "1964": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 31,
+        "tropical_nights": 2,
         "mean_temp": 9.6,
         "max_temp": 33.9,
         "max_temp_date": "1964-08-27"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 22,
+        "tropical_nights": 2,
         "mean_temp": 17.2,
         "max_temp": 33.9,
         "max_temp_date": "1964-08-27"
@@ -442,12 +566,16 @@
     "1965": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 8,
+        "tropical_nights": 0,
         "mean_temp": 8.9,
         "max_temp": 27.9,
         "max_temp_date": "1965-08-05"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 7,
+        "tropical_nights": 0,
         "mean_temp": 15.5,
         "max_temp": 27.9,
         "max_temp_date": "1965-08-05"
@@ -456,12 +584,16 @@
     "1966": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 20,
+        "tropical_nights": 0,
         "mean_temp": 9.8,
         "max_temp": 31.1,
         "max_temp_date": "1966-08-13"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 15,
+        "tropical_nights": 0,
         "mean_temp": 16.4,
         "max_temp": 31.1,
         "max_temp_date": "1966-08-13"
@@ -470,12 +602,16 @@
     "1967": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 23,
+        "tropical_nights": 1,
         "mean_temp": 10.1,
         "max_temp": 31.0,
         "max_temp_date": "1967-07-13"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 19,
+        "tropical_nights": 1,
         "mean_temp": 17.3,
         "max_temp": 31.0,
         "max_temp_date": "1967-07-13"
@@ -484,12 +620,16 @@
     "1968": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 15,
+        "tropical_nights": 1,
         "mean_temp": 9.4,
         "max_temp": 31.0,
         "max_temp_date": "1968-07-01"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 12,
+        "tropical_nights": 1,
         "mean_temp": 16.6,
         "max_temp": 31.0,
         "max_temp_date": "1968-07-01"
@@ -498,12 +638,16 @@
     "1969": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 29,
+        "tropical_nights": 0,
         "mean_temp": 9.5,
         "max_temp": 31.5,
         "max_temp_date": "1969-07-24"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 23,
+        "tropical_nights": 0,
         "mean_temp": 17.3,
         "max_temp": 31.5,
         "max_temp_date": "1969-07-24"
@@ -512,12 +656,16 @@
     "1970": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 23,
+        "tropical_nights": 0,
         "mean_temp": 9.3,
         "max_temp": 29.7,
         "max_temp_date": "1970-06-27"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 23,
+        "tropical_nights": 0,
         "mean_temp": 17.3,
         "max_temp": 29.7,
         "max_temp_date": "1970-06-27"
@@ -526,12 +674,16 @@
     "1971": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 23,
+        "tropical_nights": 1,
         "mean_temp": 10.0,
         "max_temp": 30.2,
         "max_temp_date": "1971-07-09"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 21,
+        "tropical_nights": 1,
         "mean_temp": 16.9,
         "max_temp": 30.2,
         "max_temp_date": "1971-07-09"
@@ -540,12 +692,16 @@
     "1972": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 11,
+        "tropical_nights": 2,
         "mean_temp": 9.3,
         "max_temp": 32.6,
         "max_temp_date": "1972-07-19"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 11,
+        "tropical_nights": 2,
         "mean_temp": 16.0,
         "max_temp": 32.6,
         "max_temp_date": "1972-07-19"
@@ -554,12 +710,16 @@
     "1973": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 33,
+        "tropical_nights": 3,
         "mean_temp": 9.7,
         "max_temp": 31.4,
         "max_temp_date": "1973-07-05"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 27,
+        "tropical_nights": 2,
         "mean_temp": 18.0,
         "max_temp": 31.4,
         "max_temp_date": "1973-07-05"
@@ -568,12 +728,16 @@
     "1974": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 10,
+        "tropical_nights": 2,
         "mean_temp": 10.0,
         "max_temp": 31.7,
         "max_temp_date": "1974-08-16"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 8,
+        "tropical_nights": 2,
         "mean_temp": 16.1,
         "max_temp": 31.7,
         "max_temp_date": "1974-08-16"
@@ -582,12 +746,16 @@
     "1975": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 30,
+        "tropical_nights": 3,
         "mean_temp": 10.2,
         "max_temp": 31.7,
         "max_temp_date": "1975-08-07"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 29,
+        "tropical_nights": 3,
         "mean_temp": 18.2,
         "max_temp": 31.7,
         "max_temp_date": "1975-08-07"
@@ -596,12 +764,16 @@
     "1976": {
       "annual": {
         "hot_days": 13,
+        "summer_days": 45,
+        "tropical_nights": 5,
         "mean_temp": 10.2,
         "max_temp": 34.3,
         "max_temp_date": "1976-07-03"
       },
       "summer": {
         "hot_days": 13,
+        "summer_days": 39,
+        "tropical_nights": 5,
         "mean_temp": 19.1,
         "max_temp": 34.3,
         "max_temp_date": "1976-07-03"
@@ -610,12 +782,16 @@
     "1977": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 11,
+        "tropical_nights": 0,
         "mean_temp": 9.9,
         "max_temp": 30.1,
         "max_temp_date": "1977-06-13"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 11,
+        "tropical_nights": 0,
         "mean_temp": 16.2,
         "max_temp": 30.1,
         "max_temp_date": "1977-06-13"
@@ -624,12 +800,16 @@
     "1978": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 17,
+        "tropical_nights": 2,
         "mean_temp": 9.1,
         "max_temp": 30.5,
         "max_temp_date": "1978-07-30"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 15,
+        "tropical_nights": 2,
         "mean_temp": 15.5,
         "max_temp": 30.5,
         "max_temp_date": "1978-07-30"
@@ -638,12 +818,16 @@
     "1979": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 17,
+        "tropical_nights": 1,
         "mean_temp": 8.8,
         "max_temp": 29.8,
         "max_temp_date": "1979-05-31"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 10,
+        "tropical_nights": 1,
         "mean_temp": 16.0,
         "max_temp": 29.2,
         "max_temp_date": "1979-06-04"
@@ -652,12 +836,16 @@
     "1980": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 14,
+        "tropical_nights": 0,
         "mean_temp": 9.2,
         "max_temp": 30.4,
         "max_temp_date": "1980-08-02"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 12,
+        "tropical_nights": 0,
         "mean_temp": 16.1,
         "max_temp": 30.4,
         "max_temp_date": "1980-08-02"
@@ -666,12 +854,16 @@
     "1981": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 18,
+        "tropical_nights": 0,
         "mean_temp": 9.4,
         "max_temp": 30.7,
         "max_temp_date": "1981-08-05"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 16.4,
         "max_temp": 30.7,
         "max_temp_date": "1981-08-05"
@@ -680,12 +872,16 @@
     "1982": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 37,
+        "tropical_nights": 1,
         "mean_temp": 10.5,
         "max_temp": 31.0,
         "max_temp_date": "1982-08-02"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 25,
+        "tropical_nights": 1,
         "mean_temp": 17.9,
         "max_temp": 31.0,
         "max_temp_date": "1982-08-02"
@@ -694,12 +890,16 @@
     "1983": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 45,
+        "tropical_nights": 6,
         "mean_temp": 10.4,
         "max_temp": 33.3,
         "max_temp_date": "1983-07-17"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 42,
+        "tropical_nights": 6,
         "mean_temp": 19.3,
         "max_temp": 33.3,
         "max_temp_date": "1983-07-17"
@@ -708,12 +908,16 @@
     "1984": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 16,
+        "tropical_nights": 2,
         "mean_temp": 9.5,
         "max_temp": 31.3,
         "max_temp_date": "1984-07-09"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 16,
+        "tropical_nights": 2,
         "mean_temp": 16.2,
         "max_temp": 31.3,
         "max_temp_date": "1984-07-09"
@@ -722,12 +926,16 @@
     "1985": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 16,
+        "tropical_nights": 0,
         "mean_temp": 8.6,
         "max_temp": 31.1,
         "max_temp_date": "1985-07-14"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 15.8,
         "max_temp": 31.1,
         "max_temp_date": "1985-07-14"
@@ -736,12 +944,16 @@
     "1986": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 26,
+        "tropical_nights": 0,
         "mean_temp": 9.2,
         "max_temp": 32.7,
         "max_temp_date": "1986-08-03"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 25,
+        "tropical_nights": 0,
         "mean_temp": 17.0,
         "max_temp": 32.7,
         "max_temp_date": "1986-08-03"
@@ -750,12 +962,16 @@
     "1987": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 15,
+        "tropical_nights": 1,
         "mean_temp": 8.8,
         "max_temp": 30.5,
         "max_temp_date": "1987-06-30"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 11,
+        "tropical_nights": 1,
         "mean_temp": 15.8,
         "max_temp": 30.5,
         "max_temp_date": "1987-06-30"
@@ -764,12 +980,16 @@
     "1988": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 10.2,
         "max_temp": 28.6,
         "max_temp_date": "1988-07-23"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 9,
+        "tropical_nights": 0,
         "mean_temp": 16.2,
         "max_temp": 28.6,
         "max_temp_date": "1988-07-23"
@@ -778,12 +998,16 @@
     "1989": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 34,
+        "tropical_nights": 2,
         "mean_temp": 11.0,
         "max_temp": 31.7,
         "max_temp_date": "1989-07-22"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 26,
+        "tropical_nights": 2,
         "mean_temp": 17.5,
         "max_temp": 31.7,
         "max_temp_date": "1989-07-22"
@@ -792,12 +1016,16 @@
     "1990": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 30,
+        "tropical_nights": 2,
         "mean_temp": 10.8,
         "max_temp": 34.3,
         "max_temp_date": "1990-08-04"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 26,
+        "tropical_nights": 2,
         "mean_temp": 17.4,
         "max_temp": 34.3,
         "max_temp_date": "1990-08-04"
@@ -806,12 +1034,16 @@
     "1991": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 28,
+        "tropical_nights": 2,
         "mean_temp": 9.8,
         "max_temp": 32.8,
         "max_temp_date": "1991-07-11"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 24,
+        "tropical_nights": 2,
         "mean_temp": 17.1,
         "max_temp": 32.8,
         "max_temp_date": "1991-07-11"
@@ -820,12 +1052,16 @@
     "1992": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 40,
+        "tropical_nights": 1,
         "mean_temp": 10.5,
         "max_temp": 32.0,
         "max_temp_date": "1992-08-09"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 27,
+        "tropical_nights": 1,
         "mean_temp": 18.3,
         "max_temp": 32.0,
         "max_temp_date": "1992-08-09"
@@ -834,12 +1070,16 @@
     "1993": {
       "annual": {
         "hot_days": 0,
+        "summer_days": 19,
+        "tropical_nights": 0,
         "mean_temp": 9.8,
         "max_temp": 28.9,
         "max_temp_date": "1993-06-09"
       },
       "summer": {
         "hot_days": 0,
+        "summer_days": 13,
+        "tropical_nights": 0,
         "mean_temp": 16.5,
         "max_temp": 28.9,
         "max_temp_date": "1993-06-09"
@@ -848,12 +1088,16 @@
     "1994": {
       "annual": {
         "hot_days": 17,
+        "summer_days": 39,
+        "tropical_nights": 7,
         "mean_temp": 11.0,
         "max_temp": 35.2,
         "max_temp_date": "1994-08-04"
       },
       "summer": {
         "hot_days": 17,
+        "summer_days": 39,
+        "tropical_nights": 7,
         "mean_temp": 19.1,
         "max_temp": 35.2,
         "max_temp_date": "1994-08-04"
@@ -862,12 +1106,16 @@
     "1995": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 45,
+        "tropical_nights": 3,
         "mean_temp": 10.5,
         "max_temp": 34.5,
         "max_temp_date": "1995-07-21"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 43,
+        "tropical_nights": 3,
         "mean_temp": 18.9,
         "max_temp": 34.5,
         "max_temp_date": "1995-07-21"
@@ -876,12 +1124,16 @@
     "1996": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 16,
+        "tropical_nights": 0,
         "mean_temp": 8.6,
         "max_temp": 31.3,
         "max_temp_date": "1996-06-07"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 15,
+        "tropical_nights": 0,
         "mean_temp": 16.8,
         "max_temp": 31.3,
         "max_temp_date": "1996-06-07"
@@ -890,12 +1142,16 @@
     "1997": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 30,
+        "tropical_nights": 1,
         "mean_temp": 10.3,
         "max_temp": 32.1,
         "max_temp_date": "1997-08-25"
       },
       "summer": {
         "hot_days": 6,
+        "summer_days": 27,
+        "tropical_nights": 1,
         "mean_temp": 18.3,
         "max_temp": 32.1,
         "max_temp_date": "1997-08-25"
@@ -904,12 +1160,16 @@
     "1998": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 20,
+        "tropical_nights": 0,
         "mean_temp": 10.2,
         "max_temp": 32.3,
         "max_temp_date": "1998-07-20"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 16,
+        "tropical_nights": 0,
         "mean_temp": 16.4,
         "max_temp": 32.3,
         "max_temp_date": "1998-07-20"
@@ -918,12 +1178,16 @@
     "1999": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 40,
+        "tropical_nights": 2,
         "mean_temp": 11.0,
         "max_temp": 30.7,
         "max_temp_date": "1999-08-02"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 28,
+        "tropical_nights": 2,
         "mean_temp": 18.0,
         "max_temp": 30.7,
         "max_temp_date": "1999-08-02"
@@ -932,12 +1196,16 @@
     "2000": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 25,
+        "tropical_nights": 1,
         "mean_temp": 11.0,
         "max_temp": 33.1,
         "max_temp_date": "2000-06-20"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 14,
+        "tropical_nights": 1,
         "mean_temp": 16.8,
         "max_temp": 33.1,
         "max_temp_date": "2000-06-20"
@@ -946,12 +1214,16 @@
     "2001": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 26,
+        "tropical_nights": 4,
         "mean_temp": 10.2,
         "max_temp": 33.5,
         "max_temp_date": "2001-08-26"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 26,
+        "tropical_nights": 4,
         "mean_temp": 17.7,
         "max_temp": 33.5,
         "max_temp_date": "2001-08-26"
@@ -960,12 +1232,16 @@
     "2002": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 18,
+        "tropical_nights": 0,
         "mean_temp": 10.7,
         "max_temp": 33.6,
         "max_temp_date": "2002-06-18"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 17,
+        "tropical_nights": 0,
         "mean_temp": 17.7,
         "max_temp": 33.6,
         "max_temp_date": "2002-06-18"
@@ -974,12 +1250,16 @@
     "2003": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 46,
+        "tropical_nights": 3,
         "mean_temp": 10.7,
         "max_temp": 36.6,
         "max_temp_date": "2003-08-08"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 37,
+        "tropical_nights": 3,
         "mean_temp": 19.6,
         "max_temp": 36.6,
         "max_temp_date": "2003-08-08"
@@ -988,12 +1268,16 @@
     "2004": {
       "annual": {
         "hot_days": 4,
+        "summer_days": 26,
+        "tropical_nights": 1,
         "mean_temp": 9.9,
         "max_temp": 32.0,
         "max_temp_date": "2004-08-06"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 22,
+        "tropical_nights": 1,
         "mean_temp": 17.0,
         "max_temp": 32.0,
         "max_temp_date": "2004-08-06"
@@ -1002,12 +1286,16 @@
     "2005": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 35,
+        "tropical_nights": 1,
         "mean_temp": 10.4,
         "max_temp": 31.4,
         "max_temp_date": "2005-06-24"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 25,
+        "tropical_nights": 1,
         "mean_temp": 16.9,
         "max_temp": 31.4,
         "max_temp_date": "2005-06-24"
@@ -1016,12 +1304,16 @@
     "2006": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 45,
+        "tropical_nights": 3,
         "mean_temp": 10.8,
         "max_temp": 34.8,
         "max_temp_date": "2006-07-19"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 35,
+        "tropical_nights": 3,
         "mean_temp": 18.5,
         "max_temp": 34.8,
         "max_temp_date": "2006-07-19"
@@ -1030,12 +1322,16 @@
     "2007": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 24,
+        "tropical_nights": 0,
         "mean_temp": 11.0,
         "max_temp": 33.5,
         "max_temp_date": "2007-07-15"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 16,
+        "tropical_nights": 0,
         "mean_temp": 17.2,
         "max_temp": 33.5,
         "max_temp_date": "2007-07-15"
@@ -1044,12 +1340,16 @@
     "2008": {
       "annual": {
         "hot_days": 1,
+        "summer_days": 22,
+        "tropical_nights": 0,
         "mean_temp": 10.4,
         "max_temp": 32.5,
         "max_temp_date": "2008-07-02"
       },
       "summer": {
         "hot_days": 1,
+        "summer_days": 19,
+        "tropical_nights": 0,
         "mean_temp": 17.5,
         "max_temp": 32.5,
         "max_temp_date": "2008-07-02"
@@ -1058,12 +1358,16 @@
     "2009": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 31,
+        "tropical_nights": 0,
         "mean_temp": 10.5,
         "max_temp": 34.8,
         "max_temp_date": "2009-08-20"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 27,
+        "tropical_nights": 0,
         "mean_temp": 17.7,
         "max_temp": 34.8,
         "max_temp_date": "2009-08-20"
@@ -1072,12 +1376,16 @@
     "2010": {
       "annual": {
         "hot_days": 10,
+        "summer_days": 30,
+        "tropical_nights": 3,
         "mean_temp": 9.1,
         "max_temp": 34.1,
         "max_temp_date": "2010-07-10"
       },
       "summer": {
         "hot_days": 10,
+        "summer_days": 29,
+        "tropical_nights": 3,
         "mean_temp": 18.5,
         "max_temp": 34.1,
         "max_temp_date": "2010-07-10"
@@ -1086,12 +1394,16 @@
     "2011": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 25,
+        "tropical_nights": 1,
         "mean_temp": 11.1,
         "max_temp": 33.5,
         "max_temp_date": "2011-06-28"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 13,
+        "tropical_nights": 1,
         "mean_temp": 16.7,
         "max_temp": 33.5,
         "max_temp_date": "2011-06-28"
@@ -1100,12 +1412,16 @@
     "2012": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 26,
+        "tropical_nights": 2,
         "mean_temp": 10.3,
         "max_temp": 36.4,
         "max_temp_date": "2012-08-19"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 18,
+        "tropical_nights": 2,
         "mean_temp": 17.3,
         "max_temp": 36.4,
         "max_temp_date": "2012-08-19"
@@ -1114,12 +1430,16 @@
     "2013": {
       "annual": {
         "hot_days": 9,
+        "summer_days": 30,
+        "tropical_nights": 1,
         "mean_temp": 9.8,
         "max_temp": 34.9,
         "max_temp_date": "2013-08-02"
       },
       "summer": {
         "hot_days": 7,
+        "summer_days": 27,
+        "tropical_nights": 1,
         "mean_temp": 18.2,
         "max_temp": 34.9,
         "max_temp_date": "2013-08-02"
@@ -1128,12 +1448,16 @@
     "2014": {
       "annual": {
         "hot_days": 2,
+        "summer_days": 28,
+        "tropical_nights": 1,
         "mean_temp": 11.7,
         "max_temp": 33.4,
         "max_temp_date": "2014-07-19"
       },
       "summer": {
         "hot_days": 2,
+        "summer_days": 25,
+        "tropical_nights": 1,
         "mean_temp": 17.4,
         "max_temp": 33.4,
         "max_temp_date": "2014-07-19"
@@ -1142,12 +1466,16 @@
     "2015": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 31,
+        "tropical_nights": 2,
         "mean_temp": 11.0,
         "max_temp": 36.1,
         "max_temp_date": "2015-07-02"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 31,
+        "tropical_nights": 2,
         "mean_temp": 18.3,
         "max_temp": 36.1,
         "max_temp_date": "2015-07-02"
@@ -1156,12 +1484,16 @@
     "2016": {
       "annual": {
         "hot_days": 11,
+        "summer_days": 31,
+        "tropical_nights": 2,
         "mean_temp": 10.8,
         "max_temp": 33.5,
         "max_temp_date": "2016-07-20"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 22,
+        "tropical_nights": 2,
         "mean_temp": 18.2,
         "max_temp": 33.5,
         "max_temp_date": "2016-07-20"
@@ -1170,12 +1502,16 @@
     "2017": {
       "annual": {
         "hot_days": 5,
+        "summer_days": 33,
+        "tropical_nights": 0,
         "mean_temp": 11.0,
         "max_temp": 33.8,
         "max_temp_date": "2017-06-22"
       },
       "summer": {
         "hot_days": 4,
+        "summer_days": 27,
+        "tropical_nights": 0,
         "mean_temp": 18.5,
         "max_temp": 33.8,
         "max_temp_date": "2017-06-22"
@@ -1184,12 +1520,16 @@
     "2018": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 78,
+        "tropical_nights": 3,
         "mean_temp": 11.9,
         "max_temp": 35.6,
         "max_temp_date": "2018-07-26"
       },
       "summer": {
         "hot_days": 11,
+        "summer_days": 52,
+        "tropical_nights": 3,
         "mean_temp": 20.0,
         "max_temp": 35.6,
         "max_temp_date": "2018-07-26"
@@ -1198,12 +1538,16 @@
     "2019": {
       "annual": {
         "hot_days": 12,
+        "summer_days": 43,
+        "tropical_nights": 5,
         "mean_temp": 11.5,
         "max_temp": 40.0,
         "max_temp_date": "2019-07-25"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 41,
+        "tropical_nights": 5,
         "mean_temp": 19.8,
         "max_temp": 40.0,
         "max_temp_date": "2019-07-25"
@@ -1212,12 +1556,16 @@
     "2020": {
       "annual": {
         "hot_days": 14,
+        "summer_days": 40,
+        "tropical_nights": 8,
         "mean_temp": 11.9,
         "max_temp": 35.2,
         "max_temp_date": "2020-08-08"
       },
       "summer": {
         "hot_days": 12,
+        "summer_days": 33,
+        "tropical_nights": 7,
         "mean_temp": 19.0,
         "max_temp": 35.2,
         "max_temp_date": "2020-08-08"
@@ -1226,12 +1574,16 @@
     "2021": {
       "annual": {
         "hot_days": 3,
+        "summer_days": 23,
+        "tropical_nights": 2,
         "mean_temp": 10.4,
         "max_temp": 32.5,
         "max_temp_date": "2021-06-17"
       },
       "summer": {
         "hot_days": 3,
+        "summer_days": 20,
+        "tropical_nights": 2,
         "mean_temp": 18.2,
         "max_temp": 32.5,
         "max_temp_date": "2021-06-17"
@@ -1240,12 +1592,16 @@
     "2022": {
       "annual": {
         "hot_days": 13,
+        "summer_days": 47,
+        "tropical_nights": 2,
         "mean_temp": 12.0,
         "max_temp": 36.6,
         "max_temp_date": "2022-07-19"
       },
       "summer": {
         "hot_days": 13,
+        "summer_days": 35,
+        "tropical_nights": 2,
         "mean_temp": 19.7,
         "max_temp": 36.6,
         "max_temp_date": "2022-07-19"
@@ -1254,12 +1610,16 @@
     "2023": {
       "annual": {
         "hot_days": 6,
+        "summer_days": 43,
+        "tropical_nights": 1,
         "mean_temp": 11.9,
         "max_temp": 33.5,
         "max_temp_date": "2023-07-09"
       },
       "summer": {
         "hot_days": 5,
+        "summer_days": 32,
+        "tropical_nights": 1,
         "mean_temp": 18.9,
         "max_temp": 33.5,
         "max_temp_date": "2023-07-09"
@@ -1268,12 +1628,16 @@
     "2024": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 39,
+        "tropical_nights": 0,
         "mean_temp": 11.8,
         "max_temp": 34.2,
         "max_temp_date": "2024-08-13"
       },
       "summer": {
         "hot_days": 6,
+        "summer_days": 26,
+        "tropical_nights": 0,
         "mean_temp": 18.6,
         "max_temp": 34.2,
         "max_temp_date": "2024-08-13"
@@ -1282,12 +1646,16 @@
     "2025": {
       "annual": {
         "hot_days": 8,
+        "summer_days": 35,
+        "tropical_nights": 1,
         "mean_temp": 11.6,
         "max_temp": 35.4,
         "max_temp_date": "2025-07-02"
       },
       "summer": {
         "hot_days": 8,
+        "summer_days": 29,
+        "tropical_nights": 1,
         "mean_temp": 18.9,
         "max_temp": 35.4,
         "max_temp_date": "2025-07-02"
@@ -1296,16 +1664,52 @@
     "2026": {
       "annual": {
         "hot_days": 9,
-        "mean_temp": 10.9,
+        "summer_days": 25,
+        "tropical_nights": 4,
+        "mean_temp": 11.0,
         "max_temp": 36.8,
         "max_temp_date": "2026-06-26"
       },
       "summer": {
         "hot_days": 8,
-        "mean_temp": 19.8,
+        "summer_days": 18,
+        "tropical_nights": 4,
+        "mean_temp": 19.9,
         "max_temp": 36.8,
         "max_temp_date": "2026-06-26"
       }
     }
+  },
+  "elevation_m": 152.0,
+  "analysis": {
+    "trend_hot_days_per_decade": 0.5,
+    "decades": {
+      "1930er": 3.8,
+      "1940er": 5.6,
+      "1950er": 2.1,
+      "1960er": 2.5,
+      "1970er": 3.4,
+      "1980er": 2.5,
+      "1990er": 6.3,
+      "2000er": 5.1,
+      "2010er": 7.8,
+      "2020er": 8.7
+    },
+    "hottest_year": {
+      "year": 1994,
+      "hot_days": 17
+    },
+    "mildest_year": {
+      "year": 1935,
+      "hot_days": 0
+    },
+    "completeness_pct": 96.0,
+    "data_gaps": [
+      {
+        "from": "1945-01-01",
+        "to": "1947-12-31",
+        "days": 1095
+      }
+    ]
   }
 }

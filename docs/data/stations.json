@@ -7,7 +7,8 @@
     "meteostat_station_name": "Essen",
     "meteostat_station_id": "10410",
     "data_from": 1931,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 152.0
   },
   {
     "id": "hamburg",
@@ -17,7 +18,8 @@
     "meteostat_station_name": "Hamburg Airport",
     "meteostat_station_id": "10147",
     "data_from": 1891,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 16.0
   },
   {
     "id": "rostock-warnemuende",
@@ -27,7 +29,8 @@
     "meteostat_station_name": "Kirchdorf/Poel",
     "meteostat_station_id": "D2578",
     "data_from": 1887,
-    "last_data": "2026-07-04"
+    "last_data": "2026-07-04",
+    "elevation_m": 12.0
   },
   {
     "id": "hannover",
@@ -37,7 +40,8 @@
     "meteostat_station_name": "Hannover",
     "meteostat_station_id": "10338",
     "data_from": 1935,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 56.0
   },
   {
     "id": "berlin",
@@ -47,7 +51,8 @@
     "meteostat_station_name": "Berlin / Dahlem",
     "meteostat_station_id": "10381",
     "data_from": 1876,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 51.0
   },
   {
     "id": "dresden",
@@ -57,7 +62,8 @@
     "meteostat_station_name": "Dresden / Klotzsche",
     "meteostat_station_id": "10488",
     "data_from": 1934,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 230.0
   },
   {
     "id": "frankfurt-am-main",
@@ -67,7 +73,8 @@
     "meteostat_station_name": "Frankfurt Airport",
     "meteostat_station_id": "10637",
     "data_from": 1934,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 111.0
   },
   {
     "id": "stuttgart",
@@ -77,7 +84,8 @@
     "meteostat_station_name": "Stuttgart-Echterdingen",
     "meteostat_station_id": "10738",
     "data_from": 1900,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 396.0
   },
   {
     "id": "freiburg",
@@ -87,7 +95,8 @@
     "meteostat_station_name": "Freiburg",
     "meteostat_station_id": "10803",
     "data_from": 1938,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 269.0
   },
   {
     "id": "muenchen",
@@ -97,6 +106,7 @@
     "meteostat_station_name": "München",
     "meteostat_station_id": "10865",
     "data_from": 1879,
-    "last_data": "2026-07-08"
+    "last_data": "2026-07-10",
+    "elevation_m": 520.0
   }
 ]

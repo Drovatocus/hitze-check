@@ -383,6 +383,70 @@ body {
   font-size: 1rem;
 }
 
+#detail-panel h4 {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+#more-details {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.detail-list {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.detail-list dt {
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.detail-list dt:first-child {
+  margin-top: 0;
+}
+
+.detail-list dd {
+  margin: 0.1rem 0 0;
+  font-weight: 600;
+}
+
+.decade-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.decade-row {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr 2.4rem;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.decade-bar-wrap {
+  background: var(--color-metric-bg);
+  border-radius: 3px;
+  overflow: hidden;
+  height: 0.7rem;
+}
+
+.decade-bar {
+  display: block;
+  height: 100%;
+  background: var(--color-blau);
+  border-radius: 3px;
+}
+
+.decade-value {
+  text-align: right;
+  color: var(--color-text-muted);
+}
+
 .detail-metrics {
   display: flex;
   gap: 0.5rem;

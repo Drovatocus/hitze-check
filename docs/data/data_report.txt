@@ -1,10 +1,10 @@
 Hitze-Check Deutschland — Datenreport
-Erzeugt am: 2026-07-08 12:10
+Erzeugt am: 2026-07-10 07:50
 ============================================================
 
 Wuppertal (wuppertal)
   Messstation: Essen (ID 10410), Entfernung 21.5 km, Hoehe 152.0 m
-  Daten verfuegbar ab 1931, Stand 2026-07-08
+  Daten verfuegbar ab 1931, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     1994: 17 heisse Tage, Hoechstwert 35.2 °C am 1994-08-04
     2020: 14 heisse Tage, Hoechstwert 35.2 °C am 2020-08-08
@@ -12,7 +12,7 @@ Wuppertal (wuppertal)
 
 Hamburg (hamburg)
   Messstation: Hamburg Airport (ID 10147), Entfernung 9.3 km, Hoehe 16.0 m
-  Daten verfuegbar ab 1891, Stand 2026-07-08
+  Daten verfuegbar ab 1891, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2018: 19 heisse Tage, Hoechstwert 35.5 °C am 2018-08-07
     1994: 18 heisse Tage, Hoechstwert 35.0 °C am 1994-07-25
@@ -28,7 +28,7 @@ Rostock-Warnemünde (rostock-warnemuende)
 
 Hannover (hannover)
   Messstation: Hannover (ID 10338), Entfernung 11.4 km, Hoehe 56.0 m
-  Daten verfuegbar ab 1935, Stand 2026-07-08
+  Daten verfuegbar ab 1935, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2018: 22 heisse Tage, Hoechstwert 36.5 °C am 2018-08-07
     2019: 19 heisse Tage, Hoechstwert 37.9 °C am 2019-07-25
@@ -36,7 +36,7 @@ Hannover (hannover)
 
 Berlin (berlin)
   Messstation: Berlin / Dahlem (ID 10381), Entfernung 9.0 km, Hoehe 51.0 m
-  Daten verfuegbar ab 1876, Stand 2026-07-08
+  Daten verfuegbar ab 1876, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2018: 28 heisse Tage, Hoechstwert 37.0 °C am 2018-08-08
     2019: 24 heisse Tage, Hoechstwert 37.6 °C am 2019-06-30
@@ -44,7 +44,7 @@ Berlin (berlin)
 
 Dresden (dresden)
   Messstation: Dresden / Klotzsche (ID 10488), Entfernung 9.3 km, Hoehe 230.0 m
-  Daten verfuegbar ab 1934, Stand 2026-07-08
+  Daten verfuegbar ab 1934, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2018: 28 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
     2019: 25 heisse Tage, Hoechstwert 37.3 °C am 2019-06-30
@@ -52,7 +52,7 @@ Dresden (dresden)
 
 Frankfurt am Main (frankfurt-am-main)
   Messstation: Frankfurt Airport (ID 10637), Entfernung 8.8 km, Hoehe 111.0 m
-  Daten verfuegbar ab 1934, Stand 2026-07-08
+  Daten verfuegbar ab 1934, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2018: 43 heisse Tage, Hoechstwert 37.0 °C am 2018-07-31
     1947: 38 heisse Tage, Hoechstwert 36.1 °C am 1947-06-26
@@ -60,7 +60,7 @@ Frankfurt am Main (frankfurt-am-main)
 
 Stuttgart (stuttgart)
   Messstation: Stuttgart-Echterdingen (ID 10738), Entfernung 11.1 km, Hoehe 396.0 m
-  Daten verfuegbar ab 1900, Stand 2026-07-08
+  Daten verfuegbar ab 1900, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     1947: 28 heisse Tage, Hoechstwert 37.0 °C am 1947-07-29
     2015: 26 heisse Tage, Hoechstwert 37.0 °C am 2015-08-07
@@ -68,7 +68,7 @@ Stuttgart (stuttgart)
 
 Freiburg (freiburg)
   Messstation: Freiburg (ID 10803), Entfernung 1.1 km, Hoehe 269.0 m
-  Daten verfuegbar ab 1938, Stand 2026-07-08
+  Daten verfuegbar ab 1938, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2003: 55 heisse Tage, Hoechstwert 40.2 °C am 2003-08-13
     2022: 39 heisse Tage, Hoechstwert 37.7 °C am 2022-08-04
@@ -76,7 +76,7 @@ Freiburg (freiburg)
 
 München (muenchen)
   Messstation: München (ID 10865), Entfernung 2.3 km, Hoehe 520.0 m
-  Daten verfuegbar ab 1879, Stand 2026-07-08
+  Daten verfuegbar ab 1879, Stand 2026-07-10
   Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
     2015: 33 heisse Tage, Hoechstwert 36.9 °C am 2015-07-05
     2003: 31 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
@@ -94,3 +94,11 @@ Datencheck Freiburg (Anfrage v2/A4):
   in den Rohdaten gefunden.
   Bewertung: PLAUSIBEL, kein Datenfehler. Freiburg/Oberrheingraben ist real die
   waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.
+
+============================================================
+40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,2 °C, 2019):
+
+  Wuppertal (wuppertal), 2019: 40.0 °C am 2019-07-25
+  Frankfurt am Main (frankfurt-am-main), 2019: 40.1 °C am 2019-07-25
+  Frankfurt am Main (frankfurt-am-main), 2026: 41.1 °C am 2026-06-27
+  Freiburg (freiburg), 2003: 40.2 °C am 2003-08-13

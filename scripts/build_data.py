@@ -15,6 +15,7 @@ from pathlib import Path
 import json
 import time
 
+import numpy as np
 import pandas as pd
 from meteostat import Stations, Daily
 
@@ -37,11 +38,15 @@ STATIONS = [
 ]
 
 HOT_DAY_THRESHOLD = 30.0  # °C, Definition "heisser Tag"
+SUMMER_DAY_THRESHOLD = 25.0  # °C, Definition "Sommertag"
+TROPICAL_NIGHT_THRESHOLD = 20.0  # °C, Definition "Tropennacht" (Tiefstwert)
 SUMMER_MONTHS = (6, 7, 8)  # meteorologischer Sommer
 NEARBY_CANDIDATES = 10  # so viele Kandidaten-Stationen pro Stadt pruefen
 NEARBY_RADIUS_M = 50_000  # bevorzugter Umkreis (Meter) fuer die Stationswahl
 FETCH_RETRIES = 3  # Meteostat-Downloads brechen gelegentlich mit einem Netzwerkfehler ab
 FETCH_RETRY_DELAY_S = 5
+TREND_MIN_YEARS = 10  # so viele Jahre braucht es mindestens fuer einen Trendwert
+GAP_MIN_DAYS = 30  # Datenluecken ab dieser Laenge werden im Report gemeldet
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "docs" / "data"
@@ -87,18 +92,83 @@ def compute_period_stats(df: pd.DataFrame) -> dict | None:
         return None
 
     hot_days = int((df["tmax"] >= HOT_DAY_THRESHOLD).sum())
+    summer_days = int((df["tmax"] >= SUMMER_DAY_THRESHOLD).sum())
     mean_temp = df["tavg"].mean()
     max_temp = df["tmax"].max()
     max_temp_date = df["tmax"].idxmax()
 
+    # tmin ist bei vielen (v. a. aelteren) Messungen gar nicht erfasst -> dann
+    # bleibt tropical_nights None ("nicht verfuegbar"), nicht 0.
+    tropical_nights = None
+    if "tmin" in df.columns and not df["tmin"].isna().all():
+        tropical_nights = int((df["tmin"] >= TROPICAL_NIGHT_THRESHOLD).sum())
+
     return {
         "hot_days": hot_days,
+        "summer_days": summer_days,
+        "tropical_nights": tropical_nights,
         # tavg fehlt bei manchen (oft aelteren) Messungen, auch wenn tmax vorhanden ist.
         # Dann bleibt mean_temp None, statt das ganze Jahr zu verwerfen.
         "mean_temp": None if pd.isna(mean_temp) else round(float(mean_temp), 1),
         "max_temp": round(float(max_temp), 1),
         "max_temp_date": max_temp_date.strftime("%Y-%m-%d"),
     }
+
+
+def compute_trend_per_decade(years_out: dict) -> float | None:
+    """Linearer Trend der heissen Tage pro Jahrzehnt (einfache lineare Regression
+    Jahr -> heisse Tage). None, wenn zu wenige Jahre fuer eine sinnvolle Aussage da sind."""
+    points = [(int(y), e["annual"]["hot_days"]) for y, e in years_out.items()]
+    if len(points) < TREND_MIN_YEARS:
+        return None
+    xs = np.array([p[0] for p in points], dtype=float)
+    ys = np.array([p[1] for p in points], dtype=float)
+    slope, _intercept = np.polyfit(xs, ys, 1)
+    return round(float(slope) * 10, 1)
+
+
+def compute_decade_averages(years_out: dict) -> dict:
+    """Durchschnittliche Anzahl heisser Tage je Jahrzehnt (nur Jahrzehnte mit
+    mindestens einem Datenjahr werden aufgenommen)."""
+    by_decade = {}
+    for y, e in years_out.items():
+        decade = f"{int(y) // 10 * 10}er"
+        by_decade.setdefault(decade, []).append(e["annual"]["hot_days"])
+    return {decade: round(sum(values) / len(values), 1) for decade, values in by_decade.items()}
+
+
+def compute_hottest_mildest_year(years_out: dict) -> tuple[dict, dict]:
+    """Jahr mit den meisten bzw. wenigsten heissen Tagen (ganzjaehrig)."""
+    items = sorted(years_out.items(), key=lambda kv: kv[1]["annual"]["hot_days"])
+    mildest_year, hottest_year = items[0], items[-1]
+    return (
+        {"year": int(hottest_year[0]), "hot_days": hottest_year[1]["annual"]["hot_days"]},
+        {"year": int(mildest_year[0]), "hot_days": mildest_year[1]["annual"]["hot_days"]},
+    )
+
+
+def compute_completeness(valid: pd.DataFrame) -> tuple[float, list]:
+    """Anteil vorhandener Tage (in %) und Liste groesserer Datenluecken (>= GAP_MIN_DAYS)."""
+    full_range = pd.date_range(valid.index.min(), valid.index.max(), freq="D")
+    expected_days = len(full_range)
+    completeness_pct = round(len(valid) / expected_days * 100, 1)
+
+    missing = full_range.difference(valid.index)
+    gaps = []
+    if len(missing) > 0:
+        start = prev = missing[0]
+        for d in missing[1:]:
+            if (d - prev).days > 1:
+                if (prev - start).days + 1 >= GAP_MIN_DAYS:
+                    gaps.append({"from": start.strftime("%Y-%m-%d"), "to": prev.strftime("%Y-%m-%d"),
+                                 "days": (prev - start).days + 1})
+                start = d
+            prev = d
+        if (prev - start).days + 1 >= GAP_MIN_DAYS:
+            gaps.append({"from": start.strftime("%Y-%m-%d"), "to": prev.strftime("%Y-%m-%d"),
+                         "days": (prev - start).days + 1})
+
+    return completeness_pct, gaps
 
 
 def build_station(station: dict) -> None:
@@ -113,7 +183,7 @@ def build_station(station: dict) -> None:
           f"Abstand {meta['distance'] / 1000:.1f} km, lade Tagesdaten ab {daily_start.date()} ...")
 
     df = fetch_daily_with_retry(meteostat_id, daily_start, end)
-    df = df[["tavg", "tmax"]].dropna(how="all")
+    df = df[["tavg", "tmax", "tmin"]].dropna(how="all")
 
     if df.empty:
         raise RuntimeError(f"Keine Tagesdaten fuer Station {station['id']} erhalten.")
@@ -141,10 +211,24 @@ def build_station(station: dict) -> None:
             entry["summer"] = summer_stats
         years_out[str(int(year))] = entry
 
+    elevation_m = None if pd.isna(meta.get("elevation")) else round(float(meta["elevation"]), 1)
+
+    hottest_year, mildest_year = compute_hottest_mildest_year(years_out)
+    completeness_pct, data_gaps = compute_completeness(valid)
+
     series = {
         "station_id": station["id"],
         "record": {"temp": round(float(record_temp), 1), "date": record_date},
         "years": years_out,
+        "elevation_m": elevation_m,
+        "analysis": {
+            "trend_hot_days_per_decade": compute_trend_per_decade(years_out),
+            "decades": compute_decade_averages(years_out),
+            "hottest_year": hottest_year,
+            "mildest_year": mildest_year,
+            "completeness_pct": completeness_pct,
+            "data_gaps": data_gaps,
+        },
     }
 
     SERIES_DIR.mkdir(parents=True, exist_ok=True)
@@ -154,7 +238,7 @@ def build_station(station: dict) -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_df = valid.reset_index().rename(columns={"time": "date"})
     raw_df["date"] = raw_df["date"].dt.strftime("%Y-%m-%d")
-    raw_df[["date", "tmax", "tavg"]].to_csv(RAW_DIR / f"{station['id']}.csv", index=False)
+    raw_df[["date", "tmax", "tavg", "tmin"]].to_csv(RAW_DIR / f"{station['id']}.csv", index=False)
 
     # Top-3-Jahre nach heissen Tagen (annual) - fuer den Datenreport, damit echte
     # Ausreisser (oder Datenfehler) beim naechsten Lauf sofort auffallen.
@@ -163,6 +247,14 @@ def build_station(station: dict) -> None:
          for year, entry in years_out.items()),
         key=lambda t: -t[1],
     )[:3]
+
+    # 40+-Werte separat sammeln: in Deutschland selten, daher vor Veroeffentlichung
+    # manuell gegen offizielle DWD-Daten gegenpruefen (siehe AENDERUNGEN-v3 D1).
+    extreme_years = [
+        (year, entry["annual"]["max_temp"], entry["annual"]["max_temp_date"])
+        for year, entry in years_out.items()
+        if entry["annual"]["max_temp"] >= 40.0
+    ]
 
     return {
         "id": station["id"],
@@ -173,9 +265,10 @@ def build_station(station: dict) -> None:
         "meteostat_station_id": str(meteostat_id),
         "data_from": data_from,
         "last_data": last_data,
-        "_elevation_m": None if pd.isna(meta.get("elevation")) else float(meta["elevation"]),
+        "elevation_m": elevation_m,
         "_distance_km": round(float(meta["distance"]) / 1000, 1),
         "_top_years": top_years,
+        "_extreme_years": extreme_years,
     }
 
 
@@ -192,7 +285,7 @@ def write_data_report(stations_out: list) -> None:
         lines.append(f"{s['name']} ({s['id']})")
         lines.append(
             f"  Messstation: {s['meteostat_station_name']} (ID {s['meteostat_station_id']}), "
-            f"Entfernung {s['_distance_km']} km, Hoehe {s['_elevation_m']} m"
+            f"Entfernung {s['_distance_km']} km, Hoehe {s['elevation_m']} m"
         )
         lines.append(f"  Daten verfuegbar ab {s['data_from']}, Stand {s['last_data']}")
         lines.append("  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):")
@@ -215,6 +308,23 @@ def write_data_report(stations_out: list) -> None:
         "  waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.",
         "",
     ]
+
+    # D1 (v3): alle 40+-Jahreswerte zur manuellen Gegenpruefung gegen offizielle
+    # DWD-Daten auflisten, bevor die Seite veroeffentlicht wird. 40+ ist in
+    # Deutschland selten - Werte nahe am Rekord (41,2 °C) verdienen einen zweiten Blick.
+    lines += [
+        "=" * 60,
+        "40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,2 °C, 2019):",
+        "",
+    ]
+    any_extreme = False
+    for s in stations_out:
+        for year, max_temp, max_temp_date in s.get("_extreme_years", []):
+            any_extreme = True
+            lines.append(f"  {s['name']} ({s['id']}), {year}: {max_temp} °C am {max_temp_date}")
+    if not any_extreme:
+        lines.append("  Keine Jahreswerte >= 40,0 °C in den aktuellen Daten.")
+    lines.append("")
 
     with open(DATA_DIR / "data_report.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

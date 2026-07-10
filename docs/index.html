@@ -152,6 +152,30 @@
     <h3>Stationsinfos</h3>
     <ul id="detail-info" class="info-list"></ul>
 
+    <button type="button" id="more-details-toggle" class="full-width-btn">🔎 Mehr Details</button>
+
+    <div id="more-details" class="hidden">
+      <dl class="detail-list">
+        <dt>Trend heiße Tage</dt>
+        <dd id="md-trend">–</dd>
+        <dt>Sommertage (≥ 25 °C), gewähltes Jahr</dt>
+        <dd id="md-summer-days">–</dd>
+        <dt>Tropennächte (≥ 20 °C), gewähltes Jahr</dt>
+        <dd id="md-tropical-nights">–</dd>
+        <dt>Heißestes Jahr der Reihe</dt>
+        <dd id="md-hottest">–</dd>
+        <dt>Mildestes Jahr der Reihe</dt>
+        <dd id="md-mildest">–</dd>
+        <dt>Datenvollständigkeit</dt>
+        <dd id="md-completeness">–</dd>
+        <dt>Stationshöhe</dt>
+        <dd id="md-elevation">–</dd>
+      </dl>
+
+      <h4>Heiße Tage je Jahrzehnt (Durchschnitt)</h4>
+      <div id="md-decades" class="decade-bars"></div>
+    </div>
+
     <button type="button" id="detail-csv">📄 Rohdaten als CSV herunterladen</button>
 
     <p class="source-line">Datenbasis: Meteostat / DWD</p>

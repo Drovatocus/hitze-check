@@ -65,6 +65,7 @@ const state = {
   compareMode: false,
   compareYearA: null,
   compareYearB: null,
+  moreDetailsOpen: false,
 };
 
 let stations = [];
@@ -249,6 +250,9 @@ function updateMarkers() {
 }
 
 function selectStation(stationId, clickInfo = null) {
+  if (state.selectedStation !== stationId) {
+    state.moreDetailsOpen = false; // beim Stationswechsel wieder einklappen
+  }
   state.selectedStation = stationId;
   state.clickInfo = clickInfo;
   document.getElementById("detail-panel").classList.remove("hidden");
@@ -347,6 +351,11 @@ function renderDetailPanel(stationId) {
   });
 
   renderChart(series);
+  renderMoreDetails(stationId);
+  document.getElementById("more-details").classList.toggle("hidden", !state.moreDetailsOpen);
+  document.getElementById("more-details-toggle").textContent = state.moreDetailsOpen
+    ? "🔎 Weniger Details"
+    : "🔎 Mehr Details";
 
   document.getElementById("detail-csv").onclick = () => {
     const link = document.createElement("a");
@@ -354,6 +363,81 @@ function renderDetailPanel(stationId) {
     link.download = `${stationId}.csv`;
     link.click();
   };
+}
+
+function renderDecadeBars(decades) {
+  const container = document.getElementById("md-decades");
+  container.innerHTML = "";
+  const entries = Object.entries(decades).sort(([a], [b]) => a.localeCompare(b));
+  if (entries.length === 0) {
+    container.textContent = "nicht verfügbar";
+    return;
+  }
+  const maxVal = Math.max(...entries.map(([, v]) => v));
+  entries.forEach(([decade, avg]) => {
+    const row = document.createElement("div");
+    row.className = "decade-row";
+
+    const label = document.createElement("span");
+    label.textContent = decade;
+
+    const barWrap = document.createElement("span");
+    barWrap.className = "decade-bar-wrap";
+    const bar = document.createElement("span");
+    bar.className = "decade-bar";
+    bar.style.width = `${maxVal > 0 ? (avg / maxVal) * 100 : 0}%`;
+    barWrap.appendChild(bar);
+
+    const value = document.createElement("span");
+    value.className = "decade-value";
+    value.textContent = avg.toFixed(1).replace(".", ",");
+
+    row.append(label, barWrap, value);
+    container.appendChild(row);
+  });
+}
+
+// "Mehr Details": Trend, Sommertage/Tropennaechte, Extremjahre, Datenvollstaendigkeit,
+// Stationshoehe, Dekaden-Vergleich. Fehlende Werte werden als "nicht verfügbar"
+// angezeigt, nie als 0.
+function renderMoreDetails(stationId) {
+  const station = stations.find((s) => s.id === stationId);
+  const series = seriesByStation[stationId];
+  const analysis = series.analysis;
+
+  document.getElementById("md-trend").textContent =
+    analysis.trend_hot_days_per_decade !== null
+      ? `${formatSignedNumber(analysis.trend_hot_days_per_decade, 1)} heiße Tage pro Jahrzehnt`
+      : "nicht verfügbar (zu kurze Datenreihe)";
+
+  // Sommertage/Tropennaechte beziehen sich auf das aktuell gewaehlte Jahr
+  // (im Vergleichsmodus auf Jahr B) und den gewaehlten Zeitraum.
+  const refYear = state.compareMode ? state.compareYearB : state.year;
+  const refStats = statsFor(stationId, refYear, state.period);
+  document.getElementById("md-summer-days").textContent = refStats ? refStats.summer_days : "nicht verfügbar";
+  document.getElementById("md-tropical-nights").textContent =
+    refStats && refStats.tropical_nights !== null ? refStats.tropical_nights : "nicht verfügbar";
+
+  document.getElementById("md-hottest").textContent =
+    `${analysis.hottest_year.year} (${analysis.hottest_year.hot_days} heiße Tage)`;
+  document.getElementById("md-mildest").textContent =
+    `${analysis.mildest_year.year} (${analysis.mildest_year.hot_days} heiße Tage)`;
+
+  let completenessText = `${String(analysis.completeness_pct).replace(".", ",")} % der Tage seit ${station.data_from} vorhanden`;
+  if (analysis.data_gaps.length > 0) {
+    const gapTexts = analysis.data_gaps.map(
+      (g) => `${formatDateGerman(g.from)}–${formatDateGerman(g.to)} (${g.days} Tage)`
+    );
+    completenessText += `. Größere Lücke(n): ${gapTexts.join(", ")}`;
+  }
+  document.getElementById("md-completeness").textContent = completenessText;
+
+  document.getElementById("md-elevation").textContent =
+    station.elevation_m !== null && station.elevation_m !== undefined
+      ? `${String(station.elevation_m).replace(".", ",")} m ü. NN`
+      : "nicht verfügbar";
+
+  renderDecadeBars(analysis.decades);
 }
 
 function renderChart(series) {
@@ -608,6 +692,16 @@ function setupAboutOverlay() {
   });
 }
 
+function setupMoreDetailsToggle() {
+  const button = document.getElementById("more-details-toggle");
+  const panel = document.getElementById("more-details");
+  button.addEventListener("click", () => {
+    state.moreDetailsOpen = !state.moreDetailsOpen;
+    panel.classList.toggle("hidden", !state.moreDetailsOpen);
+    button.textContent = state.moreDetailsOpen ? "🔎 Weniger Details" : "🔎 Mehr Details";
+  });
+}
+
 async function init() {
   await loadData();
   createMarkers();
@@ -616,6 +710,7 @@ async function init() {
   setupThemeToggle();
   setupShareLink();
   setupAboutOverlay();
+  setupMoreDetailsToggle();
   updateMarkers();
   document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }
