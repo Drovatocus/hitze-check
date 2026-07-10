@@ -460,26 +460,46 @@ function renderChart(series) {
 
   const barColors = years.map((y) => (y === recordYear ? "#E53935" : "#4A90D9"));
 
+  const datasets = [
+    {
+      type: "bar",
+      label: "Heiße Tage (≥ 30 °C)",
+      data: hotDays,
+      backgroundColor: barColors,
+      order: 2,
+    },
+  ];
+
+  // Trendlinie basiert auf der ganzjaehrigen Reihe (siehe Pipeline) und wird
+  // daher nur gezeigt, wenn auch "Ganzes Jahr" ausgewaehlt ist - so bleibt die
+  // Linie konsistent mit den angezeigten Balken statt sie zu vermischen.
+  const trendLine = series.analysis.trend_line;
+  if (state.period === "annual" && trendLine && trendLine.length > 0) {
+    const trendByYear = Object.fromEntries(trendLine.map((p) => [String(p.year), p.value]));
+    const trendColor = document.documentElement.dataset.theme === "dark" ? "#f5f5f5" : "#222";
+    datasets.push({
+      type: "line",
+      label: "Trend (linear)",
+      data: years.map((y) => trendByYear[y] ?? null),
+      borderColor: trendColor,
+      borderWidth: 2,
+      pointRadius: 0,
+      fill: false,
+      order: 1,
+    });
+  }
+
   if (detailChart) {
     detailChart.destroy();
   }
   const ctx = document.getElementById("detail-chart").getContext("2d");
   detailChart = new Chart(ctx, {
     type: "bar",
-    data: {
-      labels: years,
-      datasets: [
-        {
-          label: "Heiße Tage (≥ 30 °C)",
-          data: hotDays,
-          backgroundColor: barColors,
-        },
-      ],
-    },
+    data: { labels: years, datasets },
     options: {
       responsive: true,
       plugins: {
-        legend: { display: false },
+        legend: { display: datasets.length > 1 },
         tooltip: {
           callbacks: {
             afterLabel: (item) => (item.label === recordYear ? "Rekordjahr (Höchsttemperatur)" : ""),
@@ -492,6 +512,24 @@ function renderChart(series) {
       },
     },
   });
+
+  renderTrendSummary(series);
+}
+
+// Sachlicher Klartext-Satz unter dem Diagramm, der den Trend einordnet
+// (juengste 10 Jahre der Reihe vs. aelteste 10 Jahre), ohne Wertung.
+function renderTrendSummary(series) {
+  const el = document.getElementById("trend-summary-text");
+  const summary = series.analysis.trend_summary;
+  if (!summary) {
+    el.textContent = "";
+    return;
+  }
+  const recentAvg = String(summary.recent.avg_hot_days).replace(".", ",");
+  const earliestAvg = String(summary.earliest.avg_hot_days).replace(".", ",");
+  el.textContent =
+    `Die Jahre ${summary.recent.from}–${summary.recent.to} hatten im Schnitt ${recentAvg} heiße Tage im Jahr, ` +
+    `die Jahre ${summary.earliest.from}–${summary.earliest.to} dagegen ${earliestAvg}.`;
 }
 
 function setupControls() {

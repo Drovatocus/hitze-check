@@ -133,6 +133,38 @@ def compute_trend_per_decade(years_out: dict) -> float | None:
     return round(float(slope) * 10, 1)
 
 
+def compute_trend_line_and_summary(years_out: dict) -> tuple[list, dict | None]:
+    """Gefittete Trendlinie (Jahr -> Wert) fuers Diagramm, sowie ein sachlicher
+    Vergleich der juengsten 10 Jahre der Reihe gegen die aeltesten 10 Jahre
+    (fuer den Klartext-Satz unter dem Diagramm). None/leer, wenn die Reihe zu
+    kurz fuer eine sinnvolle Aussage ist."""
+    items = sorted((int(y), e["annual"]["hot_days"]) for y, e in years_out.items())
+    if len(items) < TREND_MIN_YEARS:
+        return [], None
+
+    years_sorted = [y for y, _ in items]
+    hotdays_sorted = [h for _, h in items]
+
+    xs = np.array(years_sorted, dtype=float)
+    ys = np.array(hotdays_sorted, dtype=float)
+    slope, intercept = np.polyfit(xs, ys, 1)
+    line = [{"year": y, "value": round(float(slope * y + intercept), 1)} for y in years_sorted]
+
+    recent_years, earliest_years = years_sorted[-10:], years_sorted[:10]
+    recent_avg = sum(hotdays_sorted[-10:]) / 10
+    earliest_avg = sum(hotdays_sorted[:10]) / 10
+    summary = {
+        "recent": {"from": recent_years[0], "to": recent_years[-1], "avg_hot_days": round(recent_avg, 1)},
+        "earliest": {"from": earliest_years[0], "to": earliest_years[-1], "avg_hot_days": round(earliest_avg, 1)},
+    }
+    # Ueberschneiden sich die beiden Fenster (sehr kurze Reihe knapp ab TREND_MIN_YEARS),
+    # ist der Vergleich nicht aussagekraeftig - dann lieber keinen Klartext-Satz zeigen.
+    if recent_years[0] <= earliest_years[-1]:
+        summary = None
+
+    return line, summary
+
+
 def compute_decade_averages(years_out: dict) -> dict:
     """Durchschnittliche Anzahl heisser Tage je Jahrzehnt (nur Jahrzehnte mit
     mindestens einem Datenjahr werden aufgenommen)."""
@@ -221,6 +253,7 @@ def build_station(station: dict) -> None:
 
     hottest_year, mildest_year = compute_hottest_mildest_year(years_out)
     completeness_pct, data_gaps = compute_completeness(valid)
+    trend_line, trend_summary = compute_trend_line_and_summary(years_out)
 
     series = {
         "station_id": station["id"],
@@ -229,6 +262,8 @@ def build_station(station: dict) -> None:
         "elevation_m": elevation_m,
         "analysis": {
             "trend_hot_days_per_decade": compute_trend_per_decade(years_out),
+            "trend_line": trend_line,
+            "trend_summary": trend_summary,
             "decades": compute_decade_averages(years_out),
             "hottest_year": hottest_year,
             "mildest_year": mildest_year,

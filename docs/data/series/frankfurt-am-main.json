@@ -2035,6 +2035,392 @@
   "elevation_m": 111.0,
   "analysis": {
     "trend_hot_days_per_decade": 1.4,
+    "trend_line": [
+      {
+        "year": 1934,
+        "value": 5.7
+      },
+      {
+        "year": 1935,
+        "value": 5.8
+      },
+      {
+        "year": 1936,
+        "value": 6.0
+      },
+      {
+        "year": 1937,
+        "value": 6.1
+      },
+      {
+        "year": 1938,
+        "value": 6.3
+      },
+      {
+        "year": 1939,
+        "value": 6.4
+      },
+      {
+        "year": 1940,
+        "value": 6.5
+      },
+      {
+        "year": 1941,
+        "value": 6.7
+      },
+      {
+        "year": 1942,
+        "value": 6.8
+      },
+      {
+        "year": 1943,
+        "value": 7.0
+      },
+      {
+        "year": 1944,
+        "value": 7.1
+      },
+      {
+        "year": 1945,
+        "value": 7.3
+      },
+      {
+        "year": 1946,
+        "value": 7.4
+      },
+      {
+        "year": 1947,
+        "value": 7.5
+      },
+      {
+        "year": 1948,
+        "value": 7.7
+      },
+      {
+        "year": 1949,
+        "value": 7.8
+      },
+      {
+        "year": 1950,
+        "value": 8.0
+      },
+      {
+        "year": 1951,
+        "value": 8.1
+      },
+      {
+        "year": 1952,
+        "value": 8.2
+      },
+      {
+        "year": 1953,
+        "value": 8.4
+      },
+      {
+        "year": 1954,
+        "value": 8.5
+      },
+      {
+        "year": 1955,
+        "value": 8.7
+      },
+      {
+        "year": 1956,
+        "value": 8.8
+      },
+      {
+        "year": 1957,
+        "value": 9.0
+      },
+      {
+        "year": 1958,
+        "value": 9.1
+      },
+      {
+        "year": 1959,
+        "value": 9.2
+      },
+      {
+        "year": 1960,
+        "value": 9.4
+      },
+      {
+        "year": 1961,
+        "value": 9.5
+      },
+      {
+        "year": 1962,
+        "value": 9.7
+      },
+      {
+        "year": 1963,
+        "value": 9.8
+      },
+      {
+        "year": 1964,
+        "value": 9.9
+      },
+      {
+        "year": 1965,
+        "value": 10.1
+      },
+      {
+        "year": 1966,
+        "value": 10.2
+      },
+      {
+        "year": 1967,
+        "value": 10.4
+      },
+      {
+        "year": 1968,
+        "value": 10.5
+      },
+      {
+        "year": 1969,
+        "value": 10.6
+      },
+      {
+        "year": 1970,
+        "value": 10.8
+      },
+      {
+        "year": 1971,
+        "value": 10.9
+      },
+      {
+        "year": 1972,
+        "value": 11.1
+      },
+      {
+        "year": 1973,
+        "value": 11.2
+      },
+      {
+        "year": 1974,
+        "value": 11.4
+      },
+      {
+        "year": 1975,
+        "value": 11.5
+      },
+      {
+        "year": 1976,
+        "value": 11.6
+      },
+      {
+        "year": 1977,
+        "value": 11.8
+      },
+      {
+        "year": 1978,
+        "value": 11.9
+      },
+      {
+        "year": 1979,
+        "value": 12.1
+      },
+      {
+        "year": 1980,
+        "value": 12.2
+      },
+      {
+        "year": 1981,
+        "value": 12.3
+      },
+      {
+        "year": 1982,
+        "value": 12.5
+      },
+      {
+        "year": 1983,
+        "value": 12.6
+      },
+      {
+        "year": 1984,
+        "value": 12.8
+      },
+      {
+        "year": 1985,
+        "value": 12.9
+      },
+      {
+        "year": 1986,
+        "value": 13.1
+      },
+      {
+        "year": 1987,
+        "value": 13.2
+      },
+      {
+        "year": 1988,
+        "value": 13.3
+      },
+      {
+        "year": 1989,
+        "value": 13.5
+      },
+      {
+        "year": 1990,
+        "value": 13.6
+      },
+      {
+        "year": 1991,
+        "value": 13.8
+      },
+      {
+        "year": 1992,
+        "value": 13.9
+      },
+      {
+        "year": 1993,
+        "value": 14.0
+      },
+      {
+        "year": 1994,
+        "value": 14.2
+      },
+      {
+        "year": 1995,
+        "value": 14.3
+      },
+      {
+        "year": 1996,
+        "value": 14.5
+      },
+      {
+        "year": 1997,
+        "value": 14.6
+      },
+      {
+        "year": 1998,
+        "value": 14.8
+      },
+      {
+        "year": 1999,
+        "value": 14.9
+      },
+      {
+        "year": 2000,
+        "value": 15.0
+      },
+      {
+        "year": 2001,
+        "value": 15.2
+      },
+      {
+        "year": 2002,
+        "value": 15.3
+      },
+      {
+        "year": 2003,
+        "value": 15.5
+      },
+      {
+        "year": 2004,
+        "value": 15.6
+      },
+      {
+        "year": 2005,
+        "value": 15.7
+      },
+      {
+        "year": 2006,
+        "value": 15.9
+      },
+      {
+        "year": 2007,
+        "value": 16.0
+      },
+      {
+        "year": 2008,
+        "value": 16.2
+      },
+      {
+        "year": 2009,
+        "value": 16.3
+      },
+      {
+        "year": 2010,
+        "value": 16.4
+      },
+      {
+        "year": 2011,
+        "value": 16.6
+      },
+      {
+        "year": 2012,
+        "value": 16.7
+      },
+      {
+        "year": 2013,
+        "value": 16.9
+      },
+      {
+        "year": 2014,
+        "value": 17.0
+      },
+      {
+        "year": 2015,
+        "value": 17.2
+      },
+      {
+        "year": 2016,
+        "value": 17.3
+      },
+      {
+        "year": 2017,
+        "value": 17.4
+      },
+      {
+        "year": 2018,
+        "value": 17.6
+      },
+      {
+        "year": 2019,
+        "value": 17.7
+      },
+      {
+        "year": 2020,
+        "value": 17.9
+      },
+      {
+        "year": 2021,
+        "value": 18.0
+      },
+      {
+        "year": 2022,
+        "value": 18.1
+      },
+      {
+        "year": 2023,
+        "value": 18.3
+      },
+      {
+        "year": 2024,
+        "value": 18.4
+      },
+      {
+        "year": 2025,
+        "value": 18.6
+      },
+      {
+        "year": 2026,
+        "value": 18.7
+      }
+    ],
+    "trend_summary": {
+      "recent": {
+        "from": 2017,
+        "to": 2026,
+        "avg_hot_days": 24.1
+      },
+      "earliest": {
+        "from": 1934,
+        "to": 1943,
+        "avg_hot_days": 9.0
+      }
+    },
     "decades": {
       "1930er": 8.8,
       "1940er": 12.1,
