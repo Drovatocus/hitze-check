@@ -24,6 +24,14 @@
 
   <div id="controls" class="panel-box">
     <div class="control-row">
+      <label for="place-search" id="search-label">Ort finden</label>
+      <div class="search-row">
+        <input type="text" id="place-search" placeholder="z. B. Köln" autocomplete="off">
+        <button type="button" id="place-search-btn" class="stepper-btn" aria-label="Ort suchen">🔍</button>
+      </div>
+      <p id="search-status" class="muted hidden"></p>
+    </div>
+    <div class="control-row">
       <div class="toggle-group" role="group" aria-label="Anzeigemodus">
         <button type="button" id="btn-mode-stations" class="toggle-btn active" data-mode="stations">Stationen</button>
         <button type="button" id="btn-mode-areas" class="toggle-btn" data-mode="areas">Bereiche</button>
@@ -206,7 +214,9 @@
       (CC BY 4.0), bündelt u. a. Daten des Deutschen Wetterdienstes (DWD).
       Der Deutschland-Umriss für den Bereiche-Modus stammt von
       <a href="https://github.com/isellsoap/deutschlandGeoJSON" target="_blank" rel="noopener">isellsoap/deutschlandGeoJSON</a>
-      (gemeinfrei).
+      (gemeinfrei). Die Ortssuche nutzt
+      <a href="https://nominatim.org/" target="_blank" rel="noopener">Nominatim</a>
+      (OpenStreetMap-Daten, ODbL).
     </p>
 
     <h3>Begriffe</h3>

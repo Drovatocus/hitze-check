@@ -54,7 +54,10 @@ function syncUrl() {
   window.history.replaceState(null, "", newUrl);
 }
 
-const map = L.map("map").setView([51.16, 10.45], 6); // Zentrum Deutschland
+// zoomControl:false + eigene Position unten rechts, damit Leaflets Standard-Zoomregler
+// nicht mit dem eigenen Kontroll-Panel oben links (Suche, Jahr, Modus) ueberlappt.
+const map = L.map("map", { zoomControl: false }).setView([51.16, 10.45], 6); // Zentrum Deutschland
+L.control.zoom({ position: "bottomright" }).addTo(map);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -94,6 +97,70 @@ function haversineKm(a, b) {
   const lat2 = (b[1] * Math.PI) / 180;
   const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+// Findet unter den vorhandenen Stationen die naechstgelegene zu einem Punkt.
+function nearestStation(lat, lon) {
+  let best = null;
+  let bestDistanceKm = Infinity;
+  stations.forEach((station) => {
+    const d = haversineKm([lon, lat], [station.lon, station.lat]);
+    if (d < bestDistanceKm) {
+      bestDistanceKm = d;
+      best = station;
+    }
+  });
+  return { station: best, distanceKm: bestDistanceKm };
+}
+
+// Ortssuche ueber die oeffentliche Nominatim-API (OpenStreetMap) - liefert die
+// Koordinaten des gesuchten Orts, keine eigene Ortsdatenbank noetig.
+async function geocodePlace(query) {
+  const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=de&q=${encodeURIComponent(query)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Geocoding fehlgeschlagen");
+  const results = await res.json();
+  if (results.length === 0) return null;
+  return { lat: parseFloat(results[0].lat), lon: parseFloat(results[0].lon) };
+}
+
+function setupPlaceSearch() {
+  const input = document.getElementById("place-search");
+  const button = document.getElementById("place-search-btn");
+  const status = document.getElementById("search-status");
+
+  async function runSearch() {
+    const query = input.value.trim();
+    if (!query) return;
+
+    status.textContent = "Suche läuft …";
+    status.classList.remove("hidden");
+    button.disabled = true;
+
+    try {
+      const place = await geocodePlace(query);
+      if (!place) {
+        status.textContent = `Kein Ort gefunden für „${query}“.`;
+        return;
+      }
+      const { station, distanceKm } = nearestStation(place.lat, place.lon);
+      map.setView([station.lat, station.lon], 9);
+      selectStation(station.id, { distanceKm, label: `„${query}“` });
+      status.classList.add("hidden");
+    } catch (e) {
+      status.textContent = "Suche momentan nicht möglich. Bitte später erneut versuchen.";
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  button.addEventListener("click", runSearch);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      runSearch();
+    }
+  });
 }
 
 function formatDateGerman(isoDate) {
@@ -282,7 +349,8 @@ function renderDetailPanel(stationId) {
 
   const clickNote = document.getElementById("detail-click-distance");
   if (state.clickInfo) {
-    clickNote.textContent = `Angeklickter Punkt: ${state.clickInfo.distanceKm.toFixed(1)} km von dieser Station entfernt.`;
+    const label = state.clickInfo.label || "Angeklickter Punkt";
+    clickNote.textContent = `${label}: ${state.clickInfo.distanceKm.toFixed(1)} km von dieser Station entfernt.`;
     clickNote.classList.remove("hidden");
   } else {
     clickNote.classList.add("hidden");
@@ -762,6 +830,7 @@ async function init() {
   setupShareLink();
   setupAboutOverlay();
   setupMoreDetailsToggle();
+  setupPlaceSearch();
   updateMarkers();
   document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }
