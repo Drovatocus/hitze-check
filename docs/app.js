@@ -25,6 +25,24 @@ function colorForDiff(diff) {
   return "#C62828";
 }
 
+// Divergierende Skala fuer die Abweichungs-Ansicht des laufenden Jahres (Temperatur-
+// Abweichung ggue. 1991-2020, siehe current_year_anomaly) - 7 Stufen mit einer
+// zusaetzlichen 1,5-°C-Zwischenstufe (Feinschliff-Anfrage), symmetrisch um 0.
+// WICHTIG: Die 1,5-°C-Stufe ist reine Darstellungsfeinheit fuer die Abweichung
+// EINER Station in EINEM (unvollstaendigen) Jahr - nicht zu verwechseln mit dem
+// 1,5-°C-Ziel des Pariser Klimaabkommens (globale, langfristige Erwaermung ggue.
+// 1850-1900). Siehe Hinweis-Icon in der Legende (index.html).
+function colorForAnomaly(anomaly) {
+  if (anomaly === null || anomaly === undefined || Number.isNaN(anomaly)) return NO_DATA_COLOR;
+  if (anomaly <= -3) return "#1565C0"; // deutlich kuehler
+  if (anomaly <= -1.5) return "#42A5F5"; // kuehler
+  if (anomaly < 0) return "#90CAF9"; // leicht kuehler
+  if (anomaly === 0) return "#eeeeee"; // wie im Schnitt
+  if (anomaly < 1.5) return "#FFAB91"; // leicht waermer
+  if (anomaly < 3) return "#EF5350"; // waermer
+  return "#C62828"; // deutlich waermer
+}
+
 function formatSignedNumber(value, decimals = 0) {
   const rounded = decimals > 0 ? value.toFixed(decimals).replace(".", ",") : String(Math.round(value));
   return (value > 0 ? "+" : "") + rounded;
@@ -35,6 +53,21 @@ function formatSignedNumber(value, decimals = 0) {
 function incompleteNote(year, stats) {
   if (!stats || stats.complete) return "";
   return ` Jahr ${year} bisher, Stand ${formatDateGerman(stats.last_date)}.`;
+}
+
+// Klartext-Satz zur Temperatur-Abweichung des laufenden Jahres ggue. 1991-2020
+// (siehe current_year_anomaly, von der Pipeline pro Station berechnet).
+function anomalyText(anomaly) {
+  if (!meta) return "";
+  const refPeriod = `${meta.baseline_start_year}–${meta.baseline_end_year}`;
+  const bis = `bis ${formatDateGerman(meta.data_stand)}`;
+  if (anomaly === null || anomaly === undefined) {
+    return `Abweichung vom Mittel ${refPeriod} für diese Station nicht verfügbar (Reihe beginnt erst nach ${meta.baseline_start_year}).`;
+  }
+  if (anomaly === 0) return `Genau im Schnitt ${refPeriod} (${bis}).`;
+  const richtung = anomaly > 0 ? "wärmer" : "kühler";
+  const abs = Math.abs(anomaly).toFixed(1).replace(".", ",");
+  return `${abs} °C ${richtung} als im Schnitt ${refPeriod} (${bis}).`;
 }
 
 // Haelt den aktuellen Zustand in der URL fest, damit sich eine konkrete Ansicht
@@ -80,6 +113,8 @@ const state = {
 
 let stations = [];
 let mapIndexByStation = {}; // station_id -> schlanker Jahres-Index (max_temp/hot_days) aus map_index.json
+let anomalyByStation = {}; // station_id -> current_year_anomaly (Temperatur-Abweichung ggue. 1991-2020)
+let meta = null; // meta.json: laufendes Jahr, Datenstand, letztes vollstaendiges Jahr, Referenzperiode
 let seriesByStation = {}; // station_id -> volle series/<id>.json, WIRD ERST BEIM KLICK NACHGELADEN
 let markersByStation = {}; // station_id -> Leaflet-Marker
 let areaLayersByStation = {}; // station_id -> Leaflet-GeoJSON-Layer (Voronoi-Zelle)
@@ -89,7 +124,10 @@ let areasCreated = false; // Voronoi-Flaechen werden erst beim ersten Wechsel in
 
 // Marker-Clustering (viele Stationen bundesweit): rausgezoomt Cluster mit Anzahl,
 // reingezoomt einzelne, weiterhin individuell eingefaerbte Stationen.
-const stationsLayerGroup = L.markerClusterGroup({ maxClusterRadius: 50 }).addTo(map);
+const stationsLayerGroup = L.markerClusterGroup({
+  maxClusterRadius: 50,
+  iconCreateFunction: clusterIconCreateFunction,
+}).addTo(map);
 const areasLayerGroup = L.layerGroup();
 
 function haversineKm(a, b) {
@@ -189,7 +227,11 @@ async function loadData() {
   const mapIndex = await mapIndexRes.json();
   mapIndex.forEach((entry) => {
     mapIndexByStation[entry.id] = entry.years;
+    anomalyByStation[entry.id] = entry.current_year_anomaly ?? null;
   });
+
+  const metaRes = await fetch("data/meta.json");
+  meta = await metaRes.json();
 
   const germanyRes = await fetch("data/germany.geo.json");
   const germanyCollection = await germanyRes.json();
@@ -234,6 +276,7 @@ function createMarkers() {
       fillOpacity: 0.9,
       className: "station-marker",
     }).addTo(stationsLayerGroup);
+    marker.hitzeCheckStationId = station.id; // Rueckverweis fuer clusterIconCreateFunction()
     marker.bindTooltip(station.name);
     marker.on("click", () => selectStation(station.id));
     markersByStation[station.id] = marker;
@@ -299,9 +342,62 @@ function createAreaLayers() {
   });
 }
 
+// Das laufende (unvollstaendige) Jahr bekommt im Einzeljahr-Modus eine eigene
+// Abweichungs-Ansicht (statt Absolutwerte, die es faelschlich "kuehl" aussehen
+// liessen) - siehe colorForAnomaly. Gilt bewusst nicht im Vergleichsmodus, da der
+// dortige Differenz-Farbmodus (colorForDiff) bereits relativ ist und die
+// unvollstaendigen Jahre schon per incompleteNote() im Detail-Panel kennzeichnet.
+function isRunningYearSingle() {
+  return !state.compareMode && meta !== null && state.year === meta.running_year;
+}
+
 function colorForStationNow(stationId) {
+  if (isRunningYearSingle()) return colorForAnomaly(anomalyByStation[stationId]);
   const stats = lightStatsFor(stationId, state.year, state.period);
   return colorForTemp(stats ? stats.max_temp : null);
+}
+
+// Liefert denselben Zahlenwert, der auch fuer die Einzelmarker-Einfaerbung
+// herangezogen wird (Hoechsttemperatur / Abweichung / Vergleichs-Differenz je nach
+// aktivem Modus) - Grundlage fuer den Cluster-Durchschnitt in clusterIconCreateFunction.
+function clusterValueForStation(stationId) {
+  if (state.compareMode) {
+    const statsA = lightStatsFor(stationId, state.compareYearA, state.period);
+    const statsB = lightStatsFor(stationId, state.compareYearB, state.period);
+    if (!statsA || !statsB) return null;
+    return statsB.hot_days - statsA.hot_days;
+  }
+  if (isRunningYearSingle()) return anomalyByStation[stationId] ?? null;
+  const stats = lightStatsFor(stationId, state.year, state.period);
+  return stats ? stats.max_temp : null;
+}
+
+function colorForClusterValue(value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return NO_DATA_COLOR;
+  if (state.compareMode) return colorForDiff(value);
+  if (isRunningYearSingle()) return colorForAnomaly(value);
+  return colorForTemp(value);
+}
+
+// Faerbt Cluster-Marker (zusammengefasste Stationen, siehe stationsLayerGroup) nach
+// dem DURCHSCHNITT der aktuell dargestellten Werte ihrer enthaltenen Stationen ein,
+// statt der leaflet.markercluster-Standardfarbe. Stationen ohne Wert (z. B. "keine
+// Referenzdaten") werden von der Mittelwertbildung ausgenommen. Wird bei jeder
+// Aenderung (Jahr/Zeitraum/Modus/Vergleich) per stationsLayerGroup.refreshClusters()
+// in updateMarkers() neu berechnet.
+function clusterIconCreateFunction(cluster) {
+  const values = cluster
+    .getAllChildMarkers()
+    .map((m) => clusterValueForStation(m.hitzeCheckStationId))
+    .filter((v) => v !== null && v !== undefined && !Number.isNaN(v));
+  const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : null;
+  const color = avg === null ? NO_DATA_COLOR : colorForClusterValue(avg);
+  return L.divIcon({
+    html: `<div class="cluster-marker-inner" style="background:${color}"><span>${cluster.getChildCount()}</span></div>`,
+    className: "station-cluster-icon",
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+  });
 }
 
 function colorForComparison(stationId) {
@@ -323,22 +419,66 @@ function tooltipTextFor(stationId) {
     const diff = statsB.hot_days - statsA.hot_days;
     return `${station.name}: ${formatSignedNumber(diff)} heiße Tage (${state.compareYearB} ggü. ${state.compareYearA})`;
   }
+  if (isRunningYearSingle()) {
+    const anomaly = anomalyByStation[stationId];
+    if (anomaly === null || anomaly === undefined) return `${station.name}: Abweichung nicht verfügbar`;
+    return `${station.name}: ${formatSignedNumber(anomaly, 1)} °C ggü. Mittel ${meta.baseline_start_year}–${meta.baseline_end_year} (bisher ${state.year})`;
+  }
   const stats = lightStatsFor(stationId, state.year, state.period);
   if (!stats) return `${station.name}: keine Daten für ${state.year}`;
   return `${station.name}: ${formatTemp(stats.max_temp)}`;
 }
 
+// Blendet den "laufendes Jahr"-Hinweisbanner ein/aus und formuliert den Text
+// aus meta.json (Datenstand, Anteil des Jahres, das schon erfasst ist).
+function updateRunningYearBanner(unfinished) {
+  const banner = document.getElementById("running-year-banner");
+  if (!unfinished) {
+    banner.classList.add("hidden");
+    return;
+  }
+  const pct = String(meta.running_year_coverage_pct).replace(".", ",");
+  banner.textContent =
+    `⚠️ ${meta.running_year} läuft noch – Stand ${formatDateGerman(meta.data_stand)}, erst rund ${pct} % ` +
+    `des Jahres. Absolutwerte sind noch nicht mit vollen Jahren vergleichbar, daher zeigt die Karte ` +
+    `stattdessen die Abweichung vom Mittel ${meta.baseline_start_year}–${meta.baseline_end_year}.`;
+  banner.classList.remove("hidden");
+}
+
+// Waehlt die passende Legende (Absolutwerte / Vergleich / Abweichung laufendes Jahr) -
+// zentral hier statt verstreut in den einzelnen Steuerungs-Handlern, damit Jahr-,
+// Zeitraum- und Vergleichsmodus-Wechsel immer konsistent zur richtigen Legende fuehren.
+function updateLegendMode(runningYearActive) {
+  const showCompare = state.compareMode;
+  const showAnomaly = !showCompare && runningYearActive;
+  const showAbsolute = !showCompare && !showAnomaly;
+  document.getElementById("legend-absolute").classList.toggle("hidden", !showAbsolute);
+  document.getElementById("legend-compare").classList.toggle("hidden", !showCompare);
+  document.getElementById("legend-anomaly").classList.toggle("hidden", !showAnomaly);
+}
+
 function updateMarkers() {
+  const runningYearActive = isRunningYearSingle();
+  // "Unfertig"-Optik (gestrichelter Rand, mehr Transparenz), damit ein erst
+  // teilweise vergangenes Jahr nicht wie ein regulaeres volles Jahr wirkt.
+  const markerStyle = runningYearActive ? { dashArray: "3,3", fillOpacity: 0.55 } : { dashArray: null, fillOpacity: 0.9 };
+  const areaStyle = runningYearActive ? { dashArray: "4,3", fillOpacity: 0.55 } : { dashArray: null, fillOpacity: 0.75 };
+
   stations.forEach((station) => {
     const color = state.compareMode ? colorForComparison(station.id) : colorForStationNow(station.id);
     const tooltipText = tooltipTextFor(station.id);
-    markersByStation[station.id].setStyle({ fillColor: color });
+    markersByStation[station.id].setStyle({ fillColor: color, ...markerStyle });
     markersByStation[station.id].setTooltipContent(tooltipText);
     if (areaLayersByStation[station.id]) {
-      areaLayersByStation[station.id].setStyle({ fillColor: color });
+      areaLayersByStation[station.id].setStyle({ fillColor: color, ...areaStyle });
       areaLayersByStation[station.id].setTooltipContent(tooltipText);
     }
   });
+  updateRunningYearBanner(runningYearActive);
+  updateLegendMode(runningYearActive);
+  // Cluster-Icons cachen ihre Farbe (siehe clusterIconCreateFunction) - nach jeder
+  // Aenderung neu berechnen, sonst bleibt die Durchschnittsfarbe beim alten Zustand.
+  stationsLayerGroup.refreshClusters();
   if (state.selectedStation) {
     renderDetailPanel(state.selectedStation);
   }
@@ -465,6 +605,9 @@ function renderDetailPanel(stationId) {
     } else if (!stats.complete) {
       periodNote.textContent =
         `Zeitraum: ${state.year} (bisher, Stand ${formatDateGerman(stats.last_date)}), ${periodLabel} — die Zahl kann noch steigen.`;
+      if (meta && state.year === meta.running_year) {
+        periodNote.textContent += " " + anomalyText(series.current_year_anomaly);
+      }
     } else {
       periodNote.textContent = `Zeitraum: ${state.year}, ${periodLabel}`;
     }
@@ -581,16 +724,13 @@ function renderMoreDetails(stationId) {
 function renderChart(series) {
   const years = Object.keys(series.years).sort();
   const hotDays = years.map((y) => series.years[y][state.period]?.hot_days ?? 0);
-  const recordYear = series.record.date.slice(0, 4);
-
-  const barColors = years.map((y) => (y === recordYear ? "#E53935" : "#4A90D9"));
 
   const datasets = [
     {
       type: "bar",
       label: "Heiße Tage (≥ 30 °C)",
       data: hotDays,
-      backgroundColor: barColors,
+      backgroundColor: "#4A90D9",
       order: 2,
     },
   ];
@@ -625,11 +765,6 @@ function renderChart(series) {
       responsive: true,
       plugins: {
         legend: { display: datasets.length > 1 },
-        tooltip: {
-          callbacks: {
-            afterLabel: (item) => (item.label === recordYear ? "Rekordjahr (Höchsttemperatur)" : ""),
-          },
-        },
       },
       scales: {
         x: { ticks: { maxTicksLimit: 12 } },
@@ -676,18 +811,27 @@ function setupControls() {
   yearInput.min = minYear;
   yearInput.max = maxYear;
 
-  // Regler, Stepper-Buttons und Eingabefeld immer synchron halten.
-  function setYear(year) {
+  // Regler, Stepper-Buttons und Eingabefeld immer synchron halten. syncUrl per
+  // Default an - beim initialen Setzen des Startjahres (siehe defaultYear unten)
+  // bewusst abgeschaltet, damit ein frischer Aufruf der Basis-Adresse (ohne ?y=...)
+  // die URL nicht automatisch mit dem Startjahr befuellt. Ein bewusst geteilter
+  // Link mit ?y=... oder ein aktiver Regler-/Buttonwechsel schreibt weiterhin.
+  function setYear(year, { syncUrl: shouldSyncUrl = true } = {}) {
     const clamped = Math.min(maxYear, Math.max(minYear, year));
     state.year = clamped;
     slider.value = clamped;
     yearInput.value = clamped;
     document.getElementById("year-value").textContent = clamped;
     updateMarkers();
-    syncUrl();
+    if (shouldSyncUrl) syncUrl();
   }
 
-  setYear(maxYear); // beim Laden: aktuellstes verfuegbares Jahr
+  // Beim Laden bewusst NICHT das laufende (unvollstaendige) Jahr zeigen, sondern
+  // das letzte VOLLSTAENDIGE Jahr aus meta.json - sonst wirkt die Startansicht wie
+  // ein "kuehles" Jahr, obwohl erst ein Teil davon vergangen ist. Ueber Regler/
+  // Eingabe bleibt das laufende Jahr jederzeit waehlbar.
+  const defaultYear = meta && years.includes(meta.last_complete_year) ? meta.last_complete_year : maxYear;
+  setYear(defaultYear, { syncUrl: false });
 
   slider.addEventListener("input", () => setYear(Number(slider.value)));
 

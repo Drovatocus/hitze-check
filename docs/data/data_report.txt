@@ -1,0 +1,3136 @@
+Hitze-Check Deutschland — Datenreport (bundesweit)
+Erzeugt am: 2026-07-10 19:37
+Laufendes Jahr: 2026 (Datenstand 2026-03-18, 21.1 % des Jahres erfasst, jeweils juengstes beobachtetes Datum ueber alle Stationen) - Startansicht zeigt stattdessen das letzte vollstaendige Jahr 2025.
+Referenzperiode fuer die Abweichungsberechnung des laufenden Jahres: 1991-2020.
+============================================================
+
+Geeignete Stationen gefunden (Inventar-Vorfilter): 382
+Davon erfolgreich verarbeitet: 382
+Dauerhaft fehlgeschlagen (nach mehreren Versuchen): 0
+
+Regionsverteilung (Anzahl Stationen je Bundesland-Kuerzel):
+  BY: 79
+  BW: 44
+  NI: 38
+  HE: 31
+  RP: 27
+  NW: 27
+  SN: 24
+  TH: 21
+  MV: 20
+  SH: 20
+  ST: 19
+  BB: 18
+  SL: 6
+  BE: 4
+  HB: 2
+  HH: 2
+
+============================================================
+Stationsuebersicht mit Top-3-Jahren nach heissen Tagen:
+
+Aldersbach-Kriestorf (aldersbach-kriestorf-d0073)
+  Meteostat-ID D0073, Region BY, Hoehe 340.0 m
+  Daten verfuegbar ab 1959, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 36 heisse Tage, Hoechstwert 36.9 °C am 2015-07-22
+    2018: 35 heisse Tage, Hoechstwert 36.2 °C am 2018-08-01
+    2003: 31 heisse Tage, Hoechstwert 37.9 °C am 2003-08-13
+
+Alfeld / Buchenbrink (alfeld-buchenbrink-10442)
+  Meteostat-ID 10442, Region NI, Hoehe 144.0 m
+  Daten verfuegbar ab 1939, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 23 heisse Tage, Hoechstwert 36.5 °C am 2018-08-07
+    2022: 21 heisse Tage, Hoechstwert 38.7 °C am 2022-07-20
+    2019: 15 heisse Tage, Hoechstwert 37.7 °C am 2019-07-25
+
+Alfhausen (alfhausen-d0078)
+  Meteostat-ID D0078, Region NI, Hoehe 65.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 18 heisse Tage, Hoechstwert 34.5 °C am 1994-08-04
+    2019: 18 heisse Tage, Hoechstwert 39.2 °C am 2019-07-25
+    2022: 16 heisse Tage, Hoechstwert 37.2 °C am 2022-07-19
+
+Alsfeld-Eifa (alsfeld-eifa-d0091)
+  Meteostat-ID D0091, Region HE, Hoehe 300.0 m
+  Daten verfuegbar ab 1978, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 35.2 °C am 2018-08-07
+    2003: 18 heisse Tage, Hoechstwert 36.4 °C am 2003-08-09
+    2015: 17 heisse Tage, Hoechstwert 36.6 °C am 2015-07-05
+
+Altenstadt (altenstadt-10954)
+  Meteostat-ID 10954, Region BY, Hoehe 739.0 m
+  Daten verfuegbar ab 2003, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 17 heisse Tage, Hoechstwert 33.6 °C am 2003-08-13
+    2015: 12 heisse Tage, Hoechstwert 33.7 °C am 2015-08-07
+    2019: 9 heisse Tage, Hoechstwert 32.7 °C am 2019-07-26
+
+Altomünster-Maisbrunn (altomunster-maisbrunn-d0142)
+  Meteostat-ID D0142, Region BY, Hoehe 510.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 26 heisse Tage, Hoechstwert 36.4 °C am 2003-08-13
+    2015: 26 heisse Tage, Hoechstwert 35.7 °C am 2015-08-07
+    1994: 23 heisse Tage, Hoechstwert 34.8 °C am 1994-07-04
+
+Alzey (alzey-d0150)
+  Meteostat-ID D0150, Region RP, Hoehe 215.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 35.3 °C am 2018-07-31
+    2022: 27 heisse Tage, Hoechstwert 37.3 °C am 2022-08-04
+    2015: 26 heisse Tage, Hoechstwert 38.4 °C am 2015-08-07
+
+Amberg-Unterammersricht (amberg-unterammersricht-d0151)
+  Meteostat-ID D0151, Region BY, Hoehe 383.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 34 heisse Tage, Hoechstwert 36.7 °C am 2018-07-31
+    2003: 31 heisse Tage, Hoechstwert 38.0 °C am 2003-08-13
+    2015: 31 heisse Tage, Hoechstwert 38.5 °C am 2015-08-07
+
+Amerang-Pfaffing (amerang-pfaffing-d0154)
+  Meteostat-ID D0154, Region BY, Hoehe 515.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 26 heisse Tage, Hoechstwert 34.4 °C am 2015-07-07
+    2003: 23 heisse Tage, Hoechstwert 36.7 °C am 2003-08-13
+    2023: 17 heisse Tage, Hoechstwert 34.0 °C am 2023-07-11
+
+Andernach (andernach-d0161)
+  Meteostat-ID D0161, Region RP, Hoehe 75.0 m
+  Daten verfuegbar ab 2011, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 37.8 °C am 2018-08-07
+    2022: 28 heisse Tage, Hoechstwert 37.7 °C am 2022-07-19
+    2019: 24 heisse Tage, Hoechstwert 40.4 °C am 2019-07-25
+
+Angermuende (angermuende-10291)
+  Meteostat-ID 10291, Region BB, Hoehe 56.0 m
+  Daten verfuegbar ab 1908, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 25 heisse Tage, Hoechstwert 35.9 °C am 2018-08-08
+    2019: 23 heisse Tage, Hoechstwert 37.3 °C am 2019-06-26
+    1994: 19 heisse Tage, Hoechstwert 37.1 °C am 1994-08-01
+
+Arkona (arkona-10091)
+  Meteostat-ID 10091, Region MV, Hoehe 42.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2013: 2 heisse Tage, Hoechstwert 30.1 °C am 2013-07-28
+    2019: 2 heisse Tage, Hoechstwert 33.5 °C am 2019-06-30
+    1964: 1 heisse Tage, Hoechstwert 30.1 °C am 1964-08-27
+
+Arnstein-Müdesheim (arnstein-mudesheim-d0191)
+  Meteostat-ID D0191, Region BY, Hoehe 220.0 m
+  Daten verfuegbar ab 1986, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 39 heisse Tage, Hoechstwert 39.3 °C am 2003-08-09
+    2018: 32 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+    2022: 30 heisse Tage, Hoechstwert 38.0 °C am 2022-07-20
+
+Artern (artern-d0198)
+  Meteostat-ID D0198, Region TH, Hoehe 164.0 m
+  Daten verfuegbar ab 1954, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 37 heisse Tage, Hoechstwert 38.2 °C am 2018-07-31
+    2019: 26 heisse Tage, Hoechstwert 37.4 °C am 2019-07-25
+    2003: 24 heisse Tage, Hoechstwert 36.0 °C am 2003-08-12
+
+Attenkam (attenkam-d0217)
+  Meteostat-ID D0217, Region BY, Hoehe 672.0 m
+  Daten verfuegbar ab 1941, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 29 heisse Tage, Hoechstwert 34.6 °C am 1947-07-30
+    1943: 18 heisse Tage, Hoechstwert 35.6 °C am 1943-08-03
+    2015: 18 heisse Tage, Hoechstwert 35.4 °C am 2015-07-05
+
+Aue (aue-10575)
+  Meteostat-ID 10575, Region SN, Hoehe 391.0 m
+  Daten verfuegbar ab 1977, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.0 °C am 2015-08-07
+    2018: 20 heisse Tage, Hoechstwert 34.4 °C am 2018-07-31
+    2019: 17 heisse Tage, Hoechstwert 36.8 °C am 2019-06-30
+
+Augsburg (augsburg-10852)
+  Meteostat-ID 10852, Region BY, Hoehe 461.0 m
+  Daten verfuegbar ab 1941, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 31 heisse Tage, Hoechstwert 36.1 °C am 1947-07-29
+    2015: 24 heisse Tage, Hoechstwert 35.6 °C am 2015-08-07
+    2003: 21 heisse Tage, Hoechstwert 36.0 °C am 2003-08-13
+
+Bad Berka (bad-berka-edob0)
+  Meteostat-ID EDOB0, Region TH, Hoehe 305.0 m
+  Daten verfuegbar ab 1954, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 35.6 °C am 2018-07-31
+    2019: 18 heisse Tage, Hoechstwert 36.8 °C am 2019-06-30
+    2024: 18 heisse Tage, Hoechstwert 34.1 °C am 2024-08-29
+
+Bad Durkheim / Ungstein (bad-durkheim-ungstein-edrf0)
+  Meteostat-ID EDRF0, Region RP, Hoehe 107.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 43 heisse Tage, Hoechstwert 38.5 °C am 2003-08-13
+    2022: 38 heisse Tage, Hoechstwert 38.2 °C am 2022-08-04
+    2018: 35 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+
+Bad Hersfeld (bad-hersfeld-10542)
+  Meteostat-ID 10542, Region HE, Hoehe 273.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 30 heisse Tage, Hoechstwert 36.7 °C am 2018-07-31
+    2003: 25 heisse Tage, Hoechstwert 37.4 °C am 2003-08-09
+    2022: 22 heisse Tage, Hoechstwert 38.8 °C am 2022-07-20
+
+Bad Kreuznach (bad-kreuznach-10627)
+  Meteostat-ID 10627, Region RP, Hoehe 103.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 44 heisse Tage, Hoechstwert 39.6 °C am 2022-08-04
+    1947: 41 heisse Tage, Hoechstwert 37.6 °C am 1947-07-29
+    2018: 38 heisse Tage, Hoechstwert 37.2 °C am 2018-08-07
+
+Bad Lippspringe (bad-lippspringe-10430)
+  Meteostat-ID 10430, Region NW, Hoehe 157.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 22 heisse Tage, Hoechstwert 37.6 °C am 2018-08-07
+    2022: 20 heisse Tage, Hoechstwert 37.1 °C am 2022-07-19
+    1994: 18 heisse Tage, Hoechstwert 34.5 °C am 1994-07-28
+
+Bad Marienberg (bad-marienberg-10526)
+  Meteostat-ID 10526, Region RP, Hoehe 547.0 m
+  Daten verfuegbar ab 1962, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 9 heisse Tage, Hoechstwert 33.2 °C am 2018-08-07
+    2003: 8 heisse Tage, Hoechstwert 33.7 °C am 2003-08-08
+    2019: 7 heisse Tage, Hoechstwert 34.8 °C am 2019-07-25
+
+Bad Salzuflen (bad-salzuflen-10325)
+  Meteostat-ID 10325, Region NW, Hoehe 135.0 m
+  Daten verfuegbar ab 1935, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 36.4 °C am 2018-08-07
+    1994: 16 heisse Tage, Hoechstwert 34.4 °C am 1994-07-28
+    2019: 16 heisse Tage, Hoechstwert 37.8 °C am 2019-07-25
+
+Baden-Baden-Geroldsau (baden-baden-geroldsau-d0257)
+  Meteostat-ID D0257, Region BW, Hoehe 240.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 35 heisse Tage, Hoechstwert 37.8 °C am 2022-07-19
+    1949: 26 heisse Tage, Hoechstwert 36.6 °C am 1949-07-13
+    2023: 26 heisse Tage, Hoechstwert 36.2 °C am 2023-07-09
+
+Bamberg (bamberg-10675)
+  Meteostat-ID 10675, Region BY, Hoehe 239.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 36 heisse Tage, Hoechstwert 37.5 °C am 1947-07-29
+    2018: 34 heisse Tage, Hoechstwert 37.9 °C am 2018-07-31
+    1911: 33 heisse Tage, Hoechstwert 36.9 °C am 1911-07-28
+
+Barsinghausen-Hohenbostel (barsinghausen-hohenbostel-d0294)
+  Meteostat-ID D0294, Region NI, Hoehe 110.0 m
+  Daten verfuegbar ab 1992, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 37.9 °C am 2018-08-07
+    2022: 27 heisse Tage, Hoechstwert 40.0 °C am 2022-07-20
+    2019: 23 heisse Tage, Hoechstwert 38.4 °C am 2019-07-25
+
+Barth (barth-10180)
+  Meteostat-ID 10180, Region MV, Hoehe 7.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 10 heisse Tage, Hoechstwert 34.9 °C am 1994-08-05
+    2019: 7 heisse Tage, Hoechstwert 35.1 °C am 2019-06-30
+    2022: 7 heisse Tage, Hoechstwert 34.3 °C am 2022-07-20
+
+Baruth (baruth-10376)
+  Meteostat-ID 10376, Region BB, Hoehe 56.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 36.9 °C am 2018-08-08
+    2019: 31 heisse Tage, Hoechstwert 37.6 °C am 2019-06-26
+    2015: 25 heisse Tage, Hoechstwert 38.3 °C am 2015-08-07
+
+Berge (berge-d5825)
+  Meteostat-ID D5825, Region BB, Hoehe 40.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 26 heisse Tage, Hoechstwert 36.7 °C am 2018-08-08
+    2019: 24 heisse Tage, Hoechstwert 38.2 °C am 2019-06-30
+    1994: 20 heisse Tage, Hoechstwert 37.9 °C am 1994-08-01
+
+Bergen (bergen-10238)
+  Meteostat-ID 10238, Region NI, Hoehe 70.0 m
+  Daten verfuegbar ab 1997, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 35.5 °C am 2018-08-07
+    2019: 16 heisse Tage, Hoechstwert 36.5 °C am 2019-07-25
+    2022: 11 heisse Tage, Hoechstwert 38.1 °C am 2022-07-20
+
+Bergzabern, Bad (bergzabern-bad-d0377)
+  Meteostat-ID D0377, Region RP, Hoehe 210.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 39 heisse Tage, Hoechstwert 37.0 °C am 1947-07-29
+    2019: 28 heisse Tage, Hoechstwert 37.2 °C am 2019-07-25
+    2015: 25 heisse Tage, Hoechstwert 38.3 °C am 2015-08-07
+
+Berleburg, Bad-Stünzel (berleburg-bad-stunzel-d0390)
+  Meteostat-ID D0390, Region NW, Hoehe 610.0 m
+  Daten verfuegbar ab 1986, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 10 heisse Tage, Hoechstwert 33.5 °C am 2018-08-07
+    2019: 7 heisse Tage, Hoechstwert 33.6 °C am 2019-07-25
+    2022: 7 heisse Tage, Hoechstwert 34.0 °C am 2022-07-19
+
+Berlin / Dahlem (berlin-dahlem-10381)
+  Meteostat-ID 10381, Region BE, Hoehe 51.0 m
+  Daten verfuegbar ab 1876, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 37.0 °C am 2018-08-08
+    2019: 24 heisse Tage, Hoechstwert 37.6 °C am 2019-06-30
+    2006: 21 heisse Tage, Hoechstwert 35.9 °C am 2006-07-20
+
+Berlin / Schönefeld (berlin-schonefeld-10385)
+  Meteostat-ID 10385, Region BB, Hoehe 47.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 32 heisse Tage, Hoechstwert 38.0 °C am 2018-08-08
+    2019: 30 heisse Tage, Hoechstwert 38.4 °C am 2019-06-30
+    2006: 21 heisse Tage, Hoechstwert 36.6 °C am 2006-07-20
+
+Berlin / Tempelhof (berlin-tempelhof-10384)
+  Meteostat-ID 10384, Region BE, Hoehe 50.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 38.0 °C am 2018-08-08
+    2019: 26 heisse Tage, Hoechstwert 38.5 °C am 2019-06-30
+    2015: 23 heisse Tage, Hoechstwert 38.0 °C am 2015-08-07
+
+Berlin-Buch (berlin-buch-d0400)
+  Meteostat-ID D0400, Region BE, Hoehe 60.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 37.6 °C am 2018-08-08
+    2019: 27 heisse Tage, Hoechstwert 37.7 °C am 2019-06-30
+    2006: 24 heisse Tage, Hoechstwert 36.7 °C am 2006-07-20
+
+Berlin-Marzahn (berlin-marzahn-d0420)
+  Meteostat-ID D0420, Region BE, Hoehe 60.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 37.3 °C am 2018-08-08
+    2019: 28 heisse Tage, Hoechstwert 38.1 °C am 2019-06-30
+    1994: 24 heisse Tage, Hoechstwert 38.0 °C am 1994-08-01
+
+Bernburg / Saale (Nord) (bernburg-saale-nord-d0445)
+  Meteostat-ID D0445, Region ST, Hoehe 84.0 m
+  Daten verfuegbar ab 1898, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 43 heisse Tage, Hoechstwert 39.5 °C am 2018-07-31
+    2019: 32 heisse Tage, Hoechstwert 39.6 °C am 2019-06-30
+    2022: 30 heisse Tage, Hoechstwert 38.3 °C am 2022-07-20
+
+Bertsdorf-Hörnitz (bertsdorf-hornitz-d2252)
+  Meteostat-ID D2252, Region SN, Hoehe 270.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 30 heisse Tage, Hoechstwert 34.5 °C am 1947-06-29
+    2015: 25 heisse Tage, Hoechstwert 37.2 °C am 2015-08-08
+    2018: 24 heisse Tage, Hoechstwert 34.9 °C am 2018-07-31
+
+Berus (berus-10704)
+  Meteostat-ID 10704, Region SL, Hoehe 363.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 21 heisse Tage, Hoechstwert 37.8 °C am 2003-08-09
+    2019: 20 heisse Tage, Hoechstwert 38.2 °C am 2019-07-25
+    2015: 19 heisse Tage, Hoechstwert 35.9 °C am 2015-07-04
+
+Bevern, Kr. Holzminden (bevern-kr-holzminden-d2323)
+  Meteostat-ID D2323, Region NI, Hoehe 110.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 37.0 °C am 2018-08-07
+    2022: 20 heisse Tage, Hoechstwert 38.7 °C am 2022-07-20
+    2019: 18 heisse Tage, Hoechstwert 37.2 °C am 2019-07-25
+
+Birx (birx-d1411)
+  Meteostat-ID D1411, Region TH, Hoehe 745.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 6 heisse Tage, Hoechstwert 33.2 °C am 2022-07-20
+    2015: 5 heisse Tage, Hoechstwert 33.0 °C am 2015-08-07
+    2019: 5 heisse Tage, Hoechstwert 33.6 °C am 2019-07-25
+
+Blankenrath (blankenrath-d0535)
+  Meteostat-ID D0535, Region RP, Hoehe 417.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 25 heisse Tage, Hoechstwert 35.0 °C am 1947-06-27
+    1976: 16 heisse Tage, Hoechstwert 34.2 °C am 1976-07-16
+    2015: 16 heisse Tage, Hoechstwert 36.1 °C am 2015-08-07
+
+Bochum (bochum-eumpc)
+  Meteostat-ID EUMPC, Region NW, Hoehe 101.0 m
+  Daten verfuegbar ab 1940, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 26 heisse Tage, Hoechstwert 36.3 °C am 1947-06-27
+    2018: 17 heisse Tage, Hoechstwert 37.3 °C am 2018-08-07
+    1991: 14 heisse Tage, Hoechstwert 33.9 °C am 1991-07-07
+
+Boizenburg (boizenburg-10249)
+  Meteostat-ID 10249, Region MV, Hoehe 45.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 24 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+    1994: 18 heisse Tage, Hoechstwert 36.0 °C am 1994-08-05
+    2019: 18 heisse Tage, Hoechstwert 36.6 °C am 2019-06-30
+
+Boltenhagen (boltenhagen-10161)
+  Meteostat-ID 10161, Region MV, Hoehe 15.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 5 heisse Tage, Hoechstwert 34.5 °C am 2019-06-30
+    2022: 5 heisse Tage, Hoechstwert 37.5 °C am 2022-07-20
+    1947: 4 heisse Tage, Hoechstwert 32.5 °C am 1947-06-29
+
+Bonn-Roleber (bonn-roleber-10519)
+  Meteostat-ID 10519, Region NW, Hoehe 159.0 m
+  Daten verfuegbar ab 2000, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 19 heisse Tage, Hoechstwert 40.9 °C am 2019-07-25
+    2022: 17 heisse Tage, Hoechstwert 36.4 °C am 2022-07-19
+    2018: 15 heisse Tage, Hoechstwert 36.9 °C am 2018-08-07
+
+Braunlage (braunlage-d0656)
+  Meteostat-ID D0656, Region NI, Hoehe 607.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 6 heisse Tage, Hoechstwert 32.8 °C am 2018-07-31
+    1943: 4 heisse Tage, Hoechstwert 32.0 °C am 1943-08-03
+    1994: 4 heisse Tage, Hoechstwert 32.2 °C am 1994-08-05
+
+Braunlage (braunlage-10452)
+  Meteostat-ID 10452, Region NI, Hoehe 607.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 6 heisse Tage, Hoechstwert 32.8 °C am 2018-07-31
+    1943: 4 heisse Tage, Hoechstwert 32.0 °C am 1943-08-03
+    1994: 4 heisse Tage, Hoechstwert 32.2 °C am 1994-08-05
+
+Braunschweig (braunschweig-10348)
+  Meteostat-ID 10348, Region NI, Hoehe 81.0 m
+  Daten verfuegbar ab 1936, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 36.4 °C am 2018-08-07
+    2019: 18 heisse Tage, Hoechstwert 36.0 °C am 2019-07-25
+    1994: 17 heisse Tage, Hoechstwert 36.5 °C am 1994-08-05
+
+Bremen (bremen-10224)
+  Meteostat-ID 10224, Region HB, Hoehe 3.0 m
+  Daten verfuegbar ab 1890, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 22 heisse Tage, Hoechstwert 36.3 °C am 2018-08-07
+    1947: 17 heisse Tage, Hoechstwert 34.9 °C am 1947-06-28
+    2019: 17 heisse Tage, Hoechstwert 37.4 °C am 2019-07-25
+
+Bremerhaven (bremerhaven-10129)
+  Meteostat-ID 10129, Region HB, Hoehe 7.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 11 heisse Tage, Hoechstwert 33.6 °C am 1994-07-25
+    2003: 9 heisse Tage, Hoechstwert 33.4 °C am 2003-08-09
+    2019: 9 heisse Tage, Hoechstwert 35.6 °C am 2019-07-25
+
+Bremervörde (bremervorde-d0704)
+  Meteostat-ID D0704, Region NI, Hoehe 11.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 16 heisse Tage, Hoechstwert 35.2 °C am 1994-07-25
+    2018: 15 heisse Tage, Hoechstwert 35.4 °C am 2018-08-07
+    1999: 12 heisse Tage, Hoechstwert 33.6 °C am 1999-07-19
+
+Brocken (brocken-10453)
+  Meteostat-ID 10453, Region ST, Hoehe 1142.0 m
+  Daten verfuegbar ab 1896, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1896: 0 heisse Tage, Hoechstwert 23.4 °C am 1896-07-10
+    1897: 0 heisse Tage, Hoechstwert 22.0 °C am 1897-06-29
+    1898: 0 heisse Tage, Hoechstwert 25.0 °C am 1898-08-17
+
+Buchen, Kr. Neckar-Odenwald (buchen-kr-neckar-odenwald-d0755)
+  Meteostat-ID D0755, Region BW, Hoehe 340.0 m
+  Daten verfuegbar ab 1935, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 37 heisse Tage, Hoechstwert 36.0 °C am 1947-07-29
+    2015: 30 heisse Tage, Hoechstwert 38.9 °C am 2015-08-07
+    2018: 26 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+
+Buchenbach (buchenbach-d0757)
+  Meteostat-ID D0757, Region BW, Hoehe 445.0 m
+  Daten verfuegbar ab 1990, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 25 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    2022: 25 heisse Tage, Hoechstwert 36.1 °C am 2022-08-04
+    2015: 22 heisse Tage, Hoechstwert 36.9 °C am 2015-08-07
+
+Bueckeburg (bueckeburg-10335)
+  Meteostat-ID 10335, Region NI, Hoehe 70.0 m
+  Daten verfuegbar ab 1979, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 20 heisse Tage, Hoechstwert 35.6 °C am 1994-07-25
+    2003: 19 heisse Tage, Hoechstwert 37.3 °C am 2003-08-12
+    2018: 18 heisse Tage, Hoechstwert 36.5 °C am 2018-08-07
+
+Burgwald-Bottendorf (burgwald-bottendorf-d0817)
+  Meteostat-ID D0817, Region HE, Hoehe 293.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2006: 17 heisse Tage, Hoechstwert 34.4 °C am 2006-07-20
+    2018: 17 heisse Tage, Hoechstwert 34.5 °C am 2018-08-03
+    2019: 17 heisse Tage, Hoechstwert 37.8 °C am 2019-07-25
+
+Büchel (buchel-10613)
+  Meteostat-ID 10613, Region RP, Hoehe 478.0 m
+  Daten verfuegbar ab 1973, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 8 heisse Tage, Hoechstwert 32.9 °C am 2018-08-07
+    2019: 8 heisse Tage, Hoechstwert 36.2 °C am 2019-07-25
+    2020: 8 heisse Tage, Hoechstwert 33.1 °C am 2020-08-08
+
+Carlsfeld (carlsfeld-10574)
+  Meteostat-ID 10574, Region SN, Hoehe 898.0 m
+  Daten verfuegbar ab 1989, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 3 heisse Tage, Hoechstwert 31.2 °C am 2015-08-07
+    2012: 2 heisse Tage, Hoechstwert 32.4 °C am 2012-08-20
+    2019: 2 heisse Tage, Hoechstwert 31.2 °C am 2019-06-30
+
+Celle (celle-10343)
+  Meteostat-ID 10343, Region NI, Hoehe 39.0 m
+  Daten verfuegbar ab 1948, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 23 heisse Tage, Hoechstwert 36.1 °C am 2018-08-07
+    1994: 21 heisse Tage, Hoechstwert 36.0 °C am 1994-08-05
+    2003: 19 heisse Tage, Hoechstwert 36.1 °C am 2003-08-12
+
+Chemnitz (chemnitz-d0853)
+  Meteostat-ID D0853, Region SN, Hoehe 418.0 m
+  Daten verfuegbar ab 1882, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1911: 21 heisse Tage, Hoechstwert 36.2 °C am 1911-07-23
+    1947: 19 heisse Tage, Hoechstwert 36.6 °C am 1947-07-29
+    2015: 17 heisse Tage, Hoechstwert 36.0 °C am 2015-08-07
+
+Chieming (chieming-10982)
+  Meteostat-ID 10982, Region BY, Hoehe 549.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 34.9 °C am 2015-07-07
+    2003: 20 heisse Tage, Hoechstwert 34.9 °C am 2003-08-13
+    1994: 19 heisse Tage, Hoechstwert 32.9 °C am 1994-07-31
+
+Cottbus (cottbus-10496)
+  Meteostat-ID 10496, Region BB, Hoehe 69.0 m
+  Daten verfuegbar ab 1888, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 32 heisse Tage, Hoechstwert 37.0 °C am 2018-08-08
+    2019: 32 heisse Tage, Hoechstwert 38.1 °C am 2019-06-26
+    2024: 30 heisse Tage, Hoechstwert 35.5 °C am 2024-08-29
+
+Cuxhaven (cuxhaven-10131)
+  Meteostat-ID 10131, Region NI, Hoehe 5.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1997: 7 heisse Tage, Hoechstwert 32.1 °C am 1997-08-25
+    1994: 6 heisse Tage, Hoechstwert 35.5 °C am 1994-08-04
+    2019: 5 heisse Tage, Hoechstwert 33.6 °C am 2019-06-25
+
+Cölbe, Kr. Marburg-Biedenkopf (colbe-kr-marburg-biedenkopf-d3164)
+  Meteostat-ID D3164, Region HE, Hoehe 187.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 33 heisse Tage, Hoechstwert 36.5 °C am 1947-06-27
+    2022: 30 heisse Tage, Hoechstwert 38.8 °C am 2022-07-20
+    2018: 27 heisse Tage, Hoechstwert 36.0 °C am 2018-07-31
+
+Dachwig (dachwig-d0896)
+  Meteostat-ID D0896, Region TH, Hoehe 170.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 37.4 °C am 2018-07-31
+    2022: 25 heisse Tage, Hoechstwert 38.9 °C am 2022-07-20
+    2024: 25 heisse Tage, Hoechstwert 34.3 °C am 2024-08-29
+
+Darmstadt (darmstadt-d0917)
+  Meteostat-ID D0917, Region HE, Hoehe 162.0 m
+  Daten verfuegbar ab 1995, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 51 heisse Tage, Hoechstwert 37.2 °C am 2018-08-03
+    2022: 43 heisse Tage, Hoechstwert 38.1 °C am 2022-07-19
+    2015: 33 heisse Tage, Hoechstwert 39.5 °C am 2015-08-07
+
+Deggendorf  / Fehmbach (deggendorf-fehmbach-edmw0)
+  Meteostat-ID EDMW0, Region BY, Hoehe 314.0 m
+  Daten verfuegbar ab 1941, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 36 heisse Tage, Hoechstwert 35.0 °C am 1947-07-29
+    2015: 33 heisse Tage, Hoechstwert 36.8 °C am 2015-08-08
+    2018: 31 heisse Tage, Hoechstwert 36.2 °C am 2018-07-31
+
+Deuselbach (deuselbach-10615)
+  Meteostat-ID 10615, Region RP, Hoehe 480.0 m
+  Daten verfuegbar ab 1950, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 14 heisse Tage, Hoechstwert 36.4 °C am 2003-08-08
+    2015: 13 heisse Tage, Hoechstwert 34.9 °C am 2015-08-07
+    1976: 12 heisse Tage, Hoechstwert 33.3 °C am 1976-07-16
+
+Diepholz (diepholz-10321)
+  Meteostat-ID 10321, Region NI, Hoehe 39.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 36.6 °C am 2018-08-07
+    2019: 18 heisse Tage, Hoechstwert 39.0 °C am 2019-07-25
+    2022: 18 heisse Tage, Hoechstwert 37.2 °C am 2022-07-19
+
+Dippoldiswalde-Reinberg (dippoldiswalde-reinberg-d0991)
+  Meteostat-ID D0991, Region SN, Hoehe 365.0 m
+  Daten verfuegbar ab 1954, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 20 heisse Tage, Hoechstwert 35.9 °C am 2015-08-07
+    2003: 19 heisse Tage, Hoechstwert 36.7 °C am 2003-08-13
+    1994: 17 heisse Tage, Hoechstwert 35.2 °C am 1994-08-01
+
+Doberlug-Kirchhain (doberlug-kirchhain-10490)
+  Meteostat-ID 10490, Region BB, Hoehe 97.0 m
+  Daten verfuegbar ab 1938, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 37 heisse Tage, Hoechstwert 37.3 °C am 2018-08-08
+    2019: 32 heisse Tage, Hoechstwert 37.1 °C am 2019-06-30
+    2006: 27 heisse Tage, Hoechstwert 36.4 °C am 2006-07-20
+
+Dresden / Klotzsche (dresden-klotzsche-10488)
+  Meteostat-ID 10488, Region SN, Hoehe 230.0 m
+  Daten verfuegbar ab 1934, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
+    2019: 25 heisse Tage, Hoechstwert 37.3 °C am 2019-06-30
+    2024: 25 heisse Tage, Hoechstwert 33.9 °C am 2024-09-04
+
+Dresden-Hosterwitz (dresden-hosterwitz-d1050)
+  Meteostat-ID D1050, Region SN, Hoehe 114.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 36.4 °C am 2018-08-01
+    2003: 32 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    2024: 31 heisse Tage, Hoechstwert 34.0 °C am 2024-08-29
+
+Drewitz bei Burg (drewitz-bei-burg-d1052)
+  Meteostat-ID D1052, Region ST, Hoehe 80.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 29 heisse Tage, Hoechstwert 38.0 °C am 2018-07-31
+    2019: 26 heisse Tage, Hoechstwert 38.7 °C am 2019-06-30
+    2003: 25 heisse Tage, Hoechstwert 35.0 °C am 2003-08-12
+
+Dörpen (dorpen-d6159)
+  Meteostat-ID D6159, Region NI, Hoehe 8.0 m
+  Daten verfuegbar ab 1959, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 16 heisse Tage, Hoechstwert 39.6 °C am 2019-07-25
+    2018: 15 heisse Tage, Hoechstwert 36.7 °C am 2018-08-07
+    1994: 14 heisse Tage, Hoechstwert 34.9 °C am 1994-08-04
+
+Düsseldorf (dusseldorf-10400)
+  Meteostat-ID 10400, Region NW, Hoehe 45.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1995: 22 heisse Tage, Hoechstwert 35.6 °C am 1995-07-21
+    2022: 22 heisse Tage, Hoechstwert 38.2 °C am 2022-07-19
+    1976: 21 heisse Tage, Hoechstwert 36.6 °C am 1976-07-03
+
+Eberbach (LUBW) (eberbach-lubw-d1093)
+  Meteostat-ID D1093, Region BW, Hoehe 131.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 36 heisse Tage, Hoechstwert 38.3 °C am 2003-08-09
+    1994: 23 heisse Tage, Hoechstwert 35.7 °C am 1994-08-05
+    1976: 22 heisse Tage, Hoechstwert 35.8 °C am 1976-07-17
+
+Ebersberg-Halbing (ebersberg-halbing-d1103)
+  Meteostat-ID D1103, Region BY, Hoehe 592.0 m
+  Daten verfuegbar ab 1950, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 30 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    2015: 25 heisse Tage, Hoechstwert 34.3 °C am 2015-08-08
+    1976: 17 heisse Tage, Hoechstwert 35.0 °C am 1976-07-16
+
+Ebrach (ebrach-d1107)
+  Meteostat-ID D1107, Region BY, Hoehe 346.0 m
+  Daten verfuegbar ab 1963, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 28 heisse Tage, Hoechstwert 37.4 °C am 2015-08-07
+    1994: 25 heisse Tage, Hoechstwert 34.9 °C am 1994-08-05
+    2003: 22 heisse Tage, Hoechstwert 36.5 °C am 2003-08-13
+
+Eggersdorf (eggersdorf-edce0)
+  Meteostat-ID EDCE0, Region BB, Hoehe 68.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 27 heisse Tage, Hoechstwert 36.5 °C am 2018-08-08
+    2006: 25 heisse Tage, Hoechstwert 36.4 °C am 2006-07-20
+    2019: 24 heisse Tage, Hoechstwert 37.3 °C am 2019-06-30
+
+Eichstätt-Landershofen (eichstatt-landershofen-d1161)
+  Meteostat-ID D1161, Region BY, Hoehe 384.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 30 heisse Tage, Hoechstwert 37.2 °C am 2015-08-07
+    2018: 26 heisse Tage, Hoechstwert 35.3 °C am 2018-07-31
+    2023: 23 heisse Tage, Hoechstwert 35.5 °C am 2023-07-15
+
+Ellwangen-Rindelbach (ellwangen-rindelbach-d1197)
+  Meteostat-ID D1197, Region BW, Hoehe 460.0 m
+  Daten verfuegbar ab 1941, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 36 heisse Tage, Hoechstwert 37.4 °C am 1947-07-29
+    2018: 30 heisse Tage, Hoechstwert 36.3 °C am 2018-07-31
+    2015: 28 heisse Tage, Hoechstwert 37.2 °C am 2015-08-07
+
+Elpersbuettel (elpersbuettel-10130)
+  Meteostat-ID 10130, Region SH, Hoehe 3.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 9 heisse Tage, Hoechstwert 34.4 °C am 2018-07-26
+    2020: 9 heisse Tage, Hoechstwert 32.1 °C am 2020-08-08
+    2019: 8 heisse Tage, Hoechstwert 34.4 °C am 2019-07-25
+
+Elster, Bad-Sohl (elster-bad-sohl-d1207)
+  Meteostat-ID D1207, Region SN, Hoehe 560.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 17 heisse Tage, Hoechstwert 37.2 °C am 2003-08-13
+    2015: 17 heisse Tage, Hoechstwert 34.9 °C am 2015-08-07
+    1994: 16 heisse Tage, Hoechstwert 35.0 °C am 1994-07-31
+
+Elzach-Fisnacht (elzach-fisnacht-d1214)
+  Meteostat-ID D1214, Region BW, Hoehe 440.0 m
+  Daten verfuegbar ab 1987, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 28 heisse Tage, Hoechstwert 37.0 °C am 2015-08-07
+    2018: 26 heisse Tage, Hoechstwert 34.5 °C am 2018-08-04
+    2022: 26 heisse Tage, Hoechstwert 37.0 °C am 2022-07-19
+
+Emden (emden-10200)
+  Meteostat-ID 10200, Region NI, Hoehe 5.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2020: 9 heisse Tage, Hoechstwert 32.9 °C am 2020-08-08
+    2018: 8 heisse Tage, Hoechstwert 35.2 °C am 2018-08-07
+    2019: 8 heisse Tage, Hoechstwert 36.2 °C am 2019-07-25
+
+Emmendingen-Mundingen (emmendingen-mundingen-d1224)
+  Meteostat-ID D1224, Region BW, Hoehe 201.0 m
+  Daten verfuegbar ab 1975, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 41 heisse Tage, Hoechstwert 39.2 °C am 2003-08-13
+    2022: 39 heisse Tage, Hoechstwert 37.6 °C am 2022-08-04
+    2018: 35 heisse Tage, Hoechstwert 35.8 °C am 2018-08-04
+
+Erfde (erfde-d1266)
+  Meteostat-ID D1266, Region SH, Hoehe 18.0 m
+  Daten verfuegbar ab 1964, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 10 heisse Tage, Hoechstwert 34.1 °C am 1994-07-25
+    2020: 10 heisse Tage, Hoechstwert 32.6 °C am 2020-08-08
+    2018: 9 heisse Tage, Hoechstwert 35.0 °C am 2018-08-07
+
+Erfurt / Bindersleben (erfurt-bindersleben-10554)
+  Meteostat-ID 10554, Region TH, Hoehe 315.0 m
+  Daten verfuegbar ab 1935, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 17 heisse Tage, Hoechstwert 34.9 °C am 2003-08-12
+    2015: 17 heisse Tage, Hoechstwert 36.2 °C am 2015-07-04
+    2018: 17 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+
+Eschwege (eschwege-d1297)
+  Meteostat-ID D1297, Region HE, Hoehe 156.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 32 heisse Tage, Hoechstwert 37.7 °C am 2018-07-31
+    2003: 25 heisse Tage, Hoechstwert 37.2 °C am 2003-08-12
+    1994: 20 heisse Tage, Hoechstwert 36.7 °C am 1994-08-05
+
+Eslohe (eslohe-d1300)
+  Meteostat-ID D1300, Region NW, Hoehe 351.0 m
+  Daten verfuegbar ab 1938, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 29 heisse Tage, Hoechstwert 34.7 °C am 1947-06-27
+    1994: 14 heisse Tage, Hoechstwert 32.5 °C am 1994-07-03
+    1976: 13 heisse Tage, Hoechstwert 34.0 °C am 1976-07-04
+
+Essen (essen-10410)
+  Meteostat-ID 10410, Region NW, Hoehe 152.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 17 heisse Tage, Hoechstwert 35.2 °C am 1994-08-04
+    2020: 14 heisse Tage, Hoechstwert 35.2 °C am 2020-08-08
+    1976: 13 heisse Tage, Hoechstwert 34.3 °C am 1976-07-03
+
+Falkenberg,Kr.Rottal-Inn (falkenberg-kr-rottal-inn-d1332)
+  Meteostat-ID D1332, Region BY, Hoehe 472.0 m
+  Daten verfuegbar ab 1966, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 29 heisse Tage, Hoechstwert 35.6 °C am 2015-08-08
+    2003: 25 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    1994: 21 heisse Tage, Hoechstwert 33.0 °C am 1994-06-27
+
+Fassberg (fassberg-10246)
+  Meteostat-ID 10246, Region NI, Hoehe 75.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 35.0 °C am 2018-07-31
+    2019: 16 heisse Tage, Hoechstwert 36.2 °C am 2019-06-30
+    2022: 11 heisse Tage, Hoechstwert 38.5 °C am 2022-07-20
+
+Feldberg (feldberg-10908)
+  Meteostat-ID 10908, Region BW, Hoehe 1486.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1936: 0 heisse Tage, Hoechstwert 22.2 °C am 1936-07-06
+    1937: 0 heisse Tage, Hoechstwert 27.2 °C am 1937-08-07
+    1939: 0 heisse Tage, Hoechstwert 21.1 °C am 1939-07-30
+
+Fichtelberg (fichtelberg-10578)
+  Meteostat-ID 10578, Region SN, Hoehe 1213.0 m
+  Daten verfuegbar ab 1890, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1957: 1 heisse Tage, Hoechstwert 30.6 °C am 1957-07-07
+    1983: 1 heisse Tage, Hoechstwert 30.8 °C am 1983-07-27
+    2012: 1 heisse Tage, Hoechstwert 30.6 °C am 2012-08-20
+
+Fichtelberg/Oberfranken-Hüttstadl (fichtelberg-oberfranken-huttstadl-d1357)
+  Meteostat-ID D1357, Region BY, Hoehe 654.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 14 heisse Tage, Hoechstwert 33.6 °C am 2015-08-07
+    1952: 9 heisse Tage, Hoechstwert 32.6 °C am 1952-07-04
+    2003: 9 heisse Tage, Hoechstwert 34.0 °C am 2003-08-13
+
+Frankfurt  Westend (frankfurt-westend-d1424)
+  Meteostat-ID D1424, Region HE, Hoehe 124.0 m
+  Daten verfuegbar ab 1985, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 44 heisse Tage, Hoechstwert 38.5 °C am 2022-08-04
+    2018: 42 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+    2003: 31 heisse Tage, Hoechstwert 38.4 °C am 2003-08-09
+
+Frankfurt Airport (frankfurt-airport-10637)
+  Meteostat-ID 10637, Region HE, Hoehe 111.0 m
+  Daten verfuegbar ab 1934, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 43 heisse Tage, Hoechstwert 37.2 °C am 1947-07-29
+    2018: 43 heisse Tage, Hoechstwert 37.0 °C am 2018-07-31
+    2022: 37 heisse Tage, Hoechstwert 38.4 °C am 2022-07-19
+
+Frankfurt-Hahn Airport (frankfurt-hahn-airport-10616)
+  Meteostat-ID 10616, Region RP, Hoehe 491.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 13 heisse Tage, Hoechstwert 35.3 °C am 2003-08-08
+    1976: 12 heisse Tage, Hoechstwert 32.0 °C am 1976-07-04
+    2015: 12 heisse Tage, Hoechstwert 34.2 °C am 2015-08-07
+
+Freiburg (freiburg-10803)
+  Meteostat-ID 10803, Region BW, Hoehe 269.0 m
+  Daten verfuegbar ab 1881, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 55 heisse Tage, Hoechstwert 40.2 °C am 2003-08-13
+    2022: 39 heisse Tage, Hoechstwert 37.7 °C am 2022-08-04
+    1911: 36 heisse Tage, Hoechstwert 35.2 °C am 1911-07-24
+
+Freiburg/Elbe (freiburg-elbe-d1451)
+  Meteostat-ID D1451, Region NI, Hoehe 2.0 m
+  Daten verfuegbar ab 1970, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 14 heisse Tage, Hoechstwert 35.3 °C am 2018-07-26
+    1994: 11 heisse Tage, Hoechstwert 34.5 °C am 1994-07-28
+    2006: 11 heisse Tage, Hoechstwert 34.8 °C am 2006-07-20
+
+Freudenstadt (freudenstadt-10815)
+  Meteostat-ID 10815, Region BW, Hoehe 797.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 15 heisse Tage, Hoechstwert 32.9 °C am 2003-08-13
+    2015: 12 heisse Tage, Hoechstwert 33.6 °C am 2015-07-05
+    2022: 9 heisse Tage, Hoechstwert 33.3 °C am 2022-08-04
+
+Friedberg / Ockstadt (friedberg-ockstadt-edev0)
+  Meteostat-ID EDEV0, Region HE, Hoehe 146.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 43 heisse Tage, Hoechstwert 37.1 °C am 2018-07-25
+    2022: 36 heisse Tage, Hoechstwert 38.9 °C am 2022-07-20
+    1947: 34 heisse Tage, Hoechstwert 36.1 °C am 1947-06-27
+
+Friedrichshafen (friedrichshafen-10935)
+  Meteostat-ID 10935, Region BW, Hoehe 416.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 35.0 °C am 2015-07-05
+    1947: 23 heisse Tage, Hoechstwert 33.8 °C am 1947-07-29
+    2018: 20 heisse Tage, Hoechstwert 34.0 °C am 2018-07-31
+
+Friesoythe-Altenoythe (friesoythe-altenoythe-d1503)
+  Meteostat-ID D1503, Region NI, Hoehe 6.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 16 heisse Tage, Hoechstwert 35.0 °C am 1947-06-29
+    2006: 15 heisse Tage, Hoechstwert 34.0 °C am 2006-07-05
+    2018: 14 heisse Tage, Hoechstwert 35.3 °C am 2018-08-07
+
+Fritzlar (fritzlar-10439)
+  Meteostat-ID 10439, Region HE, Hoehe 172.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 32 heisse Tage, Hoechstwert 36.3 °C am 1947-06-27
+    2018: 22 heisse Tage, Hoechstwert 35.0 °C am 2018-07-31
+    2019: 16 heisse Tage, Hoechstwert 36.9 °C am 2019-07-25
+
+Fulda-Horas (fulda-horas-d1526)
+  Meteostat-ID D1526, Region HE, Hoehe 242.0 m
+  Daten verfuegbar ab 1885, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 33 heisse Tage, Hoechstwert 35.4 °C am 1947-06-27
+    2022: 29 heisse Tage, Hoechstwert 38.9 °C am 2022-07-20
+    1911: 25 heisse Tage, Hoechstwert 36.3 °C am 1911-07-28
+
+Gardelegen (gardelegen-10359)
+  Meteostat-ID 10359, Region ST, Hoehe 47.0 m
+  Daten verfuegbar ab 1936, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 37.6 °C am 2018-07-31
+    2019: 24 heisse Tage, Hoechstwert 37.0 °C am 2019-06-30
+    1994: 23 heisse Tage, Hoechstwert 36.4 °C am 1994-08-05
+
+Garmisch-Partenkirchen (garmisch-partenkirchen-10963)
+  Meteostat-ID 10963, Region BY, Hoehe 719.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 21 heisse Tage, Hoechstwert 35.5 °C am 2003-08-13
+    2015: 19 heisse Tage, Hoechstwert 35.8 °C am 2015-07-07
+    2023: 15 heisse Tage, Hoechstwert 33.8 °C am 2023-07-11
+
+Garsebach bei Meißen (garsebach-bei-meien-d3234)
+  Meteostat-ID D3234, Region SN, Hoehe 157.0 m
+  Daten verfuegbar ab 1956, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 35 heisse Tage, Hoechstwert 36.9 °C am 2018-08-08
+    2019: 29 heisse Tage, Hoechstwert 37.3 °C am 2019-06-30
+    2024: 26 heisse Tage, Hoechstwert 33.7 °C am 2024-08-13
+
+Geisenheim (geisenheim-10628)
+  Meteostat-ID 10628, Region HE, Hoehe 118.0 m
+  Daten verfuegbar ab 1884, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 42 heisse Tage, Hoechstwert 37.8 °C am 1947-07-29
+    2022: 36 heisse Tage, Hoechstwert 38.3 °C am 2022-08-04
+    2018: 32 heisse Tage, Hoechstwert 36.4 °C am 2018-08-03
+
+Gelbelsee (gelbelsee-10777)
+  Meteostat-ID 10777, Region BY, Hoehe 539.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 24 heisse Tage, Hoechstwert 36.0 °C am 2015-08-07
+    1998: 18 heisse Tage, Hoechstwert 37.5 °C am 1998-07-21
+    2003: 18 heisse Tage, Hoechstwert 35.2 °C am 2003-08-13
+
+Geldern-Walbeck (geldern-walbeck-d1590)
+  Meteostat-ID D1590, Region NW, Hoehe 37.0 m
+  Daten verfuegbar ab 1963, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1976: 21 heisse Tage, Hoechstwert 35.9 °C am 1976-07-03
+    1995: 21 heisse Tage, Hoechstwert 35.6 °C am 1995-07-21
+    2022: 19 heisse Tage, Hoechstwert 37.4 °C am 2022-07-19
+
+Genthin (genthin-10365)
+  Meteostat-ID 10365, Region ST, Hoehe 35.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 37.2 °C am 2018-07-31
+    2019: 27 heisse Tage, Hoechstwert 38.3 °C am 2019-06-30
+    2003: 26 heisse Tage, Hoechstwert 34.9 °C am 2003-08-12
+
+Gera-Leumnitz (gera-leumnitz-10567)
+  Meteostat-ID 10567, Region TH, Hoehe 311.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2024: 23 heisse Tage, Hoechstwert 33.7 °C am 2024-08-29
+    2018: 22 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+    2003: 21 heisse Tage, Hoechstwert 36.6 °C am 2003-08-13
+
+Giessen (giessen-10532)
+  Meteostat-ID 10532, Region HE, Hoehe 186.0 m
+  Daten verfuegbar ab 1939, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 37 heisse Tage, Hoechstwert 35.4 °C am 1947-06-27
+    2018: 25 heisse Tage, Hoechstwert 36.0 °C am 2018-07-26
+    2022: 25 heisse Tage, Hoechstwert 38.4 °C am 2022-07-20
+
+Gießen/Wettenberg (gieen-wettenberg-d1639)
+  Meteostat-ID D1639, Region HE, Hoehe 203.0 m
+  Daten verfuegbar ab 1939, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 37 heisse Tage, Hoechstwert 35.4 °C am 1947-06-27
+    2018: 25 heisse Tage, Hoechstwert 36.0 °C am 2018-07-26
+    2022: 25 heisse Tage, Hoechstwert 38.4 °C am 2022-07-20
+
+Gilserberg-Moischeid (gilserberg-moischeid-d1645)
+  Meteostat-ID D1645, Region HE, Hoehe 340.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 16 heisse Tage, Hoechstwert 37.0 °C am 2003-08-09
+    1994: 15 heisse Tage, Hoechstwert 34.2 °C am 1994-08-05
+    2018: 15 heisse Tage, Hoechstwert 35.6 °C am 2018-08-07
+
+Glücksburg-Meierwik (glucksburg-meierwik-d1666)
+  Meteostat-ID D1666, Region SH, Hoehe 12.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 3 heisse Tage, Hoechstwert 31.5 °C am 1994-08-05
+    2022: 3 heisse Tage, Hoechstwert 36.7 °C am 2022-07-20
+    1995: 2 heisse Tage, Hoechstwert 31.5 °C am 1995-08-12
+
+Goerlitz (goerlitz-10499)
+  Meteostat-ID 10499, Region SN, Hoehe 237.0 m
+  Daten verfuegbar ab 1868, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 26 heisse Tage, Hoechstwert 35.1 °C am 2018-07-31
+    2015: 25 heisse Tage, Hoechstwert 37.9 °C am 2015-08-07
+    2024: 24 heisse Tage, Hoechstwert 32.7 °C am 2024-07-10
+
+Goldberg (goldberg-10168)
+  Meteostat-ID 10168, Region MV, Hoehe 58.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 35.4 °C am 2018-08-08
+    2019: 18 heisse Tage, Hoechstwert 36.4 °C am 2019-06-30
+    1994: 16 heisse Tage, Hoechstwert 36.3 °C am 1994-08-01
+
+Gollhofen (gollhofen-d5149)
+  Meteostat-ID D5149, Region BY, Hoehe 308.0 m
+  Daten verfuegbar ab 1951, Stand 2026-02-17
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 32 heisse Tage, Hoechstwert 38.3 °C am 2015-08-07
+    2022: 26 heisse Tage, Hoechstwert 37.7 °C am 2022-07-20
+    2018: 25 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
+
+Grainet-Rehberg (grainet-rehberg-d1735)
+  Meteostat-ID D1735, Region BY, Hoehe 628.0 m
+  Daten verfuegbar ab 1995, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 34.0 °C am 2015-08-07
+    2013: 11 heisse Tage, Hoechstwert 33.8 °C am 2013-07-28
+    2003: 10 heisse Tage, Hoechstwert 33.5 °C am 2003-08-13
+
+Grambek (grambek-d1736)
+  Meteostat-ID D1736, Region SH, Hoehe 27.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 23 heisse Tage, Hoechstwert 35.8 °C am 2018-08-07
+    1994: 18 heisse Tage, Hoechstwert 35.2 °C am 1994-08-01
+    2006: 17 heisse Tage, Hoechstwert 36.6 °C am 2006-07-20
+
+Greifswald (greifswald-10184)
+  Meteostat-ID 10184, Region MV, Hoehe 2.0 m
+  Daten verfuegbar ab 1898, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 10 heisse Tage, Hoechstwert 36.5 °C am 1994-08-01
+    2010: 9 heisse Tage, Hoechstwert 35.6 °C am 2010-07-11
+    2019: 9 heisse Tage, Hoechstwert 36.6 °C am 2019-06-30
+
+Greifswalder Oie (greifswalder-oie-10097)
+  Meteostat-ID 10097, Region MV, Hoehe 12.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 2 heisse Tage, Hoechstwert 32.3 °C am 2019-06-26
+    2000: 1 heisse Tage, Hoechstwert 31.3 °C am 2000-06-20
+    2007: 1 heisse Tage, Hoechstwert 30.6 °C am 2007-07-17
+
+Grosser Arber (grosser-arber-10791)
+  Meteostat-ID 10791, Region BY, Hoehe 1437.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1983: 1 heisse Tage, Hoechstwert 30.3 °C am 1983-07-27
+    1949: 0 heisse Tage, Hoechstwert 27.8 °C am 1949-08-09
+    1950: 0 heisse Tage, Hoechstwert 27.8 °C am 1950-07-03
+
+Groß Lüsewitz (gro-lusewitz-d1803)
+  Meteostat-ID D1803, Region MV, Hoehe 34.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 14 heisse Tage, Hoechstwert 36.1 °C am 1994-08-01
+    2018: 12 heisse Tage, Hoechstwert 34.7 °C am 2018-08-08
+    2019: 11 heisse Tage, Hoechstwert 35.4 °C am 2019-06-30
+
+Großenkneten (groenkneten-d0044)
+  Meteostat-ID D0044, Region NI, Hoehe 44.0 m
+  Daten verfuegbar ab 1971, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 17 heisse Tage, Hoechstwert 36.6 °C am 2018-08-07
+    1994: 15 heisse Tage, Hoechstwert 35.0 °C am 1994-07-28
+    2006: 15 heisse Tage, Hoechstwert 35.7 °C am 2006-07-19
+
+Gruenow (gruenow-10289)
+  Meteostat-ID 10289, Region BB, Hoehe 55.0 m
+  Daten verfuegbar ab 1942, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 36.8 °C am 2018-08-08
+    2006: 19 heisse Tage, Hoechstwert 35.8 °C am 2006-07-20
+    1994: 18 heisse Tage, Hoechstwert 37.9 °C am 1994-08-01
+
+Gräfenberg-Kasberg (grafenberg-kasberg-d1721)
+  Meteostat-ID D1721, Region BY, Hoehe 506.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.3 °C am 2015-08-07
+    1994: 16 heisse Tage, Hoechstwert 33.1 °C am 1994-08-05
+    2003: 16 heisse Tage, Hoechstwert 36.2 °C am 2003-08-13
+
+Gründau-Breitenborn (grundau-breitenborn-d1863)
+  Meteostat-ID D1863, Region HE, Hoehe 258.0 m
+  Daten verfuegbar ab 1995, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 28 heisse Tage, Hoechstwert 37.3 °C am 2003-08-09
+    2022: 28 heisse Tage, Hoechstwert 38.3 °C am 2022-07-20
+    2018: 27 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+
+Göttingen (gottingen-10444)
+  Meteostat-ID 10444, Region NI, Hoehe 167.0 m
+  Daten verfuegbar ab 1885, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 27 heisse Tage, Hoechstwert 33.9 °C am 1947-08-03
+    2018: 26 heisse Tage, Hoechstwert 36.3 °C am 2018-07-31
+    1911: 23 heisse Tage, Hoechstwert 36.6 °C am 1911-07-23
+
+Hamburg Airport (hamburg-airport-10147)
+  Meteostat-ID 10147, Region HH, Hoehe 16.0 m
+  Daten verfuegbar ab 1891, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 35.5 °C am 2018-08-07
+    1994: 18 heisse Tage, Hoechstwert 35.0 °C am 1994-07-25
+    2020: 13 heisse Tage, Hoechstwert 33.3 °C am 2020-08-08
+
+Hamburg-Neuwiedenthal (hamburg-neuwiedenthal-d1981)
+  Meteostat-ID D1981, Region HH, Hoehe 3.0 m
+  Daten verfuegbar ab 1962, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 35.6 °C am 2018-08-07
+    1994: 17 heisse Tage, Hoechstwert 34.8 °C am 1994-07-25
+    2019: 16 heisse Tage, Hoechstwert 35.9 °C am 2019-07-25
+
+Hannover (hannover-10338)
+  Meteostat-ID 10338, Region NI, Hoehe 56.0 m
+  Daten verfuegbar ab 1935, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 22 heisse Tage, Hoechstwert 36.5 °C am 2018-08-07
+    2019: 19 heisse Tage, Hoechstwert 37.9 °C am 2019-07-25
+    2022: 19 heisse Tage, Hoechstwert 39.2 °C am 2022-07-20
+
+Harburg (harburg-10850)
+  Meteostat-ID 10850, Region BY, Hoehe 457.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.3 °C am 2015-08-07
+    1992: 21 heisse Tage, Hoechstwert 36.3 °C am 1992-08-09
+    2003: 21 heisse Tage, Hoechstwert 36.6 °C am 2003-08-13
+
+Harzburg, Bad (harzburg-bad-d2039)
+  Meteostat-ID D2039, Region NI, Hoehe 201.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 24 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+    1947: 21 heisse Tage, Hoechstwert 33.5 °C am 1947-07-29
+    2022: 19 heisse Tage, Hoechstwert 38.8 °C am 2022-07-20
+
+Harzgerode (harzgerode-10458)
+  Meteostat-ID 10458, Region ST, Hoehe 404.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 17 heisse Tage, Hoechstwert 34.1 °C am 1947-07-29
+    2015: 14 heisse Tage, Hoechstwert 35.7 °C am 2015-07-04
+    2018: 13 heisse Tage, Hoechstwert 36.0 °C am 2018-07-31
+
+Hechingen (hechingen-d2074)
+  Meteostat-ID D2074, Region BW, Hoehe 522.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 32 heisse Tage, Hoechstwert 38.0 °C am 2003-08-13
+    2015: 25 heisse Tage, Hoechstwert 36.4 °C am 2015-07-05
+    2018: 25 heisse Tage, Hoechstwert 35.8 °C am 2018-07-31
+
+Heinersreuth-Vollhof (heinersreuth-vollhof-d0320)
+  Meteostat-ID D0320, Region BY, Hoehe 350.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 36 heisse Tage, Hoechstwert 37.0 °C am 1947-07-29
+    2003: 32 heisse Tage, Hoechstwert 38.0 °C am 2003-08-13
+    2015: 28 heisse Tage, Hoechstwert 37.4 °C am 2015-08-07
+
+Heinsberg-Schleiden (heinsberg-schleiden-d2110)
+  Meteostat-ID D2110, Region NW, Hoehe 57.0 m
+  Daten verfuegbar ab 1963, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 23 heisse Tage, Hoechstwert 38.8 °C am 2022-07-19
+    1976: 20 heisse Tage, Hoechstwert 35.8 °C am 1976-07-03
+    1994: 18 heisse Tage, Hoechstwert 36.1 °C am 1994-08-04
+
+Helgoland (helgoland-10015)
+  Meteostat-ID 10015, Region SH, Hoehe 4.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1952: 0 heisse Tage, Hoechstwert 23.1 °C am 1952-07-02
+    1953: 0 heisse Tage, Hoechstwert 24.2 °C am 1953-06-30
+    1954: 0 heisse Tage, Hoechstwert 22.0 °C am 1954-06-20
+
+Herten (herten-edtr0)
+  Meteostat-ID EDTR0, Region BW, Hoehe 282.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 59 heisse Tage, Hoechstwert 39.2 °C am 2003-08-13
+    2022: 41 heisse Tage, Hoechstwert 38.3 °C am 2022-08-04
+    2018: 37 heisse Tage, Hoechstwert 35.9 °C am 2018-07-31
+
+Herzberg (herzberg-d2174)
+  Meteostat-ID D2174, Region NI, Hoehe 238.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 35.9 °C am 2018-08-07
+    1994: 18 heisse Tage, Hoechstwert 35.8 °C am 1994-08-05
+    2015: 16 heisse Tage, Hoechstwert 36.2 °C am 2015-07-04
+
+Hiddensee-Vitte (hiddensee-vitte-d2201)
+  Meteostat-ID D2201, Region MV, Hoehe 1.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1941: 7 heisse Tage, Hoechstwert 33.5 °C am 1941-07-10
+    2018: 6 heisse Tage, Hoechstwert 34.6 °C am 2018-08-08
+    2022: 6 heisse Tage, Hoechstwert 34.5 °C am 2022-08-04
+
+Hilgenroth (hilgenroth-d2211)
+  Meteostat-ID D2211, Region RP, Hoehe 295.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 22 heisse Tage, Hoechstwert 34.5 °C am 1994-08-04
+    2022: 21 heisse Tage, Hoechstwert 36.3 °C am 2022-07-19
+    1976: 18 heisse Tage, Hoechstwert 34.8 °C am 1976-07-05
+
+Hof (hof-10685)
+  Meteostat-ID 10685, Region BY, Hoehe 565.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 18 heisse Tage, Hoechstwert 34.9 °C am 1947-07-29
+    2015: 18 heisse Tage, Hoechstwert 35.1 °C am 2015-08-07
+    2003: 15 heisse Tage, Hoechstwert 35.2 °C am 2003-08-13
+
+Hohenpeissenberg (hohenpeissenberg-10962)
+  Meteostat-ID 10962, Region BY, Hoehe 977.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 7 heisse Tage, Hoechstwert 32.0 °C am 2015-07-07
+    1947: 6 heisse Tage, Hoechstwert 33.8 °C am 1947-07-29
+    2013: 5 heisse Tage, Hoechstwert 31.8 °C am 2013-06-19
+
+Hohn (hohn-10038)
+  Meteostat-ID 10038, Region SH, Hoehe 12.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 12 heisse Tage, Hoechstwert 35.3 °C am 1994-07-25
+    2006: 8 heisse Tage, Hoechstwert 35.2 °C am 2006-07-20
+    2018: 8 heisse Tage, Hoechstwert 34.0 °C am 2018-08-07
+
+Hohwacht (hohwacht-d2306)
+  Meteostat-ID D2306, Region SH, Hoehe 8.0 m
+  Daten verfuegbar ab 1977, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2010: 5 heisse Tage, Hoechstwert 32.1 °C am 2010-07-03
+    2018: 5 heisse Tage, Hoechstwert 34.5 °C am 2018-08-07
+    2019: 5 heisse Tage, Hoechstwert 33.3 °C am 2019-06-30
+
+Holzkirchen (holzkirchen-d2319)
+  Meteostat-ID D2319, Region BY, Hoehe 685.0 m
+  Daten verfuegbar ab 1982, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 34.8 °C am 2015-07-07
+    2003: 20 heisse Tage, Hoechstwert 34.1 °C am 2003-08-13
+    2023: 14 heisse Tage, Hoechstwert 33.7 °C am 2023-06-22
+
+Hornisgrinde (hornisgrinde-d2349)
+  Meteostat-ID D2349, Region BW, Hoehe 1119.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 5 heisse Tage, Hoechstwert 32.2 °C am 2003-08-12
+    1983: 1 heisse Tage, Hoechstwert 31.2 °C am 1983-07-31
+    1984: 1 heisse Tage, Hoechstwert 30.7 °C am 1984-07-11
+
+Huettenbusch / Huttenbusch / Hüttendorf (huettenbusch-huttenbusch-huttendorf-edxu0)
+  Meteostat-ID EDXU0, Region NI, Hoehe 3.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 36.5 °C am 2018-08-07
+    2022: 17 heisse Tage, Hoechstwert 38.4 °C am 2022-07-20
+    2019: 16 heisse Tage, Hoechstwert 37.2 °C am 2019-07-25
+
+Hümmerich (hummerich-d2362)
+  Meteostat-ID D2362, Region RP, Hoehe 328.0 m
+  Daten verfuegbar ab 1982, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 14 heisse Tage, Hoechstwert 34.3 °C am 2015-07-05
+    2018: 14 heisse Tage, Hoechstwert 35.0 °C am 2018-08-07
+    2019: 12 heisse Tage, Hoechstwert 37.8 °C am 2019-07-25
+
+Idar-Oberstein (idar-oberstein-10618)
+  Meteostat-ID 10618, Region RP, Hoehe 376.0 m
+  Daten verfuegbar ab 1992, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 11 heisse Tage, Hoechstwert 33.9 °C am 2018-08-07
+    2019: 11 heisse Tage, Hoechstwert 36.9 °C am 2019-07-25
+    2025: 11 heisse Tage, Hoechstwert 35.5 °C am 2025-07-02
+
+Ingolstadt (ingolstadt-10860)
+  Meteostat-ID 10860, Region BY, Hoehe 367.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 30 heisse Tage, Hoechstwert 36.0 °C am 1994-08-05
+    2015: 18 heisse Tage, Hoechstwert 34.6 °C am 2015-08-07
+    1983: 17 heisse Tage, Hoechstwert 38.7 °C am 1983-07-27
+
+Itzehoe (itzehoe-10142)
+  Meteostat-ID 10142, Region SH, Hoehe 25.0 m
+  Daten verfuegbar ab 1989, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 14 heisse Tage, Hoechstwert 34.9 °C am 2018-08-07
+    2020: 13 heisse Tage, Hoechstwert 33.8 °C am 2020-08-10
+    2010: 10 heisse Tage, Hoechstwert 34.8 °C am 2010-07-03
+
+Jena (Sternwarte) (jena-sternwarte-d2444)
+  Meteostat-ID D2444, Region TH, Hoehe 155.0 m
+  Daten verfuegbar ab 1824, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 37 heisse Tage, Hoechstwert 37.8 °C am 2018-07-31
+    1947: 33 heisse Tage, Hoechstwert 38.0 °C am 1947-07-29
+    2003: 32 heisse Tage, Hoechstwert 37.1 °C am 2003-08-13
+
+Kahl/Main (kahl-main-d2480)
+  Meteostat-ID D2480, Region BY, Hoehe 107.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 40 heisse Tage, Hoechstwert 37.3 °C am 1947-06-26
+    2018: 40 heisse Tage, Hoechstwert 37.2 °C am 2018-08-07
+    2022: 37 heisse Tage, Hoechstwert 38.4 °C am 2022-07-20
+
+Kahler Asten (kahler-asten-10427)
+  Meteostat-ID 10427, Region NW, Hoehe 839.0 m
+  Daten verfuegbar ab 1887, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 4 heisse Tage, Hoechstwert 31.3 °C am 2003-08-12
+    1911: 3 heisse Tage, Hoechstwert 31.5 °C am 1911-07-23
+    2019: 3 heisse Tage, Hoechstwert 31.9 °C am 2019-07-25
+
+Kaiserslautern (kaiserslautern-eted0)
+  Meteostat-ID ETED0, Region RP, Hoehe 284.0 m
+  Daten verfuegbar ab 1901, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 38 heisse Tage, Hoechstwert 37.7 °C am 2022-08-04
+    2019: 32 heisse Tage, Hoechstwert 39.1 °C am 2019-07-25
+    2015: 26 heisse Tage, Hoechstwert 38.4 °C am 2015-08-07
+
+Kall-Sistig (kall-sistig-d2497)
+  Meteostat-ID D2497, Region NW, Hoehe 505.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 12 heisse Tage, Hoechstwert 33.5 °C am 1947-06-27
+    1976: 12 heisse Tage, Hoechstwert 33.0 °C am 1976-07-16
+    2003: 12 heisse Tage, Hoechstwert 36.0 °C am 2003-08-12
+
+Kempten (kempten-10946)
+  Meteostat-ID 10946, Region BY, Hoehe 705.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 19 heisse Tage, Hoechstwert 34.0 °C am 2003-08-13
+    2015: 19 heisse Tage, Hoechstwert 34.8 °C am 2015-07-05
+    2025: 14 heisse Tage, Hoechstwert 32.4 °C am 2025-08-13
+
+Kiefersfelden-Gach (kiefersfelden-gach-d3679)
+  Meteostat-ID D3679, Region BY, Hoehe 518.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 28 heisse Tage, Hoechstwert 35.4 °C am 2015-07-05
+    1947: 23 heisse Tage, Hoechstwert 34.7 °C am 1947-07-29
+    2023: 18 heisse Tage, Hoechstwert 35.0 °C am 2023-07-15
+
+Kiel / Holtenau (kiel-holtenau-10046)
+  Meteostat-ID 10046, Region SH, Hoehe 31.0 m
+  Daten verfuegbar ab 1935, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 9 heisse Tage, Hoechstwert 34.7 °C am 1994-08-05
+    2018: 9 heisse Tage, Hoechstwert 35.1 °C am 2018-08-07
+    2010: 6 heisse Tage, Hoechstwert 32.8 °C am 2010-07-02
+
+Kirchdorf/Poel (kirchdorf-poel-d2578)
+  Meteostat-ID D2578, Region MV, Hoehe 12.0 m
+  Daten verfuegbar ab 1887, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1921: 13 heisse Tage, Hoechstwert 35.1 °C am 1921-08-02
+    2018: 13 heisse Tage, Hoechstwert 37.1 °C am 2018-07-31
+    2019: 13 heisse Tage, Hoechstwert 35.7 °C am 2019-06-30
+
+Kissingen, Bad (kissingen-bad-d2597)
+  Meteostat-ID D2597, Region BY, Hoehe 282.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 38 heisse Tage, Hoechstwert 36.8 °C am 1947-07-29
+    2003: 32 heisse Tage, Hoechstwert 37.5 °C am 2003-08-09
+    2015: 29 heisse Tage, Hoechstwert 38.5 °C am 2015-07-05
+
+Kitzingen (kitzingen-d2600)
+  Meteostat-ID D2600, Region BY, Hoehe 188.0 m
+  Daten verfuegbar ab 1982, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 51 heisse Tage, Hoechstwert 39.0 °C am 2018-07-31
+    2003: 46 heisse Tage, Hoechstwert 38.1 °C am 2003-08-13
+    2022: 46 heisse Tage, Hoechstwert 39.6 °C am 2022-07-20
+
+Kleiner Feldberg (kleiner-feldberg-10635)
+  Meteostat-ID 10635, Region HE, Hoehe 805.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 6 heisse Tage, Hoechstwert 32.5 °C am 2003-08-12
+    2019: 5 heisse Tage, Hoechstwert 33.4 °C am 2019-07-25
+    2018: 4 heisse Tage, Hoechstwert 31.4 °C am 2018-08-07
+
+Kleiner Inselsberg (kleiner-inselsberg-d2618)
+  Meteostat-ID D2618, Region TH, Hoehe 732.0 m
+  Daten verfuegbar ab 1958, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 7 heisse Tage, Hoechstwert 32.6 °C am 2003-08-12
+    2022: 5 heisse Tage, Hoechstwert 34.7 °C am 2022-07-20
+    2006: 4 heisse Tage, Hoechstwert 31.5 °C am 2006-07-20
+
+Kleve (kleve-d2629)
+  Meteostat-ID D2629, Region NW, Hoehe 46.0 m
+  Daten verfuegbar ab 1904, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1911: 22 heisse Tage, Hoechstwert 37.0 °C am 1911-07-28
+    2006: 22 heisse Tage, Hoechstwert 37.1 °C am 2006-07-19
+    2022: 20 heisse Tage, Hoechstwert 37.6 °C am 2022-07-19
+
+Klippeneck (klippeneck-10818)
+  Meteostat-ID 10818, Region BW, Hoehe 973.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 14 heisse Tage, Hoechstwert 33.2 °C am 2003-08-12
+    2015: 14 heisse Tage, Hoechstwert 32.9 °C am 2015-08-07
+    2023: 8 heisse Tage, Hoechstwert 32.8 °C am 2023-08-24
+
+Klitzschen bei Torgau (klitzschen-bei-torgau-d2641)
+  Meteostat-ID D2641, Region SN, Hoehe 85.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 40 heisse Tage, Hoechstwert 37.8 °C am 2018-07-31
+    2003: 33 heisse Tage, Hoechstwert 37.0 °C am 2003-08-09
+    2024: 29 heisse Tage, Hoechstwert 34.7 °C am 2024-08-29
+
+Kohlgrub, Bad (Rosshof) (kohlgrub-bad-rosshof-d2708)
+  Meteostat-ID D2708, Region BY, Hoehe 740.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 21 heisse Tage, Hoechstwert 35.2 °C am 2003-08-13
+    2015: 14 heisse Tage, Hoechstwert 33.8 °C am 2015-07-05
+    2013: 11 heisse Tage, Hoechstwert 33.0 °C am 2013-07-27
+
+Konstanz (konstanz-10929)
+  Meteostat-ID 10929, Region BW, Hoehe 443.0 m
+  Daten verfuegbar ab 1971, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 39 heisse Tage, Hoechstwert 36.3 °C am 2003-06-23
+    2015: 35 heisse Tage, Hoechstwert 36.4 °C am 2015-07-04
+    2018: 31 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+
+Kronach (kronach-d2750)
+  Meteostat-ID D2750, Region BY, Hoehe 312.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 28 heisse Tage, Hoechstwert 36.6 °C am 1994-08-05
+    2003: 28 heisse Tage, Hoechstwert 37.5 °C am 2003-08-13
+    2015: 27 heisse Tage, Hoechstwert 38.0 °C am 2015-08-07
+
+Kubschütz, Kr. Bautzen (kubschutz-kr-bautzen-d0314)
+  Meteostat-ID D0314, Region SN, Hoehe 232.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 36.2 °C am 2018-08-08
+    2019: 25 heisse Tage, Hoechstwert 36.7 °C am 2019-06-26
+    1947: 24 heisse Tage, Hoechstwert 35.7 °C am 1947-08-05
+
+Kuemmersbruck (kuemmersbruck-10771)
+  Meteostat-ID 10771, Region BY, Hoehe 419.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 19 heisse Tage, Hoechstwert 36.2 °C am 1994-08-05
+    2022: 15 heisse Tage, Hoechstwert 36.1 °C am 2022-07-20
+    2023: 14 heisse Tage, Hoechstwert 34.4 °C am 2023-07-15
+
+Kyritz (kyritz-10267)
+  Meteostat-ID 10267, Region BB, Hoehe 40.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 24 heisse Tage, Hoechstwert 36.0 °C am 2018-08-08
+    2019: 23 heisse Tage, Hoechstwert 37.7 °C am 2019-06-30
+    1995: 20 heisse Tage, Hoechstwert 34.9 °C am 1995-07-21
+
+Köln-Bonn Airport (koln-bonn-airport-10513)
+  Meteostat-ID 10513, Region NW, Hoehe 91.0 m
+  Daten verfuegbar ab 1931, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 27 heisse Tage, Hoechstwert 38.0 °C am 2022-07-19
+    2018: 23 heisse Tage, Hoechstwert 38.3 °C am 2018-08-07
+    2003: 21 heisse Tage, Hoechstwert 38.8 °C am 2003-08-12
+
+Köln-Stammheim (koln-stammheim-d2968)
+  Meteostat-ID D2968, Region NW, Hoehe 43.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 35 heisse Tage, Hoechstwert 37.9 °C am 1947-06-27
+    2018: 27 heisse Tage, Hoechstwert 38.2 °C am 2018-08-07
+    2022: 25 heisse Tage, Hoechstwert 37.9 °C am 2022-07-19
+
+Königshofen, Bad (konigshofen-bad-d2680)
+  Meteostat-ID D2680, Region BY, Hoehe 288.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 31 heisse Tage, Hoechstwert 37.3 °C am 2003-08-13
+    1994: 26 heisse Tage, Hoechstwert 35.4 °C am 1994-07-04
+    2015: 25 heisse Tage, Hoechstwert 37.5 °C am 2015-08-07
+
+Kösching (kosching-d2700)
+  Meteostat-ID D2700, Region BY, Hoehe 416.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 33 heisse Tage, Hoechstwert 36.7 °C am 2015-08-08
+    2003: 25 heisse Tage, Hoechstwert 38.1 °C am 2003-08-13
+    1994: 22 heisse Tage, Hoechstwert 34.2 °C am 1994-07-04
+
+Köthen (Anhalt) (kothen-anhalt-d2704)
+  Meteostat-ID D2704, Region ST, Hoehe 76.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 42 heisse Tage, Hoechstwert 38.2 °C am 2018-07-31
+    2022: 27 heisse Tage, Hoechstwert 38.6 °C am 2022-07-20
+    2019: 25 heisse Tage, Hoechstwert 37.8 °C am 2019-06-30
+
+Laage (laage-10172)
+  Meteostat-ID 10172, Region MV, Hoehe 40.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 12 heisse Tage, Hoechstwert 35.6 °C am 2019-06-30
+    2018: 11 heisse Tage, Hoechstwert 35.0 °C am 2018-07-31
+    2022: 10 heisse Tage, Hoechstwert 36.7 °C am 2022-07-20
+
+Lahr (lahr-10805)
+  Meteostat-ID 10805, Region BW, Hoehe 155.0 m
+  Daten verfuegbar ab 1950, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 39 heisse Tage, Hoechstwert 38.4 °C am 2003-08-13
+    2022: 36 heisse Tage, Hoechstwert 37.4 °C am 2022-07-19
+    2015: 35 heisse Tage, Hoechstwert 39.5 °C am 2015-08-07
+
+Lauchstädt, Bad (lauchstadt-bad-d2878)
+  Meteostat-ID D2878, Region ST, Hoehe 118.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 32 heisse Tage, Hoechstwert 38.0 °C am 1947-07-29
+    2019: 25 heisse Tage, Hoechstwert 38.2 °C am 2019-06-30
+    2003: 23 heisse Tage, Hoechstwert 34.6 °C am 2003-08-12
+
+Laupheim (laupheim-10837)
+  Meteostat-ID 10837, Region BW, Hoehe 538.0 m
+  Daten verfuegbar ab 1978, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1992: 14 heisse Tage, Hoechstwert 33.0 °C am 1992-08-08
+    2023: 13 heisse Tage, Hoechstwert 34.6 °C am 2023-07-11
+    2025: 13 heisse Tage, Hoechstwert 32.8 °C am 2025-07-02
+
+Lautertal-Oberlauter (lautertal-oberlauter-d0867)
+  Meteostat-ID D0867, Region BY, Hoehe 344.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 29 heisse Tage, Hoechstwert 36.4 °C am 1947-07-29
+    2003: 29 heisse Tage, Hoechstwert 37.3 °C am 2003-08-10
+    1994: 26 heisse Tage, Hoechstwert 35.8 °C am 1994-08-05
+
+Lechfeld (lechfeld-10856)
+  Meteostat-ID 10856, Region BY, Hoehe 555.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 20 heisse Tage, Hoechstwert 35.4 °C am 1994-08-05
+    1992: 16 heisse Tage, Hoechstwert 35.0 °C am 1992-08-08
+    2023: 13 heisse Tage, Hoechstwert 34.2 °C am 2023-07-11
+
+Leck (leck-10022)
+  Meteostat-ID 10022, Region SH, Hoehe 7.0 m
+  Daten verfuegbar ab 1974, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 7 heisse Tage, Hoechstwert 32.7 °C am 1994-07-28
+    2018: 7 heisse Tage, Hoechstwert 32.8 °C am 2018-08-07
+    1975: 5 heisse Tage, Hoechstwert 33.9 °C am 1975-08-10
+
+Leinefelde (leinefelde-10449)
+  Meteostat-ID 10449, Region TH, Hoehe 356.0 m
+  Daten verfuegbar ab 1938, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 15 heisse Tage, Hoechstwert 36.1 °C am 2003-08-07
+    2018: 15 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
+    2015: 13 heisse Tage, Hoechstwert 35.4 °C am 2015-07-04
+
+Leipzig-Holzhausen (leipzig-holzhausen-d2928)
+  Meteostat-ID D2928, Region SN, Hoehe 138.0 m
+  Daten verfuegbar ab 1863, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 36 heisse Tage, Hoechstwert 37.3 °C am 2018-07-31
+    1947: 27 heisse Tage, Hoechstwert 37.7 °C am 1947-07-29
+    2024: 26 heisse Tage, Hoechstwert 34.9 °C am 2024-09-04
+
+Leipzig-Schkeuditz (leipzig-schkeuditz-10469)
+  Meteostat-ID 10469, Region SN, Hoehe 144.0 m
+  Daten verfuegbar ab 1934, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 29 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+    1947: 27 heisse Tage, Hoechstwert 38.2 °C am 1947-07-29
+    2019: 25 heisse Tage, Hoechstwert 38.3 °C am 2019-06-30
+
+Leipzig/Halle (leipzig-halle-d2932)
+  Meteostat-ID D2932, Region SN, Hoehe 131.0 m
+  Daten verfuegbar ab 1934, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 29 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+    1947: 27 heisse Tage, Hoechstwert 38.2 °C am 1947-07-29
+    2019: 25 heisse Tage, Hoechstwert 38.3 °C am 2019-06-30
+
+Lennestadt-Theten (lennestadt-theten-d2947)
+  Meteostat-ID D2947, Region NW, Hoehe 286.0 m
+  Daten verfuegbar ab 1962, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 20 heisse Tage, Hoechstwert 36.0 °C am 1994-08-05
+    2003: 20 heisse Tage, Hoechstwert 37.8 °C am 2003-08-08
+    2022: 18 heisse Tage, Hoechstwert 36.9 °C am 2022-07-19
+
+Lenzen / Elbe (lenzen-elbe-d2951)
+  Meteostat-ID D2951, Region BB, Hoehe 20.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 32 heisse Tage, Hoechstwert 37.0 °C am 2018-08-07
+    2006: 24 heisse Tage, Hoechstwert 37.5 °C am 2006-07-20
+    2022: 23 heisse Tage, Hoechstwert 38.5 °C am 2022-07-20
+
+Lichtenhain-Mittelndorf (lichtenhain-mittelndorf-10591)
+  Meteostat-ID 10591, Region SN, Hoehe 300.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 25 heisse Tage, Hoechstwert 35.8 °C am 2018-08-01
+    2015: 22 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+    1994: 20 heisse Tage, Hoechstwert 35.5 °C am 1994-08-01
+
+Lichtentanne (lichtentanne-d5797)
+  Meteostat-ID D5797, Region SN, Hoehe 353.0 m
+  Daten verfuegbar ab 1863, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 24 heisse Tage, Hoechstwert 38.2 °C am 2015-08-07
+    2003: 22 heisse Tage, Hoechstwert 37.5 °C am 2003-08-13
+    2018: 22 heisse Tage, Hoechstwert 35.3 °C am 2018-07-31
+
+Lindenberg (lindenberg-10393)
+  Meteostat-ID 10393, Region BB, Hoehe 98.0 m
+  Daten verfuegbar ab 1906, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 36.3 °C am 2018-08-08
+    2015: 23 heisse Tage, Hoechstwert 37.1 °C am 2015-08-07
+    2019: 23 heisse Tage, Hoechstwert 36.9 °C am 2019-06-30
+
+Lippstadt-Bökenförde (lippstadt-bokenforde-d3031)
+  Meteostat-ID D3031, Region NW, Hoehe 92.0 m
+  Daten verfuegbar ab 1980, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 23 heisse Tage, Hoechstwert 38.3 °C am 2003-08-12
+    2022: 21 heisse Tage, Hoechstwert 37.3 °C am 2022-07-19
+    2019: 19 heisse Tage, Hoechstwert 37.7 °C am 2019-07-25
+
+List / Sylt (list-sylt-10020)
+  Meteostat-ID 10020, Region SH, Hoehe 26.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2020: 6 heisse Tage, Hoechstwert 31.0 °C am 2020-08-07
+    1975: 5 heisse Tage, Hoechstwert 32.6 °C am 1975-08-11
+    1994: 5 heisse Tage, Hoechstwert 31.2 °C am 1994-07-31
+
+Lobenstein, Bad (lobenstein-bad-d3034)
+  Meteostat-ID D3034, Region TH, Hoehe 500.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 21 heisse Tage, Hoechstwert 36.0 °C am 2003-08-13
+    2015: 20 heisse Tage, Hoechstwert 35.9 °C am 2015-08-07
+    2018: 16 heisse Tage, Hoechstwert 34.8 °C am 2018-07-31
+
+Luebeck-Blankensee (luebeck-blankensee-10156)
+  Meteostat-ID 10156, Region SH, Hoehe 14.0 m
+  Daten verfuegbar ab 1973, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 17 heisse Tage, Hoechstwert 36.6 °C am 1994-07-25
+    2018: 16 heisse Tage, Hoechstwert 35.5 °C am 2018-07-31
+    1997: 13 heisse Tage, Hoechstwert 34.4 °C am 1997-08-25
+
+Luechow (luechow-10253)
+  Meteostat-ID 10253, Region NI, Hoehe 17.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 36.9 °C am 2018-07-31
+    2022: 23 heisse Tage, Hoechstwert 39.0 °C am 2022-07-20
+    1994: 20 heisse Tage, Hoechstwert 36.3 °C am 1994-08-05
+
+Löhnberg-Obershausen (lohnberg-obershausen-d3042)
+  Meteostat-ID D3042, Region HE, Hoehe 230.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 19 heisse Tage, Hoechstwert 35.9 °C am 2022-08-04
+    2018: 18 heisse Tage, Hoechstwert 35.3 °C am 2018-08-07
+    2015: 17 heisse Tage, Hoechstwert 37.2 °C am 2015-07-05
+
+Lübben-Blumenfelde (lubben-blumenfelde-d3083)
+  Meteostat-ID D3083, Region BB, Hoehe 57.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 37 heisse Tage, Hoechstwert 37.6 °C am 2018-08-08
+    2019: 31 heisse Tage, Hoechstwert 37.7 °C am 2019-06-30
+    2015: 28 heisse Tage, Hoechstwert 37.9 °C am 2015-08-07
+
+Lüdenscheid (ludenscheid-10418)
+  Meteostat-ID 10418, Region NW, Hoehe 387.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 12 heisse Tage, Hoechstwert 34.1 °C am 1994-08-04
+    2019: 12 heisse Tage, Hoechstwert 37.9 °C am 2019-07-25
+    2018: 11 heisse Tage, Hoechstwert 35.4 °C am 2018-08-07
+
+Magdeburg (magdeburg-10361)
+  Meteostat-ID 10361, Region ST, Hoehe 79.0 m
+  Daten verfuegbar ab 1881, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 29 heisse Tage, Hoechstwert 37.3 °C am 2018-07-31
+    1911: 25 heisse Tage, Hoechstwert 37.5 °C am 1911-07-23
+    2003: 23 heisse Tage, Hoechstwert 35.1 °C am 2003-08-12
+
+Mainz / Lerchenberg  (mainz-lerchenberg-d3137)
+  Meteostat-ID D3137, Region RP, Hoehe 195.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 34 heisse Tage, Hoechstwert 38.9 °C am 2003-08-12
+    2018: 31 heisse Tage, Hoechstwert 36.0 °C am 2018-07-26
+    2022: 30 heisse Tage, Hoechstwert 37.5 °C am 2022-08-04
+
+Mallersdorf-Pfaffenberg/Niederbayern (mallersdorf-pfaffenberg-niederbayern-d3147)
+  Meteostat-ID D3147, Region BY, Hoehe 418.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 30 heisse Tage, Hoechstwert 35.6 °C am 2015-08-08
+    2018: 25 heisse Tage, Hoechstwert 35.1 °C am 2018-08-01
+    2024: 25 heisse Tage, Hoechstwert 33.6 °C am 2024-08-13
+
+Manderscheid-Sonnenhof (manderscheid-sonnenhof-d3155)
+  Meteostat-ID D3155, Region RP, Hoehe 413.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1976: 16 heisse Tage, Hoechstwert 33.6 °C am 1976-07-05
+    2003: 16 heisse Tage, Hoechstwert 37.7 °C am 2003-08-08
+    2015: 14 heisse Tage, Hoechstwert 35.4 °C am 2015-07-04
+
+Mannheim (mannheim-10729)
+  Meteostat-ID 10729, Region BW, Hoehe 96.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 42 heisse Tage, Hoechstwert 39.0 °C am 2003-08-08
+    2018: 42 heisse Tage, Hoechstwert 36.8 °C am 2018-08-03
+    2022: 38 heisse Tage, Hoechstwert 38.4 °C am 2022-08-04
+
+Manschnow (manschnow-10396)
+  Meteostat-ID 10396, Region BB, Hoehe 12.0 m
+  Daten verfuegbar ab 1985, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 31 heisse Tage, Hoechstwert 38.4 °C am 2019-06-30
+    2018: 30 heisse Tage, Hoechstwert 36.4 °C am 2018-08-08
+    2006: 27 heisse Tage, Hoechstwert 36.1 °C am 2006-07-20
+
+Marienberg (marienberg-10579)
+  Meteostat-ID 10579, Region SN, Hoehe 639.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 11 heisse Tage, Hoechstwert 33.2 °C am 2015-08-07
+    2018: 9 heisse Tage, Hoechstwert 32.4 °C am 2018-08-08
+    2022: 8 heisse Tage, Hoechstwert 33.6 °C am 2022-06-19
+
+Marnitz (marnitz-10264)
+  Meteostat-ID 10264, Region MV, Hoehe 81.0 m
+  Daten verfuegbar ab 1902, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 22 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
+    2019: 19 heisse Tage, Hoechstwert 37.1 °C am 2019-06-30
+    1994: 18 heisse Tage, Hoechstwert 36.5 °C am 1994-08-01
+
+Martinroda (martinroda-d3204)
+  Meteostat-ID D3204, Region TH, Hoehe 427.0 m
+  Daten verfuegbar ab 1983, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 37.1 °C am 2015-07-05
+    2003: 20 heisse Tage, Hoechstwert 35.6 °C am 2003-08-13
+    2018: 15 heisse Tage, Hoechstwert 35.8 °C am 2018-07-31
+
+Meiningen (meiningen-10548)
+  Meteostat-ID 10548, Region TH, Hoehe 450.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 17 heisse Tage, Hoechstwert 36.1 °C am 2015-08-07
+    2003: 14 heisse Tage, Hoechstwert 34.8 °C am 2003-08-09
+    2018: 13 heisse Tage, Hoechstwert 35.3 °C am 2018-07-31
+
+Memmingen (memmingen-10947)
+  Meteostat-ID 10947, Region BY, Hoehe 634.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 19 heisse Tage, Hoechstwert 34.8 °C am 2003-08-13
+    2015: 18 heisse Tage, Hoechstwert 35.3 °C am 2015-07-05
+    1992: 16 heisse Tage, Hoechstwert 32.4 °C am 1992-08-28
+
+Meppen (meppen-10304)
+  Meteostat-ID 10304, Region NI, Hoehe 21.0 m
+  Daten verfuegbar ab 2017, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 15 heisse Tage, Hoechstwert 39.0 °C am 2019-07-25
+    2018: 13 heisse Tage, Hoechstwert 36.0 °C am 2018-08-07
+    2022: 11 heisse Tage, Hoechstwert 37.2 °C am 2022-07-19
+
+Mergentheim, Bad-Neunkirchen (mergentheim-bad-neunkirchen-d3257)
+  Meteostat-ID D3257, Region BW, Hoehe 250.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 52 heisse Tage, Hoechstwert 40.3 °C am 2022-07-20
+    2018: 41 heisse Tage, Hoechstwert 38.3 °C am 2018-07-31
+    1947: 38 heisse Tage, Hoechstwert 37.0 °C am 1947-07-29
+
+Merklingen (merklingen-d2814)
+  Meteostat-ID D2814, Region BW, Hoehe 685.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 16 heisse Tage, Hoechstwert 35.9 °C am 2003-08-13
+    2015: 15 heisse Tage, Hoechstwert 33.9 °C am 2015-08-07
+    2022: 11 heisse Tage, Hoechstwert 34.2 °C am 2022-07-20
+
+Messstetten (messstetten-10827)
+  Meteostat-ID 10827, Region BW, Hoehe 920.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 13 heisse Tage, Hoechstwert 32.5 °C am 2015-07-04
+    2019: 6 heisse Tage, Hoechstwert 32.4 °C am 2019-07-24
+    2022: 5 heisse Tage, Hoechstwert 31.0 °C am 2022-08-04
+
+Michelstadt (michelstadt-d3284)
+  Meteostat-ID D3284, Region HE, Hoehe 240.0 m
+  Daten verfuegbar ab 1987, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 34 heisse Tage, Hoechstwert 37.5 °C am 2003-08-12
+    2015: 32 heisse Tage, Hoechstwert 39.4 °C am 2015-08-07
+    2022: 32 heisse Tage, Hoechstwert 37.7 °C am 2022-07-20
+
+Michelstadt-Vielbrunn (michelstadt-vielbrunn-10648)
+  Meteostat-ID 10648, Region HE, Hoehe 453.0 m
+  Daten verfuegbar ab 1987, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 17 heisse Tage, Hoechstwert 35.5 °C am 2003-08-09
+    2015: 16 heisse Tage, Hoechstwert 36.5 °C am 2015-08-07
+    2018: 14 heisse Tage, Hoechstwert 34.1 °C am 2018-07-31
+
+Mittelnkirchen-Hohenfelde (mittelnkirchen-hohenfelde-d4857)
+  Meteostat-ID D4857, Region NI, Hoehe 1.0 m
+  Daten verfuegbar ab 1990, Stand 2026-02-21
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 18 heisse Tage, Hoechstwert 34.4 °C am 1994-07-25
+    1995: 11 heisse Tage, Hoechstwert 32.5 °C am 1995-08-12
+    2019: 11 heisse Tage, Hoechstwert 34.5 °C am 2019-06-30
+
+Mittenwald-Buckelwiesen (mittenwald-buckelwiesen-d3307)
+  Meteostat-ID D3307, Region BY, Hoehe 981.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 17 heisse Tage, Hoechstwert 33.6 °C am 2003-08-13
+    2006: 8 heisse Tage, Hoechstwert 31.8 °C am 2006-07-27
+    2019: 8 heisse Tage, Hoechstwert 34.2 °C am 2019-06-30
+
+Moringen-Lutterbeck (moringen-lutterbeck-d3348)
+  Meteostat-ID D3348, Region NI, Hoehe 240.0 m
+  Daten verfuegbar ab 1990, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 35.5 °C am 2018-08-07
+    2003: 16 heisse Tage, Hoechstwert 35.9 °C am 2003-08-09
+    1994: 15 heisse Tage, Hoechstwert 34.8 °C am 1994-08-05
+
+Muehlacker (muehlacker-10736)
+  Meteostat-ID 10736, Region BW, Hoehe 244.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 36 heisse Tage, Hoechstwert 36.3 °C am 2018-08-04
+    2022: 35 heisse Tage, Hoechstwert 36.9 °C am 2022-08-04
+    2003: 32 heisse Tage, Hoechstwert 37.7 °C am 2003-08-08
+
+Muehldorf (muehldorf-10875)
+  Meteostat-ID 10875, Region BY, Hoehe 405.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 33 heisse Tage, Hoechstwert 36.6 °C am 2003-08-13
+    2015: 32 heisse Tage, Hoechstwert 35.5 °C am 2015-07-07
+    1994: 22 heisse Tage, Hoechstwert 33.7 °C am 1994-07-31
+
+Muenster / Osnabrueck (muenster-osnabrueck-10315)
+  Meteostat-ID 10315, Region NW, Hoehe 48.0 m
+  Daten verfuegbar ab 1989, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 22 heisse Tage, Hoechstwert 38.0 °C am 2022-07-19
+    2018: 20 heisse Tage, Hoechstwert 37.5 °C am 2018-08-07
+    1994: 19 heisse Tage, Hoechstwert 34.6 °C am 1994-08-04
+
+Munich Airport (munich-airport-10866)
+  Meteostat-ID 10866, Region BY, Hoehe 453.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 29 heisse Tage, Hoechstwert 35.3 °C am 2015-08-07
+    2003: 27 heisse Tage, Hoechstwert 37.1 °C am 2003-08-13
+    1947: 19 heisse Tage, Hoechstwert 35.7 °C am 1947-07-29
+
+Muskau, Bad (muskau-bad-d3426)
+  Meteostat-ID D3426, Region SN, Hoehe 125.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 36 heisse Tage, Hoechstwert 36.6 °C am 2018-08-08
+    2019: 33 heisse Tage, Hoechstwert 38.6 °C am 2019-06-26
+    2006: 30 heisse Tage, Hoechstwert 37.1 °C am 2006-07-20
+
+Möhrendorf-Kleinseebach (mohrendorf-kleinseebach-d1279)
+  Meteostat-ID D1279, Region BY, Hoehe 268.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 40 heisse Tage, Hoechstwert 37.7 °C am 2018-07-31
+    2015: 36 heisse Tage, Hoechstwert 39.4 °C am 2015-08-07
+    2022: 35 heisse Tage, Hoechstwert 39.5 °C am 2022-07-20
+
+Müllheim (mullheim-d0259)
+  Meteostat-ID D0259, Region BW, Hoehe 273.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 44 heisse Tage, Hoechstwert 38.7 °C am 2022-08-04
+    2018: 33 heisse Tage, Hoechstwert 35.7 °C am 2018-07-31
+    2015: 31 heisse Tage, Hoechstwert 38.6 °C am 2015-08-07
+
+München (munchen-10865)
+  Meteostat-ID 10865, Region BY, Hoehe 520.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 33 heisse Tage, Hoechstwert 36.9 °C am 2015-07-05
+    2003: 31 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    2023: 25 heisse Tage, Hoechstwert 35.9 °C am 2023-07-15
+
+Münsingen-Apfelstetten (munsingen-apfelstetten-d3402)
+  Meteostat-ID D3402, Region BW, Hoehe 750.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 17 heisse Tage, Hoechstwert 33.6 °C am 2015-07-07
+    2003: 16 heisse Tage, Hoechstwert 35.4 °C am 2003-08-13
+    1947: 14 heisse Tage, Hoechstwert 34.1 °C am 1947-07-29
+
+Neubulach-Oberhaugstett (neubulach-oberhaugstett-d5562)
+  Meteostat-ID D5562, Region BW, Hoehe 570.0 m
+  Daten verfuegbar ab 1995, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 35.5 °C am 2015-08-07
+    2022: 13 heisse Tage, Hoechstwert 35.3 °C am 2022-08-04
+    2025: 13 heisse Tage, Hoechstwert 33.4 °C am 2025-07-02
+
+Neuburg / Donau (neuburg-donau-10853)
+  Meteostat-ID 10853, Region BY, Hoehe 380.0 m
+  Daten verfuegbar ab 1973, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 23 heisse Tage, Hoechstwert 36.7 °C am 2003-08-13
+    2023: 21 heisse Tage, Hoechstwert 34.8 °C am 2023-07-15
+    1994: 19 heisse Tage, Hoechstwert 34.6 °C am 1994-08-05
+
+Neuburg/Kammel-Langenhaslach (neuburg-kammel-langenhaslach-d3485)
+  Meteostat-ID D3485, Region BY, Hoehe 486.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 28 heisse Tage, Hoechstwert 36.1 °C am 2015-08-07
+    2023: 25 heisse Tage, Hoechstwert 35.8 °C am 2023-07-11
+    2003: 23 heisse Tage, Hoechstwert 36.5 °C am 2003-08-13
+
+Neuenahr, Bad-Ahrweiler (neuenahr-bad-ahrweiler-d3490)
+  Meteostat-ID D3490, Region RP, Hoehe 111.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 26 heisse Tage, Hoechstwert 37.7 °C am 2022-07-19
+    2003: 25 heisse Tage, Hoechstwert 38.9 °C am 2003-08-12
+    2018: 23 heisse Tage, Hoechstwert 37.5 °C am 2018-08-07
+
+Neuhaus am Rennweg (neuhaus-am-rennweg-10557)
+  Meteostat-ID 10557, Region TH, Hoehe 845.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 5 heisse Tage, Hoechstwert 33.6 °C am 2022-07-20
+    2019: 4 heisse Tage, Hoechstwert 31.7 °C am 2019-07-25
+    2003: 3 heisse Tage, Hoechstwert 31.9 °C am 2003-08-13
+
+Neukirchen-Hauptschwenda (neukirchen-hauptschwenda-d3527)
+  Meteostat-ID D3527, Region HE, Hoehe 500.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 13 heisse Tage, Hoechstwert 34.8 °C am 2003-08-09
+    2018: 13 heisse Tage, Hoechstwert 34.2 °C am 2018-08-07
+    1947: 11 heisse Tage, Hoechstwert 31.7 °C am 1947-09-19
+
+Neunkirchen-Seelscheid-Krawinkel (neunkirchen-seelscheid-krawinkel-d3540)
+  Meteostat-ID D3540, Region NW, Hoehe 195.0 m
+  Daten verfuegbar ab 1992, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 18 heisse Tage, Hoechstwert 35.5 °C am 2022-07-19
+    2018: 15 heisse Tage, Hoechstwert 36.8 °C am 2018-08-07
+    2003: 14 heisse Tage, Hoechstwert 36.6 °C am 2003-08-12
+
+Neunkirchen-Wellesweiler (neunkirchen-wellesweiler-d3545)
+  Meteostat-ID D3545, Region SL, Hoehe 236.0 m
+  Daten verfuegbar ab 1970, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 38 heisse Tage, Hoechstwert 38.0 °C am 2022-08-04
+    2019: 28 heisse Tage, Hoechstwert 40.2 °C am 2019-07-25
+    2015: 25 heisse Tage, Hoechstwert 38.1 °C am 2015-08-07
+
+Nideggen-Schmidt (nideggen-schmidt-d3591)
+  Meteostat-ID D3591, Region NW, Hoehe 350.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 12 heisse Tage, Hoechstwert 36.4 °C am 2003-08-12
+    2018: 12 heisse Tage, Hoechstwert 35.5 °C am 2018-08-07
+    2020: 12 heisse Tage, Hoechstwert 35.0 °C am 2020-07-31
+
+Niederstetten (niederstetten-10743)
+  Meteostat-ID 10743, Region BW, Hoehe 468.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 13 heisse Tage, Hoechstwert 35.5 °C am 2022-07-20
+    1994: 11 heisse Tage, Hoechstwert 34.4 °C am 1994-08-05
+    2018: 11 heisse Tage, Hoechstwert 34.8 °C am 2018-07-31
+
+Nienburg (nienburg-d3612)
+  Meteostat-ID D3612, Region NI, Hoehe 25.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 22 heisse Tage, Hoechstwert 37.6 °C am 2019-07-25
+    1947: 21 heisse Tage, Hoechstwert 34.6 °C am 1947-06-29
+    2022: 21 heisse Tage, Hoechstwert 38.1 °C am 2022-07-20
+
+Norderney (norderney-10113)
+  Meteostat-ID 10113, Region NI, Hoehe 11.0 m
+  Daten verfuegbar ab 1897, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1923: 5 heisse Tage, Hoechstwert 31.4 °C am 1923-07-08
+    1994: 5 heisse Tage, Hoechstwert 33.0 °C am 1994-08-04
+    2019: 5 heisse Tage, Hoechstwert 35.4 °C am 2019-07-24
+
+Nordholz (nordholz-10136)
+  Meteostat-ID 10136, Region NI, Hoehe 23.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2020: 9 heisse Tage, Hoechstwert 32.1 °C am 2020-08-10
+    2019: 8 heisse Tage, Hoechstwert 34.7 °C am 2019-07-25
+    2018: 7 heisse Tage, Hoechstwert 34.8 °C am 2018-08-07
+
+Nossen (nossen-d6314)
+  Meteostat-ID D6314, Region SN, Hoehe 308.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2024: 24 heisse Tage, Hoechstwert 33.9 °C am 2024-08-13
+    2015: 21 heisse Tage, Hoechstwert 37.2 °C am 2015-08-07
+    2018: 20 heisse Tage, Hoechstwert 35.9 °C am 2018-07-31
+
+Nuernberg (nuernberg-10763)
+  Meteostat-ID 10763, Region BY, Hoehe 318.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 33 heisse Tage, Hoechstwert 38.1 °C am 2015-08-07
+    2018: 31 heisse Tage, Hoechstwert 36.0 °C am 2018-07-31
+    2003: 30 heisse Tage, Hoechstwert 37.6 °C am 2003-08-13
+
+Nörvenich (Flugplatz) (norvenich-flugplatz-d3623)
+  Meteostat-ID D3623, Region NW, Hoehe 111.0 m
+  Daten verfuegbar ab 2021, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 17 heisse Tage, Hoechstwert 37.0 °C am 2022-07-19
+    2025: 10 heisse Tage, Hoechstwert 35.7 °C am 2025-07-02
+    2023: 9 heisse Tage, Hoechstwert 33.2 °C am 2023-07-09
+
+Nürburg-Barweiler (nurburg-barweiler-10506)
+  Meteostat-ID 10506, Region RP, Hoehe 485.0 m
+  Daten verfuegbar ab 1995, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 13 heisse Tage, Hoechstwert 34.9 °C am 2015-07-04
+    2003: 12 heisse Tage, Hoechstwert 36.0 °C am 2003-08-08
+    2018: 11 heisse Tage, Hoechstwert 34.2 °C am 2018-08-07
+
+Nürnberg-Netzstall (nurnberg-netzstall-d3667)
+  Meteostat-ID D3667, Region BY, Hoehe 368.0 m
+  Daten verfuegbar ab 1975, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 34 heisse Tage, Hoechstwert 36.8 °C am 2018-07-31
+    2015: 32 heisse Tage, Hoechstwert 37.7 °C am 2015-08-07
+    2003: 30 heisse Tage, Hoechstwert 38.0 °C am 2003-08-13
+
+Oberharz am Brocken-Stiege (oberharz-am-brocken-stiege-d4878)
+  Meteostat-ID D4878, Region ST, Hoehe 504.0 m
+  Daten verfuegbar ab 1930, Stand 2026-02-21
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 13 heisse Tage, Hoechstwert 35.0 °C am 2018-07-31
+    1947: 8 heisse Tage, Hoechstwert 33.1 °C am 1947-07-29
+    2022: 7 heisse Tage, Hoechstwert 35.2 °C am 2022-07-20
+
+Oberstdorf (oberstdorf-10948)
+  Meteostat-ID 10948, Region BY, Hoehe 810.0 m
+  Daten verfuegbar ab 1910, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 16 heisse Tage, Hoechstwert 35.6 °C am 2015-07-07
+    2003: 14 heisse Tage, Hoechstwert 32.8 °C am 2003-08-13
+    2013: 11 heisse Tage, Hoechstwert 35.3 °C am 2013-07-28
+
+Oberviechtach (oberviechtach-d3739)
+  Meteostat-ID D3739, Region BY, Hoehe 596.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 35.8 °C am 2015-08-07
+    2018: 15 heisse Tage, Hoechstwert 34.5 °C am 2018-08-01
+    2003: 13 heisse Tage, Hoechstwert 35.0 °C am 2003-08-13
+
+Oberzent-Beerfelden (oberzent-beerfelden-d0330)
+  Meteostat-ID D0330, Region HE, Hoehe 450.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 24 heisse Tage, Hoechstwert 35.0 °C am 1947-07-29
+    2015: 19 heisse Tage, Hoechstwert 36.7 °C am 2015-08-07
+    2003: 17 heisse Tage, Hoechstwert 35.7 °C am 2003-08-09
+
+Oehna  / Zellendorf (oehna-zellendorf-edbo0)
+  Meteostat-ID EDBO0, Region BB, Hoehe 89.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 34 heisse Tage, Hoechstwert 38.4 °C am 2018-08-08
+    2003: 26 heisse Tage, Hoechstwert 35.9 °C am 2003-07-27
+    2006: 24 heisse Tage, Hoechstwert 36.4 °C am 2006-07-20
+
+Oehringen (oehringen-10742)
+  Meteostat-ID 10742, Region BW, Hoehe 276.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 39 heisse Tage, Hoechstwert 37.4 °C am 1947-07-29
+    2018: 33 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+    2022: 31 heisse Tage, Hoechstwert 36.9 °C am 2022-08-04
+
+Offenbach Wetterpark (offenbach-wetterpark-10641)
+  Meteostat-ID 10641, Region HE, Hoehe 119.0 m
+  Daten verfuegbar ab 2005, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 40 heisse Tage, Hoechstwert 37.0 °C am 2018-08-07
+    2022: 34 heisse Tage, Hoechstwert 38.4 °C am 2022-07-20
+    2015: 28 heisse Tage, Hoechstwert 39.5 °C am 2015-08-07
+
+Ohlsbach (ohlsbach-d1602)
+  Meteostat-ID D1602, Region BW, Hoehe 176.0 m
+  Daten verfuegbar ab 1970, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 47 heisse Tage, Hoechstwert 38.2 °C am 2022-08-04
+    2018: 43 heisse Tage, Hoechstwert 36.2 °C am 2018-08-03
+    2015: 35 heisse Tage, Hoechstwert 38.7 °C am 2015-08-07
+
+Olpenitz (olpenitz-10042)
+  Meteostat-ID 10042, Region SH, Hoehe 4.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2000: 2 heisse Tage, Hoechstwert 32.7 °C am 2000-06-20
+    2022: 2 heisse Tage, Hoechstwert 32.3 °C am 2022-07-20
+    2025: 2 heisse Tage, Hoechstwert 32.3 °C am 2025-07-02
+
+Olsdorf (olsdorf-d1964)
+  Meteostat-ID D1964, Region RP, Hoehe 328.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 22 heisse Tage, Hoechstwert 37.4 °C am 2022-07-19
+    1976: 18 heisse Tage, Hoechstwert 34.8 °C am 1976-07-16
+    2015: 18 heisse Tage, Hoechstwert 35.8 °C am 2015-07-02
+
+Oschatz (oschatz-10480)
+  Meteostat-ID 10480, Region SN, Hoehe 150.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 35 heisse Tage, Hoechstwert 36.8 °C am 2018-07-31
+    2024: 31 heisse Tage, Hoechstwert 35.2 °C am 2024-08-29
+    2019: 29 heisse Tage, Hoechstwert 37.9 °C am 2019-06-30
+
+Osterfeld (osterfeld-10565)
+  Meteostat-ID 10565, Region ST, Hoehe 262.0 m
+  Daten verfuegbar ab 1984, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2024: 25 heisse Tage, Hoechstwert 34.4 °C am 2024-08-13
+    2018: 24 heisse Tage, Hoechstwert 36.8 °C am 2018-07-31
+    2022: 23 heisse Tage, Hoechstwert 38.3 °C am 2022-08-04
+
+Ostheim v.d. Rhön (ostheim-v-d-rhon-d3836)
+  Meteostat-ID D3836, Region BY, Hoehe 312.0 m
+  Daten verfuegbar ab 1972, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 36.5 °C am 2018-07-31
+    2015: 27 heisse Tage, Hoechstwert 38.2 °C am 2015-08-07
+    1994: 23 heisse Tage, Hoechstwert 35.4 °C am 1994-07-04
+
+Oy-Mittelberg-Petersthal (oy-mittelberg-petersthal-d3857)
+  Meteostat-ID D3857, Region BY, Hoehe 885.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 15 heisse Tage, Hoechstwert 32.6 °C am 2003-06-30
+    2015: 14 heisse Tage, Hoechstwert 33.9 °C am 2015-07-05
+    2025: 10 heisse Tage, Hoechstwert 31.8 °C am 2025-08-13
+
+Parsberg/Oberpfalz-Eglwang (parsberg-oberpfalz-eglwang-d3875)
+  Meteostat-ID D3875, Region BY, Hoehe 549.0 m
+  Daten verfuegbar ab 1950, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 26 heisse Tage, Hoechstwert 37.5 °C am 2003-08-13
+    2015: 26 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+    1994: 21 heisse Tage, Hoechstwert 34.2 °C am 1994-07-31
+
+Pelzerhaken (pelzerhaken-10152)
+  Meteostat-ID 10152, Region SH, Hoehe 1.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 5 heisse Tage, Hoechstwert 34.2 °C am 2018-07-31
+    1992: 3 heisse Tage, Hoechstwert 32.9 °C am 1992-07-21
+    2010: 3 heisse Tage, Hoechstwert 31.0 °C am 2010-07-16
+
+Perl-Nennig (perl-nennig-d3904)
+  Meteostat-ID D3904, Region SL, Hoehe 152.0 m
+  Daten verfuegbar ab 1965, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 41 heisse Tage, Hoechstwert 38.1 °C am 2022-07-19
+    1976: 25 heisse Tage, Hoechstwert 35.6 °C am 1976-07-16
+    2015: 24 heisse Tage, Hoechstwert 38.0 °C am 2015-07-04
+
+Pforzheim-Ispringen (pforzheim-ispringen-d3925)
+  Meteostat-ID D3925, Region BW, Hoehe 333.0 m
+  Daten verfuegbar ab 2005, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 38.2 °C am 2015-08-07
+    2022: 22 heisse Tage, Hoechstwert 36.5 °C am 2022-08-04
+    2018: 20 heisse Tage, Hoechstwert 34.5 °C am 2018-08-04
+
+Pfullendorf (pfullendorf-d3927)
+  Meteostat-ID D3927, Region BW, Hoehe 630.0 m
+  Daten verfuegbar ab 1958, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 19 heisse Tage, Hoechstwert 33.4 °C am 2015-07-05
+    2025: 13 heisse Tage, Hoechstwert 33.1 °C am 2025-07-02
+    2022: 12 heisse Tage, Hoechstwert 33.9 °C am 2022-06-19
+
+Pirmasens (pirmasens-ediv0)
+  Meteostat-ID EDIV0, Region RP, Hoehe 415.0 m
+  Daten verfuegbar ab 1950, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.6 °C am 2015-08-07
+    1959: 18 heisse Tage, Hoechstwert 35.2 °C am 1959-07-10
+    1964: 17 heisse Tage, Hoechstwert 35.3 °C am 1964-07-15
+
+Plauen (plauen-10569)
+  Meteostat-ID 10569, Region SN, Hoehe 386.0 m
+  Daten verfuegbar ab 1882, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 25 heisse Tage, Hoechstwert 36.3 °C am 2018-07-31
+    1947: 24 heisse Tage, Hoechstwert 36.0 °C am 1947-07-29
+    2003: 23 heisse Tage, Hoechstwert 36.9 °C am 2003-08-13
+
+Pommelsbrunn-Mittelburg (pommelsbrunn-mittelburg-d3975)
+  Meteostat-ID D3975, Region BY, Hoehe 522.0 m
+  Daten verfuegbar ab 1993, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 36.1 °C am 2015-08-07
+    1994: 20 heisse Tage, Hoechstwert 34.4 °C am 1994-08-05
+    2018: 14 heisse Tage, Hoechstwert 34.3 °C am 2018-07-31
+
+Potsdam (potsdam-10379)
+  Meteostat-ID 10379, Region BB, Hoehe 81.0 m
+  Daten verfuegbar ab 1893, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 37.8 °C am 2018-08-08
+    2019: 28 heisse Tage, Hoechstwert 38.4 °C am 2019-06-30
+    1947: 26 heisse Tage, Hoechstwert 35.5 °C am 1947-06-29
+
+Putbus (putbus-10093)
+  Meteostat-ID 10093, Region MV, Hoehe 40.0 m
+  Daten verfuegbar ab 1853, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1868: 7 heisse Tage, Hoechstwert 32.1 °C am 1868-08-16
+    2018: 6 heisse Tage, Hoechstwert 32.8 °C am 2018-08-08
+    2022: 6 heisse Tage, Hoechstwert 34.0 °C am 2022-08-04
+
+Quedlinburg (quedlinburg-d4032)
+  Meteostat-ID D4032, Region ST, Hoehe 142.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 28 heisse Tage, Hoechstwert 37.2 °C am 1947-07-29
+    2018: 26 heisse Tage, Hoechstwert 37.1 °C am 2018-07-31
+    2019: 20 heisse Tage, Hoechstwert 37.8 °C am 2019-07-25
+
+Querfurt / Mühle Lodersleben (querfurt-muhle-lodersleben-d4036)
+  Meteostat-ID D4036, Region ST, Hoehe 204.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 37.6 °C am 2018-07-31
+    2003: 23 heisse Tage, Hoechstwert 35.3 °C am 2003-08-12
+    2022: 21 heisse Tage, Hoechstwert 37.4 °C am 2022-07-20
+
+Quickborn (quickborn-10146)
+  Meteostat-ID 10146, Region SH, Hoehe 13.0 m
+  Daten verfuegbar ab 1974, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 16 heisse Tage, Hoechstwert 35.8 °C am 2018-08-07
+    1994: 15 heisse Tage, Hoechstwert 33.9 °C am 1994-08-05
+    2020: 13 heisse Tage, Hoechstwert 33.5 °C am 2020-08-08
+
+Rahden-Kleinendorf (rahden-kleinendorf-d4063)
+  Meteostat-ID D4063, Region NW, Hoehe 41.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 20 heisse Tage, Hoechstwert 38.1 °C am 2003-08-09
+    2018: 20 heisse Tage, Hoechstwert 37.2 °C am 2018-08-07
+    1994: 19 heisse Tage, Hoechstwert 36.3 °C am 1994-07-28
+
+Regensburg (regensburg-10776)
+  Meteostat-ID 10776, Region BY, Hoehe 366.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 41 heisse Tage, Hoechstwert 38.8 °C am 2003-08-13
+    2018: 41 heisse Tage, Hoechstwert 38.2 °C am 2018-07-31
+    2015: 37 heisse Tage, Hoechstwert 37.8 °C am 2015-08-08
+
+Reimlingen (reimlingen-d3621)
+  Meteostat-ID D3621, Region BY, Hoehe 435.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 29 heisse Tage, Hoechstwert 36.4 °C am 1947-07-29
+    2015: 28 heisse Tage, Hoechstwert 37.2 °C am 2015-08-07
+    2003: 26 heisse Tage, Hoechstwert 36.8 °C am 2003-08-13
+
+Reit im Winkl (reit-im-winkl-d5941)
+  Meteostat-ID D5941, Region BY, Hoehe 685.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 25 heisse Tage, Hoechstwert 35.6 °C am 2003-08-13
+    2015: 24 heisse Tage, Hoechstwert 34.7 °C am 2015-07-05
+    2019: 16 heisse Tage, Hoechstwert 34.9 °C am 2019-06-30
+
+Rheinau-Memprechtshofen (rheinau-memprechtshofen-d4169)
+  Meteostat-ID D4169, Region BW, Hoehe 131.0 m
+  Daten verfuegbar ab 1958, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 48 heisse Tage, Hoechstwert 38.5 °C am 2022-07-19
+    2003: 42 heisse Tage, Hoechstwert 38.7 °C am 2003-08-13
+    2018: 40 heisse Tage, Hoechstwert 36.9 °C am 2018-08-04
+
+Rheinstetten (rheinstetten-10731)
+  Meteostat-ID 10731, Region BW, Hoehe 116.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 44 heisse Tage, Hoechstwert 38.4 °C am 2022-08-04
+    2018: 37 heisse Tage, Hoechstwert 36.4 °C am 2018-08-03
+    1983: 36 heisse Tage, Hoechstwert 39.2 °C am 1983-07-31
+
+Rosengarten-Klecken (rosengarten-klecken-d0760)
+  Meteostat-ID D0760, Region NI, Hoehe 82.0 m
+  Daten verfuegbar ab 1976, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 14 heisse Tage, Hoechstwert 34.2 °C am 1994-07-25
+    2018: 14 heisse Tage, Hoechstwert 35.0 °C am 2018-08-07
+    1983: 12 heisse Tage, Hoechstwert 33.0 °C am 1983-07-11
+
+Rostock / Warnemünde (rostock-warnemunde-10170)
+  Meteostat-ID 10170, Region MV, Hoehe 4.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2024: 10 heisse Tage, Hoechstwert 32.6 °C am 2024-09-04
+    2010: 8 heisse Tage, Hoechstwert 34.4 °C am 2010-07-12
+    2018: 8 heisse Tage, Hoechstwert 35.5 °C am 2018-07-31
+
+Rotenburg (Wumme) (rotenburg-wumme-edxq0)
+  Meteostat-ID EDXQ0, Region NI, Hoehe 22.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 23 heisse Tage, Hoechstwert 36.6 °C am 2018-08-07
+    1994: 19 heisse Tage, Hoechstwert 35.0 °C am 1994-07-25
+    1999: 18 heisse Tage, Hoechstwert 35.0 °C am 1999-07-19
+
+Roth (roth-10765)
+  Meteostat-ID 10765, Region BY, Hoehe 388.0 m
+  Daten verfuegbar ab 1940, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 35 heisse Tage, Hoechstwert 39.2 °C am 2003-08-09
+    2015: 32 heisse Tage, Hoechstwert 37.0 °C am 2015-07-05
+    2024: 24 heisse Tage, Hoechstwert 35.0 °C am 2024-08-13
+
+Rothenburg ob der Tauber (rothenburg-ob-der-tauber-d4287)
+  Meteostat-ID D4287, Region BY, Hoehe 415.0 m
+  Daten verfuegbar ab 1947, Stand 2026-02-21
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 32 heisse Tage, Hoechstwert 38.1 °C am 2015-08-07
+    2018: 30 heisse Tage, Hoechstwert 36.2 °C am 2018-07-31
+    1947: 28 heisse Tage, Hoechstwert 36.5 °C am 1947-07-29
+
+Rottweil (rottweil-d4300)
+  Meteostat-ID D4300, Region BW, Hoehe 588.0 m
+  Daten verfuegbar ab 1957, Stand 2026-02-21
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 27 heisse Tage, Hoechstwert 35.8 °C am 2015-07-04
+    2022: 18 heisse Tage, Hoechstwert 36.0 °C am 2022-08-04
+    2006: 16 heisse Tage, Hoechstwert 33.9 °C am 2006-07-25
+
+Ruppertsecken (ruppertsecken-d4323)
+  Meteostat-ID D4323, Region RP, Hoehe 461.0 m
+  Daten verfuegbar ab 1969, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 19 heisse Tage, Hoechstwert 37.9 °C am 2015-08-07
+    2003: 17 heisse Tage, Hoechstwert 36.8 °C am 2003-08-12
+    1976: 16 heisse Tage, Hoechstwert 34.8 °C am 1976-07-04
+
+Saarbruecken / Ensheim (saarbruecken-ensheim-10708)
+  Meteostat-ID 10708, Region SL, Hoehe 322.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+    2003: 21 heisse Tage, Hoechstwert 37.1 °C am 2003-08-09
+    2022: 20 heisse Tage, Hoechstwert 36.7 °C am 2022-08-04
+
+Sachsenheim (sachsenheim-d4349)
+  Meteostat-ID D4349, Region BW, Hoehe 248.0 m
+  Daten verfuegbar ab 1987, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 34 heisse Tage, Hoechstwert 37.6 °C am 2003-08-09
+    2018: 34 heisse Tage, Hoechstwert 35.8 °C am 2018-08-04
+    2022: 33 heisse Tage, Hoechstwert 37.5 °C am 2022-08-04
+
+Saldenburg-Entschenreuth (saldenburg-entschenreuth-d4354)
+  Meteostat-ID D4354, Region BY, Hoehe 456.0 m
+  Daten verfuegbar ab 1985, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 30 heisse Tage, Hoechstwert 35.4 °C am 2015-07-22
+    2003: 26 heisse Tage, Hoechstwert 36.0 °C am 2003-08-13
+    2024: 24 heisse Tage, Hoechstwert 34.2 °C am 2024-08-13
+
+Sandberg (sandberg-d4377)
+  Meteostat-ID D4377, Region BY, Hoehe 510.0 m
+  Daten verfuegbar ab 1965, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 18 heisse Tage, Hoechstwert 35.9 °C am 2015-08-07
+    2003: 16 heisse Tage, Hoechstwert 35.7 °C am 2003-08-10
+    2018: 14 heisse Tage, Hoechstwert 34.7 °C am 2018-07-31
+
+Schaafheim-Schlierbach (schaafheim-schlierbach-d4411)
+  Meteostat-ID D4411, Region HE, Hoehe 155.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 39 heisse Tage, Hoechstwert 36.8 °C am 2018-08-07
+    2022: 34 heisse Tage, Hoechstwert 37.9 °C am 2022-07-20
+    2015: 32 heisse Tage, Hoechstwert 39.0 °C am 2015-08-07
+
+Schleiz (schleiz-10564)
+  Meteostat-ID 10564, Region TH, Hoehe 501.0 m
+  Daten verfuegbar ab 1941, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 17 heisse Tage, Hoechstwert 36.0 °C am 2015-08-07
+    2003: 14 heisse Tage, Hoechstwert 36.0 °C am 2003-08-13
+    2018: 14 heisse Tage, Hoechstwert 35.1 °C am 2018-07-31
+
+Schleswig (schleswig-10035)
+  Meteostat-ID 10035, Region SH, Hoehe 43.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 8 heisse Tage, Hoechstwert 33.9 °C am 2018-08-07
+    1994: 7 heisse Tage, Hoechstwert 33.1 °C am 1994-07-28
+    1947: 6 heisse Tage, Hoechstwert 34.7 °C am 1947-06-29
+
+Schleswig-Jagel (schleswig-jagel-10037)
+  Meteostat-ID 10037, Region SH, Hoehe 22.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 7 heisse Tage, Hoechstwert 33.8 °C am 1994-07-28
+    2018: 7 heisse Tage, Hoechstwert 33.9 °C am 2018-08-07
+    2022: 5 heisse Tage, Hoechstwert 35.7 °C am 2022-07-20
+
+Schlüchtern-Herolz (schluchtern-herolz-d4480)
+  Meteostat-ID D4480, Region HE, Hoehe 230.0 m
+  Daten verfuegbar ab 1985, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 36 heisse Tage, Hoechstwert 37.2 °C am 2018-07-31
+    2003: 28 heisse Tage, Hoechstwert 38.0 °C am 2003-08-09
+    2015: 28 heisse Tage, Hoechstwert 38.3 °C am 2015-07-05
+
+Schmieritz-Weltwitz (schmieritz-weltwitz-d3289)
+  Meteostat-ID D3289, Region TH, Hoehe 355.0 m
+  Daten verfuegbar ab 1972, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 22 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+    1994: 20 heisse Tage, Hoechstwert 35.2 °C am 1994-08-05
+    2018: 20 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+
+Schmücke (schmucke-d4501)
+  Meteostat-ID D4501, Region TH, Hoehe 937.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 4 heisse Tage, Hoechstwert 31.6 °C am 2019-07-25
+    2015: 3 heisse Tage, Hoechstwert 31.3 °C am 2015-08-07
+    2022: 3 heisse Tage, Hoechstwert 32.6 °C am 2022-07-20
+
+Schneifelforsthaus (schneifelforsthaus-d4508)
+  Meteostat-ID D4508, Region RP, Hoehe 649.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 11 heisse Tage, Hoechstwert 35.6 °C am 2003-08-08
+    2019: 8 heisse Tage, Hoechstwert 36.3 °C am 2019-07-25
+    1976: 7 heisse Tage, Hoechstwert 31.2 °C am 1976-07-16
+
+Schwandorf (schwandorf-d4592)
+  Meteostat-ID D4592, Region BY, Hoehe 356.0 m
+  Daten verfuegbar ab 1955, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 36 heisse Tage, Hoechstwert 38.9 °C am 2015-08-07
+    2003: 33 heisse Tage, Hoechstwert 37.2 °C am 2003-08-13
+    2018: 33 heisse Tage, Hoechstwert 36.3 °C am 2018-08-01
+
+Schwarzburg (schwarzburg-d4605)
+  Meteostat-ID D4605, Region TH, Hoehe 277.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 26 heisse Tage, Hoechstwert 36.3 °C am 2003-08-13
+    2019: 23 heisse Tage, Hoechstwert 37.5 °C am 2019-07-25
+    2015: 22 heisse Tage, Hoechstwert 37.4 °C am 2015-08-07
+
+Schwerin (schwerin-10162)
+  Meteostat-ID 10162, Region MV, Hoehe 59.0 m
+  Daten verfuegbar ab 1890, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1911: 19 heisse Tage, Hoechstwert 34.5 °C am 1911-08-11
+    1994: 18 heisse Tage, Hoechstwert 35.8 °C am 1994-08-01
+    2018: 18 heisse Tage, Hoechstwert 36.1 °C am 2018-07-31
+
+Seehausen (seehausen-10261)
+  Meteostat-ID 10261, Region ST, Hoehe 21.0 m
+  Daten verfuegbar ab 1976, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 30 heisse Tage, Hoechstwert 37.0 °C am 2018-07-31
+    2019: 25 heisse Tage, Hoechstwert 37.8 °C am 2019-06-30
+    2022: 24 heisse Tage, Hoechstwert 39.2 °C am 2022-07-20
+
+Seesen (seesen-d4651)
+  Meteostat-ID D4651, Region NI, Hoehe 186.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 36.0 °C am 2018-08-07
+    1947: 17 heisse Tage, Hoechstwert 32.7 °C am 1947-06-04
+    2022: 17 heisse Tage, Hoechstwert 38.7 °C am 2022-07-20
+
+Sigmaringen-Laiz (sigmaringen-laiz-d4703)
+  Meteostat-ID D4703, Region BW, Hoehe 580.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 34.9 °C am 2015-08-07
+    2003: 20 heisse Tage, Hoechstwert 35.9 °C am 2003-08-05
+    2023: 20 heisse Tage, Hoechstwert 34.8 °C am 2023-07-11
+
+Sigmarszell-Zeisertsweiler (sigmarszell-zeisertsweiler-d4704)
+  Meteostat-ID D4704, Region BY, Hoehe 507.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 25 heisse Tage, Hoechstwert 36.0 °C am 2003-08-13
+    2015: 24 heisse Tage, Hoechstwert 34.7 °C am 2015-07-05
+    2019: 17 heisse Tage, Hoechstwert 35.0 °C am 2019-07-25
+
+Simbach/Inn (simbach-inn-d4706)
+  Meteostat-ID D4706, Region BY, Hoehe 360.0 m
+  Daten verfuegbar ab 1981, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 33 heisse Tage, Hoechstwert 37.2 °C am 2003-08-13
+    2015: 32 heisse Tage, Hoechstwert 36.0 °C am 2015-08-08
+    2018: 25 heisse Tage, Hoechstwert 35.4 °C am 2018-08-09
+
+Simmern-Wahlbach (simmern-wahlbach-d4709)
+  Meteostat-ID D4709, Region RP, Hoehe 445.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 16 heisse Tage, Hoechstwert 36.5 °C am 2003-08-12
+    2015: 15 heisse Tage, Hoechstwert 35.4 °C am 2015-08-07
+    2006: 12 heisse Tage, Hoechstwert 33.4 °C am 2006-07-21
+
+Soltau (soltau-10235)
+  Meteostat-ID 10235, Region NI, Hoehe 77.0 m
+  Daten verfuegbar ab 1935, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 19 heisse Tage, Hoechstwert 36.0 °C am 2018-08-07
+    1994: 18 heisse Tage, Hoechstwert 34.8 °C am 1994-07-31
+    1995: 16 heisse Tage, Hoechstwert 32.9 °C am 1995-08-12
+
+Sondershausen (sondershausen-ktavn)
+  Meteostat-ID KTAVN, Region TH, Hoehe 221.0 m
+  Daten verfuegbar ab 1868, Stand 2026-02-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 43 heisse Tage, Hoechstwert 37.6 °C am 1947-07-29
+    1868: 29 heisse Tage, Hoechstwert 35.5 °C am 1868-08-16
+    2003: 26 heisse Tage, Hoechstwert 36.0 °C am 2003-08-12
+
+Sontra (sontra-d4763)
+  Meteostat-ID D4763, Region HE, Hoehe 265.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 23 heisse Tage, Hoechstwert 37.1 °C am 2003-08-09
+    2018: 23 heisse Tage, Hoechstwert 35.8 °C am 2018-07-31
+    2015: 17 heisse Tage, Hoechstwert 37.1 °C am 2015-07-05
+
+St Peter Ording  / St. Peter-ording / Bad Sankt Peter (st-peter-ording-st-peter-ording-bad-sankt-peter-10028)
+  Meteostat-ID 10028, Region SH, Hoehe 5.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 7 heisse Tage, Hoechstwert 34.1 °C am 1994-07-28
+    1997: 7 heisse Tage, Hoechstwert 31.8 °C am 1997-08-13
+    2020: 7 heisse Tage, Hoechstwert 31.3 °C am 2020-08-11
+
+Starkenberg-Tegkwitz (starkenberg-tegkwitz-d4997)
+  Meteostat-ID D4997, Region TH, Hoehe 196.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 31 heisse Tage, Hoechstwert 36.3 °C am 2018-07-31
+    2024: 31 heisse Tage, Hoechstwert 35.1 °C am 2024-08-13
+    2003: 26 heisse Tage, Hoechstwert 37.2 °C am 2003-08-13
+
+Stoetten (stoetten-10836)
+  Meteostat-ID 10836, Region BW, Hoehe 734.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 16 heisse Tage, Hoechstwert 34.2 °C am 2003-08-13
+    2015: 13 heisse Tage, Hoechstwert 33.9 °C am 2015-08-07
+    2025: 8 heisse Tage, Hoechstwert 31.3 °C am 2025-07-02
+
+Straubing (straubing-10788)
+  Meteostat-ID 10788, Region BY, Hoehe 350.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 29 heisse Tage, Hoechstwert 36.4 °C am 2015-08-08
+    2003: 26 heisse Tage, Hoechstwert 37.7 °C am 2003-08-13
+    2018: 24 heisse Tage, Hoechstwert 35.6 °C am 2018-07-31
+
+Stuttgart / Schnarrenberg (stuttgart-schnarrenberg-10739)
+  Meteostat-ID 10739, Region BW, Hoehe 314.0 m
+  Daten verfuegbar ab 1958, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 30 heisse Tage, Hoechstwert 36.7 °C am 2022-08-04
+    2018: 29 heisse Tage, Hoechstwert 35.1 °C am 2018-07-31
+    2003: 28 heisse Tage, Hoechstwert 38.1 °C am 2003-08-09
+
+Stuttgart-Echterdingen (stuttgart-echterdingen-10738)
+  Meteostat-ID 10738, Region BW, Hoehe 396.0 m
+  Daten verfuegbar ab 1900, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 28 heisse Tage, Hoechstwert 37.0 °C am 1947-07-29
+    2015: 26 heisse Tage, Hoechstwert 37.0 °C am 2015-08-07
+    2003: 23 heisse Tage, Hoechstwert 37.7 °C am 2003-08-13
+
+Tann/Rhön (tann-rhon-d4978)
+  Meteostat-ID D4978, Region HE, Hoehe 395.0 m
+  Daten verfuegbar ab 1986, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 19 heisse Tage, Hoechstwert 36.7 °C am 2015-07-05
+    2018: 17 heisse Tage, Hoechstwert 35.0 °C am 2018-07-31
+    2003: 16 heisse Tage, Hoechstwert 35.6 °C am 2003-08-10
+
+Teterow (teterow-10177)
+  Meteostat-ID 10177, Region MV, Hoehe 46.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 24 heisse Tage, Hoechstwert 35.7 °C am 2018-08-08
+    1994: 17 heisse Tage, Hoechstwert 38.6 °C am 1994-08-01
+    2019: 17 heisse Tage, Hoechstwert 35.3 °C am 2019-06-30
+
+Teuschnitz (teuschnitz-d5017)
+  Meteostat-ID D5017, Region BY, Hoehe 633.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 15 heisse Tage, Hoechstwert 35.6 °C am 2003-08-13
+    2015: 13 heisse Tage, Hoechstwert 34.5 °C am 2015-07-05
+    1994: 10 heisse Tage, Hoechstwert 33.6 °C am 1994-08-05
+
+Tholey (tholey-10706)
+  Meteostat-ID 10706, Region SL, Hoehe 396.0 m
+  Daten verfuegbar ab 1969, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 19 heisse Tage, Hoechstwert 37.2 °C am 2003-08-08
+    2015: 18 heisse Tage, Hoechstwert 35.8 °C am 2015-07-04
+    2022: 17 heisse Tage, Hoechstwert 35.7 °C am 2022-07-19
+
+Tirschenreuth-Lodermühl (tirschenreuth-lodermuhl-d5046)
+  Meteostat-ID D5046, Region BY, Hoehe 500.0 m
+  Daten verfuegbar ab 1967, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 21 heisse Tage, Hoechstwert 36.3 °C am 2015-08-07
+    2018: 20 heisse Tage, Hoechstwert 35.2 °C am 2018-07-31
+    2022: 15 heisse Tage, Hoechstwert 35.8 °C am 2022-07-20
+
+Tribsees (tribsees-d5097)
+  Meteostat-ID D5097, Region MV, Hoehe 10.0 m
+  Daten verfuegbar ab 1991, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 16 heisse Tage, Hoechstwert 37.0 °C am 1994-08-01
+    2019: 16 heisse Tage, Hoechstwert 36.7 °C am 2019-06-30
+    2018: 15 heisse Tage, Hoechstwert 36.9 °C am 2018-08-08
+
+Trier-Petrisberg (trier-petrisberg-10609)
+  Meteostat-ID 10609, Region RP, Hoehe 265.0 m
+  Daten verfuegbar ab 1907, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 41 heisse Tage, Hoechstwert 38.0 °C am 1947-06-27
+    2022: 39 heisse Tage, Hoechstwert 37.5 °C am 2022-07-19
+    1911: 36 heisse Tage, Hoechstwert 37.0 °C am 1911-07-23
+
+Trier-Zewen (trier-zewen-d5099)
+  Meteostat-ID D5099, Region RP, Hoehe 132.0 m
+  Daten verfuegbar ab 1907, Stand 2026-02-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 41 heisse Tage, Hoechstwert 38.0 °C am 1947-06-27
+    2022: 40 heisse Tage, Hoechstwert 38.2 °C am 2022-07-19
+    1911: 36 heisse Tage, Hoechstwert 37.0 °C am 1911-07-23
+
+Trollenhagen (trollenhagen-10281)
+  Meteostat-ID 10281, Region MV, Hoehe 71.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 17 heisse Tage, Hoechstwert 36.7 °C am 2018-08-08
+    2006: 14 heisse Tage, Hoechstwert 35.1 °C am 2006-07-20
+    2003: 12 heisse Tage, Hoechstwert 33.3 °C am 2003-07-20
+
+Trostberg (trostberg-d5111)
+  Meteostat-ID D5111, Region BY, Hoehe 559.0 m
+  Daten verfuegbar ab 1945, Stand 2026-02-17
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 32 heisse Tage, Hoechstwert 37.2 °C am 2003-08-13
+    2015: 26 heisse Tage, Hoechstwert 34.9 °C am 2015-07-07
+    1947: 24 heisse Tage, Hoechstwert 34.2 °C am 1947-07-29
+
+Ueckermuende (ueckermuende-10193)
+  Meteostat-ID 10193, Region MV, Hoehe 1.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1971: 12 heisse Tage, Hoechstwert 33.2 °C am 1971-07-28
+    2019: 11 heisse Tage, Hoechstwert 36.8 °C am 2019-06-30
+    2022: 11 heisse Tage, Hoechstwert 36.4 °C am 2022-08-04
+
+Uelzen (uelzen-d5146)
+  Meteostat-ID D5146, Region NI, Hoehe 50.0 m
+  Daten verfuegbar ab 1951, Stand 2026-02-17
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 25 heisse Tage, Hoechstwert 35.9 °C am 2018-08-07
+    2022: 24 heisse Tage, Hoechstwert 39.8 °C am 2022-07-20
+    1994: 18 heisse Tage, Hoechstwert 37.1 °C am 1994-08-05
+
+Ummendorf (ummendorf-10356)
+  Meteostat-ID 10356, Region ST, Hoehe 162.0 m
+  Daten verfuegbar ab 1987, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+    2003: 19 heisse Tage, Hoechstwert 35.5 °C am 2003-08-12
+    2019: 17 heisse Tage, Hoechstwert 35.6 °C am 2019-07-25
+
+Villingen-Schwenningen (villingen-schwenningen-d5229)
+  Meteostat-ID D5229, Region BW, Hoehe 720.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 23 heisse Tage, Hoechstwert 34.5 °C am 2015-07-04
+    1947: 18 heisse Tage, Hoechstwert 34.3 °C am 1947-07-29
+    2003: 18 heisse Tage, Hoechstwert 35.8 °C am 2003-08-13
+
+Waghäusel-Kirrlach (waghausel-kirrlach-d5275)
+  Meteostat-ID D5275, Region BW, Hoehe 105.0 m
+  Daten verfuegbar ab 1985, Stand 2026-02-21
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 50 heisse Tage, Hoechstwert 36.7 °C am 2018-08-04
+    2022: 50 heisse Tage, Hoechstwert 39.1 °C am 2022-08-04
+    2023: 43 heisse Tage, Hoechstwert 38.0 °C am 2023-07-09
+
+Wahlsburg-Lippoldsberg (wahlsburg-lippoldsberg-d5279)
+  Meteostat-ID D5279, Region HE, Hoehe 176.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-02
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 21 heisse Tage, Hoechstwert 36.3 °C am 2003-08-12
+    2022: 20 heisse Tage, Hoechstwert 38.5 °C am 2022-07-20
+    2019: 17 heisse Tage, Hoechstwert 36.2 °C am 2019-07-25
+
+Waldems-Reinborn (waldems-reinborn-d5300)
+  Meteostat-ID D5300, Region HE, Hoehe 380.0 m
+  Daten verfuegbar ab 1951, Stand 2026-03-02
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1976: 16 heisse Tage, Hoechstwert 33.0 °C am 1976-07-16
+    2015: 15 heisse Tage, Hoechstwert 36.1 °C am 2015-08-07
+    2019: 15 heisse Tage, Hoechstwert 38.1 °C am 2019-07-25
+
+Waltershausen (waltershausen-d5335)
+  Meteostat-ID D5335, Region TH, Hoehe 348.0 m
+  Daten verfuegbar ab 1945, Stand 2026-03-02
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 19 heisse Tage, Hoechstwert 36.7 °C am 2015-07-04
+    2018: 18 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+    2019: 18 heisse Tage, Hoechstwert 37.1 °C am 2019-07-25
+
+Warburg (warburg-10435)
+  Meteostat-ID 10435, Region NW, Hoehe 225.0 m
+  Daten verfuegbar ab 1988, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 36.6 °C am 2018-08-07
+    2015: 15 heisse Tage, Hoechstwert 37.5 °C am 2015-07-04
+    2019: 15 heisse Tage, Hoechstwert 35.6 °C am 2019-06-30
+
+Waren (waren-10268)
+  Meteostat-ID 10268, Region MV, Hoehe 70.0 m
+  Daten verfuegbar ab 1889, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 21 heisse Tage, Hoechstwert 35.2 °C am 2018-07-31
+    1944: 18 heisse Tage, Hoechstwert 35.2 °C am 1944-07-08
+    1911: 17 heisse Tage, Hoechstwert 35.8 °C am 1911-07-12
+
+Wasserkuppe (wasserkuppe-10544)
+  Meteostat-ID 10544, Region HE, Hoehe 921.0 m
+  Daten verfuegbar ab 1923, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 4 heisse Tage, Hoechstwert 31.4 °C am 2018-07-31
+    2019: 4 heisse Tage, Hoechstwert 33.0 °C am 2019-07-25
+    2003: 3 heisse Tage, Hoechstwert 31.8 °C am 2003-08-09
+
+Weiden (weiden-10688)
+  Meteostat-ID 10688, Region BY, Hoehe 438.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 27 heisse Tage, Hoechstwert 36.2 °C am 1947-07-29
+    2015: 26 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+    2003: 23 heisse Tage, Hoechstwert 36.9 °C am 2003-08-13
+
+Weihenstephan (weihenstephan-10863)
+  Meteostat-ID 10863, Region BY, Hoehe 470.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 35.2 °C am 2015-08-07
+    1947: 24 heisse Tage, Hoechstwert 35.0 °C am 1947-07-29
+    2003: 23 heisse Tage, Hoechstwert 36.5 °C am 2003-08-13
+
+Weihenstephan-Dürnast (weihenstephan-durnast-d5404)
+  Meteostat-ID D5404, Region BY, Hoehe 477.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 25 heisse Tage, Hoechstwert 35.2 °C am 2015-08-07
+    1947: 24 heisse Tage, Hoechstwert 35.0 °C am 1947-07-29
+    2003: 23 heisse Tage, Hoechstwert 36.5 °C am 2003-08-13
+
+Weilerswist-Lommersum (weilerswist-lommersum-d1327)
+  Meteostat-ID D1327, Region NW, Hoehe 147.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-07
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 30 heisse Tage, Hoechstwert 37.6 °C am 1947-06-27
+    2022: 24 heisse Tage, Hoechstwert 37.8 °C am 2022-07-19
+    2003: 22 heisse Tage, Hoechstwert 40.1 °C am 2003-08-12
+
+Weimar-Schöndorf (weimar-schondorf-d5424)
+  Meteostat-ID D5424, Region TH, Hoehe 328.0 m
+  Daten verfuegbar ab 1949, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 19 heisse Tage, Hoechstwert 36.5 °C am 2015-07-04
+    2018: 19 heisse Tage, Hoechstwert 36.4 °C am 2018-07-31
+    2024: 19 heisse Tage, Hoechstwert 34.5 °C am 2024-08-13
+
+Weinbiet (weinbiet-10724)
+  Meteostat-ID 10724, Region RP, Hoehe 553.0 m
+  Daten verfuegbar ab 1953, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 20 heisse Tage, Hoechstwert 37.6 °C am 2015-07-04
+    2003: 19 heisse Tage, Hoechstwert 37.0 °C am 2003-08-13
+    2019: 19 heisse Tage, Hoechstwert 36.4 °C am 2019-07-26
+
+Weingarten, Kr. Ravensburg (weingarten-kr-ravensburg-d4094)
+  Meteostat-ID D4094, Region BW, Hoehe 440.0 m
+  Daten verfuegbar ab 1946, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 39 heisse Tage, Hoechstwert 37.4 °C am 2003-08-13
+    2015: 31 heisse Tage, Hoechstwert 36.3 °C am 2015-08-07
+    1947: 30 heisse Tage, Hoechstwert 34.6 °C am 1947-07-29
+
+Weiskirchen/Saar (weiskirchen-saar-d5433)
+  Meteostat-ID D5433, Region SL, Hoehe 380.0 m
+  Daten verfuegbar ab 1957, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 30 heisse Tage, Hoechstwert 36.2 °C am 2022-07-19
+    1976: 19 heisse Tage, Hoechstwert 34.8 °C am 1976-07-16
+    2019: 19 heisse Tage, Hoechstwert 38.9 °C am 2019-07-25
+
+Weissenburg (weissenburg-10761)
+  Meteostat-ID 10761, Region BY, Hoehe 422.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 37 heisse Tage, Hoechstwert 37.2 °C am 1947-07-29
+    2003: 29 heisse Tage, Hoechstwert 37.8 °C am 2003-08-13
+    2015: 28 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+
+Weißenburg-Emetzheim (weienburg-emetzheim-d5440)
+  Meteostat-ID D5440, Region BY, Hoehe 439.0 m
+  Daten verfuegbar ab 1879, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 37 heisse Tage, Hoechstwert 37.2 °C am 1947-07-29
+    2003: 29 heisse Tage, Hoechstwert 37.8 °C am 2003-08-13
+    2015: 28 heisse Tage, Hoechstwert 36.8 °C am 2015-08-07
+
+Werl (werl-d5480)
+  Meteostat-ID D5480, Region NW, Hoehe 85.0 m
+  Daten verfuegbar ab 2003, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 20 heisse Tage, Hoechstwert 37.7 °C am 2022-07-19
+    2018: 19 heisse Tage, Hoechstwert 38.2 °C am 2018-08-07
+    2019: 18 heisse Tage, Hoechstwert 38.8 °C am 2019-07-25
+
+Wernigerode (wernigerode-10454)
+  Meteostat-ID 10454, Region ST, Hoehe 234.0 m
+  Daten verfuegbar ab 1947, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 20 heisse Tage, Hoechstwert 36.0 °C am 2018-08-07
+    2019: 16 heisse Tage, Hoechstwert 36.1 °C am 2019-06-30
+    1947: 15 heisse Tage, Hoechstwert 34.8 °C am 1947-07-29
+
+Wernigerode-Schierke (wernigerode-schierke-d4445)
+  Meteostat-ID D4445, Region ST, Hoehe 609.0 m
+  Daten verfuegbar ab 1902, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 8 heisse Tage, Hoechstwert 33.1 °C am 1994-08-05
+    2018: 6 heisse Tage, Hoechstwert 33.0 °C am 2018-07-31
+    2022: 5 heisse Tage, Hoechstwert 34.6 °C am 2022-07-20
+
+Westermarkelsdorf (westermarkelsdorf-10055)
+  Meteostat-ID 10055, Region SH, Hoehe 3.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 3 heisse Tage, Hoechstwert 31.9 °C am 2018-07-31
+    2022: 3 heisse Tage, Hoechstwert 34.0 °C am 2022-08-04
+    1973: 2 heisse Tage, Hoechstwert 30.8 °C am 1973-06-27
+
+Wiesbaden-Auringen (wiesbaden-auringen-d5541)
+  Meteostat-ID D5541, Region HE, Hoehe 263.0 m
+  Daten verfuegbar ab 1987, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 24 heisse Tage, Hoechstwert 35.9 °C am 2018-07-31
+    2019: 22 heisse Tage, Hoechstwert 38.9 °C am 2019-07-25
+    2022: 22 heisse Tage, Hoechstwert 37.6 °C am 2022-08-04
+
+Wiesenburg (wiesenburg-10368)
+  Meteostat-ID 10368, Region BB, Hoehe 187.0 m
+  Daten verfuegbar ab 1967, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 28 heisse Tage, Hoechstwert 36.7 °C am 2018-08-08
+    2019: 25 heisse Tage, Hoechstwert 37.4 °C am 2019-06-30
+    1994: 19 heisse Tage, Hoechstwert 37.4 °C am 1994-08-01
+
+Wittenberg (wittenberg-10474)
+  Meteostat-ID 10474, Region ST, Hoehe 105.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 33 heisse Tage, Hoechstwert 36.6 °C am 2018-08-08
+    2003: 30 heisse Tage, Hoechstwert 34.8 °C am 2003-07-27
+    1994: 26 heisse Tage, Hoechstwert 37.5 °C am 1994-08-01
+
+Wittenborn (wittenborn-d5280)
+  Meteostat-ID D5280, Region SH, Hoehe 35.0 m
+  Daten verfuegbar ab 1981, Stand 2026-03-02
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 15 heisse Tage, Hoechstwert 35.1 °C am 1994-08-05
+    2018: 13 heisse Tage, Hoechstwert 35.4 °C am 2018-08-07
+    2020: 11 heisse Tage, Hoechstwert 32.4 °C am 2020-08-08
+
+Wittmundhaven (wittmundhaven-10126)
+  Meteostat-ID 10126, Region NI, Hoehe 8.0 m
+  Daten verfuegbar ab 1979, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1994: 8 heisse Tage, Hoechstwert 34.2 °C am 1994-07-25
+    2018: 8 heisse Tage, Hoechstwert 34.8 °C am 2018-08-07
+    2019: 8 heisse Tage, Hoechstwert 35.4 °C am 2019-07-24
+
+Wittstock-Rote Mühle (wittstock-rote-muhle-d5643)
+  Meteostat-ID D5643, Region BB, Hoehe 66.0 m
+  Daten verfuegbar ab 1994, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 21 heisse Tage, Hoechstwert 37.4 °C am 2019-06-30
+    2018: 20 heisse Tage, Hoechstwert 35.9 °C am 2018-07-31
+    1994: 19 heisse Tage, Hoechstwert 37.5 °C am 1994-08-01
+
+Wolfach (wolfach-d5664)
+  Meteostat-ID D5664, Region BW, Hoehe 291.0 m
+  Daten verfuegbar ab 1958, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 43 heisse Tage, Hoechstwert 38.2 °C am 2022-07-19
+    2018: 35 heisse Tage, Hoechstwert 35.8 °C am 2018-07-31
+    2003: 33 heisse Tage, Hoechstwert 37.7 °C am 2003-08-13
+
+Worms / Nonnenhof (worms-nonnenhof-edfv0)
+  Meteostat-ID EDFV0, Region RP, Hoehe 90.0 m
+  Daten verfuegbar ab 1936, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2022: 37 heisse Tage, Hoechstwert 37.3 °C am 2022-07-19
+    2018: 34 heisse Tage, Hoechstwert 36.0 °C am 2018-08-03
+    1976: 32 heisse Tage, Hoechstwert 36.2 °C am 1976-06-30
+
+Wuerzburg (wuerzburg-10655)
+  Meteostat-ID 10655, Region BY, Hoehe 268.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1947: 43 heisse Tage, Hoechstwert 37.8 °C am 1947-07-29
+    2018: 36 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+    2022: 32 heisse Tage, Hoechstwert 38.5 °C am 2022-08-04
+
+Wunstorf (wunstorf-10334)
+  Meteostat-ID 10334, Region NI, Hoehe 57.0 m
+  Daten verfuegbar ab 1979, Stand 2026-02-25
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 23 heisse Tage, Hoechstwert 36.9 °C am 2018-08-07
+    2022: 21 heisse Tage, Hoechstwert 39.0 °C am 2022-07-20
+    2019: 18 heisse Tage, Hoechstwert 38.3 °C am 2019-07-25
+
+Wuppertal-Buchenhofen (wuppertal-buchenhofen-d5717)
+  Meteostat-ID D5717, Region NW, Hoehe 134.0 m
+  Daten verfuegbar ab 1937, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1995: 22 heisse Tage, Hoechstwert 35.7 °C am 1995-07-21
+    1994: 21 heisse Tage, Hoechstwert 34.5 °C am 1994-08-04
+    2006: 21 heisse Tage, Hoechstwert 35.6 °C am 2006-07-19
+
+Wutöschingen-Ofteringen (wutoschingen-ofteringen-d5731)
+  Meteostat-ID D5731, Region BW, Hoehe 398.0 m
+  Daten verfuegbar ab 1961, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 41 heisse Tage, Hoechstwert 38.2 °C am 2003-08-13
+    2015: 36 heisse Tage, Hoechstwert 37.7 °C am 2015-08-07
+    2022: 36 heisse Tage, Hoechstwert 37.9 °C am 2022-08-04
+
+Zehdenick (zehdenick-d5745)
+  Meteostat-ID D5745, Region BB, Hoehe 51.0 m
+  Daten verfuegbar ab 1948, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2018: 22 heisse Tage, Hoechstwert 37.2 °C am 2018-08-08
+    1994: 21 heisse Tage, Hoechstwert 38.2 °C am 1994-08-01
+    2006: 21 heisse Tage, Hoechstwert 35.7 °C am 2006-07-20
+
+Zeitz (zeitz-d5750)
+  Meteostat-ID D5750, Region ST, Hoehe 264.0 m
+  Daten verfuegbar ab 1952, Stand 2026-03-11
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2003: 37 heisse Tage, Hoechstwert 39.0 °C am 2003-08-13
+    2018: 32 heisse Tage, Hoechstwert 36.6 °C am 2018-07-31
+    2024: 27 heisse Tage, Hoechstwert 34.8 °C am 2024-08-13
+
+Zinnwald-Georgenfeld (zinnwald-georgenfeld-10582)
+  Meteostat-ID 10582, Region SN, Hoehe 877.0 m
+  Daten verfuegbar ab 1971, Stand 2026-03-14
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2019: 3 heisse Tage, Hoechstwert 30.9 °C am 2019-06-30
+    2015: 2 heisse Tage, Hoechstwert 30.6 °C am 2015-08-07
+    2003: 1 heisse Tage, Hoechstwert 31.0 °C am 2003-08-13
+
+Zugspitze (zugspitze-10961)
+  Meteostat-ID 10961, Region BY, Hoehe 2960.0 m
+  Daten verfuegbar ab 1900, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    1900: 0 heisse Tage, Hoechstwert 12.6 °C am 1900-08-02
+    1901: 0 heisse Tage, Hoechstwert 11.4 °C am 1901-08-09
+    1902: 0 heisse Tage, Hoechstwert 13.0 °C am 1902-09-04
+
+Zwiesel (zwiesel-10796)
+  Meteostat-ID 10796, Region BY, Hoehe 612.0 m
+  Daten verfuegbar ab 1989, Stand 2026-03-18
+  Top-3-Jahre nach Anzahl heisser Tage (ganzjaehrig):
+    2015: 23 heisse Tage, Hoechstwert 34.2 °C am 2015-08-07
+    2013: 14 heisse Tage, Hoechstwert 34.9 °C am 2013-07-28
+    2003: 13 heisse Tage, Hoechstwert 34.0 °C am 2003-08-13
+
+============================================================
+Datencheck Freiburg (Anfrage v2/A4, weiterhin gueltig):
+  Betroffene Station in diesem Datensatz: Name 'Freiburg', Meteostat-ID 10803, ICAO EDTF,
+  Region BW, Hoehe 269 m ue. NN.
+  Das ist die reale, offizielle DWD-Station in Freiburg (kein Merge/keine Ersatzstation).
+  Jahr 2003 faellt mit 55 heissen Tagen deutlich heraus. Stichprobe der raw-CSV
+  (Juni-August 2003) zeigt eine luecken- und sprungfreie, physikalisch plausible
+  Erwaermungskurve mit Spitzenwert 40.2 °C am 13.08.2003 - das deckt sich mit der
+  historisch belegten Hitzewelle 2003. Keine Duplikate, keine Format-/Einheitenfehler
+  in den Rohdaten gefunden.
+  Bewertung: PLAUSIBEL, kein Datenfehler. Freiburg/Oberrheingraben ist real die
+  waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.
+
+============================================================
+40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,7 °C, 28.06.2026, Neissemuende-Coschen/Brandenburg, DWD-Angabe vorlaeufig; zuvor 41,2 °C, 2019):
+
+  Andernach (andernach-d0161), 2019: 40.4 °C am 2019-07-25
+  Barsinghausen-Hohenbostel (barsinghausen-hohenbostel-d0294), 2022: 40.0 °C am 2022-07-20
+  Bonn-Roleber (bonn-roleber-10519), 2019: 40.9 °C am 2019-07-25
+  Chieming (chieming-10982), 1991: 41.3 °C am 1991-08-07
+  Düsseldorf (dusseldorf-10400), 2019: 40.7 °C am 2019-07-25
+  Essen (essen-10410), 2019: 40.0 °C am 2019-07-25
+  Frankfurt  Westend (frankfurt-westend-d1424), 2019: 40.2 °C am 2019-07-25
+  Frankfurt Airport (frankfurt-airport-10637), 2019: 40.1 °C am 2019-07-25
+  Freiburg (freiburg-10803), 2003: 40.2 °C am 2003-08-13
+  Friedberg / Ockstadt (friedberg-ockstadt-edev0), 2019: 40.1 °C am 2019-07-25
+  Hamburg-Neuwiedenthal (hamburg-neuwiedenthal-d1981), 2022: 40.1 °C am 2022-07-20
+  Kahl/Main (kahl-main-d2480), 2019: 40.0 °C am 2019-07-25
+  Kitzingen (kitzingen-d2600), 2015: 40.3 °C am 2015-07-05
+  Kleve (kleve-d2629), 2019: 40.9 °C am 2019-07-25
+  Köln-Bonn Airport (koln-bonn-airport-10513), 2019: 40.3 °C am 2019-07-25
+  Köln-Stammheim (koln-stammheim-d2968), 2019: 41.1 °C am 2019-07-25
+  Kösching (kosching-d2700), 1983: 40.0 °C am 1983-07-27
+  Mergentheim, Bad-Neunkirchen (mergentheim-bad-neunkirchen-d3257), 2015: 40.2 °C am 2015-08-07
+  Mergentheim, Bad-Neunkirchen (mergentheim-bad-neunkirchen-d3257), 2022: 40.3 °C am 2022-07-20
+  Muenster / Osnabrueck (muenster-osnabrueck-10315), 2019: 40.0 °C am 2019-07-25
+  Neuenahr, Bad-Ahrweiler (neuenahr-bad-ahrweiler-d3490), 2019: 40.4 °C am 2019-07-25
+  Neunkirchen-Wellesweiler (neunkirchen-wellesweiler-d3545), 2019: 40.2 °C am 2019-07-25
+  Schaafheim-Schlierbach (schaafheim-schlierbach-d4411), 2019: 40.0 °C am 2019-07-25
+  Trier-Petrisberg (trier-petrisberg-10609), 2019: 40.6 °C am 2019-07-25
+  Weilerswist-Lommersum (weilerswist-lommersum-d1327), 2003: 40.1 °C am 2003-08-12
+  Weilerswist-Lommersum (weilerswist-lommersum-d1327), 2019: 40.6 °C am 2019-07-25
+  Wuppertal-Buchenhofen (wuppertal-buchenhofen-d5717), 2019: 40.2 °C am 2019-07-25
+
+============================================================
+Automatisch verworfene, physikalisch unplausible Tageswerte:
+(tmax > tavg + 20 °C oder tavg ausserhalb [tmin, tmax] - das kommt bei echten Messungen praktisch nie vor)
+
+  Keine.

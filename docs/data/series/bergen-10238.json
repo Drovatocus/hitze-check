@@ -1,0 +1,507 @@
+{
+  "station_id": "bergen-10238",
+  "record": {
+    "temp": 38.1,
+    "date": "2022-07-20"
+  },
+  "years": {
+    "1997": {
+      "annual": {
+        "hot_days": 4,
+        "summer_days": 23,
+        "tropical_nights": 0,
+        "mean_temp": 12.4,
+        "max_temp": 33.4,
+        "complete": true,
+        "last_date": "1997-12-31",
+        "max_temp_date": "1997-08-25"
+      },
+      "summer": {
+        "hot_days": 4,
+        "summer_days": 22,
+        "tropical_nights": 0,
+        "mean_temp": 18.1,
+        "max_temp": 33.4,
+        "complete": false,
+        "last_date": "1997-08-27",
+        "max_temp_date": "1997-08-25"
+      }
+    },
+    "1998": {
+      "annual": {
+        "hot_days": 3,
+        "summer_days": 9,
+        "tropical_nights": 0,
+        "mean_temp": 10.3,
+        "max_temp": 31.6,
+        "complete": true,
+        "last_date": "1998-12-31",
+        "max_temp_date": "1998-07-20"
+      },
+      "summer": {
+        "hot_days": 3,
+        "summer_days": 8,
+        "tropical_nights": 0,
+        "mean_temp": 15.9,
+        "max_temp": 31.6,
+        "complete": false,
+        "last_date": "1998-08-30",
+        "max_temp_date": "1998-07-20"
+      }
+    },
+    "1999": {
+      "annual": {
+        "hot_days": 6,
+        "summer_days": 34,
+        "tropical_nights": 0,
+        "mean_temp": 9.8,
+        "max_temp": 31.5,
+        "complete": true,
+        "last_date": "1999-12-31",
+        "max_temp_date": "1999-08-01"
+      },
+      "summer": {
+        "hot_days": 6,
+        "summer_days": 22,
+        "tropical_nights": 0,
+        "mean_temp": 17.2,
+        "max_temp": 31.5,
+        "complete": true,
+        "last_date": "1999-08-31",
+        "max_temp_date": "1999-08-01"
+      }
+    },
+    "2000": {
+      "annual": {
+        "hot_days": 5,
+        "summer_days": 25,
+        "tropical_nights": 0,
+        "mean_temp": 10.2,
+        "max_temp": 34.9,
+        "complete": true,
+        "last_date": "2000-12-31",
+        "max_temp_date": "2000-06-20"
+      },
+      "summer": {
+        "hot_days": 4,
+        "summer_days": 12,
+        "tropical_nights": 0,
+        "mean_temp": 15.7,
+        "max_temp": 34.9,
+        "complete": true,
+        "last_date": "2000-08-31",
+        "max_temp_date": "2000-06-20"
+      }
+    },
+    "2001": {
+      "annual": {
+        "hot_days": 2,
+        "summer_days": 17,
+        "tropical_nights": 0,
+        "mean_temp": 7.9,
+        "max_temp": 33.4,
+        "complete": true,
+        "last_date": "2001-12-31",
+        "max_temp_date": "2001-08-15"
+      },
+      "summer": {
+        "hot_days": 2,
+        "summer_days": 15,
+        "tropical_nights": 0,
+        "mean_temp": 15.9,
+        "max_temp": 33.4,
+        "complete": false,
+        "last_date": "2001-08-16",
+        "max_temp_date": "2001-08-15"
+      }
+    },
+    "2002": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 1,
+        "tropical_nights": 0,
+        "mean_temp": 4.1,
+        "max_temp": 28.0,
+        "complete": true,
+        "last_date": "2002-12-31",
+        "max_temp_date": "2002-05-22"
+      }
+    },
+    "2003": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 0.7,
+        "max_temp": 23.5,
+        "complete": false,
+        "last_date": "2003-07-26",
+        "max_temp_date": "2003-07-26"
+      },
+      "summer": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 18.8,
+        "max_temp": 23.5,
+        "complete": false,
+        "last_date": "2003-07-26",
+        "max_temp_date": "2003-07-26"
+      }
+    },
+    "2013": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 11.9,
+        "max_temp": 23.7,
+        "complete": false,
+        "last_date": "2013-05-27",
+        "max_temp_date": "2013-05-06"
+      }
+    },
+    "2017": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 14.0,
+        "max_temp": 23.0,
+        "complete": false,
+        "last_date": "2017-10-15",
+        "max_temp_date": "2017-08-26"
+      },
+      "summer": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 15.6,
+        "max_temp": 23.0,
+        "complete": false,
+        "last_date": "2017-08-27",
+        "max_temp_date": "2017-08-26"
+      }
+    },
+    "2018": {
+      "annual": {
+        "hot_days": 19,
+        "summer_days": 69,
+        "tropical_nights": 1,
+        "mean_temp": 11.1,
+        "max_temp": 35.5,
+        "complete": true,
+        "last_date": "2018-12-31",
+        "max_temp_date": "2018-08-07"
+      },
+      "summer": {
+        "hot_days": 16,
+        "summer_days": 45,
+        "tropical_nights": 1,
+        "mean_temp": 19.0,
+        "max_temp": 35.5,
+        "complete": true,
+        "last_date": "2018-08-31",
+        "max_temp_date": "2018-08-07"
+      }
+    },
+    "2019": {
+      "annual": {
+        "hot_days": 16,
+        "summer_days": 43,
+        "tropical_nights": 0,
+        "mean_temp": 10.4,
+        "max_temp": 36.5,
+        "complete": true,
+        "last_date": "2019-12-31",
+        "max_temp_date": "2019-07-25"
+      },
+      "summer": {
+        "hot_days": 16,
+        "summer_days": 42,
+        "tropical_nights": 0,
+        "mean_temp": 18.9,
+        "max_temp": 36.5,
+        "complete": true,
+        "last_date": "2019-08-31",
+        "max_temp_date": "2019-07-25"
+      }
+    },
+    "2020": {
+      "annual": {
+        "hot_days": 10,
+        "summer_days": 35,
+        "tropical_nights": 0,
+        "mean_temp": 10.6,
+        "max_temp": 35.1,
+        "complete": true,
+        "last_date": "2020-12-31",
+        "max_temp_date": "2020-08-08"
+      },
+      "summer": {
+        "hot_days": 9,
+        "summer_days": 32,
+        "tropical_nights": 0,
+        "mean_temp": 18.1,
+        "max_temp": 35.1,
+        "complete": true,
+        "last_date": "2020-08-31",
+        "max_temp_date": "2020-08-08"
+      }
+    },
+    "2021": {
+      "annual": {
+        "hot_days": 3,
+        "summer_days": 33,
+        "tropical_nights": 0,
+        "mean_temp": 9.4,
+        "max_temp": 33.6,
+        "complete": true,
+        "last_date": "2021-12-31",
+        "max_temp_date": "2021-06-18"
+      },
+      "summer": {
+        "hot_days": 3,
+        "summer_days": 30,
+        "tropical_nights": 0,
+        "mean_temp": 18.0,
+        "max_temp": 33.6,
+        "complete": true,
+        "last_date": "2021-08-31",
+        "max_temp_date": "2021-06-18"
+      }
+    },
+    "2022": {
+      "annual": {
+        "hot_days": 11,
+        "summer_days": 49,
+        "tropical_nights": 0,
+        "mean_temp": 10.3,
+        "max_temp": 38.1,
+        "complete": true,
+        "last_date": "2022-12-31",
+        "max_temp_date": "2022-07-20"
+      },
+      "summer": {
+        "hot_days": 11,
+        "summer_days": 42,
+        "tropical_nights": 0,
+        "mean_temp": 18.5,
+        "max_temp": 38.1,
+        "complete": true,
+        "last_date": "2022-08-31",
+        "max_temp_date": "2022-07-20"
+      }
+    },
+    "2023": {
+      "annual": {
+        "hot_days": 4,
+        "summer_days": 43,
+        "tropical_nights": 0,
+        "mean_temp": 10.4,
+        "max_temp": 33.2,
+        "complete": true,
+        "last_date": "2023-12-31",
+        "max_temp_date": "2023-07-09"
+      },
+      "summer": {
+        "hot_days": 4,
+        "summer_days": 33,
+        "tropical_nights": 0,
+        "mean_temp": 17.8,
+        "max_temp": 33.2,
+        "complete": true,
+        "last_date": "2023-08-31",
+        "max_temp_date": "2023-07-09"
+      }
+    },
+    "2024": {
+      "annual": {
+        "hot_days": 3,
+        "summer_days": 38,
+        "tropical_nights": 0,
+        "mean_temp": 10.8,
+        "max_temp": 32.6,
+        "complete": true,
+        "last_date": "2024-12-31",
+        "max_temp_date": "2024-08-13"
+      },
+      "summer": {
+        "hot_days": 2,
+        "summer_days": 27,
+        "tropical_nights": 0,
+        "mean_temp": 17.6,
+        "max_temp": 32.6,
+        "complete": true,
+        "last_date": "2024-08-31",
+        "max_temp_date": "2024-08-13"
+      }
+    },
+    "2025": {
+      "annual": {
+        "hot_days": 6,
+        "summer_days": 23,
+        "tropical_nights": 0,
+        "mean_temp": 9.8,
+        "max_temp": 36.8,
+        "complete": true,
+        "last_date": "2025-12-31",
+        "max_temp_date": "2025-07-02"
+      },
+      "summer": {
+        "hot_days": 6,
+        "summer_days": 20,
+        "tropical_nights": 0,
+        "mean_temp": 17.4,
+        "max_temp": 36.8,
+        "complete": true,
+        "last_date": "2025-08-31",
+        "max_temp_date": "2025-07-02"
+      }
+    },
+    "2026": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 1.8,
+        "max_temp": 18.0,
+        "complete": false,
+        "last_date": "2026-03-18",
+        "max_temp_date": "2026-03-07"
+      }
+    }
+  },
+  "elevation_m": 70.0,
+  "current_year_anomaly": null,
+  "analysis": {
+    "trend_hot_days_per_decade": 1.4,
+    "trend_line": [
+      {
+        "year": 1997,
+        "value": 3.0
+      },
+      {
+        "year": 1998,
+        "value": 3.1
+      },
+      {
+        "year": 1999,
+        "value": 3.2
+      },
+      {
+        "year": 2000,
+        "value": 3.4
+      },
+      {
+        "year": 2001,
+        "value": 3.5
+      },
+      {
+        "year": 2002,
+        "value": 3.6
+      },
+      {
+        "year": 2003,
+        "value": 3.8
+      },
+      {
+        "year": 2013,
+        "value": 5.2
+      },
+      {
+        "year": 2017,
+        "value": 5.7
+      },
+      {
+        "year": 2018,
+        "value": 5.8
+      },
+      {
+        "year": 2019,
+        "value": 6.0
+      },
+      {
+        "year": 2020,
+        "value": 6.1
+      },
+      {
+        "year": 2021,
+        "value": 6.3
+      },
+      {
+        "year": 2022,
+        "value": 6.4
+      },
+      {
+        "year": 2023,
+        "value": 6.5
+      },
+      {
+        "year": 2024,
+        "value": 6.7
+      },
+      {
+        "year": 2025,
+        "value": 6.8
+      },
+      {
+        "year": 2026,
+        "value": 6.9
+      }
+    ],
+    "trend_summary": null,
+    "decades": {
+      "1990er": 4.3,
+      "2000er": 1.8,
+      "2010er": 8.8,
+      "2020er": 5.3
+    },
+    "hottest_year": {
+      "year": 2018,
+      "hot_days": 19
+    },
+    "mildest_year": {
+      "year": 2002,
+      "hot_days": 0
+    },
+    "completeness_pct": 40.8,
+    "data_gaps": [
+      {
+        "from": "2001-08-17",
+        "to": "2001-09-20",
+        "days": 35
+      },
+      {
+        "from": "2002-05-24",
+        "to": "2002-10-18",
+        "days": 148
+      },
+      {
+        "from": "2003-03-20",
+        "to": "2003-07-25",
+        "days": 128
+      },
+      {
+        "from": "2003-07-27",
+        "to": "2013-04-30",
+        "days": 3566
+      },
+      {
+        "from": "2013-05-28",
+        "to": "2017-08-18",
+        "days": 1544
+      },
+      {
+        "from": "2017-08-28",
+        "to": "2017-10-06",
+        "days": 40
+      },
+      {
+        "from": "2017-10-16",
+        "to": "2018-01-27",
+        "days": 104
+      }
+    ]
+  }
+}

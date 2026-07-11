@@ -19,6 +19,7 @@ demselben Befehl wieder aufgenommen werden:
 Das ist zugleich Start- UND Fortsetzen-Befehl - es gibt keinen Unterschied.
 """
 
+import calendar
 import gzip
 import io
 import random
@@ -70,6 +71,18 @@ FETCH_RETRIES = 5
 FETCH_RETRY_BASE_DELAY_S = 5  # verdoppelt sich je Fehlversuch (Backoff)
 
 CHECKPOINT_EVERY = 10  # alle N erfolgreich verarbeiteten Stationen zwischenspeichern
+
+# Referenzperiode fuer die Abweichungsberechnung des laufenden Jahres (offizielle
+# Klimanormalperiode der WMO/DWD) - siehe compute_current_year_anomaly().
+BASELINE_START_YEAR = 1991
+BASELINE_END_YEAR = 2020
+
+# Einmal pro Lauf bestimmt (nicht pro Station), damit alle Stationen exakt denselben
+# Stichtag/dieselbe Definition von "laufendes Jahr" verwenden.
+RUN_TIMESTAMP = datetime.now()
+RUNNING_YEAR = RUN_TIMESTAMP.year
+LAST_COMPLETE_YEAR = RUNNING_YEAR - 1
+_RUNNING_YEAR_LENGTH = 366 if calendar.isleap(RUNNING_YEAR) else 365
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "docs" / "data"
@@ -214,6 +227,26 @@ def compute_period_stats(df: pd.DataFrame, period_end: datetime) -> dict | None:
     }
 
 
+def compute_years_out(df: pd.DataFrame) -> dict:
+    """Baut aus der Tagesreihe einer Station die annual/summer-Kennzahlen je Jahr
+    (siehe compute_period_stats) - als eigene, reine Funktion ausgelagert (unabhaengig
+    von Download/Dateisystem), damit sie sich mit erfundenen Testdaten pruefen laesst."""
+    years_out = {}
+    for year, year_df in df.groupby(df.index.year):
+        annual_stats = compute_period_stats(year_df, datetime(int(year), 12, 31))
+        if annual_stats is None:
+            continue  # Jahr ohne brauchbare Daten ueberspringen
+
+        summer_df = year_df[year_df.index.month.isin(SUMMER_MONTHS)]
+        summer_stats = compute_period_stats(summer_df, datetime(int(year), 8, 31))
+
+        entry = {"annual": annual_stats}
+        if summer_stats is not None:
+            entry["summer"] = summer_stats
+        years_out[str(int(year))] = entry
+    return years_out
+
+
 def compute_trend_per_decade(years_out: dict) -> float | None:
     """Linearer Trend der heissen Tage pro Jahrzehnt (einfache lineare Regression
     Jahr -> heisse Tage). None, wenn zu wenige Jahre fuer eine sinnvolle Aussage da sind."""
@@ -302,6 +335,55 @@ def compute_completeness(valid: pd.DataFrame) -> tuple[float, list]:
     return completeness_pct, gaps
 
 
+# Beobachtete Datenstaende (letztes Tagesdatum MIT Daten im laufenden Jahr) je
+# Station - daraus leitet write_meta() den GLOBALEN Datenstand fuer Banner/
+# meta.json ab. Bewusst NICHT das heutige Kalenderdatum: Meteostats Archivdaten
+# hinken dem echten "heute" unterschiedlich stark hinterher (siehe
+# compute_current_year_anomaly fuer denselben Grund je Station).
+_running_year_last_dates_lock = threading.Lock()
+_running_year_last_dates: list = []
+
+
+def compute_current_year_anomaly(df: pd.DataFrame, data_from: int,
+                                  running_year_last_date: "pd.Timestamp | None") -> float | None:
+    """Temperatur-Abweichung des laufenden Jahres (1. Januar bis zum Datenstand
+    DIESER Station im laufenden Jahr) gegenueber dem GLEICHEN Kalenderfenster in
+    der Referenzperiode 1991-2020 - Tag-des-Jahres-basiert, damit Schaltjahre
+    keine Rolle spielen. Verhindert, dass ein erst teilweise vergangenes Jahr
+    (zwangslaeufig weniger heisse Tage als ein volles Jahr) faelschlich als
+    "kuehl" erscheint: verglichen wird immer nur derselbe Zeitabschnitt.
+
+    Der Stichtag wird bewusst PRO STATION aus deren eigenen Daten abgeleitet
+    (nicht ein global einheitliches "heute") - Stationen werden unterschiedlich
+    schnell aktualisiert. Ein einheitlicher globaler Stichtag wuerde sonst z. B.
+    eine Station mit Datenstand Maerz gegen die Referenzperiode bis Juli
+    vergleichen (asymmetrisches Fenster: Winterwerte vs. Halbjahresmittel inkl.
+    Sommer) und eine stark verzerrte, falsche Abweichung liefern.
+
+    None, wenn die Stationsreihe nicht bis zum Beginn der Referenzperiode
+    zurueckreicht, es im laufenden Jahr noch gar keine Daten dieser Station gibt,
+    oder in einem der beiden Fenster keine tavg-Werte vorliegen."""
+    if data_from > BASELINE_START_YEAR or running_year_last_date is None:
+        return None
+    as_of_doy = running_year_last_date.dayofyear
+
+    running_window = df[(df.index.year == running_year_last_date.year) & (df.index.dayofyear <= as_of_doy)]
+    running_mean = running_window["tavg"].mean()
+    if pd.isna(running_mean):
+        return None
+
+    baseline_window = df[
+        (df.index.year >= BASELINE_START_YEAR)
+        & (df.index.year <= BASELINE_END_YEAR)
+        & (df.index.dayofyear <= as_of_doy)
+    ]
+    baseline_mean = baseline_window["tavg"].mean()
+    if pd.isna(baseline_mean):
+        return None
+
+    return round(float(running_mean - baseline_mean), 1)
+
+
 def compute_station_id(name: str, meteostat_id: str) -> str:
     """Stabile, eindeutige id: geslugter Stationsname + Meteostat-ID (die ist
     global eindeutig, damit ist auch bei Namensgleichheit keine Kollision moeglich).
@@ -341,10 +423,9 @@ def summarize_years(years_out: dict) -> tuple[list, list, dict]:
 
 
 def public_record(station_id: str, name: str, meta: pd.Series, meteostat_id: str,
-                   data_from: int, last_data: str, elevation_m: float | None, years_out: dict) -> dict:
-    """Baut den oeffentlichen Stationseintrag (fuer stations.json/map_index.json/
-    Report) - identisch verwendet fuer frisch geladene UND aus dem Cache
-    wiederhergestellte Stationen."""
+                   data_from: int, last_data: str, elevation_m: float | None, years_out: dict,
+                   current_year_anomaly: float | None) -> dict:
+    """Baut den oeffentlichen Stationseintrag (fuer stations.json/map_index.json/Report)."""
     top_years, extreme_years, map_years = summarize_years(years_out)
     return {
         "id": station_id,
@@ -357,56 +438,43 @@ def public_record(station_id: str, name: str, meta: pd.Series, meteostat_id: str
         "data_from": data_from,
         "last_data": last_data,
         "elevation_m": elevation_m,
+        "current_year_anomaly": current_year_anomaly,
         "_top_years": top_years,
         "_extreme_years": extreme_years,
         "_map_years": map_years,
     }
 
 
-def try_load_cached_station(station_id: str, meta: pd.Series, meteostat_id: str) -> dict | None:
-    """Fortsetzbarkeit: Wenn fuer diese Station schon eine series/<id>.json auf
-    der Platte liegt (aus einem frueheren, ggf. abgebrochenen Lauf), wird daraus
-    der oeffentliche Eintrag rekonstruiert - OHNE erneuten Download. Liefert
-    None, wenn nichts gecacht ist oder die Datei nicht lesbar/unvollstaendig ist
-    (dann wird ganz normal neu heruntergeladen)."""
-    path = SERIES_DIR / f"{station_id}.json"
-    if not path.exists():
-        return None
-    try:
-        with open(path, encoding="utf-8") as f:
-            series = json.load(f)
-        years_out = series["years"]
-        if not years_out:
-            return None
-        sorted_years = sorted(years_out.keys(), key=int)
-        data_from = int(sorted_years[0])
-        last_data = years_out[sorted_years[-1]]["annual"]["last_date"]
-        elevation_m = series.get("elevation_m")
-    except (json.JSONDecodeError, KeyError, ValueError, OSError):
-        return None  # kaputte/unvollstaendige Cache-Datei -> lieber neu laden
+def build_station(meteostat_id: str, meta: pd.Series, station_id: str) -> dict | None:
+    """Laedt und verarbeitet eine einzelne Station. Gibt None zurueck (statt
+    abzubrechen), wenn die Station aus irgendeinem Grund nicht nutzbar ist -
+    damit ein Fehler bei einer Station die anderen nicht aufhaelt.
 
-    return public_record(station_id, meta["name"], meta, meteostat_id, data_from, last_data, elevation_m, years_out)
-
-
-def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> dict | None:
-    """Laedt und verarbeitet eine einzelne Station frisch von Meteostat. Gibt
-    None zurueck (statt abzubrechen), wenn die Station aus irgendeinem Grund
-    nicht nutzbar ist - damit ein Fehler bei einer Station die anderen nicht
-    aufhaelt."""
+    Fortsetzbarkeit/Effizienz: Liegt schon eine raw/<id>.csv von einem frueheren
+    Lauf vor, wird NICHT erneut heruntergeladen, sondern direkt von der Platte
+    gelesen (Sanity-Filter wurde darauf schon angewendet, bevor sie geschrieben
+    wurde). So bleibt ein erneuter Lauf schnell UND wendet trotzdem automatisch
+    jede Pipeline-Aenderung (z. B. eine neue Kennzahl) auf alle Stationen an,
+    ohne dass die Rohdaten-Caches geloescht werden muessten."""
     name = meta["name"]
+    raw_path = RAW_DIR / f"{station_id}.csv"
+    raw_cached = raw_path.exists()
 
-    try:
-        df = fetch_daily_with_retry(meteostat_id)
-    except Exception as exc:
-        log(f"  FEHLER bei {name} ({meteostat_id}): {exc}")
-        return None
+    if raw_cached:
+        df = pd.read_csv(raw_path, parse_dates=["date"], index_col="date")[["tavg", "tmax", "tmin"]]
+    else:
+        try:
+            df = fetch_daily_with_retry(meteostat_id)
+        except Exception as exc:
+            log(f"  FEHLER bei {name} ({meteostat_id}): {exc}")
+            return None
 
-    df = df[["tavg", "tmax", "tmin"]].dropna(how="all")
-    if df.empty:
-        log(f"  FEHLER bei {name} ({meteostat_id}): keine Tagesdaten erhalten.")
-        return None
+        df = df[["tavg", "tmax", "tmin"]].dropna(how="all")
+        if df.empty:
+            log(f"  FEHLER bei {name} ({meteostat_id}): keine Tagesdaten erhalten.")
+            return None
 
-    df = apply_sanity_filter(df, station_id)
+        df = apply_sanity_filter(df, station_id)
 
     valid = df.dropna(subset=["tmax"])
     if valid.empty:
@@ -419,20 +487,7 @@ def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> 
     record_temp = valid["tmax"].max()
     record_date = valid["tmax"].idxmax().strftime("%Y-%m-%d")
 
-    years_out = {}
-    for year, year_df in df.groupby(df.index.year):
-        annual_stats = compute_period_stats(year_df, datetime(int(year), 12, 31))
-        if annual_stats is None:
-            continue  # Jahr ohne brauchbare Daten ueberspringen
-
-        summer_df = year_df[year_df.index.month.isin(SUMMER_MONTHS)]
-        summer_stats = compute_period_stats(summer_df, datetime(int(year), 8, 31))
-
-        entry = {"annual": annual_stats}
-        if summer_stats is not None:
-            entry["summer"] = summer_stats
-        years_out[str(int(year))] = entry
-
+    years_out = compute_years_out(df)
     if not years_out:
         log(f"  FEHLER bei {name} ({meteostat_id}): keine brauchbaren Jahre nach Aufbereitung.")
         return None
@@ -442,11 +497,21 @@ def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> 
     completeness_pct, data_gaps = compute_completeness(valid)
     trend_line, trend_summary = compute_trend_line_and_summary(years_out)
 
+    running_year_entry = years_out.get(str(RUNNING_YEAR))
+    running_year_last_date = (
+        pd.Timestamp(running_year_entry["annual"]["last_date"]) if running_year_entry else None
+    )
+    if running_year_last_date is not None:
+        with _running_year_last_dates_lock:
+            _running_year_last_dates.append(running_year_last_date)
+    current_year_anomaly = compute_current_year_anomaly(df, data_from, running_year_last_date)
+
     series = {
         "station_id": station_id,
         "record": {"temp": round(float(record_temp), 1), "date": record_date},
         "years": years_out,
         "elevation_m": elevation_m,
+        "current_year_anomaly": current_year_anomaly,
         "analysis": {
             "trend_hot_days_per_decade": compute_trend_per_decade(years_out),
             "trend_line": trend_line,
@@ -463,12 +528,38 @@ def build_station_fresh(meteostat_id: str, meta: pd.Series, station_id: str) -> 
     with open(SERIES_DIR / f"{station_id}.json", "w", encoding="utf-8") as f:
         json.dump(series, f, ensure_ascii=False, indent=2)
 
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    raw_df = valid.reset_index().rename(columns={"time": "date"})
-    raw_df["date"] = raw_df["date"].dt.strftime("%Y-%m-%d")
-    raw_df[["date", "tmax", "tavg", "tmin"]].to_csv(RAW_DIR / f"{station_id}.csv", index=False)
+    if not raw_cached:
+        RAW_DIR.mkdir(parents=True, exist_ok=True)
+        raw_df = valid.reset_index().rename(columns={"time": "date"})
+        raw_df["date"] = raw_df["date"].dt.strftime("%Y-%m-%d")
+        raw_df[["date", "tmax", "tavg", "tmin"]].to_csv(raw_path, index=False)
 
-    return public_record(station_id, name, meta, meteostat_id, data_from, last_data, elevation_m, years_out)
+    return public_record(station_id, name, meta, meteostat_id, data_from, last_data, elevation_m, years_out,
+                          current_year_anomaly)
+
+
+def compute_running_year_meta() -> dict:
+    """Leitet aus den bisher beobachteten Datenstaenden des laufenden Jahres
+    (ueber alle bereits verarbeiteten Stationen, siehe _running_year_last_dates)
+    den GLOBALEN Datenstand fuer Banner/meta.json ab - das juengste tatsaechlich
+    beobachtete Datum, NICHT das heutige Kalenderdatum (Meteostats Archivdaten
+    hinken dem echten "heute" unterschiedlich stark hinterher)."""
+    with _running_year_last_dates_lock:
+        dates = list(_running_year_last_dates)
+    overall_data_stand = max(dates) if dates else None
+    day_of_year = overall_data_stand.dayofyear if overall_data_stand is not None else 0
+    coverage_pct = round(day_of_year / _RUNNING_YEAR_LENGTH * 100, 1)
+    data_stand_str = (
+        overall_data_stand.strftime("%Y-%m-%d") if overall_data_stand is not None else f"{RUNNING_YEAR}-01-01"
+    )
+    return {
+        "running_year": RUNNING_YEAR,
+        "data_stand": data_stand_str,
+        "last_complete_year": LAST_COMPLETE_YEAR,
+        "running_year_coverage_pct": coverage_pct,
+        "baseline_start_year": BASELINE_START_YEAR,
+        "baseline_end_year": BASELINE_END_YEAR,
+    }
 
 
 def write_data_report(stations_out: list, total_suitable: int, failed: list) -> None:
@@ -478,10 +569,17 @@ def write_data_report(stations_out: list, total_suitable: int, failed: list) -> 
     fehlen bzw. dauerhaft fehlgeschlagen sind."""
     region_counts = Counter(s.get("region") or "unbekannt" for s in stations_out)
     remaining = total_suitable - len(stations_out) - len(failed)
+    run_meta = compute_running_year_meta()
 
     lines = [
         "Hitze-Check Deutschland — Datenreport (bundesweit)",
         f"Erzeugt am: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"Laufendes Jahr: {RUNNING_YEAR} (Datenstand {run_meta['data_stand']}, "
+        f"{run_meta['running_year_coverage_pct']} % des Jahres erfasst, jeweils juengstes "
+        f"beobachtetes Datum ueber alle Stationen) - Startansicht zeigt stattdessen "
+        f"das letzte vollstaendige Jahr {LAST_COMPLETE_YEAR}.",
+        f"Referenzperiode fuer die Abweichungsberechnung des laufenden Jahres: "
+        f"{BASELINE_START_YEAR}-{BASELINE_END_YEAR}.",
         "=" * 60,
         "",
         f"Geeignete Stationen gefunden (Inventar-Vorfilter): {total_suitable}",
@@ -535,10 +633,16 @@ def write_data_report(stations_out: list, total_suitable: int, failed: list) -> 
 
     # D1 (v3): alle 40+-Jahreswerte zur manuellen Gegenpruefung gegen offizielle
     # DWD-Daten auflisten, bevor die Seite veroeffentlicht wird. 40+ ist in
-    # Deutschland selten - Werte nahe am Rekord (41,2 °C) verdienen einen zweiten Blick.
+    # Deutschland selten - Werte nahe am Rekord verdienen einen zweiten Blick.
+    # Rekord seit der historischen Hitzewelle Ende Juni 2026: 41,7 °C (28.06.2026,
+    # Neissemuende-Coschen/Brandenburg, laut DWD vorlaeufig) - zuvor 41,2 °C (25.07.2019,
+    # Lingen/Emsland). Unser Datensatz reicht (Stand dieser Pipeline-Version) nur bis
+    # Maerz 2026, enthaelt die Juni-2026-Hitzewelle also noch NICHT (Meteostats
+    # bulk-Archiv war zum Zeitpunkt des Pipeline-Laufs noch nicht so weit aktualisiert).
     lines += [
         "=" * 60,
-        "40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,2 °C, 2019):",
+        "40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,7 °C, 28.06.2026, "
+        "Neissemuende-Coschen/Brandenburg, DWD-Angabe vorlaeufig; zuvor 41,2 °C, 2019):",
         "",
     ]
     any_extreme = False
@@ -586,13 +690,26 @@ def write_outputs(stations_out: list, total_suitable: int, failed: list) -> None
     with open(DATA_DIR / "stations.json", "w", encoding="utf-8") as f:
         json.dump(public_stations, f, ensure_ascii=False, indent=2)
 
-    # Schlanker Karten-Index (id, name, lat, lon, max_temp/hot_days je Jahr/Saison)
+    # Schlanker Karten-Index (id, name, lat, lon, max_temp/hot_days je Jahr/Saison,
+    # current_year_anomaly fuer die Abweichungs-Einfaerbung des laufenden Jahres)
     map_index = [
-        {"id": s["id"], "name": s["name"], "lat": s["lat"], "lon": s["lon"], "years": s["_map_years"]}
+        {
+            "id": s["id"], "name": s["name"], "lat": s["lat"], "lon": s["lon"],
+            "years": s["_map_years"], "current_year_anomaly": s["current_year_anomaly"],
+        }
         for s in stations_sorted
     ]
     with open(DATA_DIR / "map_index.json", "w", encoding="utf-8") as f:
         json.dump(map_index, f, ensure_ascii=False, indent=2)
+
+    write_meta()
+
+
+def write_meta() -> None:
+    """Schreibt meta.json: laufendes Jahr, Datenstand, letztes vollstaendiges Jahr
+    (Startansicht der Karte) und die Referenzperiode fuer die Abweichungsberechnung."""
+    with open(DATA_DIR / "meta.json", "w", encoding="utf-8") as f:
+        json.dump(compute_running_year_meta(), f, ensure_ascii=False, indent=2)
 
 
 def main():
@@ -605,12 +722,14 @@ def main():
 
     # Fortsetzbarkeit: station_id kann rein aus den (bereits vorliegenden)
     # Inventar-Metadaten berechnet werden, also VOR jedem Download - so laesst
-    # sich sofort pruefen, ob schon eine series/<id>.json existiert.
+    # sich sofort pruefen, ob schon eine raw/<id>.csv existiert (dann kein
+    # erneuter Download noetig, siehe build_station()).
     jobs = [(meteostat_id, meta, compute_station_id(meta["name"], meteostat_id))
             for meteostat_id, meta in suitable.iterrows()]
-    already_cached = sum(1 for _, _, sid in jobs if (SERIES_DIR / f"{sid}.json").exists())
-    log(f"{total} geeignete Stationen gefunden ({already_cached} davon schon aus einem frueheren "
-        f"Lauf vorhanden - werden uebersprungen). Starte (bis zu {MAX_WORKERS} parallel, sanft) ...")
+    already_cached = sum(1 for _, _, sid in jobs if (RAW_DIR / f"{sid}.csv").exists())
+    log(f"{total} geeignete Stationen gefunden ({already_cached} davon mit bereits vorhandenen "
+        f"Rohdaten - kein erneuter Download noetig, nur neu berechnet). "
+        f"Starte (bis zu {MAX_WORKERS} parallel, sanft) ...")
 
     stations_out = []
     failed = []  # (name, meteostat_id, grund) - fuer den Abschlussbericht
@@ -619,15 +738,10 @@ def main():
 
     def process(meteostat_id, meta, station_id):
         nonlocal done_count
-        cached = try_load_cached_station(station_id, meta, meteostat_id)
-        if cached is not None:
-            status = "gecacht (frueherer Lauf)"
-            result = cached
-        else:
-            result = build_station_fresh(meteostat_id, meta, station_id)
-            status = "ok" if result is not None else "uebersprungen (Fehler, siehe oben)"
-            if result is None:
-                failed.append((meta["name"], meteostat_id, "Download/Verarbeitung fehlgeschlagen"))
+        result = build_station(meteostat_id, meta, station_id)
+        status = "ok" if result is not None else "uebersprungen (Fehler, siehe oben)"
+        if result is None:
+            failed.append((meta["name"], meteostat_id, "Download/Verarbeitung fehlgeschlagen"))
         with count_lock:
             done_count += 1
             log(f"[{done_count}/{total}] {meta['name']} ({meteostat_id}): {status}")

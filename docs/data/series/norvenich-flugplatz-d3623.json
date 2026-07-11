@@ -1,0 +1,151 @@
+{
+  "station_id": "norvenich-flugplatz-d3623",
+  "record": {
+    "temp": 37.0,
+    "date": "2022-07-19"
+  },
+  "years": {
+    "2021": {
+      "annual": {
+        "hot_days": 4,
+        "summer_days": 24,
+        "tropical_nights": 2,
+        "mean_temp": 10.6,
+        "max_temp": 34.8,
+        "complete": true,
+        "last_date": "2021-12-31",
+        "max_temp_date": "2021-06-17"
+      },
+      "summer": {
+        "hot_days": 4,
+        "summer_days": 20,
+        "tropical_nights": 2,
+        "mean_temp": 18.3,
+        "max_temp": 34.8,
+        "complete": true,
+        "last_date": "2021-08-31",
+        "max_temp_date": "2021-06-17"
+      }
+    },
+    "2022": {
+      "annual": {
+        "hot_days": 17,
+        "summer_days": 62,
+        "tropical_nights": 3,
+        "mean_temp": 12.0,
+        "max_temp": 37.0,
+        "complete": true,
+        "last_date": "2022-12-31",
+        "max_temp_date": "2022-07-19"
+      },
+      "summer": {
+        "hot_days": 17,
+        "summer_days": 48,
+        "tropical_nights": 3,
+        "mean_temp": 19.8,
+        "max_temp": 37.0,
+        "complete": true,
+        "last_date": "2022-08-31",
+        "max_temp_date": "2022-07-19"
+      }
+    },
+    "2023": {
+      "annual": {
+        "hot_days": 9,
+        "summer_days": 46,
+        "tropical_nights": 2,
+        "mean_temp": 12.1,
+        "max_temp": 33.2,
+        "complete": true,
+        "last_date": "2023-12-31",
+        "max_temp_date": "2023-07-09"
+      },
+      "summer": {
+        "hot_days": 7,
+        "summer_days": 33,
+        "tropical_nights": 2,
+        "mean_temp": 19.2,
+        "max_temp": 33.2,
+        "complete": true,
+        "last_date": "2023-08-31",
+        "max_temp_date": "2023-07-09"
+      }
+    },
+    "2024": {
+      "annual": {
+        "hot_days": 5,
+        "summer_days": 30,
+        "tropical_nights": 1,
+        "mean_temp": 11.9,
+        "max_temp": 33.4,
+        "complete": true,
+        "last_date": "2024-12-31",
+        "max_temp_date": "2024-08-12"
+      },
+      "summer": {
+        "hot_days": 5,
+        "summer_days": 28,
+        "tropical_nights": 1,
+        "mean_temp": 18.7,
+        "max_temp": 33.4,
+        "complete": false,
+        "last_date": "2024-08-26",
+        "max_temp_date": "2024-08-12"
+      }
+    },
+    "2025": {
+      "annual": {
+        "hot_days": 10,
+        "summer_days": 41,
+        "tropical_nights": 3,
+        "mean_temp": 11.7,
+        "max_temp": 35.7,
+        "complete": true,
+        "last_date": "2025-12-31",
+        "max_temp_date": "2025-07-02"
+      },
+      "summer": {
+        "hot_days": 10,
+        "summer_days": 36,
+        "tropical_nights": 3,
+        "mean_temp": 19.5,
+        "max_temp": 35.7,
+        "complete": true,
+        "last_date": "2025-08-31",
+        "max_temp_date": "2025-07-02"
+      }
+    },
+    "2026": {
+      "annual": {
+        "hot_days": 0,
+        "summer_days": 0,
+        "tropical_nights": 0,
+        "mean_temp": 4.7,
+        "max_temp": 17.9,
+        "complete": false,
+        "last_date": "2026-03-11",
+        "max_temp_date": "2026-03-08"
+      }
+    }
+  },
+  "elevation_m": 111.0,
+  "current_year_anomaly": null,
+  "analysis": {
+    "trend_hot_days_per_decade": null,
+    "trend_line": [],
+    "trend_summary": null,
+    "decades": {
+      "2020er": 7.5
+    },
+    "hottest_year": {
+      "year": 2022,
+      "hot_days": 17
+    },
+    "mildest_year": {
+      "year": 2026,
+      "hot_days": 0
+    },
+    "completeness_pct": 98.0,
+    "data_gaps": []
+  }
+}

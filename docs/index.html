@@ -23,6 +23,7 @@
 
 <main class="app-main">
   <div id="map"></div>
+  <div id="running-year-banner" class="hidden"></div>
 
   <div id="controls" class="panel-box">
     <div class="control-row">
@@ -100,6 +101,20 @@
       <div class="legend-item"><span class="legend-swatch" style="background:#FFAB91"></span> mehr (1 bis 9)</div>
       <div class="legend-item"><span class="legend-swatch" style="background:#C62828"></span> deutlich mehr (≥ 10)</div>
       <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten (mind. ein Jahr)</div>
+    </div>
+    <div id="legend-anomaly" class="hidden">
+      <div class="legend-title">
+        Abweichung vom Mittel 1991–2020 (bisheriger Zeitraum)
+        <span class="info-icon" title="Die 1,5-°C-Stufe hier ist eine Darstellungsfeinheit fuer die Abweichung EINER Station in EINEM (unvollstaendigen) Jahr - nicht zu verwechseln mit dem 1,5-°C-Ziel des Pariser Klimaabkommens. Das bezieht sich auf die globale, langfristige Erwaermung gegenueber 1850-1900, nicht auf eine lokale Jahresabweichung.">ⓘ</span>
+      </div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#1565C0"></span> deutlich kühler (≤ −3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#42A5F5"></span> kühler (−3 bis −1,5 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#90CAF9"></span> leicht kühler (−1,5 bis 0 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#eeeeee"></span> 0 = wie im Schnitt</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#FFAB91"></span> leicht wärmer (0 bis 1,5 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#EF5350"></span> wärmer (1,5 bis 3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#C62828"></span> deutlich wärmer (≥ 3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Referenzdaten (Reihe beginnt nach 1991)</div>
     </div>
   </div>
 
@@ -232,6 +247,13 @@
       <li><strong>Bereiche-Modus / "nächste Station":</strong> jede Fläche zeigt exakt den Wert
         ihrer nächstgelegenen Messstation (Voronoi-Diagramm) — es wird nicht interpoliert oder
         weichgezeichnet.</li>
+      <li><strong>Laufendes Jahr:</strong> Die Startansicht zeigt standardmäßig das letzte
+        vollständige Jahr, nicht das noch laufende — ein erst teilweise vergangenes Jahr hätte
+        zwangsläufig weniger heiße Tage als ein volles Jahr und würde sonst fälschlich "kühl"
+        wirken. Wählt man das laufende Jahr trotzdem, zeigt die Karte statt der Höchsttemperatur
+        die Abweichung der bisherigen Durchschnittstemperatur vom Mittel 1991–2020 im GLEICHEN
+        Kalenderzeitraum (Referenzperiode = offizielle Klimanormalperiode) — so wird immer nur
+        Vergleichbares verglichen.</li>
     </ul>
 
     <h3>Grenzen & Transparenz</h3>
@@ -266,9 +288,13 @@
     <div class="factcheck-item">
       <p class="factcheck-claim">„In Deutschland wurden schon 56 °C gemessen.“</p>
       <p class="factcheck-answer">
-        Nein. Der von DWD offiziell anerkannte Rekord liegt bei 41,2 °C, gemessen am 25.07.2019
-        in Lingen (Emsland). Höhere Zahlen, die gelegentlich kursieren, stammen nicht aus
-        geprüften amtlichen Messreihen.
+        Nein. Von 2019 bis Juni 2026 galten 41,2 °C (25.07.2019, Lingen/Emsland) als offiziell
+        anerkannter deutscher Rekord. Nach einer historischen Hitzewelle Ende Juni 2026 hat der
+        DWD einen neuen, vorläufigen Allzeitrekord von 41,7 °C gemeldet, gemessen am 28.06.2026 in
+        Neißemünde-Coschen (Brandenburg) — der Rekord war zuvor an drei Tagen in Folge gefallen
+        (u. a. 41,3 °C und 41,4 °C in Saarbrücken-Burbach). Der DWD bezeichnet ihn noch als
+        "vorläufig", bis die endgültige Prüfung abgeschlossen ist. Höhere Zahlen, die gelegentlich
+        kursieren (z. B. 56 °C), stammen nicht aus geprüften amtlichen Messreihen.
       </p>
     </div>
 
