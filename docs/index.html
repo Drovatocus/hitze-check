@@ -29,6 +29,11 @@
   <div id="map"></div>
   <div id="running-year-banner" class="hidden"></div>
 
+  <!-- Nur auf schmalen Bildschirmen sichtbar (siehe @media in style.css) - oeffnen
+       Bedienfeld/Legende als Bottom-Sheet, damit sie die Karte nicht fest ueberdecken. -->
+  <button type="button" id="mobile-settings-toggle" class="mobile-fab" aria-expanded="false" aria-controls="controls">☰ Einstellungen</button>
+  <button type="button" id="mobile-legend-toggle" class="mobile-fab mobile-fab-legend" aria-expanded="false" aria-controls="legend">🎨 Legende</button>
+
   <div id="controls" class="panel-box">
     <div class="control-row">
       <label for="place-search" id="search-label">Ort finden</label>
@@ -213,8 +218,8 @@
 </main>
 
 <footer class="app-footer">
-  <span>⚠️ Hinweis: Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht ändern.</span>
-  <span>Datenbasis: Meteostat / DWD — <a href="https://meteostat.net/" target="_blank" rel="noopener">meteostat.net</a></span>
+  <span class="footer-disclaimer">⚠️ Hinweis: Die Werte der letzten Wochen können noch vorläufig sein und sich nachträglich leicht ändern.</span>
+  <span class="footer-source">Datenbasis: Meteostat / DWD — <a href="https://meteostat.net/" target="_blank" rel="noopener">meteostat.net</a></span>
   <span>
     <button type="button" id="about-link" class="footer-link-btn">ℹ️ Über dieses Projekt / Methodik</button>
     · <button type="button" class="footer-link-btn open-factcheck">🔍 Häufige Behauptungen im Faktencheck</button>

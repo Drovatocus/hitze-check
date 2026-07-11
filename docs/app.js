@@ -517,6 +517,7 @@ async function selectStation(stationId, clickInfo = null) {
   state.selectedStation = stationId;
   state.clickInfo = clickInfo;
   document.getElementById("detail-panel").classList.remove("hidden");
+  closeMobileSheets(); // auf dem Handy nicht mehrere Bottom-Sheets uebereinander
   syncUrl();
 
   if (!seriesByStation[stationId]) {
@@ -1062,6 +1063,42 @@ function setupFactcheckOverlay() {
   });
 }
 
+// Schliesst die mobilen Bottom-Sheets (Bedienfeld/Legende) - u. a. aufgerufen,
+// wenn per Stationsklick das Detail-Panel aufgeht, damit auf dem Handy nicht
+// mehrere Ebenen uebereinander liegen. Auf dem Desktop wirkungslos (dort haben
+// die Klassen keine CSS-Regel, siehe @media in style.css).
+function closeMobileSheets() {
+  document.getElementById("controls").classList.remove("sheet-open");
+  document.getElementById("mobile-settings-toggle").setAttribute("aria-expanded", "false");
+  document.getElementById("legend").classList.remove("legend-open");
+  document.getElementById("mobile-legend-toggle").setAttribute("aria-expanded", "false");
+}
+
+// Bedienfeld und Legende oeffnen sich auf dem Handy als eigene Bottom-Sheets
+// (siehe .mobile-fab/.sheet-open/.legend-open in style.css) statt fest sichtbar
+// zu sein - auf dem Desktop sind diese Buttons per CSS ausgeblendet, die
+// Klassen bleiben dort ohne Wirkung.
+function setupMobileUI() {
+  const settingsBtn = document.getElementById("mobile-settings-toggle");
+  const legendBtn = document.getElementById("mobile-legend-toggle");
+  const controls = document.getElementById("controls");
+  const legend = document.getElementById("legend");
+
+  settingsBtn.addEventListener("click", () => {
+    const opening = !controls.classList.contains("sheet-open");
+    closeMobileSheets();
+    controls.classList.toggle("sheet-open", opening);
+    settingsBtn.setAttribute("aria-expanded", String(opening));
+  });
+
+  legendBtn.addEventListener("click", () => {
+    const opening = !legend.classList.contains("legend-open");
+    closeMobileSheets();
+    legend.classList.toggle("legend-open", opening);
+    legendBtn.setAttribute("aria-expanded", String(opening));
+  });
+}
+
 function setupMoreDetailsToggle() {
   const button = document.getElementById("more-details-toggle");
   const panel = document.getElementById("more-details");
@@ -1082,6 +1119,7 @@ async function init() {
   setupFactcheckOverlay();
   setupMoreDetailsToggle();
   setupPlaceSearch();
+  setupMobileUI();
   updateMarkers();
   document.getElementById("detail-close").addEventListener("click", closeDetailPanel);
 }

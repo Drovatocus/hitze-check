@@ -680,3 +680,173 @@ body {
 .static-main li {
   margin-bottom: 0.4rem;
 }
+
+/* Schwebende Buttons, die Bedienfeld/Legende auf dem Handy als Bottom-Sheet
+   oeffnen - auf dem Desktop unsichtbar (dort sind beide Panels ohnehin fest
+   sichtbar), erst innerhalb der @media-Regel unten eingeblendet. */
+.mobile-fab {
+  display: none;
+}
+
+/* ===================================================================
+   Handy-Ansicht (schmale Bildschirme) - Desktop bleibt oberhalb dieser
+   Marke unveraendert. Bedienfeld und Detail-Panel werden zu Bottom-Sheets
+   (standardmaessig zugeklappt/ausserhalb des sichtbaren Bereichs), die
+   Legende ist ebenfalls eingeklappt und blendet sich per Button ein.
+   =================================================================== */
+@media (max-width: 700px) {
+  .app-header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.05rem;
+  }
+
+  /* Platz sparen, damit die Karte moeglichst viel Hoehe bekommt - der
+     Erklaertext steht ohnehin im "Ueber dieses Projekt"-Overlay. */
+  .intro-text {
+    display: none;
+  }
+
+  #theme-toggle {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .app-footer {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.68rem;
+    gap: 0.25rem 0.75rem;
+  }
+
+  /* Die beiden langen Fliesstext-Zeilen (Vorlaeufig-Hinweis, Datenbasis-Zeile)
+     kosten auf dem Handy zu viel Hoehe - beide Infos stehen bereits im
+     "Ueber dieses Projekt"-Overlay. Nur die kompakte Link-Zeile bleibt. */
+  .footer-disclaimer,
+  .footer-source {
+    display: none;
+  }
+
+  .mobile-fab {
+    display: block;
+    position: absolute;
+    z-index: 900;
+    min-height: 44px;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    background: var(--color-panel-bg);
+    color: var(--color-text);
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    box-shadow: 0 1px 6px var(--color-shadow);
+    cursor: pointer;
+  }
+
+  #mobile-settings-toggle {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  #mobile-legend-toggle {
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+
+  /* Bedienfeld als Bottom-Sheet: liegt standardmaessig unterhalb des
+     sichtbaren Bereichs und faehrt beim Oeffnen (.sheet-open) hoch. */
+  #controls {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 75vh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 1rem 1rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+    z-index: 950;
+  }
+
+  #controls.sheet-open {
+    transform: translateY(0);
+  }
+
+  /* Legende: komplett eingeklappt (nur der Toggle-Button sichtbar), bis
+     .legend-open gesetzt ist - erscheint dann oberhalb des eigenen Buttons.
+     position:absolute (wie .mobile-fab) statt fixed - haengt am .app-main-
+     Rahmen, der die Fusszeile bereits ausschliesst. Mit position:fixed haette
+     das Panel den (mehrzeiligen, unterschiedlich hohen) Footer ueberlappt. */
+  #legend {
+    display: none;
+    position: absolute;
+    bottom: 4.5rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+    max-height: 55vh;
+    overflow-y: auto;
+    z-index: 950;
+  }
+
+  #legend.legend-open {
+    display: block;
+  }
+
+  /* Detail-Panel als Bottom-Sheet statt rechter Seitenleiste. Bleibt weiterhin
+     per .hidden gesteuert (JS unveraendert) - auf dem Handy wird daraus aber
+     eine Slide-Animation statt eines harten display:none. */
+  #detail-panel {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: 85vh;
+    border-radius: 16px 16px 0 0;
+    z-index: 960;
+    transition: transform 0.25s ease;
+  }
+
+  #detail-panel.hidden {
+    display: block !important;
+    transform: translateY(100%);
+    pointer-events: none;
+  }
+
+  #detail-panel:not(.hidden) {
+    transform: translateY(0);
+  }
+
+  /* Touch-Ziele vergroessern (Faustregel: mind. ca. 44px). */
+  .stepper-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.3rem;
+  }
+
+  .toggle-btn,
+  .full-width-btn,
+  #detail-csv,
+  #place-search-btn {
+    padding: 0.75rem 0.6rem;
+    min-height: 44px;
+  }
+
+  .checkbox-row input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  #running-year-banner {
+    max-width: calc(100% - 1.5rem);
+    font-size: 0.75rem;
+    padding: 0.45rem 0.75rem;
+  }
+}
