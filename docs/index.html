@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hitze-Check Deutschland</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<!-- frame-ancestors bewusst NICHT hier gesetzt: Browser ignorieren diese Direktive per
+     <meta> (nur per HTTP-Header wirksam) - GitHub Pages liefert keine eigenen Header,
+     das muesste bei Bedarf serverseitig (z. B. via _headers/Cloudflare) ergaenzt werden. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://nominatim.openstreetmap.org; base-uri 'self'; form-action 'self'; object-src 'none';" />
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<link rel="stylesheet" href="vendor/leaflet.markercluster/MarkerCluster.css" />
+<link rel="stylesheet" href="vendor/leaflet.markercluster/MarkerCluster.Default.css" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -86,35 +90,35 @@
   <div id="legend" class="panel-box">
     <div id="legend-absolute">
       <div class="legend-title">Höchsttemperatur</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#4A90D9"></span> &lt; 20 °C</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#7CB342"></span> 20–24,9 °C</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#FB8C00"></span> 25–29,9 °C</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#E53935"></span> 30–39,9 °C</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#8E24AA"></span> ≥ 40 °C</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten</div>
+      <div class="legend-item"><span class="legend-swatch swatch-blau"></span> &lt; 20 °C</div>
+      <div class="legend-item"><span class="legend-swatch swatch-gruen"></span> 20–24,9 °C</div>
+      <div class="legend-item"><span class="legend-swatch swatch-orange"></span> 25–29,9 °C</div>
+      <div class="legend-item"><span class="legend-swatch swatch-rot"></span> 30–39,9 °C</div>
+      <div class="legend-item"><span class="legend-swatch swatch-lila"></span> ≥ 40 °C</div>
+      <div class="legend-item"><span class="legend-swatch swatch-nodata"></span> keine Daten</div>
     </div>
     <div id="legend-compare" class="hidden">
       <div class="legend-title">Differenz heiße Tage (B − A)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#1565C0"></span> deutlich weniger (≤ −10)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#90CAF9"></span> weniger (−1 bis −9)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#eeeeee"></span> 0 = kein Unterschied</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#FFAB91"></span> mehr (1 bis 9)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#C62828"></span> deutlich mehr (≥ 10)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Daten (mind. ein Jahr)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-cold-strong"></span> deutlich weniger (≤ −10)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-cold-light"></span> weniger (−1 bis −9)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-neutral"></span> 0 = kein Unterschied</div>
+      <div class="legend-item"><span class="legend-swatch swatch-warm-light"></span> mehr (1 bis 9)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-warm-strong"></span> deutlich mehr (≥ 10)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-nodata"></span> keine Daten (mind. ein Jahr)</div>
     </div>
     <div id="legend-anomaly" class="hidden">
       <div class="legend-title">
         Abweichung vom Mittel 1991–2020 (bisheriger Zeitraum)
         <span class="info-icon" title="Die 1,5-°C-Stufe hier ist eine Darstellungsfeinheit fuer die Abweichung EINER Station in EINEM (unvollstaendigen) Jahr - nicht zu verwechseln mit dem 1,5-°C-Ziel des Pariser Klimaabkommens. Das bezieht sich auf die globale, langfristige Erwaermung gegenueber 1850-1900, nicht auf eine lokale Jahresabweichung.">ⓘ</span>
       </div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#1565C0"></span> deutlich kühler (≤ −3 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#42A5F5"></span> kühler (−3 bis −1,5 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#90CAF9"></span> leicht kühler (−1,5 bis 0 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#eeeeee"></span> 0 = wie im Schnitt</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#FFAB91"></span> leicht wärmer (0 bis 1,5 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#EF5350"></span> wärmer (1,5 bis 3 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#C62828"></span> deutlich wärmer (≥ 3 °C)</div>
-      <div class="legend-item"><span class="legend-swatch" style="background:#bbb"></span> keine Referenzdaten (Reihe beginnt nach 1991)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-cold-strong"></span> deutlich kühler (≤ −3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-cold-mid"></span> kühler (−3 bis −1,5 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-cold-light"></span> leicht kühler (−1,5 bis 0 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-neutral"></span> 0 = wie im Schnitt</div>
+      <div class="legend-item"><span class="legend-swatch swatch-warm-light"></span> leicht wärmer (0 bis 1,5 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-warm-mid"></span> wärmer (1,5 bis 3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-warm-strong"></span> deutlich wärmer (≥ 3 °C)</div>
+      <div class="legend-item"><span class="legend-swatch swatch-nodata"></span> keine Referenzdaten (Reihe beginnt nach 1991)</div>
     </div>
   </div>
 
@@ -214,6 +218,8 @@
   <span>
     <button type="button" id="about-link" class="footer-link-btn">ℹ️ Über dieses Projekt / Methodik</button>
     · <button type="button" class="footer-link-btn open-factcheck">🔍 Häufige Behauptungen im Faktencheck</button>
+    · <a href="impressum.html" class="footer-link-btn">Impressum</a>
+    · <a href="datenschutz.html" class="footer-link-btn">Datenschutz</a>
   </span>
 </footer>
 
@@ -293,8 +299,10 @@
         DWD einen neuen, vorläufigen Allzeitrekord von 41,7 °C gemeldet, gemessen am 28.06.2026 in
         Neißemünde-Coschen (Brandenburg) — der Rekord war zuvor an drei Tagen in Folge gefallen
         (u. a. 41,3 °C und 41,4 °C in Saarbrücken-Burbach). Der DWD bezeichnet ihn noch als
-        "vorläufig", bis die endgültige Prüfung abgeschlossen ist. Höhere Zahlen, die gelegentlich
-        kursieren (z. B. 56 °C), stammen nicht aus geprüften amtlichen Messreihen.
+        "vorläufig", bis die endgültige Qualitätsprüfung abgeschlossen ist (Quelle:
+        <a href="https://www.dwd.de/DE/presse/pressemitteilungen/DE/2026/20260629_deutschlandwetter_juni_news.html" target="_blank" rel="noopener">DWD-Pressemitteilung vom 29.06.2026</a>).
+        Höhere Zahlen, die gelegentlich kursieren (z. B. 56 °C), stammen nicht aus geprüften
+        amtlichen Messreihen.
       </p>
     </div>
 
@@ -332,11 +340,11 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
-<script src="https://unpkg.com/d3-delaunay@6/dist/d3-delaunay.min.js"></script>
-<script src="https://unpkg.com/@turf/turf@7/turf.min.js"></script>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+<script src="vendor/chartjs/chart.umd.js"></script>
+<script src="vendor/d3-delaunay/d3-delaunay.min.js"></script>
+<script src="vendor/turf/turf.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

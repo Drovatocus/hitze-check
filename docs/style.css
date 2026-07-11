@@ -425,6 +425,22 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+/* Legende-Farbpunkte als Klassen statt inline style="" - noetig fuer eine
+   Content-Security-Policy ohne style-src 'unsafe-inline'. */
+.swatch-blau { background: var(--color-blau); }
+.swatch-gruen { background: var(--color-gruen); }
+.swatch-orange { background: var(--color-orange); }
+.swatch-rot { background: var(--color-rot); }
+.swatch-lila { background: var(--color-lila); }
+.swatch-nodata { background: #bbb; }
+.swatch-cold-strong { background: #1565C0; }
+.swatch-cold-mid { background: #42A5F5; }
+.swatch-cold-light { background: #90CAF9; }
+.swatch-neutral { background: #eeeeee; }
+.swatch-warm-light { background: #FFAB91; }
+.swatch-warm-mid { background: #EF5350; }
+.swatch-warm-strong { background: #C62828; }
+
 #detail-panel {
   position: absolute;
   top: 0;
@@ -634,4 +650,33 @@ body {
   margin-top: 1rem;
   font-size: 0.75rem;
   color: var(--color-text-muted);
+}
+
+/* Eigenstaendige Seiten (Impressum, Datenschutz) - kein Kartenlayout, einfacher
+   Fliesstext-Container. */
+.static-page {
+  height: auto;
+}
+
+.static-main {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 3rem;
+  line-height: 1.5;
+}
+
+.static-main h2 {
+  margin-top: 0;
+}
+
+.static-main h3 {
+  margin-bottom: 0.4rem;
+}
+
+.static-main ul {
+  padding-left: 1.2rem;
+}
+
+.static-main li {
+  margin-bottom: 0.4rem;
 }

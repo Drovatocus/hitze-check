@@ -233,6 +233,91 @@ def test_hottest_and_mildest_year():
     assert mildest == {"year": 2020, "hot_days": 5}
 
 
+# --- Raeumliche Plausibilitaetspruefung (Chieming-Fund, Abschluss-vor-Launch) ---
+
+def _write_raw_csv(raw_dir, station_id, rows):
+    """rows: Liste (date, tmax) - tavg/tmin werden trivial abgeleitet."""
+    import csv
+    with open(raw_dir / f"{station_id}.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["date", "tmax", "tavg", "tmin"])
+        for date, tmax in rows:
+            writer.writerow([date, tmax, tmax - 5, tmax - 10])
+
+
+def test_find_spatial_outliers_flags_unsupported_spike(tmp_path, monkeypatch):
+    monkeypatch.setattr(bd, "RAW_DIR", tmp_path)
+    monkeypatch.setattr(bd, "SPATIAL_CHECK_MIN_STATIONS", 3)
+
+    # 4 "Nachbarstationen" um die 30 °C, eine Station weit darueber (Chieming-Muster).
+    for i in range(4):
+        _write_raw_csv(tmp_path, f"nachbar-{i}", [("1991-08-07", 29.0 + i)])
+    _write_raw_csv(tmp_path, "chieming-10982", [("1991-08-07", 41.3)])
+
+    outliers = bd.find_spatial_outliers()
+    assert len(outliers) == 1
+    station_id, date, tmax, next_highest, n = outliers[0]
+    assert station_id == "chieming-10982"
+    assert date == "1991-08-07"
+    assert tmax == 41.3
+    assert next_highest == 32.0  # hoechster Nachbar (29+3)
+
+
+def test_find_spatial_outliers_ignores_supported_heatwave(tmp_path, monkeypatch):
+    monkeypatch.setattr(bd, "RAW_DIR", tmp_path)
+    monkeypatch.setattr(bd, "SPATIAL_CHECK_MIN_STATIONS", 3)
+
+    # Echte Hitzewelle: mehrere Stationen nah beieinander im hohen 30er-Bereich.
+    for i, t in enumerate([38.5, 39.0, 38.2, 39.4]):
+        _write_raw_csv(tmp_path, f"station-{i}", [("2019-07-25", t)])
+
+    outliers = bd.find_spatial_outliers()
+    assert outliers == [], "gestuetzte Hitzewelle darf nicht als Ausreisser markiert werden"
+
+
+def test_find_spatial_outliers_ignores_warm_region_not_near_record(tmp_path, monkeypatch):
+    """Regressionstest: waehrend der Entwicklung selbst gefunden - eine niedrige
+    Kandidatenschwelle (25 °C) hat echte, bekannte Warmregionen (Freiburg, Worms)
+    faelschlich als Ausreisser markiert, nur weil sie an einem warmen Tag deutlich
+    waermer als der Rest waren. Das ist normal, kein Fehler - erst nahe am
+    nationalen Rekord (SPATIAL_CHECK_FLAG_MIN_C) darf ueberhaupt geflaggt werden."""
+    monkeypatch.setattr(bd, "RAW_DIR", tmp_path)
+    monkeypatch.setattr(bd, "SPATIAL_CHECK_MIN_STATIONS", 3)
+
+    # Freiburg deutlich waermer als die anderen (Rhein-Talkessel-Effekt), aber
+    # weit weg vom nationalen Rekord - darf NICHT geflaggt werden.
+    for i in range(4):
+        _write_raw_csv(tmp_path, f"nachbar-{i}", [("1891-06-29", 27.0 + i)])
+    _write_raw_csv(tmp_path, "freiburg-10803", [("1891-06-29", 35.7)])
+
+    outliers = bd.find_spatial_outliers()
+    assert outliers == [], "eine bekannt waermere Region ohne Rekordnaehe darf nicht ausgeschlossen werden"
+
+
+def test_find_spatial_outliers_ignores_sparse_days(tmp_path, monkeypatch):
+    monkeypatch.setattr(bd, "RAW_DIR", tmp_path)
+    monkeypatch.setattr(bd, "SPATIAL_CHECK_MIN_STATIONS", 20)  # Standardwert
+
+    # Nur 2 Stationen an dem Tag - zu duenn fuer eine raeumliche Aussage.
+    _write_raw_csv(tmp_path, "a", [("1900-01-01", 30.0)])
+    _write_raw_csv(tmp_path, "b", [("1900-01-01", 40.0)])
+
+    outliers = bd.find_spatial_outliers()
+    assert outliers == [], "bei zu wenigen Vergleichsstationen darf nichts markiert werden"
+
+
+def test_blank_raw_day_only_touches_target_date(tmp_path, monkeypatch):
+    monkeypatch.setattr(bd, "RAW_DIR", tmp_path)
+    _write_raw_csv(tmp_path, "test-station", [("2020-01-01", 5.0), ("2020-01-02", 6.0)])
+
+    bd.blank_raw_day("test-station", "2020-01-01")
+
+    content = (tmp_path / "test-station.csv").read_text(encoding="utf-8")
+    lines = content.strip().splitlines()
+    assert lines[1] == "2020-01-01,,,"
+    assert lines[2] == "2020-01-02,6.0,1.0,-4.0"
+
+
 def test_decade_averages():
     years_out = {
         "1991": {"annual": {"hot_days": 4}},

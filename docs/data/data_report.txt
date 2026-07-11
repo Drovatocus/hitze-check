@@ -1,5 +1,5 @@
 Hitze-Check Deutschland — Datenreport (bundesweit)
-Erzeugt am: 2026-07-10 19:37
+Erzeugt am: 2026-07-11 06:46
 Laufendes Jahr: 2026 (Datenstand 2026-03-18, 21.1 % des Jahres erfasst, jeweils juengstes beobachtetes Datum ueber alle Stationen) - Startansicht zeigt stattdessen das letzte vollstaendige Jahr 2025.
 Referenzperiode fuer die Abweichungsberechnung des laufenden Jahres: 1991-2020.
 ============================================================
@@ -3098,13 +3098,24 @@ Datencheck Freiburg (Anfrage v2/A4, weiterhin gueltig):
   Bewertung: PLAUSIBEL, kein Datenfehler. Freiburg/Oberrheingraben ist real die
   waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.
 
+Datencheck Chieming (Pre-Launch-Check, Abschluss-vor-Launch Schritt 1):
+  Chieming zeigte 41,3 °C am 07.08.1991 - das haette 28 Jahre lang der deutsche
+  Allzeitrekord sein muessen, ist aber historisch nirgends belegt. Bundesweiter
+  Vergleich fuer genau diesen Tag: naechsthoechster Wert ueberall sonst 36,4 °C
+  (Muehlacker) - kein Nachbarstation stuetzt den Chieming-Wert auch nur annaehernd.
+  Bewertung: unplausibel, sehr wahrscheinlich ein Mess-/Digitalisierungsfehler in
+  Meteostats Quelldaten (kein Fehler dieser Pipeline). Ausgeschlossen ueber die
+  raeumliche Plausibilitaetspruefung (siehe find_spatial_outliers, NICHT ueber einen
+  verschaerften globalen Grenzwert - das haette auch echte 41+-Werte wie den
+  neuen deutschen Rekord vom 28.06.2026 faelschlich herausgefiltert). Siehe
+  docs/data/ausgeschlossene_werte.txt fuer alle so ausgeschlossenen Tageswerte.
+
 ============================================================
 40+-Werte zur manuellen Kontrolle (Deutschlandrekord: 41,7 °C, 28.06.2026, Neissemuende-Coschen/Brandenburg, DWD-Angabe vorlaeufig; zuvor 41,2 °C, 2019):
 
   Andernach (andernach-d0161), 2019: 40.4 °C am 2019-07-25
   Barsinghausen-Hohenbostel (barsinghausen-hohenbostel-d0294), 2022: 40.0 °C am 2022-07-20
   Bonn-Roleber (bonn-roleber-10519), 2019: 40.9 °C am 2019-07-25
-  Chieming (chieming-10982), 1991: 41.3 °C am 1991-08-07
   Düsseldorf (dusseldorf-10400), 2019: 40.7 °C am 2019-07-25
   Essen (essen-10410), 2019: 40.0 °C am 2019-07-25
   Frankfurt  Westend (frankfurt-westend-d1424), 2019: 40.2 °C am 2019-07-25

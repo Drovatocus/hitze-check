@@ -1,0 +1,22 @@
+Hitze-Check Deutschland — raeumlich ausgeschlossene Tageswerte
+Erzeugt am: 2026-07-11 06:46
+============================================================
+
+Diese Tageswerte wurden automatisch ausgeschlossen, weil ihr Tages-Hoechstwert
+(a) mindestens 38 °C erreicht (nahe am nationalen Rekord),
+(b) den naechsthoechsten Wert ALLER ANDEREN Stationen am selben Tag um mehr als
+    3.5 °C uebersteigt, UND
+(c) mindestens 20 andere Stationen an dem Tag einen Vergleichswert
+    (>= 25 °C) hatten.
+Begruendung: Bei einer echten Hitzewelle stuetzen Nachbarstationen einen hohen
+Wert - ein einzelner Ausreisser weit darueber, den niemand in der Umgebung auch
+nur annaehernd erreicht, ist typischerweise ein Mess-/Digitalisierungsfehler in
+Meteostats Quelldaten (kein Fehler dieser Pipeline). Bewusst KEIN globaler
+Temperatur-Grenzwert und bewusst nur nahe am Rekord (Kriterium a) - eine sehr
+warme Region (z. B. Freiburg) an einem warmen Tag deutlich ueber dem Rest des
+Landes ist normal und real, das wird NICHT ausgeschlossen. Ein Wert kann auch
+nahe am Rekord real sein, wenn ihn andere Stationen stuetzen (siehe deutscher
+Rekord 41,7 °C, 28.06.2026, DWD vorlaeufig, an drei Tagen von mehreren
+Stationen gemeinsam erreicht/uebertroffen).
+
+  chieming-10982, 1991-08-07: 41.3 °C -> ausgeschlossen (naechsthoechster Wert bundesweit an dem Tag: 36.4 °C, Differenz 4.9 °C, 291 Stationen mit Vergleichswert an dem Tag)

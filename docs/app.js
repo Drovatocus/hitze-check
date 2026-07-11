@@ -43,6 +43,26 @@ function colorForAnomaly(anomaly) {
   return "#C62828"; // deutlich waermer
 }
 
+// Ordnet jeden von colorForTemp/colorForDiff/colorForAnomaly moeglichen Hex-Wert
+// einer CSS-Klasse zu (siehe .swatch-* in style.css) - fuer clusterIconCreateFunction,
+// die den Cluster-Farbpunkt per HTML-String erzeugt und daher keine inline style=""
+// nutzen darf (Content-Security-Policy ohne style-src 'unsafe-inline').
+const SWATCH_CLASS_BY_COLOR = {
+  "#4A90D9": "swatch-blau",
+  "#7CB342": "swatch-gruen",
+  "#FB8C00": "swatch-orange",
+  "#E53935": "swatch-rot",
+  "#8E24AA": "swatch-lila",
+  "#bbb": "swatch-nodata",
+  "#1565C0": "swatch-cold-strong",
+  "#42A5F5": "swatch-cold-mid",
+  "#90CAF9": "swatch-cold-light",
+  "#eeeeee": "swatch-neutral",
+  "#FFAB91": "swatch-warm-light",
+  "#EF5350": "swatch-warm-mid",
+  "#C62828": "swatch-warm-strong",
+};
+
 function formatSignedNumber(value, decimals = 0) {
   const rounded = decimals > 0 ? value.toFixed(decimals).replace(".", ",") : String(Math.round(value));
   return (value > 0 ? "+" : "") + rounded;
@@ -392,8 +412,11 @@ function clusterIconCreateFunction(cluster) {
     .filter((v) => v !== null && v !== undefined && !Number.isNaN(v));
   const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : null;
   const color = avg === null ? NO_DATA_COLOR : colorForClusterValue(avg);
+  // Farb-Klasse statt inline style="" - noetig fuer eine Content-Security-Policy
+  // ohne style-src 'unsafe-inline' (siehe .swatch-* in style.css).
+  const swatchClass = SWATCH_CLASS_BY_COLOR[color] || "swatch-nodata";
   return L.divIcon({
-    html: `<div class="cluster-marker-inner" style="background:${color}"><span>${cluster.getChildCount()}</span></div>`,
+    html: `<div class="cluster-marker-inner ${swatchClass}"><span>${cluster.getChildCount()}</span></div>`,
     className: "station-cluster-icon",
     iconSize: [40, 40],
     iconAnchor: [20, 20],

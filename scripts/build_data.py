@@ -163,6 +163,31 @@ SANITY_MAX_SPREAD_C = 20.0  # tmax darf an einem Tag nicht mehr als so viel uebe
 _sanity_lock = threading.Lock()
 _sanity_log: list = []  # (station_id, Datum, tmax, tavg, tmin) - fuer den Report
 
+# Raeumliche Plausibilitaetspruefung (siehe find_spatial_outliers) - bewusst GETRENNT
+# von SANITY_MAX_SPREAD_C und NICHT als globale Temperaturobergrenze umgesetzt: ein
+# hoher Wert kann durchaus real sein (siehe deutscher Rekord 41,7 °C, 28.06.2026),
+# verdaechtig ist er nur, wenn ihn an einem Tag mit guter Stationsdichte KEINE andere
+# Station auch nur annaehernd stuetzt (siehe Chieming, 07.08.1991: 41,3 °C, naechst-
+# hoechster Wert bundesweit an dem Tag nur 36,4 °C).
+#
+# WICHTIG (bei der ersten Version dieser Pruefung selbst gefunden): wird JEDER
+# Wert ab 25 °C auf raeumliche Stuetzung geprueft, markiert dieselbe Pruefung auch
+# mehrfach Freiburg (u. a. 1891, 35,7-36,0 °C) und Worms (u. a. 1995, 35,5 °C) als
+# "Ausreisser" - beides bekannte, real waermere Regionen (Freiburg/Oberrheingraben
+# war bereits in einem frueheren Datencheck als plausibel bestaetigt, siehe unten
+# im Report), keine Fehler. Eine "sehr warme Region ist an einem warmen Tag noch
+# waermer als der Rest" ist normal und kein Fehlersignal - deshalb wird nur
+# GEFLAGGT, wenn der Wert selbst in die Naehe des nationalen Rekords kommt
+# (SPATIAL_CHECK_FLAG_MIN_C), wie bei Chieming. Der niedrigere
+# SPATIAL_CHECK_CANDIDATE_MIN_C bestimmt nur, welche Werte ueberhaupt als
+# moegliche STUETZUNG/Vergleichswert eines anderen Tages einfliessen (muss
+# niedriger sein, sonst wuerde z. B. Muehlackers echte 36,4 °C an Chiemings Tag
+# nicht als Vergleichswert zaehlen, weil sie selbst unter der Flag-Schwelle liegt).
+SPATIAL_OUTLIER_MARGIN_C = 3.5  # so viel Grad ueber dem naechsthoechsten Wert aller anderen Stationen gilt als verdaechtig
+SPATIAL_CHECK_MIN_STATIONS = 20  # so viele andere Stationen brauchen an dem Tag mindestens einen Vergleichswert (>= SPATIAL_CHECK_CANDIDATE_MIN_C)
+SPATIAL_CHECK_CANDIDATE_MIN_C = 25.0  # Aufnahmeschwelle in den Tages-Vergleichspool (Performance + Fokus auf warme Tage)
+SPATIAL_CHECK_FLAG_MIN_C = 38.0  # nur Werte AB DIESER Hoehe werden ueberhaupt als moeglicher Ausreisser geflaggt (nahe am nationalen Rekord)
+
 
 def apply_sanity_filter(df: pd.DataFrame, station_id: str) -> pd.DataFrame:
     """Verwirft physikalisch unplausible Tageswerte, BEVOR sie in irgendeine
@@ -629,6 +654,18 @@ def write_data_report(stations_out: list, total_suitable: int, failed: list) -> 
         "  Bewertung: PLAUSIBEL, kein Datenfehler. Freiburg/Oberrheingraben ist real die",
         "  waermste Region Deutschlands. Es wurden keine Werte veraendert oder geloescht.",
         "",
+        "Datencheck Chieming (Pre-Launch-Check, Abschluss-vor-Launch Schritt 1):",
+        "  Chieming zeigte 41,3 °C am 07.08.1991 - das haette 28 Jahre lang der deutsche",
+        "  Allzeitrekord sein muessen, ist aber historisch nirgends belegt. Bundesweiter",
+        "  Vergleich fuer genau diesen Tag: naechsthoechster Wert ueberall sonst 36,4 °C",
+        "  (Muehlacker) - kein Nachbarstation stuetzt den Chieming-Wert auch nur annaehernd.",
+        "  Bewertung: unplausibel, sehr wahrscheinlich ein Mess-/Digitalisierungsfehler in",
+        "  Meteostats Quelldaten (kein Fehler dieser Pipeline). Ausgeschlossen ueber die",
+        "  raeumliche Plausibilitaetspruefung (siehe find_spatial_outliers, NICHT ueber einen",
+        "  verschaerften globalen Grenzwert - das haette auch echte 41+-Werte wie den",
+        "  neuen deutschen Rekord vom 28.06.2026 faelschlich herausgefiltert). Siehe",
+        "  docs/data/ausgeschlossene_werte.txt fuer alle so ausgeschlossenen Tageswerte.",
+        "",
     ]
 
     # D1 (v3): alle 40+-Jahreswerte zur manuellen Gegenpruefung gegen offizielle
@@ -712,6 +749,104 @@ def write_meta() -> None:
         json.dump(compute_running_year_meta(), f, ensure_ascii=False, indent=2)
 
 
+def find_spatial_outliers() -> list[tuple[str, str, float, float, int]]:
+    """Raeumliche Plausibilitaetspruefung UEBER alle Stationen hinweg (im Unterschied zu
+    apply_sanity_filter, die nur INNERHALB einer einzelnen Station prueft): ein Tages-
+    Hoechstwert gilt als verdaechtig, wenn
+      (a) er selbst mindestens SPATIAL_CHECK_FLAG_MIN_C erreicht (nahe am nationalen
+          Rekord - eine sehr warme Region an einem warmen Tag, z. B. Freiburg mit
+          36 °C, ist normal und wird NICHT geprueft, siehe Kommentar bei den
+          Konstanten oben),
+      (b) er den naechsthoechsten Wert ALLER ANDEREN Stationen am selben Tag um mehr
+          als SPATIAL_OUTLIER_MARGIN_C uebersteigt, UND
+      (c) an dem Tag mindestens SPATIAL_CHECK_MIN_STATIONS andere Stationen ueberhaupt
+          einen Vergleichswert (>= SPATIAL_CHECK_CANDIDATE_MIN_C) hatten (sonst ist die
+          Datenlage zu duenn fuer eine raeumliche Aussage, z. B. in sehr alten Jahren).
+    Laeuft als Nachbearbeitungsschritt ueber die bereits geschriebenen raw/-CSVs (nicht
+    pro Station waehrend des Downloads, weil der Vergleich alle Stationen braucht).
+    Gibt (station_id, date, tmax, naechsthoechster_wert, anzahl_vergleichsstationen) je
+    Fund zurueck."""
+    frames = []
+    for raw_path in sorted(RAW_DIR.glob("*.csv")):
+        day_df = pd.read_csv(raw_path, usecols=["date", "tmax"])
+        day_df = day_df[day_df["tmax"] >= SPATIAL_CHECK_CANDIDATE_MIN_C]
+        if day_df.empty:
+            continue
+        day_df = day_df.copy()
+        day_df["station_id"] = raw_path.stem
+        frames.append(day_df)
+    if not frames:
+        return []
+
+    candidates = pd.concat(frames, ignore_index=True)
+
+    outliers = []
+    for date, group in candidates.groupby("date"):
+        if len(group) < SPATIAL_CHECK_MIN_STATIONS:
+            continue
+        top2 = group.nlargest(2, "tmax")
+        highest, second = top2.iloc[0], top2.iloc[1]
+        if highest["tmax"] < SPATIAL_CHECK_FLAG_MIN_C:
+            continue  # normale warme Region/Tag, keine (nahezu) rekordverdaechtige Behauptung
+        margin = highest["tmax"] - second["tmax"]
+        if margin > SPATIAL_OUTLIER_MARGIN_C:
+            outliers.append((highest["station_id"], date, float(highest["tmax"]), float(second["tmax"]), len(group)))
+    return outliers
+
+
+def blank_raw_day(station_id: str, date: str) -> None:
+    """Loescht einen einzelnen Tag (alle drei Werte) aus einer raw/<id>.csv - genutzt
+    von der raeumlichen Pruefung, um einen als verdaechtig erkannten Tag dauerhaft
+    auszunehmen, BEVOR die Station neu berechnet wird. dtype=str, damit unveraenderte
+    Zeilen beim Zurueckschreiben nicht in der Formatierung driften."""
+    path = RAW_DIR / f"{station_id}.csv"
+    df = pd.read_csv(path, dtype=str)
+    df.loc[df["date"] == date, ["tmax", "tavg", "tmin"]] = ""
+    df.to_csv(path, index=False)
+
+
+def write_spatial_exclusion_report(outliers: list) -> None:
+    """Schreibt die transparente Ausschlussliste der raeumlichen Pruefung nach
+    docs/data/ausgeschlossene_werte.txt - unabhaengig vom Sanity-Filter-Log in
+    data_report.txt, weil dieser Mechanismus einen anderen Fehlertyp abdeckt
+    (siehe find_spatial_outliers)."""
+    lines = [
+        "Hitze-Check Deutschland — raeumlich ausgeschlossene Tageswerte",
+        f"Erzeugt am: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        "=" * 60,
+        "",
+        f"Diese Tageswerte wurden automatisch ausgeschlossen, weil ihr Tages-Hoechstwert",
+        f"(a) mindestens {SPATIAL_CHECK_FLAG_MIN_C:g} °C erreicht (nahe am nationalen Rekord),",
+        f"(b) den naechsthoechsten Wert ALLER ANDEREN Stationen am selben Tag um mehr als",
+        f"    {SPATIAL_OUTLIER_MARGIN_C:g} °C uebersteigt, UND",
+        f"(c) mindestens {SPATIAL_CHECK_MIN_STATIONS} andere Stationen an dem Tag einen Vergleichswert",
+        f"    (>= {SPATIAL_CHECK_CANDIDATE_MIN_C:g} °C) hatten.",
+        "Begruendung: Bei einer echten Hitzewelle stuetzen Nachbarstationen einen hohen",
+        "Wert - ein einzelner Ausreisser weit darueber, den niemand in der Umgebung auch",
+        "nur annaehernd erreicht, ist typischerweise ein Mess-/Digitalisierungsfehler in",
+        "Meteostats Quelldaten (kein Fehler dieser Pipeline). Bewusst KEIN globaler",
+        "Temperatur-Grenzwert und bewusst nur nahe am Rekord (Kriterium a) - eine sehr",
+        "warme Region (z. B. Freiburg) an einem warmen Tag deutlich ueber dem Rest des",
+        "Landes ist normal und real, das wird NICHT ausgeschlossen. Ein Wert kann auch",
+        "nahe am Rekord real sein, wenn ihn andere Stationen stuetzen (siehe deutscher",
+        "Rekord 41,7 °C, 28.06.2026, DWD vorlaeufig, an drei Tagen von mehreren",
+        "Stationen gemeinsam erreicht/uebertroffen).",
+        "",
+    ]
+    if not outliers:
+        lines.append("Keine.")
+    else:
+        for station_id, date, tmax, next_highest, n in sorted(outliers, key=lambda o: o[1]):
+            lines.append(
+                f"  {station_id}, {date}: {tmax:.1f} °C -> ausgeschlossen "
+                f"(naechsthoechster Wert bundesweit an dem Tag: {next_highest:.1f} °C, "
+                f"Differenz {tmax - next_highest:.1f} °C, {n} Stationen mit Vergleichswert an dem Tag)"
+            )
+    lines.append("")
+    with open(DATA_DIR / "ausgeschlossene_werte.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -765,6 +900,33 @@ def main():
         log(f"Zwischenstand gesichert: {len(stations_out)}/{total} Stationen. "
             'Einfach "python3 scripts/build_data.py" erneut ausfuehren, um fortzufahren.')
         raise
+
+    # Raeumliche Plausibilitaetspruefung (siehe find_spatial_outliers) - laeuft erst HIER,
+    # weil sie die Rohdaten ALLER Stationen braucht, um einen Tag als isolierten Ausreisser
+    # zu erkennen. Betroffene Tage werden aus der raw-CSV entfernt und NUR die betroffenen
+    # Stationen anschliessend neu berechnet (schnell, da die restlichen Rohdaten schon lokal
+    # vorliegen).
+    log("\nRaeumliche Pruefung: suche Tageswerte ohne Stuetzung durch Nachbarstationen ...")
+    outliers = find_spatial_outliers()
+    write_spatial_exclusion_report(outliers)
+    if outliers:
+        log(f"{len(outliers)} verdaechtige Tageswerte gefunden, werden ausgeschlossen:")
+        jobs_by_id = {sid: (meteostat_id, meta) for meteostat_id, meta, sid in jobs}
+        stations_by_id = {s["id"]: s for s in stations_out}
+        for station_id, date, tmax, next_highest, n in outliers:
+            log(f"  {station_id}, {date}: {tmax:.1f} °C (naechsthoechster Wert bundesweit: {next_highest:.1f} °C)")
+            blank_raw_day(station_id, date)
+        for station_id in {o[0] for o in outliers}:
+            meteostat_id, meta = jobs_by_id[station_id]
+            updated = build_station(meteostat_id, meta, station_id)
+            if updated:
+                stations_by_id[station_id] = updated
+            else:
+                log(f"  WARNUNG: {station_id} liess sich nach dem Ausschluss nicht neu berechnen.")
+        stations_out = list(stations_by_id.values())
+        log(f"Ausschlussliste geschrieben nach {DATA_DIR / 'ausgeschlossene_werte.txt'}")
+    else:
+        log("Keine gefunden.")
 
     write_outputs(stations_out, total_suitable=total, failed=failed)
 

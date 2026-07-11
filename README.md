@@ -21,6 +21,9 @@ selbst überprüfen können — jede angezeigte Zahl ist nachprüfbar und mit Qu
 hitze-check/
 ├─ scripts/         Python-Pipeline (build_data.py), holt Daten via Meteostat
 ├─ docs/            fertige Webseite (wird per GitHub Pages veröffentlicht)
+│  ├─ vendor/       lokal gehostete Fremdbibliotheken (Leaflet, Chart.js, ...) -
+│  │                aus Datenschutzgruenden nicht per CDN eingebunden, siehe
+│  │                Datenschutzerklaerung
 │  └─ data/
 │     ├─ stations.json       Stationsmetadaten (alle geeigneten Stationen)
 │     ├─ map_index.json      schlanker Index (id/name/lat/lon + max_temp/hot_days

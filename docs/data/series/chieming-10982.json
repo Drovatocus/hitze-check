@@ -1,8 +1,8 @@
 {
   "station_id": "chieming-10982",
   "record": {
-    "temp": 41.3,
-    "date": "1991-08-07"
+    "temp": 36.0,
+    "date": "1998-07-21"
   },
   "years": {
     "1988": {
@@ -73,24 +73,24 @@
     },
     "1991": {
       "annual": {
-        "hot_days": 14,
-        "summer_days": 54,
+        "hot_days": 13,
+        "summer_days": 53,
         "tropical_nights": 0,
         "mean_temp": 7.0,
-        "max_temp": 41.3,
+        "max_temp": 35.6,
         "complete": true,
         "last_date": "1991-12-31",
-        "max_temp_date": "1991-08-07"
+        "max_temp_date": "1991-08-08"
       },
       "summer": {
-        "hot_days": 14,
-        "summer_days": 43,
+        "hot_days": 13,
+        "summer_days": 42,
         "tropical_nights": 0,
-        "mean_temp": 18.0,
-        "max_temp": 41.3,
+        "mean_temp": 17.9,
+        "max_temp": 35.6,
         "complete": true,
         "last_date": "1991-08-31",
-        "max_temp_date": "1991-08-07"
+        "max_temp_date": "1991-08-08"
       }
     },
     "1992": {
@@ -851,15 +851,15 @@
     "trend_line": [
       {
         "year": 1988,
-        "value": 8.0
+        "value": 7.9
       },
       {
         "year": 1989,
-        "value": 8.0
+        "value": 7.9
       },
       {
         "year": 1990,
-        "value": 8.0
+        "value": 7.9
       },
       {
         "year": 1991,
@@ -867,11 +867,11 @@
       },
       {
         "year": 1992,
-        "value": 7.9
+        "value": 7.8
       },
       {
         "year": 1993,
-        "value": 7.9
+        "value": 7.8
       },
       {
         "year": 1994,
@@ -879,11 +879,11 @@
       },
       {
         "year": 1995,
-        "value": 7.8
+        "value": 7.7
       },
       {
         "year": 1996,
-        "value": 7.8
+        "value": 7.7
       },
       {
         "year": 1997,
@@ -891,11 +891,11 @@
       },
       {
         "year": 1998,
-        "value": 7.7
+        "value": 7.6
       },
       {
         "year": 1999,
-        "value": 7.7
+        "value": 7.6
       },
       {
         "year": 2000,
@@ -907,7 +907,7 @@
       },
       {
         "year": 2002,
-        "value": 7.6
+        "value": 7.5
       },
       {
         "year": 2003,
@@ -919,7 +919,7 @@
       },
       {
         "year": 2005,
-        "value": 7.5
+        "value": 7.4
       },
       {
         "year": 2006,
@@ -999,7 +999,7 @@
       },
       {
         "year": 2025,
-        "value": 6.8
+        "value": 6.9
       },
       {
         "year": 2026,
@@ -1015,12 +1015,12 @@
       "earliest": {
         "from": 1988,
         "to": 1997,
-        "avg_hot_days": 7.9
+        "avg_hot_days": 7.8
       }
     },
     "decades": {
       "1980er": 8.0,
-      "1990er": 8.2,
+      "1990er": 8.1,
       "2000er": 5.9,
       "2010er": 8.6,
       "2020er": 6.6
